@@ -180,7 +180,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--nav-bg);ba
 .path-ic svg{width:22px;height:22px}
 .path-head h3{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--text);line-height:1.1}
 .path-head p{font-size:13px;color:var(--text-3);margin-top:3px}
-.path-count{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--green-mid);background:var(--green-pale);padding:5px 12px;border-radius:6px;white-space:nowrap}
+.path-count{font-size:16px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--green-mid);background:var(--green-pale);padding:5px 12px;border-radius:6px;white-space:nowrap}
 [data-theme="dark"] .path-count{background:rgba(46,175,119,.12)}
 .path-cat.soon-block .path-ic{background:rgba(184,134,11,.12);color:var(--gold)}
 .path-cat.soon-block .path-count{background:rgba(184,134,11,.12);color:var(--gold)}
@@ -755,6 +755,88 @@ table {
 }
 </style>
 
+
+<style id="device-preview-enhancement">
+/* Books category typography */
+.books-category, .category-books, [data-category="books"] {
+  font-size: 1.25em !important;
+}
+
+/* Device preview controls */
+.device-preview-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 10px 0 16px;
+}
+.device-preview-controls button {
+  border: 1px solid rgba(0,0,0,.14);
+  background: #fff;
+  color: inherit;
+  border-radius: 8px;
+  padding: 7px 12px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.device-preview-controls button.active {
+  background: #111;
+  color: #fff;
+}
+.device-preview-stage {
+  transition: width .2s ease, max-width .2s ease;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.device-preview-stage.preview-mobile {
+  width: 390px !important;
+  max-width: calc(100vw - 32px) !important;
+}
+.device-preview-stage.preview-tablet {
+  width: 768px !important;
+  max-width: calc(100vw - 32px) !important;
+}
+.device-preview-stage.preview-desktop {
+  width: 100% !important;
+  max-width: none !important;
+}
+</style>
+
+
+<style id="footer-bottom-final-center">
+.site-footer .footer-bottom{
+  justify-content:center !important;
+  text-align:center !important;
+}
+.site-footer .footer-powered-brand{
+  margin-left:0 !important;
+  margin-right:0 !important;
+}
+</style>
+
+
+<style id="footer-font-final">
+.site-footer .footer-bottom{
+  font-size:14px !important;
+}
+.site-footer .footer-bottom p{
+  font-size:14px !important;
+}
+.site-footer .footer-bottom a{
+  font-size:14px !important;
+}
+.site-footer .footer-links a{
+  font-size:14px !important;
+}
+.site-footer .footer-brand-text span{
+  font-size:13px !important;
+}
+.site-footer .footer-quote span{
+  font-size:13px !important;
+}
+</style>
+
 </head>
 <body>
 
@@ -935,7 +1017,7 @@ table {
 
     <div class="footer-bottom">
       <span>© 2026 Seerah</span>
-      <span class="footer-ornament">✦ ✦ ✦</span>
+      
       <span class="footer-powered-brand">
   <span class="powered-label">Powered by</span>
   <a href="https://ummahtechs.com" target="_blank" rel="noopener" class="ummahtechs-powered">
@@ -1168,5 +1250,59 @@ window.addEventListener('scroll', () => {
 let io;function obs(){if(!io)io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll('.reveal:not(.visible)').forEach(el=>io.observe(el))}
 renderPathways();obs();
 </script>
+
+<script id="device-preview-enhancement-js">
+(function () {
+  function initDevicePreview() {
+    if (document.querySelector('.device-preview-controls')) return;
+
+    // Try to identify the main preview/content wrapper.
+    const stage = document.querySelector(
+      '#preview, .preview, .preview-container, .canvas, main, .container'
+    );
+    if (!stage) return;
+
+    const controls = document.createElement('div');
+    controls.className = 'device-preview-controls';
+    controls.setAttribute('aria-label', 'Device preview');
+
+    const modes = [
+      ['desktop', 'Desktop'],
+      ['tablet', 'Tablet'],
+      ['mobile', 'Mobile']
+    ];
+
+    modes.forEach(([mode, label], i) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.textContent = label;
+      btn.dataset.preview = mode;
+      if (i === 0) btn.classList.add('active');
+
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.device-preview-controls button')
+          .forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        stage.classList.remove(
+          'preview-desktop', 'preview-tablet', 'preview-mobile'
+        );
+        stage.classList.add('preview-' + mode);
+      });
+
+      controls.appendChild(btn);
+    });
+
+    stage.parentNode.insertBefore(controls, stage);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDevicePreview);
+  } else {
+    initDevicePreview();
+  }
+})();
+</script>
+
 </body>
 </html>
