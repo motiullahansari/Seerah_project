@@ -992,6 +992,158 @@ a[href="index.html"] .seerah-nav-logo{
 .footer-seerah-home img{cursor:pointer !important;}
 </style>
 
+
+<style id="search-books-style">
+.search-section{
+  padding:70px 20px 55px;
+  background:var(--bg-2,var(--bg));
+  color:var(--text);
+  scroll-margin-top:90px;
+}
+.search-section .section-inner{max-width:980px;margin:0 auto;}
+.search-section .section-heading{text-align:center;margin-bottom:24px;}
+.search-section .section-kicker{
+  font-size:11px;letter-spacing:2px;font-weight:800;color:var(--green-mid);
+}
+.search-section h2{margin:7px 0 8px;color:var(--text);}
+.search-section p{margin:0;color:var(--text-2);}
+.search-box-wrap{
+  max-width:760px;margin:0 auto;display:flex;align-items:center;
+  gap:10px;padding:12px 15px;border:1px solid var(--border);
+  border-radius:16px;background:var(--surface);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+}
+.search-symbol{font-size:22px;color:var(--green-mid);line-height:1;}
+#site-search{
+  flex:1;border:0;outline:0;background:transparent;color:var(--text);
+  font:inherit;font-size:16px;min-width:0;
+}
+#site-search::placeholder{color:var(--text-3);}
+#clear-search{
+  border:0;background:transparent;color:var(--text-2);
+  font-size:22px;cursor:pointer;padding:2px 6px;
+}
+.search-results{max-width:760px;margin:14px auto 0;display:grid;gap:8px;}
+.search-result{
+  display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+  width:100%;text-align:left;padding:14px 16px;border:1px solid var(--border);
+  border-radius:12px;background:var(--surface);color:var(--text);
+  cursor:pointer;
+}
+.search-result:hover{border-color:var(--green-mid);transform:translateY(-1px);}
+.search-result span{font-size:13px;color:var(--text-2);}
+.search-empty{
+  padding:16px;text-align:center;color:var(--text-2);
+}
+.search-highlight{
+  outline:3px solid rgba(46,175,119,.35);
+  outline-offset:4px;
+  transition:outline .2s;
+}
+.nav-search-link{white-space:nowrap;}
+@media(max-width:700px){
+  .search-section{padding:50px 16px 40px;}
+  .search-box-wrap{border-radius:13px;padding:10px 12px;}
+  #site-search{font-size:15px;}
+  .nav-search-link span{display:none;}
+}
+</style>
+
+
+<style id="search-placement-polish">
+#search.search-section{
+  padding:34px 20px 30px !important;
+  background:transparent !important;
+  scroll-margin-top:80px !important;
+}
+#search .section-heading{
+  margin-bottom:16px !important;
+}
+#search .section-kicker{
+  font-size:10px !important;
+  letter-spacing:2.2px !important;
+}
+#search .section-heading h2{
+  font-size:clamp(20px,2.4vw,28px) !important;
+  margin:4px 0 5px !important;
+}
+#search .section-heading p{
+  font-size:13px !important;
+}
+#search .search-box-wrap{
+  max-width:680px !important;
+  margin:0 auto !important;
+  min-height:52px !important;
+  border-radius:14px !important;
+  box-shadow:0 5px 18px rgba(0,0,0,.045) !important;
+}
+#search .search-results{
+  max-width:680px !important;
+}
+@media(max-width:700px){
+  #search.search-section{padding:26px 16px 22px !important;}
+  #search .section-heading p{font-size:12px !important;}
+}
+</style>
+
+
+<style id="search-category-final-polish">
+#search.search-section{
+  padding:26px 20px 34px !important;
+  background:transparent !important;
+}
+#search .section-heading{margin-bottom:14px !important;}
+#search .search-box-wrap{max-width:680px !important;}
+.featured-tabs, .library-tabs, .category-tabs{
+  gap:8px !important;
+}
+.featured-tabs a, .library-tabs a, .category-tabs a{
+  font-size:13px !important;
+  font-weight:600 !important;
+  text-decoration:none !important;
+}
+@media(max-width:700px){
+  #search.search-section{padding:20px 16px 26px !important;}
+}
+</style>
+
+
+<style id="search-opening-position">
+#search.search-section{
+  padding:18px 20px 30px !important;
+  margin:0 !important;
+  background:transparent !important;
+}
+#search .section-heading{margin-bottom:12px !important;}
+@media(max-width:700px){
+  #search.search-section{padding:14px 16px 24px !important;}
+}
+</style>
+
+
+<style id="featured-seerah-books-clean">
+/* Featured = book highlight; Seerah links = categories; Books = book titles */
+.seerah-category-nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  margin-top:10px;
+}
+.seerah-category-nav a{
+  text-decoration:none;
+  font-size:13px;
+  font-weight:600;
+  color:var(--text-2);
+  padding:6px 10px;
+  border-radius:8px;
+}
+.seerah-category-nav a:hover{
+  color:var(--green-mid);
+  background:var(--green-pale);
+}
+</style>
+
 </head>
 <body>
 
@@ -1019,7 +1171,7 @@ a[href="index.html"] .seerah-nav-logo{
       </div>
     </li>
     <li class="has-dropdown">
-      <a href="index.html#library">Books</a>
+      <a href="#books">Books</a>
       <div class="dropdown">
         <a href="index.html#featured"><span class="d-icon">📖</span> Featured Book</a>
         <a href="index.html#library"><span class="d-icon">📚</span> All Books</a>
@@ -1047,15 +1199,14 @@ a[href="index.html"] .seerah-nav-logo{
     <a href="ummahtechs-login.html" class="btn-login">Login</a>
     <a href="ummahtechs-contribute.html" class="btn-contribute">✦ Contribute</a>
     <button class="hamburger" onclick="toggleMobileNav()"><span></span><span></span><span></span></button>
-  </div>
-</nav>
+  </div></nav>
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html" aria-label="Go to Home">🏠 Home</a>
-  <a onclick="openBook('arraheeq')">📖 Ar-Raheeq Al-Makhtum</a>
-  <a onclick="goCat('general')">🌿 General Seerah</a>
-  <a onclick="goCat('kids')">🎨 For Children</a>
-  <a onclick="goCat('students')">🎓 Students</a>
-  <a onclick="goCat('research')">🔍 Research</a>
+  <a onclick="openBook('arraheeq')">Ar-Raheeq Al-Makhtum</a>
+  <a onclick="goCat('general')">General Seerah</a>
+  <a onclick="goCat('kids')">For Children</a>
+  <a onclick="goCat('students')">Students</a>
+  <a onclick="goCat('research')">Research</a>
   <a onclick="scrollTo2('library')">📚 All Books</a>
   <a href="ummahtechs-about.html">ℹ️ About</a>
 </div>
@@ -1072,6 +1223,25 @@ a[href="index.html"] .seerah-nav-logo{
       <div class="shero-ctas">
         <button class="cta-primary" onclick="scrollTo2('library')">Browse the Library →</button>
         <button class="cta-secondary" onclick="openBook('arraheeq')">Continue Reading</button>
+<section id="search" class="search-section" aria-label="Search">
+  <div class="section-inner">
+    <div class="section-heading">
+      <span class="section-kicker">SEARCH</span>
+      <h2>Search Seerah &amp; Books</h2>
+      <p>Find a Seerah topic, event, person, or book.</p>
+    </div>
+    <div class="search-box-wrap">
+      <span class="search-symbol" aria-hidden="true">⌕</span>
+      <input id="site-search" type="search"
+             placeholder="Search Seerah, books, topics..."
+             autocomplete="off"
+             aria-label="Search Seerah, books, topics">
+      <button id="clear-search" type="button" aria-label="Clear search" hidden>×</button>
+    </div>
+    <div id="search-results" class="search-results" aria-live="polite"></div>
+  </div>
+</section>
+
       </div>
     </div>
     <div class="shero-art">
@@ -1129,7 +1299,9 @@ a[href="index.html"] .seerah-nav-logo{
 </section>
 
 <!-- PATHWAYS — categories with books under each -->
-<section class="sec" id="library">
+
+
+<section class="sec" id="books">
   <div class="sec-wrap">
     <div class="sec-head"><div><span class="section-tag">Read by purpose</span><h2 class="section-title">Pathways into the Seerah</h2><p class="section-desc">Each pathway gathers several books in different styles, depths, and languages — choose the one that fits how you read.</p></div></div>
     <div id="pathways"></div>
@@ -1137,6 +1309,9 @@ a[href="index.html"] .seerah-nav-logo{
 </section>
 
 <!-- FOOTER -->
+
+
+
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-main">
@@ -1467,6 +1642,60 @@ renderPathways();obs();
     const r=document.getElementById('rtheme');
     if(r) r.textContent='☀️';
   }
+})();
+</script>
+
+
+<script id="seerah-search-script">
+(function(){
+  const input = document.getElementById('site-search');
+  const results = document.getElementById('search-results');
+  const clear = document.getElementById('clear-search');
+  if(!input || !results) return;
+
+  function esc(s){
+    return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function collect(){
+    const items = [];
+    document.querySelectorAll('main h1, main h2, main h3, main h4, main .book-card, main .timeline-card, main .topic-card, main article').forEach(el=>{
+      if(el.closest('#search')) return;
+      const title = (el.querySelector('h1,h2,h3,h4,.book-title,.title')?.textContent || el.textContent || '').trim();
+      const text = (el.textContent || '').trim().replace(/\s+/g,' ');
+      if(title && text.length > 3) items.push({title, text, el});
+    });
+    return items;
+  }
+
+  function render(){
+    const q = input.value.trim().toLowerCase();
+    clear.hidden = !q;
+    if(!q){
+      results.innerHTML = '<div class="search-empty">Start typing to search Seerah and Books.</div>';
+      return;
+    }
+    const found = collect().filter(x => (x.title+' '+x.text).toLowerCase().includes(q)).slice(0,12);
+    if(!found.length){
+      results.innerHTML = '<div class="search-empty">No matching results found.</div>';
+      return;
+    }
+    results.innerHTML = found.map((x,i) =>
+      '<button class="search-result" type="button" data-result-index="'+i+'">' +
+      '<strong>'+esc(x.title)+'</strong><span>'+esc(x.text.slice(0,150))+'</span></button>'
+    ).join('');
+    results.querySelectorAll('.search-result').forEach((btn,i)=>{
+      btn.addEventListener('click', ()=>{
+        found[i].el.scrollIntoView({behavior:'smooth', block:'center'});
+        found[i].el.classList.add('search-highlight');
+        setTimeout(()=>found[i].el.classList.remove('search-highlight'),1800);
+      });
+    });
+  }
+
+  input.addEventListener('input', render);
+  clear?.addEventListener('click', ()=>{input.value=''; render(); input.focus();});
+  render();
 })();
 </script>
 
