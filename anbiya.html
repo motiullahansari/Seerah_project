@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Explore the 25 Prophets named in the Qur’an, their stories, books, and future audio in the Seerah library.">
+<meta name="robots" content="index, follow">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Anbiya-e-Kiram — Seerah">
+<meta property="og:description" content="Explore the Prophets, their books, and audio on a single source-based page.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Anbiya-e-Kiram — Seerah">
+<meta name="twitter:description" content="Explore the Prophets, their books, and audio on a single source-based page.">
+<script id="theme-system">
+(function(){
+ const system=window.matchMedia('(prefers-color-scheme: dark)');
+ let mode='auto';
+ try {const saved=localStorage.getItem('seerah-theme-mode');if(['auto','light','dark'].includes(saved)) mode=saved;} catch {}
+ function apply(){
+  const effective=mode==='auto'?(system.matches?'dark':'light'):mode;
+  document.documentElement.dataset.theme=effective;
+  document.documentElement.style.colorScheme=effective;
+  const button=document.querySelector('.theme-toggle');
+  const icon=document.getElementById('theme-icon');
+  const next=mode==='auto'?'light':mode==='light'?'dark':'auto';
+  if(icon){
+    const icons={
+      auto:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17Z" fill="currentColor" opacity=".26"/><path d="M12 3.5v17" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>',
+      light:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+      dark:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.2 15.2A7.8 7.8 0 0 1 8.8 4.8 8.2 8.2 0 1 0 19.2 15.2Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>'
+    };
+    icon.innerHTML=icons[mode];
+  }
+  if(button){
+   const label='Theme: '+mode+'. Switch to '+next;
+   button.title=label;button.setAttribute('aria-label',label);
+   button.dataset.mode=mode;
+  }
+ }
+ window.toggleTheme=function(){
+  mode=mode==='auto'?'light':mode==='light'?'dark':'auto';
+  try {localStorage.setItem('seerah-theme-mode',mode);} catch {}
+  apply();
+ };
+ if(system.addEventListener)system.addEventListener('change',apply);
+ else system.addListener(apply);
+ window.addEventListener('storage',event=>{
+  if(event.key==='seerah-theme-mode'||event.key===null){mode=['light','dark'].includes(event.newValue)?event.newValue:'auto';apply();}
+ });
+ apply();document.addEventListener('DOMContentLoaded',apply);
+})();
+</script>
+
+<title>Anbiya-e-Kiram — Seerah</title>
+<link rel="icon" type="image/png" id="site-favicon">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Libre+Baskerville:wght@400;700&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Tiro+Devanagari+Hindi&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--green:#1B6B4A;--green-mid:#228B5E;--green-light:#2EAF77;--green-pale:#E8F5EE;--gold:#B8860B;--gold-light:#D4A017;--gold-pale:#FDF6E3}
+[data-theme="light"]{--bg:#FAFAF8;--bg-2:#F3F3EE;--bg-3:#ECEEE8;--surface:#FFFFFF;--surface-2:#F7F7F4;--border:#E2E4DC;--text:#1A2318;--text-2:#4A5545;--text-3:#7A8875;--nav-bg:rgba(250,250,248,0.95);--shadow:0 2px 20px rgba(0,0,0,0.08);--shadow-lg:0 8px 40px rgba(0,0,0,0.12);--hero-gradient:linear-gradient(135deg,#E8F5EE 0%,#FAFAF8 50%,#FDF6E3 100%);--r-yr:rgba(27,107,74,.08)}
+[data-theme="dark"]{--bg:#0D1710;--bg-2:#111D14;--bg-3:#162019;--surface:#1A2A1E;--surface-2:#1F3224;--border:#2A3D2E;--text:#EEF2EC;--text-2:#A8BBA4;--text-3:#6B8066;--nav-bg:rgba(13,23,16,0.95);--shadow:0 2px 20px rgba(0,0,0,0.3);--shadow-lg:0 8px 40px rgba(0,0,0,0.4);--hero-gradient:linear-gradient(135deg,#0D1710 0%,#111D14 50%,#0F1A10 100%);--r-yr:rgba(46,175,119,.13)}
+*, *::before, *::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--text);transition:background .3s,color .3s;overflow-x:hidden}
+a{text-decoration:none}
+.hi{font-family:"Tiro Devanagari Hindi",serif}
+.ur{font-family:"Noto Nastaliq Urdu",serif;direction:rtl}
+.progress-bar{position:fixed;top:64px;left:0;z-index:1100;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));width:0%;transition:width .1s linear;pointer-events:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:var(--nav-bg);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center;padding:0 1.5rem;gap:1rem;transition:background .3s,border-color .3s}
+.nav-logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.seerah-nav-logo{width:46px;height:46px;object-fit:cover;border-radius:11px;display:block;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.10)}
+.logo-name{font-family:"Playfair Display",serif;font-size:17px;font-weight:700;color:var(--text)}
+.logo-name span{color:var(--green-mid)}
+.logo-tagline{font-size:9px;color:var(--text-3);letter-spacing:.5px;display:block;margin-top:-2px}
+.nav-links{display:flex;align-items:center;list-style:none;margin-left:auto}
+.nav-links>li{position:relative}
+.nav-links>li>a{color:var(--text-2);font-size:13.5px;font-weight:500;padding:8px 12px;border-radius:6px;transition:all .2s;display:flex;align-items:center;gap:4px;white-space:nowrap;cursor:pointer}
+.nav-links>li>a:hover{color:var(--green-mid);background:var(--green-pale)}
+[data-theme="dark"] .nav-links>li>a:hover{background:rgba(46,175,119,.1)}
+.nav-links>li>a.active{color:var(--green-mid);font-weight:600}
+.ui-icon{width:15px;height:15px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}
+.ui-icon svg, .theme-toggle svg{width:100%;height:100%;display:block}
+.nav-right{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.theme-toggle{width:36px;height:36px;border-radius:8px;border:1px solid var(--border);background:var(--surface-2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .2s;color:var(--text-2)}
+.theme-toggle:hover{border-color:var(--green-mid);background:var(--green-pale)}
+.theme-toggle .ui-icon{width:18px;height:18px}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none}
+.hamburger span{width:22px;height:2px;background:var(--text-2);border-radius:2px;transition:all .3s}
+@media(max-width:1100px){.nav-links{display:none}
+.hamburger{display:flex}}
+.mobile-nav{position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--surface);z-index:999;padding:20px 1.5rem;overflow-y:auto;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column;gap:4px}
+.mobile-nav.open{transform:translateX(0)}
+.mobile-nav a{padding:13px 14px;color:var(--text-2);font-size:15px;border-radius:9px;font-weight:500;cursor:pointer}
+.mobile-nav a:hover{background:var(--bg-2);color:var(--green-mid)}
+.shero{background:var(--hero-gradient);padding:108px 1.5rem 60px;position:relative;overflow:hidden;transition:background .3s}
+.shero::before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%231B6B4A' stroke-width='0.5' opacity='0.08'%3E%3Cpolygon points='40,5 75,25 75,55 40,75 5,55 5,25'/%3E%3Cpolygon points='40,15 65,28 65,52 40,65 15,52 15,28'/%3E%3C/g%3E%3C/svg%3E");background-size:80px 80px;pointer-events:none}
+[data-theme="dark"] .shero::before{opacity:.04}
+.shero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;position:relative;z-index:2}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.8)}}
+.shero-arabic{font-family:"Amiri",serif;font-size:clamp(24px,3.6vw,36px);color:var(--gold-light);direction:rtl;line-height:1.5;margin-bottom:.5rem}
+.shero-ayah-ref{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:1.3rem}
+.shero h1{font-family:"Playfair Display",serif;font-size:clamp(30px,4.6vw,50px);font-weight:700;line-height:1.12;color:var(--text);margin-bottom:.9rem}
+.shero h1 em{font-style:normal;color:var(--green-mid);display:inline-block;white-space:nowrap}
+.shero .desc{font-size:15.5px;color:var(--text-2);line-height:1.75;max-width:48ch;margin-bottom:1.8rem}
+.shero-ctas{display:flex;gap:10px;flex-wrap:wrap}
+.cta-primary{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:linear-gradient(135deg,var(--green),var(--green-light));color:#fff;border-radius:10px;font-size:14px;font-weight:600;transition:all .2s;box-shadow:0 3px 16px rgba(34,139,94,.35);cursor:pointer;border:none;font-family:"DM Sans",sans-serif}
+.cta-primary:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(34,139,94,.45)}
+.shero-art{display:flex;justify-content:center;align-items:center}
+.sec-wrap{max-width:1100px;margin:0 auto}
+.section-tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--green-mid);background:var(--green-pale);padding:4px 12px;border-radius:6px;margin-bottom:1rem}
+[data-theme="dark"] .section-tag{background:rgba(46,175,119,.12)}
+.section-title{font-family:"Playfair Display",serif;font-size:clamp(24px,3.5vw,34px);font-weight:700;color:var(--text);margin-bottom:.5rem}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:2rem}
+.sec-head.center{flex-direction:column;align-items:center;text-align:center;margin-bottom:2.6rem}
+footer{background:var(--bg-3);border-top:1px solid var(--border);padding:52px 1.5rem 28px;transition:background .3s,border-color .3s}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+@media(max-width:800px){.footer-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.footer-inner{grid-template-columns:1fr;gap:2rem}}
+.footer-brand p{font-size:13.5px;color:var(--text-2);line-height:1.7;margin:.8rem 0 1.2rem}
+.footer-bottom{max-width:1100px;margin:0 auto;padding-top:24px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:12.5px;color:var(--text-3)}
+@media(max-width:840px){.shero-inner{grid-template-columns:1fr;gap:30px}
+.shero-art{order:-1}
+.sec-head{flex-direction:column;align-items:flex-start}}
+.site-footer .footer-brand-mark{
+  width:52px;
+  height:52px;
+  padding:6px;
+  border-radius:14px;
+  overflow:hidden;
+}
+.site-footer .footer-logo-img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  border-radius:10px;
+}
+.skip-link{
+  position:fixed;left:1rem;top:1rem;z-index:5000;
+  padding:.7rem 1rem;border-radius:9px;
+  background:var(--surface);color:var(--text);
+  border:2px solid var(--gold);box-shadow:var(--shadow-lg);
+  transform:translateY(-180%);transition:transform .18s ease;
+}
+.skip-link:focus{transform:translateY(0)}
+:where(a,button,input,[tabindex]):focus-visible{
+  outline:3px solid var(--gold);outline-offset:3px;
+}
+main:focus{outline:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}
+.skip-link{transition:none}}
+</style>
+
+<style id="seerah-footer-design">
+.site-footer{
+  margin-top:64px;
+  border-top:1px solid rgba(42,105,78,.12);
+  background:linear-gradient(180deg,#fbfcf8 0%,#f4f6ef 100%);
+}
+.site-footer .footer-inner{
+  max-width:1120px;
+  margin:0 auto;
+  padding:34px 24px 22px;
+  display:block;
+  margin-bottom:0;
+}
+.site-footer{
+  padding:0;
+}
+.site-footer .footer-main{
+  width:100%;
+}
+.site-footer .footer-main{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:32px;
+}
+.site-footer .footer-brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-width:0;
+}
+.site-footer .footer-brand-mark{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  background:#fff;
+  border:1px solid rgba(190,148,61,.28);
+  box-shadow:0 5px 18px rgba(26,72,52,.07);
+  color:#176246;
+  font-size:20px;
+  font-weight:700;
+}
+.site-footer .footer-brand-text strong{
+  display:block;
+  color:#185b43;
+  font-size:16px;
+  letter-spacing:.02em;
+}
+.site-footer .footer-brand-text span{
+  display:block;
+  margin-top:3px;
+  color:#7c877f;
+  font-size:12px;
+}
+.site-footer .footer-quote{
+  text-align:center;
+  color:#176246;
+  font-family:serif;
+  font-size:20px;
+  line-height:1.5;
+}
+.site-footer .footer-quote span{
+  display:block;
+  margin-top:4px;
+  color:#7b827c;
+  font-family:inherit;
+  font-size:11px;
+  font-style:italic;
+}
+.site-footer .footer-links{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  white-space:nowrap;
+}
+.site-footer .footer-links a{
+  color:#65726a;
+  font-size:12px;
+  text-decoration:none;
+}
+.site-footer .footer-links a:hover{color:#176246;}
+.site-footer .footer-bottom{
+  margin-top:24px;
+  padding-top:16px;
+  border-top:1px solid rgba(42,105,78,.09);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  color:#8a928c;
+  font-size:11px;
+}
+.site-footer .footer-bottom a{
+  color:#176246;
+  text-decoration:none;
+  font-weight:600;
+}
+@media (max-width:760px){.site-footer .footer-main{
+    flex-direction:column;
+    text-align:center;
+  }
+.site-footer .footer-brand{justify-content:center;}
+.site-footer .footer-bottom{
+    flex-direction:column;
+    text-align:center;
+  }}
+</style>
+
+<style id="footer-logo-final-fix">
+.site-footer .footer-brand-mark{
+  width:52px !important;
+  height:52px !important;
+  min-width:52px !important;
+  min-height:52px !important;
+  padding:5px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  overflow:hidden !important;
+  box-sizing:border-box !important;
+}
+.site-footer .footer-brand-mark .footer-logo-img{
+  width:100% !important;
+  height:100% !important;
+  max-width:none !important;
+  max-height:none !important;
+  display:block !important;
+  object-fit:contain !important;
+  border-radius:10px !important;
+}
+</style>
+
+<style id="seerah-header-logo-final">
+.nav-logo{
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:10px !important;
+}
+.nav-logo img{
+  width:42px !important;
+  height:42px !important;
+  padding:4px !important;
+  box-sizing:border-box !important;
+  object-fit:contain !important;
+  background:rgba(255,255,255,.92) !important;
+  border:1px solid rgba(190,148,61,.22) !important;
+  border-radius:12px !important;
+  box-shadow:0 3px 12px rgba(26,72,52,.07) !important;
+}
+</style>
+
+<style id="seerah-footer-logo-clean">
+.site-footer .footer-brand-mark{
+  width:52px !important;
+  height:52px !important;
+  padding:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+}
+.site-footer .footer-brand-mark .footer-logo-img{
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+  border-radius:0 !important;
+}
+</style>
+
+<style id="ummahtechs-powered-logo">
+.footer-powered-brand{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+}
+.powered-label{
+  color:#8a928c;
+}
+.ummahtechs-powered{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  color:#176246 !important;
+  text-decoration:none;
+}
+.ummahtechs-powered:hover{
+  opacity:.82;
+}
+.ummahtechs-powered strong{
+  font-size:11px;
+  letter-spacing:.01em;
+}
+</style>
+
+<style id="ummahtechs-real-logo-final">
+.ummahtechs-powered{
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:6px !important;
+}
+.ummahtechs-logo-img{
+  width:22px !important;
+  height:22px !important;
+  display:block !important;
+  object-fit:contain !important;
+  border-radius:5px !important;
+}
+</style>
+
+<style id="actual-ummahtechs-logo-final">
+.footer-powered-brand{
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:7px !important;
+}
+.ummahtechs-powered{
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:7px !important;
+}
+.ummahtechs-logo-img{
+  width:24px !important;
+  height:24px !important;
+  display:block !important;
+  object-fit:contain !important;
+  border-radius:6px !important;
+}
+</style>
+
+<style>
+.footer-quote span{
+  font-family: "Inter", "Noto Sans Arabic", sans-serif;
+}
+</style>
+
+<style id="responsive-layout-fix">
+html{ overflow-x: hidden; }
+body{
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+img, video, iframe, svg, canvas{
+  max-width: 100%;
+}
+table{
+  max-width: 100%;
+}
+@media (min-width: 1200px) {body{
+    font-size: 16px;
+  }
+main, .content, .main-content{
+    max-width: 1440px;
+    width: min(94vw, 1440px);
+    margin-left: auto;
+    margin-right: auto;
+  }}
+@media (min-width: 768px) and (max-width: 1199px) {main, .content, .main-content{
+    width: min(94vw, 1100px);
+    margin-left: auto;
+    margin-right: auto;
+  }}
+@media (max-width: 767px) {html, body{
+    width: 100%;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+  }
+body{
+    font-size: 15px;
+    line-height: 1.65;
+  }
+main, .content, .main-content, section, article, header, footer, nav{
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+main, .content, .main-content{
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+.grid{
+    grid-template-columns: 1fr !important;
+  }
+[style*="display:flex"], [style*="display: flex"]{
+    min-width: 0;
+  }
+img, video, iframe{
+    height: auto;
+  }
+p, li, td, th, a, button, span, div{
+    overflow-wrap: anywhere;
+  }
+button, a[role="button"], input, select, textarea{
+    max-width: 100%;
+  }
+button, a[role="button"]{
+    min-height: 42px;
+  }
+table{
+    min-width: 600px;
+  }
+[dir="rtl"]{
+    text-align: right;
+  }
+h1{ font-size: clamp(1.55rem, 7vw, 2.15rem); line-height: 1.2; }
+h2{ font-size: clamp(1.3rem, 5.5vw, 1.8rem); line-height: 1.25; }
+h3{ font-size: clamp(1.1rem, 4.5vw, 1.45rem); line-height: 1.3; }
+.main-content{
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }}
+@media (max-width: 420px) {body{
+    font-size: 14px;
+  }
+.main-content{
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+h1{ font-size: 1.5rem; }
+h2{ font-size: 1.28rem; }}
+</style>
+
+<style id="footer-bottom-final-center">
+.site-footer .footer-bottom{
+  justify-content:center !important;
+  text-align:center !important;
+}
+.site-footer .footer-powered-brand{
+  margin-left:0 !important;
+  margin-right:0 !important;
+}
+</style>
+
+<style id="footer-font-final">
+.site-footer .footer-bottom{
+  font-size:14px !important;
+}
+.site-footer .footer-bottom p{
+  font-size:14px !important;
+}
+.site-footer .footer-bottom a{
+  font-size:14px !important;
+}
+.site-footer .footer-links a{
+  font-size:14px !important;
+}
+.site-footer .footer-brand-text span{
+  font-size:13px !important;
+}
+.site-footer .footer-quote span{
+  font-size:13px !important;
+}
+</style>
+
+<!-- Madinah timeline label updated -->
+
+<style id="mosque-transparent-final">
+.shero-art{
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+}
+</style>
+
+<style id="home-icon-clickable">
+.mobile-nav a[aria-label="Go to Home"]{
+  cursor:pointer !important;
+}
+.mobile-nav a[aria-label="Go to Home"]::first-letter{
+  cursor:pointer;
+}
+</style>
+
+<style id="brand-polish">
+.seerah-nav-logo{
+  width:48px !important;
+  height:48px !important;
+  object-fit:cover !important;
+  border-radius:13px !important;
+  box-shadow:0 3px 10px rgba(0,0,0,.12) !important;
+  border:1px solid rgba(196,145,18,.28) !important;
+}
+.logo-name{
+  font-family:"Playfair Display",serif !important;
+  font-size:20px !important;
+  line-height:1.05 !important;
+  font-weight:800 !important;
+  letter-spacing:.7px !important;
+  color:var(--text) !important;
+}
+.logo-tagline{
+  font-size:9.5px !important;
+  line-height:1.25 !important;
+  color:var(--text-3) !important;
+  letter-spacing:.25px !important;
+  display:block !important;
+  margin-top:3px !important;
+  white-space:nowrap !important;
+}
+@media (max-width:600px){.seerah-nav-logo{width:43px !important;height:43px !important;border-radius:11px !important}
+.logo-name{font-size:18px !important}
+.logo-tagline{font-size:8px !important}}
+</style>
+
+<style id="arabic-footer-theme-home">
+.shero-arabic{
+  text-align:center !important;
+  width:100% !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+.shero-ayah-ref{
+  text-align:center !important;
+}
+.site-footer, .site-footer .footer-bottom, .site-footer .footer-main, .site-footer .footer-brand, .site-footer .footer-links, .site-footer .footer-quote{
+  background:var(--bg-3) !important;
+  color:var(--text) !important;
+  border-color:var(--border) !important;
+  transition:background .3s,color .3s,border-color .3s !important;
+}
+.site-footer a, .site-footer p, .site-footer span, .site-footer strong, .site-footer .footer-brand p, .site-footer .footer-bottom p{
+  color:var(--text-2) !important;
+}
+.site-footer a:hover{color:var(--green-mid) !important;}
+.site-footer .footer-bottom{
+  background:var(--bg-3) !important;
+}
+</style>
+
+<style id="seerah-logo-home">
+a[href="index.html"] .seerah-nav-logo{
+  cursor:pointer !important;
+}
+</style>
+
+<style id="footer-seerah-icon-home">
+.footer-seerah-home{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  cursor:pointer !important;
+  text-decoration:none !important;
+}
+.footer-seerah-home img{cursor:pointer !important;}
+</style>
+
+<style>
+button:disabled{cursor:default}
+</style>
+
+<style id="header-hero-mobile">
+@media (max-width: 840px) {body > nav{ padding: 0 12px; gap: 8px; justify-content: space-between; }
+body > nav .nav-logo{ min-width: 0; flex-shrink: 1; }
+body > nav .nav-logo > div{ min-width: 0; }
+body > nav .logo-tagline{ display: none !important; }
+body > nav .nav-right{ gap: 6px; margin-left: auto; }
+body > nav .theme-toggle{ width: 34px; flex-shrink: 0; }
+body > nav .hamburger{ width: 30px; padding: 4px; flex-shrink: 0; }
+.shero{ padding: 84px 16px 32px; }
+.shero-inner{ grid-template-columns: minmax(0, 1fr); gap: 18px; }
+.shero-inner > div{ min-width: 0; }
+.shero-art{ width: min(62vw, 240px); margin-inline: auto; }
+.shero h1{ font-size: clamp(28px, 7.2vw, 38px); line-height: 1.22; }
+.shero h1 em{ white-space: nowrap; }
+.shero-arabic{ font-size: clamp(24px, 6.5vw, 30px); line-height: 1.8; }
+.shero-ayah-ref{ font-size: 10px; margin-bottom: 16px; }
+.shero .desc{ font-size: 15px; line-height: 1.7; margin-bottom: 20px; }
+.shero-ctas{ gap: 10px; }
+.shero-ctas > button{ width: 100%; white-space: normal; }}
+</style>
+
+<style id="contributor-login-style">
+.contributor-login{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;min-height:42px;padding:8px 14px;border:1px solid var(--border);border-radius:9px;background:var(--surface-2);color:var(--text);font-size:13px;font-weight:600;line-height:1.4;text-decoration:none;white-space:nowrap}
+.contributor-login:hover{border-color:var(--green-mid);color:var(--green-mid)}
+.contributor-login:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.contributor-login-mobile{display:none}
+@media(max-width:840px){.contributor-login-desktop{display:none}
+.contributor-login-mobile{display:inline}
+body > nav .contributor-login{padding:8px;font-size:12px}
+body > nav .nav-logo img{flex-shrink:0}}
+@media(max-width:380px){body > nav .nav-logo > div{display:none !important}}
+</style>
+
+<style id="hero-color-brand-update">
+[data-theme="light"] .shero{--gold:#8A6508;--gold-light:#8A6508}
+[data-theme="dark"] .shero h1 em{color:#54C994}
+.brand-salawat{display:none;font-family:"Amiri",serif;font-weight:400;letter-spacing:0;line-height:1.4}
+@media(max-width:840px){body > nav .logo-name{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+body > nav .brand-salawat{display:inline-block;font-size:23px;color:var(--green-mid)}
+[data-theme="dark"] body > nav .brand-salawat{color:#54C994}}
+@media(max-width:480px){body > nav .nav-logo{gap:6px !important}
+body > nav .nav-logo img{display:block !important;width:34px !important;height:34px !important;padding:3px !important;border-radius:9px !important;flex-shrink:0}
+body > nav .nav-logo > div{display:block}
+body > nav .nav-right{gap:4px}
+body > nav .logo-name{font-size:16px !important}
+body > nav{padding-inline:10px;gap:6px}}
+</style>
+
+<style id="featured-responsive-fix">
+#featured{overflow:hidden;}
+#featured .sec-wrap{width:100%;}
+@media (min-width:841px){#featured{padding-top:68px;padding-bottom:68px;}
+#featured .sec-wrap{max-width:980px;}}
+@media (max-width:840px){#featured{padding:42px 16px 46px;}
+#featured .sec-wrap{max-width:none;margin:0;width:100%;}}
+@media (max-width:430px){#featured{padding-left:14px;padding-right:14px;}}
+</style>
+
+<style id="featured-balanced-mobile-fix">
+@media (max-width:840px){#featured{padding:38px 14px 42px;}}
+@media (max-width:430px){#featured{padding-left:12px;padding-right:12px;}}
+</style>
+
+<style id="mobile-final-polish">
+@media (max-width: 840px){.site-header > nav{
+    padding:0 10px;
+    gap:7px;
+    justify-content:space-between;
+    overflow:visible;
+  }
+.site-header .nav-logo{
+    min-width:0;
+    flex:0 1 auto;
+    gap:7px;
+  }
+.site-header .seerah-nav-logo{
+    width:38px;
+    height:38px;
+    border-radius:9px;
+  }
+.site-header .nav-logo > div{min-width:0;}
+.site-header .logo-name{
+    font-size:15px;
+    line-height:1;
+    white-space:nowrap;
+  }
+.site-header .logo-tagline{display:none !important;}
+.site-header .nav-right{
+    gap:5px;
+    margin-left:auto;
+    min-width:0;
+  }
+.site-header .theme-toggle{
+    width:34px;
+    height:34px;
+    flex:0 0 34px;
+  }
+.site-header .contributor-login{
+    min-height:34px;
+    padding:6px 9px;
+    font-size:11px;
+    border-radius:8px;
+  }
+.site-header .hamburger{
+    width:29px;
+    padding:4px;
+    flex:0 0 29px;
+  }
+.site-header .hamburger span{width:20px;}
+#featured{
+    padding:38px 16px 42px;
+  }
+#featured .sec-wrap{max-width:650px;margin-inline:auto;}}
+@media (max-width: 430px){.site-header > nav{padding:0 8px;gap:5px;}
+.site-header .seerah-nav-logo{width:36px;height:36px;}
+.site-header .logo-name{font-size:14px;}
+.site-header .nav-right{gap:4px;}
+.site-header .theme-toggle{width:26px;height:26px;flex-basis:32px;}
+.site-header .contributor-login{min-height:32px;padding:5px 7px;font-size:10.5px;}
+.site-header .hamburger{width:27px;flex-basis:27px;padding:3px;}}
+@media (max-width: 365px){.site-header .logo-name{font-size:13px;}
+.site-header .seerah-nav-logo{width:34px;height:34px;}
+.site-header .contributor-login{padding-inline:6px;}}
+</style>
+
+<style id="islamic-card-pattern-refresh">
+:root{
+  --pat-a:none;
+  --pat-b:none;
+  --pat-c:none;
+  --pat-d:none;
+  --pat-e:none;
+  --pat-f:none;
+  --card-edge:rgba(36,122,85,.18);
+  --card-shadow:0 14px 36px rgba(22,74,51,.075);
+  --card-shadow-hover:0 20px 46px rgba(22,74,51,.115);
+}
+#books{
+  background:
+    radial-gradient(circle at 8% 12%,rgba(46,175,119,.055),transparent 27rem),
+    radial-gradient(circle at 92% 86%,rgba(176,130,24,.045),transparent 24rem),
+    var(--bg);
+}
+</style>
+
+<style id="unified-info-cards-2026">
+:root{--info-card-art:none}
+</style>
+
+<style id="anbiya-page-styles">
+#prophets, #books, #quiz{ scroll-margin-top: 78px; }
+.shero .desc{ max-width: 42ch; }
+.anbiya-art{ width: min(100%, 430px); aspect-ratio: 1; position: relative; display: grid; place-items: center; isolation: isolate; }
+.anbiya-art::before{ content: ""; position: absolute; inset: 9%; border-radius: 50%; border: 1px solid rgba(27,107,74,.16); background: radial-gradient(circle at 43% 38%,var(--surface),var(--green-pale) 73%,var(--bg-2)); box-shadow: 0 26px 56px rgba(27,107,74,.1), inset 0 0 0 18px rgba(255,255,255,.22); }
+.anbiya-art::after{ content: ""; position: absolute; inset: 2%; border: 1px dashed rgba(184,134,11,.38); border-radius: 50%; }
+[data-theme="dark"] .anbiya-art::before{ background: radial-gradient(circle at 43% 38%,var(--surface),var(--bg-2) 73%,var(--bg)); box-shadow: 0 20px 50px rgba(0,0,0,.18); }
+.anbiya-art-inner{ position: relative; z-index: 1; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.anbiya-art-inner .arabic{ color: var(--gold); font: 400 clamp(32px,4vw,47px) "Amiri",serif; line-height: 1.5; }
+.anbiya-art-inner strong{ color: var(--green-mid); font: 700 clamp(96px,12vw,144px) "Playfair Display",serif; line-height: 1; letter-spacing: -.07em; padding-right: .07em; }
+.anbiya-art-inner .label{ color: var(--text-2); font-size: 12px; letter-spacing: .2em; text-transform: uppercase; font-weight: 700; margin-top: 12px; }
+.anbiya-art-star{ position: absolute; width: 8px; height: 8px; background: var(--gold-light); transform: rotate(45deg); opacity: .7; }
+.anbiya-art-star.one{ top: 18%; left: 25%; }
+.anbiya-art-star.two{ top: 24%; right: 17%; width: 5px; height: 5px; }
+.anbiya-art-star.three{ bottom: 18%; left: 20%; width: 5px; height: 5px; }
+.prophet-grid{ list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 12px; }
+.prophet-tile{ position: relative; min-height: 124px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 3px; padding: 25px 10px 15px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); box-shadow: var(--shadow); }
+.prophet-index{ position: absolute; top: 11px; left: 13px; color: var(--text-3); font-size: 11px; font-weight: 700; }
+.prophet-arabic{ color: var(--gold); font: 400 23px "Amiri",serif; line-height: 1.35; }
+.prophet-name{ color: var(--text); font: 700 15px "Playfair Display",serif; line-height: 1.35; }
+.anbiya-section{ padding: 57px 1.5rem 64px; }
+.anbiya-section.alt{ background: var(--bg-2); }
+.anbiya-section .sec-head{ margin-bottom: 26px; }
+.books-grid{ display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 15px; }
+.book-option{ background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 25px; box-shadow: var(--shadow); }
+.book-option small{ display: block; color: var(--green-mid); font-size: 11px; font-weight: 700; letter-spacing: .1em; }
+.book-option h3{ font: 700 22px "Playfair Display",serif; margin: 12px 0 10px; }
+.book-option p, .audio-line{ color: var(--text-2); font-size: 14px; line-height: 1.7; }
+.audio-line{ margin: 16px 0 0; padding-left: 12px; border-left: 3px solid var(--gold-light); }
+.audio-line strong{ color: var(--text); }
+.anbiya-quiz{ background: var(--bg); padding-top: 0; }
+.quiz-callout{ display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 28px; border-radius: 16px; border: 1px solid var(--border); background: var(--surface); }
+.quiz-callout h2{ font: 700 clamp(21px,2.6vw,28px) "Playfair Display",serif; margin: 0 0 5px; }
+.quiz-callout p{ color: var(--text-2); font-size: 14px; line-height: 1.6; }
+.quiz-tag{ flex: none; color: var(--green-mid); border: 1px solid var(--border); border-radius: 999px; padding: 7px 12px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+.shero-ctas .cta-primary{ text-decoration: none; }
+.shero-ctas .cta-primary:focus-visible, .nav-links a:focus-visible, .hamburger:focus-visible{ outline: 3px solid var(--gold-light); outline-offset: 3px; }
+.prophet-tile{ cursor: pointer; transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease; }
+.prophet-tile:hover, .prophet-tile:focus-visible{ transform: translateY(-2px); border-color: var(--accent); outline: none; }
+.prophet-loading{ grid-column: 1 / -1; cursor: default; }
+.story-reader-section[hidden]{ display:none; }
+body.reader-open{ overflow:hidden; }
+.story-reader-section{
+  --reader-font-size:18px;
+  position:fixed;inset:0;z-index:8000;display:flex;flex-direction:column;
+  background:var(--bg);color:var(--text);transform:translateY(100%);
+  transition:transform .5s cubic-bezier(.2,.7,.2,1);
+}
+.story-reader-section.reader-show{transform:none}
+.story-reader-toolbar{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px 20px;border-bottom:1px solid var(--border);flex:none;
+  background:var(--nav-bg);backdrop-filter:blur(14px);position:relative;z-index:12;
+}
+.story-reader-toolbar-left, .story-reader-actions{display:flex;align-items:center;gap:7px}
+.story-reader-identity{text-align:center;min-width:0;flex:1;padding:0 10px}
+.story-reader-title{font-family:"Playfair Display",serif;font-size:17px;font-weight:800;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;letter-spacing:-.01em}
+.story-reader-honorific{font-family:"Spectral",serif;font-size:12.5px;font-weight:600;font-style:italic;color:var(--text-3);margin-top:2px;letter-spacing:.01em}
+.reader-icon, .reader-size-btn, .story-close{
+  width:38px;height:38px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+  color:var(--text-2);transition:all .2s;border:1px solid transparent;cursor:pointer;background:none;
+  font:700 14px/1 "Inter",sans-serif;
+}
+.reader-icon:hover, .reader-size-btn:hover, .story-close:hover{background:var(--green-pale);color:var(--green-mid)}
+[data-theme="dark"] .reader-icon:hover, [data-theme="dark"] .reader-size-btn:hover, [data-theme="dark"] .story-close:hover{background:rgba(46,175,119,.1)}
+.reader-icon svg, .story-close svg{width:18px;height:18px}
+.reader-size-group{display:flex;align-items:center;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.reader-size-group .reader-size-btn{border-radius:0;width:36px;height:34px}
+.reader-size-group span{font-size:10px;color:var(--text-3);padding:0 4px;letter-spacing:.5px}
+.reader-layout{flex:1;display:grid;grid-template-columns:300px 1fr;min-height:0;position:relative}
+.story-toc{border-right:1px solid var(--border);overflow-y:auto;background:var(--bg-2);padding:20px 0 50px}
+.story-toc-head{padding:0 20px 16px;border-bottom:1px solid var(--border);margin-bottom:10px}
+.story-toc-head .k{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);font-weight:700}
+.story-toc-head{position:sticky;top:0;z-index:3;background:var(--bg-2);padding-top:2px;box-shadow:0 8px 18px rgba(20,55,40,.04)}
+.story-toc-head .t{font-family:"Playfair Display",serif;font-size:19px;font-weight:700;color:var(--text);margin-top:5px}
+.story-toc-head .a{font-size:12px;color:var(--text-3);margin-top:3px}
+.story-toc-list{list-style:none;padding:0 12px;margin:0}
+.story-toc-item{margin:2px 0}
+.story-toc-link{display:flex;align-items:flex-start;gap:10px;width:100%;padding:10px 11px;text-align:left;border-radius:8px;background:none;border:none;border-left:2px solid transparent;cursor:pointer;transition:all .2s;color:var(--text-2)}
+.story-toc-link:hover{background:var(--green-pale)}
+[data-theme="dark"] .story-toc-link:hover{background:rgba(46,175,119,.08)}
+.story-toc-link.active{background:var(--green-pale);border-left-color:var(--gold);color:var(--text);font-weight:600}
+[data-theme="dark"] .story-toc-link.active{background:rgba(46,175,119,.1)}
+.story-toc-num{font-size:10.5px;font-weight:700;color:var(--gold);background:var(--r-yr,var(--green-pale));padding:3px 6px;border-radius:4px;flex:none;min-width:28px;text-align:center;margin-top:1px}
+.story-toc-text{font-size:13px;line-height:1.35;font-weight:700;color:var(--text)}
+.story-reading{overflow-y:auto;position:relative;scroll-behavior:smooth}
+.story-progress{position:sticky;top:0;height:3px;z-index:4;background:transparent}
+.story-progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--green-light));transition:width .12s linear}
+.story-reader-main{max-width:680px;margin:0 auto;padding:50px 32px 120px}
+.story-reader-breadcrumb{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-3);font-weight:600;margin-bottom:22px;flex-wrap:wrap}
+.story-reader-breadcrumb b{color:var(--gold)}
+.story-reader-intro{margin-bottom:30px}
+.story-reader-intro h2{font-family:"Playfair Display",serif;font-size:clamp(28px,4vw,40px);font-weight:700;color:var(--text);line-height:1.12;margin:0 0 8px}
+.story-summary{font-family:"Spectral",serif;font-size:15px;line-height:1.7;color:var(--text-2);margin:0 0 18px}
+.story-rule{width:54px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);border-radius:2px}
+.story-status{color:var(--text-3);font-size:11px;margin:14px 0 0}
+.story-content{font-family:"Spectral",serif;font-size:var(--reader-font-size);line-height:1.85;color:var(--text);font-weight:400}
+.story-content p{margin:0 0 1.4em;white-space:pre-line}
+.story-content p:first-of-type::first-letter{font-family:"Playfair Display",serif;font-size:3.3em;float:left;line-height:.78;padding:.05em .12em 0 0;color:var(--green-mid);font-weight:700}
+.story-content h3{scroll-margin-top:30px;margin:2.35em 0 .9em;padding:13px 16px 12px 18px;border-left:4px solid var(--gold);border-radius:0 12px 12px 0;background:linear-gradient(90deg,var(--green-pale),transparent 82%);font-family:"Playfair Display",serif;font-size:1.5em;font-weight:800;line-height:1.3;color:var(--text);letter-spacing:-.01em;box-shadow:inset 0 0 0 1px rgba(27,107,74,.06)}
+[data-theme="dark"] .story-content h3{background:linear-gradient(90deg,rgba(46,175,119,.10),transparent 82%);box-shadow:inset 0 0 0 1px rgba(212,175,55,.05)}
+.story-content h3 + p{margin-top:.2em}
+.story-content .story-section-heading{font-family:"Playfair Display",serif;font-size:1.12em;font-weight:800;margin:1.8em 0 .8em;color:var(--text);line-height:1.42;letter-spacing:-.005em;padding-left:12px;border-left:3px solid var(--green-mid);} 
+.story-content.is-rtl .story-section-heading{padding-left:0;padding-right:12px;border-left:0;border-right:3px solid var(--green-mid);}
+.story-content .story-table-wrap{overflow-x:auto;margin:1.6em 0;border:1px solid var(--border);border-radius:10px}
+.story-content table{width:100%;border-collapse:collapse;background:var(--surface);font-family:"DM Sans",sans-serif;font-size:.76em;line-height:1.5}
+.story-content td{border-bottom:1px solid var(--border);padding:11px 13px;vertical-align:top}
+.story-content tr:last-child td{border-bottom:0}
+.story-empty{padding:30px 18px;border:1px dashed var(--border);border-radius:10px;text-align:center;color:var(--text-3);font-family:"DM Sans",sans-serif;font-size:13px}
+.muhammad-seerah{font-family:"DM Sans",sans-serif;margin-top:4px}
+.muhammad-intro{font-family:"Spectral",serif;font-size:var(--reader-font-size,18px);line-height:1.85;color:var(--text);margin:0 0 28px}
+.muhammad-intro strong{font-family:"Playfair Display",serif;font-weight:800;color:var(--text)}
+.muhammad-feature-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:28px 0}
+.muhammad-card{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;gap:26px;min-height:330px;padding:28px;border:1px solid var(--border);border-radius:24px;background:var(--surface);box-shadow:0 18px 48px rgba(22,74,51,.08);text-decoration:none;color:inherit;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.muhammad-card::after{content:"";position:absolute;width:170px;height:170px;border-radius:50%;right:-74px;top:-74px;background:radial-gradient(circle,rgba(212,175,55,.14),transparent 70%);pointer-events:none}
+.muhammad-card:hover{transform:translateY(-5px);border-color:var(--green-mid);box-shadow:0 24px 58px rgba(22,74,51,.14)}
+.muhammad-card-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}
+.muhammad-card .eyebrow{font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;font-weight:800;color:var(--gold)}
+.muhammad-card h3{font-family:"Playfair Display",serif;font-size:clamp(24px,3vw,34px);line-height:1.08;margin:8px 0 12px;color:var(--text)}
+.muhammad-card p{font-family:"DM Sans",sans-serif;font-size:14px;line-height:1.72;color:var(--text-2);margin:0}
+.muhammad-card p:first-of-type::first-letter{float:none!important;font:inherit!important;color:inherit!important;padding:0!important}
+.muhammad-card .open-link{display:inline-flex;align-items:center;justify-content:space-between;gap:12px;width:fit-content;min-width:138px;padding:11px 15px;border-radius:999px;background:var(--green-mid);color:#fff;font-size:12px;font-weight:800;letter-spacing:.02em;box-shadow:0 9px 20px rgba(22,105,67,.18)}
+.muhammad-card .open-link span{font-size:16px;line-height:1}
+.muhammad-card.book-card{border-color:rgba(27,107,74,.35);background:linear-gradient(145deg,var(--surface),var(--green-pale))}
+[data-theme="dark"] .muhammad-card.book-card{background:linear-gradient(145deg,var(--surface),rgba(46,175,119,.07))}
+.book-emblem{width:58px;height:72px;flex:none;border-radius:9px 13px 13px 9px;display:grid;place-items:center;background:linear-gradient(155deg,var(--green-mid),var(--green-dark));color:#fff;font-family:"Playfair Display",serif;font-size:22px;font-weight:800;box-shadow:8px 10px 22px rgba(15,74,48,.20);transform:rotate(-3deg)}
+.book-emblem::after{content:"";position:absolute}
+.muhammad-card.project-card{background:linear-gradient(160deg,var(--surface),var(--bg-2))}
+.muhammad-card.project-card .project-mark{width:56px;height:56px;border-radius:17px;display:grid;place-items:center;background:var(--green-pale);color:var(--green-mid);font-family:"Playfair Display",serif;font-size:26px;font-weight:800;border:1px solid rgba(27,107,74,.10)}
+[data-theme="dark"] .muhammad-card.project-card .project-mark{background:rgba(46,175,119,.1)}
+@media(max-width:720px){.muhammad-feature-grid{grid-template-columns:1fr}
+.muhammad-card{min-height:0;padding:22px;border-radius:20px}
+.muhammad-card h3{font-size:27px}}
+.reader-toc-toggle{display:none}
+.story-toc-scrim{display:none}
+@media(max-width:840px){.reader-layout{grid-template-columns:1fr}
+.story-toc{position:absolute;top:0;bottom:0;left:0;width:86%;max-width:340px;z-index:9;transform:translateX(-100%);transition:transform .35s;box-shadow:12px 0 30px rgba(0,0,0,.12)}
+.story-toc.open{transform:none}
+.story-toc-scrim{display:block;position:absolute;inset:0;z-index:8;background:rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .3s}
+.story-toc-scrim.open{opacity:1;pointer-events:auto}
+.reader-toc-toggle{display:flex}
+.story-reader-identity{padding:0 4px}}
+@media(max-width:520px){.story-reader-toolbar{padding:9px 10px}
+.story-reader-main{padding:34px 20px 96px}
+.story-reader-section{--reader-font-size:16px}
+.story-summary{font-size:14px}
+.reader-size-group span{display:none}
+.reader-size-group .reader-size-btn{width:34px}
+.story-reader-title{font-size:15px}
+.story-reader-honorific{font-size:11.5px}}
+@media(max-width:1050px) {.prophet-grid{ grid-template-columns: repeat(4,minmax(0,1fr)); }}
+@media(max-width:800px) {.prophet-grid{ grid-template-columns: repeat(3,minmax(0,1fr)); }}
+@media(max-width:600px) {.shero-art .anbiya-art{ width: min(100%,250px); }
+.prophet-grid, .books-grid{ grid-template-columns: repeat(2,minmax(0,1fr)); }
+.prophet-tile{ min-height: 116px; }
+.anbiya-section{ padding: 39px 16px 45px; }
+.quiz-callout{ align-items: flex-start; flex-direction: column; }}
+@media(max-width:430px) {.books-grid{ grid-template-columns: 1fr; }}
+@media(prefers-reduced-motion: reduce) {html{ scroll-behavior: auto; }}
+</style>
+<style id="anbiya-page-loader-styles">
+body.is-loading{ overflow: hidden; }
+.page-loader{
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at top, rgba(212,175,55,.18), transparent 35%),
+    linear-gradient(180deg, rgba(27,107,74,.10), rgba(255,255,255,.96) 34%, rgba(248,244,235,.98));
+  backdrop-filter: blur(6px);
+  transition: opacity .5s ease, visibility .5s ease;
+}
+[data-theme="dark"] .page-loader{
+  background:
+    radial-gradient(circle at top, rgba(212,175,55,.16), transparent 35%),
+    linear-gradient(180deg, rgba(19,74,54,.32), rgba(10,18,15,.96) 34%, rgba(15,26,21,.98));
+}
+.page-loader.is-hidden{
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.page-loader-card{
+  width: min(92vw, 420px);
+  padding: 34px 26px 28px;
+  border-radius: 28px;
+  text-align: center;
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(27,107,74,.14);
+  box-shadow: 0 24px 80px rgba(24,73,52,.18), inset 0 1px 0 rgba(255,255,255,.6);
+}
+[data-theme="dark"] .page-loader-card{
+  background: rgba(15,27,21,.74);
+  border-color: rgba(212,175,55,.16);
+  box-shadow: 0 28px 88px rgba(0,0,0,.36), inset 0 1px 0 rgba(255,255,255,.05);
+}
+.page-loader-stage{
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 18px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  perspective: 900px;
+}
+.page-loader-ring{
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  box-shadow: 0 10px 24px rgba(22,74,51,.10);
+}
+.page-loader-ring.ring-1{
+  border-top-color: rgba(27,107,74,.88);
+  border-left-color: rgba(27,107,74,.42);
+  animation: loaderSpinA 1.55s linear infinite;
+  transform: rotateX(72deg) rotateY(8deg);
+}
+.page-loader-ring.ring-2{
+  inset: 12px;
+  border-right-color: rgba(212,175,55,.92);
+  border-bottom-color: rgba(212,175,55,.36);
+  animation: loaderSpinB 1.3s linear infinite;
+  transform: rotateX(72deg) rotateY(46deg);
+}
+.page-loader-ring.ring-3{
+  inset: 25px;
+  border-top-color: rgba(106,157,126,.92);
+  border-right-color: rgba(106,157,126,.32);
+  animation: loaderSpinC 1.8s linear infinite;
+  transform: rotateX(72deg) rotateY(-34deg);
+}
+.page-loader-glow{
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,175,55,.95), rgba(212,175,55,.12) 72%, transparent 76%);
+  filter: blur(.3px);
+  box-shadow: 0 0 24px rgba(212,175,55,.34);
+}
+.page-loader-label{
+  color: var(--green-mid);
+  font: 700 .84rem/1.2 "Inter", sans-serif;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+.page-loader-bismillah{
+  width:100%;
+  max-width:100%;
+  margin:14px auto 0;
+  padding:0 4px;
+  color:var(--gold);
+  font-family:"Amiri", serif;
+  font-size:clamp(1.55rem,5vw,2.05rem);
+  font-weight:400;
+  line-height:1.75;
+  text-align:center;
+  white-space:nowrap;
+  overflow:visible;
+  box-sizing:border-box;
+}
+@media(max-width:420px){.page-loader-card{padding-left:18px;padding-right:18px;}
+.page-loader-bismillah{font-size:clamp(1.35rem,6.2vw,1.72rem);}}
+.page-loader-subtext{
+  margin-top: 4px;
+  color: var(--text-2);
+  font: 600 .94rem/1.5 "Inter", sans-serif;
+  letter-spacing: .03em;
+}
+@keyframes loaderSpinA {
+  from { transform: rotateX(72deg) rotateY(8deg) rotateZ(0deg); }
+  to { transform: rotateX(72deg) rotateY(8deg) rotateZ(360deg); }
+}
+@keyframes loaderSpinB {
+  from { transform: rotateX(72deg) rotateY(46deg) rotateZ(360deg); }
+  to { transform: rotateX(72deg) rotateY(46deg) rotateZ(0deg); }
+}
+@keyframes loaderSpinC {
+  from { transform: rotateX(72deg) rotateY(-34deg) rotateZ(0deg); }
+  to { transform: rotateX(72deg) rotateY(-34deg) rotateZ(-360deg); }
+}
+</style>
+
+<style id="reader-home-language-controls">
+.reader-home-original-icon{
+  width:24px;
+  height:24px;
+  object-fit:contain;
+  display:block;
+}
+.reader-home-link{
+  text-decoration:none;
+  flex:0 0 auto;
+}
+.reader-language{position:relative;flex:0 0 auto}
+.reader-language-btn{position:relative}
+.reader-language-btn::after{
+  content:"";position:absolute;right:5px;bottom:5px;width:5px;height:5px;border-radius:50%;
+  background:var(--green-mid);box-shadow:0 0 0 2px var(--surface);
+}
+.reader-language-menu{
+  position:absolute;right:0;top:calc(100% + 8px);z-index:40;
+  width:min(260px,calc(100vw - 24px));max-height:min(420px,65vh);overflow:auto;
+  padding:7px;background:var(--surface);border:1px solid var(--border);border-radius:12px;
+  box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateY(-6px) scale(.98);
+  transform-origin:top right;transition:opacity .16s ease,transform .16s ease,visibility .16s;
+}
+.reader-language.open .reader-language-menu{opacity:1;visibility:visible;transform:none}
+.reader-language-option{
+  width:100%;border:0;background:transparent;color:var(--text-2);font:inherit;
+  display:grid;grid-template-columns:28px 1fr auto;align-items:center;gap:8px;
+  padding:9px 10px;border-radius:8px;text-align:left;cursor:pointer;
+}
+.reader-language-option:hover, .reader-language-option:focus-visible{background:var(--bg-2);color:var(--green-mid);outline:none}
+.reader-language-option.active{background:var(--green-pale);color:var(--green-mid);font-weight:700}
+[data-theme="dark"] .reader-language-option.active{background:rgba(46,175,119,.1)}
+.reader-language-flag{font-size:17px;line-height:1}
+.reader-language-name{font-size:13px}
+.reader-language-code{font-size:10px;letter-spacing:.7px;text-transform:uppercase;color:var(--text-3)}
+.pbuh{white-space:nowrap;unicode-bidi:isolate}
+.prophets-retry{margin-top:12px;padding:8px 16px;border:1px solid var(--border);border-radius:999px;background:var(--surface);color:var(--text);font:600 13px "DM Sans",sans-serif;cursor:pointer}
+.story-content strong{font-weight:700;color:var(--text)}
+.story-content .ayah-inline{font-weight:600;color:var(--green-mid)}
+[data-theme="dark"] .story-content .ayah-inline{color:#8FD4B0}
+.story-content .ayah-cite{font-family:"DM Sans",sans-serif;font-size:.74em;font-style:normal;font-weight:600;letter-spacing:.02em;color:var(--text-3);white-space:nowrap}
+.story-content .story-ayah{margin:1.9em 0;padding:20px 22px 16px;border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:0 14px 14px 0;background:linear-gradient(90deg,var(--green-pale),var(--surface) 70%)}
+[data-theme="dark"] .story-content .story-ayah{background:linear-gradient(90deg,rgba(46,175,119,.10),var(--surface) 70%)}
+.story-ayah .ayah-ar{font-family:"Amiri","Noto Naskh Arabic",serif;font-size:1.45em;line-height:2.05;text-align:right;color:var(--text);margin:0 0 .55em}
+.story-ayah .ayah-tr{font-style:italic;color:var(--text-2);line-height:1.75}
+.story-ayah .ayah-ref{display:block;margin-top:.8em;font-family:"DM Sans",sans-serif;font-size:.68em;font-style:normal;font-weight:600;letter-spacing:.04em;color:var(--green-mid)}
+.story-content.is-rtl .story-ayah{border-left:1px solid var(--border);border-right:4px solid var(--gold);border-radius:14px 0 0 14px}
+.story-content.is-rtl .story-ayah .ayah-ref{text-align:left}
+.story-content.is-rtl{direction:rtl;text-align:right;font-family:"Amiri","Noto Naskh Arabic","Spectral",serif}
+.story-content.is-rtl .story-table-wrap{direction:rtl}
+@media(max-width:700px){.story-reader-toolbar-left, .story-reader-actions{gap:4px}
+.story-reader-toolbar .reader-home-link{display:flex}}
+@media(max-width:520px){.story-reader-toolbar{gap:3px}
+.story-reader-toolbar-left .reader-icon, .story-reader-actions>.reader-icon, .reader-language-btn{width:32px;height:32px}
+.story-reader-identity{padding-inline:2px}
+.story-reader-title{font-size:13.5px}
+.story-reader-honorific{display:none}}
+</style>
+
+</head>
+<body class="is-loading">
+<div id="page-loader" class="page-loader" aria-live="polite" aria-label="Page loading">
+  <div class="page-loader-card">
+    <div class="page-loader-stage" aria-hidden="true">
+      <span class="page-loader-ring ring-1"></span>
+      <span class="page-loader-ring ring-2"></span>
+      <span class="page-loader-ring ring-3"></span>
+      <span class="page-loader-glow"></span>
+    </div>
+    <div class="page-loader-label">Loading…</div>
+    <div class="page-loader-bismillah" lang="ar" dir="rtl">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</div>
+    <div class="page-loader-subtext">Bismillah</div>
+  </div>
+</div>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+<header class="site-header">
+<nav aria-label="Primary navigation">
+  <a href="index.html" class="nav-logo">
+    <img id="site-logo" src="data:image/png;base64,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" alt="Seerah ﷺ" class="seerah-nav-logo"/>
+    <div>
+      <span class="logo-name">SEERAH <span class="brand-salawat" lang="ar" dir="rtl">ﷺ</span></span>
+      <span class="logo-tagline">The Life of Prophet Muhammad ﷺ</span>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Seerah Home</a></li>
+    <li><a class="active" href="#prophets">25 Prophets</a></li>
+    <li><a href="#books">Books &amp; Audio</a></li>
+    <li><a href="#quiz">Quiz</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <button class="theme-toggle" type="button" title="Toggle theme"><span id="theme-icon" class="ui-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19.2 15.2A7.8 7.8 0 0 1 8.8 4.8 8.2 8.2 0 1 0 19.2 15.2Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span></button>
+    <a class="contributor-login" href="https://www.ummahtechs.com/contribute/participatelogin" aria-label="Contributor Login"><span class="contributor-login-desktop">Contributor Login</span><span class="contributor-login-mobile">Login</span></a>
+    <button class="hamburger" type="button" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div></nav>
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <a href="index.html">Seerah Home</a>
+  <a href="#prophets">25 Prophets</a>
+  <a href="#books">Books &amp; Audio</a>
+  <a href="#quiz">Quiz</a>
+  <a href="#about">About</a>
+</div>
+</header>
+<main id="main-content" tabindex="-1">
+<section class="shero" aria-labelledby="page-title">
+  <div class="shero-inner">
+    <div>
+      <div class="shero-arabic" lang="ar" dir="rtl">وَلَقَدْ أَرْسَلْنَا رُسُلًا مِّن قَبْلِكَ مِنْهُم مَّن قَصَصْنَا عَلَيْكَ</div>
+      <div class="shero-ayah-ref">SURAH GHAFIR · 40:78</div>
+      <h1 id="page-title">Stories of the <em>25 Prophets</em></h1>
+      <p class="desc">Explore the Prophets named in the Qur’an and find books connected to their stories.</p>
+      <div class="shero-ctas"><a href="#prophets" class="cta-primary">Explore the Prophets →</a></div>
+    </div>
+    <div class="shero-art">
+      <div class="anbiya-art" aria-hidden="true">
+        <span class="anbiya-art-star one"></span><span class="anbiya-art-star two"></span><span class="anbiya-art-star three"></span>
+        <div class="anbiya-art-inner"><span class="arabic" lang="ar" dir="rtl">الأنبياء</span><strong>25</strong><span class="label">Prophets</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="anbiya-section" id="prophets" aria-labelledby="prophets-title">
+  <div class="sec-wrap">
+    <div class="sec-head"><div><span class="section-tag">ANBIYA-E-KIRAM</span><h2 class="section-title" id="prophets-title">The 25 Prophets</h2></div></div>
+    <ol class="prophet-grid" id="prophet-grid" aria-live="polite">
+      <li class="prophet-tile prophet-loading"><strong class="prophet-name">Loading Prophets…</strong></li>
+    </ol>
+  </div>
+</section>
+
+<section class="story-reader-section" id="story-reader" aria-labelledby="story-title" hidden>
+  <header class="story-reader-toolbar">
+    <div class="story-reader-toolbar-left">
+      <a class="reader-icon reader-home-link" href="index.html" aria-label="Go to Seerah Home" title="Seerah Home">
+        <img data-site-logo src="" alt="Seerah Home" class="reader-home-original-icon" decoding="async">
+      </a>
+      <button class="reader-icon reader-toc-toggle" id="reader-toc-toggle" type="button" aria-label="Open contents" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+      <button class="reader-icon" id="story-close" type="button" aria-label="Back to Prophets">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <div class="story-reader-identity">
+      <div class="story-reader-title" id="story-toolbar-title">Prophet Story</div>
+      <div class="story-reader-honorific" id="story-toolbar-honorific">(peace be upon him)</div>
+    </div>
+    <div class="story-reader-actions" aria-label="Reading controls">
+      <div class="reader-size-group">
+        <button class="reader-size-btn" id="reader-font-down" type="button" aria-label="Decrease text size">A−</button>
+        <span>Text</span>
+        <button class="reader-size-btn" id="reader-font-up" type="button" aria-label="Increase text size">A+</button>
+      </div>
+      <button class="reader-icon" id="reader-theme" type="button" aria-label="Change theme">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.2 15.2A7.8 7.8 0 0 1 8.8 4.8 8.2 8.2 0 1 0 19.2 15.2Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="reader-language" id="reader-language">
+        <button class="reader-icon reader-language-btn" id="reader-language-btn" type="button" aria-label="Choose reading language" aria-haspopup="true" aria-expanded="false" title="Language">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M3.8 12h16.4M12 3.5c2.2 2.3 3.3 5.1 3.3 8.5S14.2 18.2 12 20.5M12 3.5C9.8 5.8 8.7 8.6 8.7 12s1.1 6.2 3.3 8.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+        <div class="reader-language-menu" id="reader-language-menu" role="menu" aria-label="Reading language">
+          <button class="reader-language-option active" type="button" role="menuitemradio" aria-checked="true" data-language="en"><span class="reader-language-flag">🇬🇧</span><span class="reader-language-name">English</span><span class="reader-language-code">EN</span></button>
+          <button class="reader-language-option" type="button" role="menuitemradio" aria-checked="false" data-language="hi"><span class="reader-language-flag">🇮🇳</span><span class="reader-language-name">हिंदी</span><span class="reader-language-code">HI</span></button>
+          <button class="reader-language-option" type="button" role="menuitemradio" aria-checked="false" data-language="ur"><span class="reader-language-flag">🇵🇰</span><span class="reader-language-name">اردو</span><span class="reader-language-code">UR</span></button>
+          <button class="reader-language-option" type="button" role="menuitemradio" aria-checked="false" data-language="ne"><span class="reader-language-flag">🇳🇵</span><span class="reader-language-name">नेपाली</span><span class="reader-language-code">NE</span></button>
+          <button class="reader-language-option" type="button" role="menuitemradio" aria-checked="false" data-language="bn"><span class="reader-language-flag">🇧🇩</span><span class="reader-language-name">বাংলা</span><span class="reader-language-code">BN</span></button>
+          <button class="reader-language-option" type="button" role="menuitemradio" aria-checked="false" data-language="ta"><span class="reader-language-flag">🇮🇳</span><span class="reader-language-name">தமிழ்</span><span class="reader-language-code">TA</span></button>
+          <button class="reader-language-option" type="button" role="menuitemradio" aria-checked="false" data-language="ar"><span class="reader-language-flag">🇸🇦</span><span class="reader-language-name">العربية</span><span class="reader-language-code">AR</span></button>
+          <button class="reader-language-option" type="button" role="menuitemradio" aria-checked="false" data-language="id"><span class="reader-language-flag">🇮🇩</span><span class="reader-language-name">Indonesia</span><span class="reader-language-code">ID</span></button>
+          <button class="reader-language-option" type="button" role="menuitemradio" aria-checked="false" data-language="tr"><span class="reader-language-flag">🇹🇷</span><span class="reader-language-name">Türkçe</span><span class="reader-language-code">TR</span></button>
+          <button class="reader-language-option" type="button" role="menuitemradio" aria-checked="false" data-language="roman_ur"><span class="reader-language-flag">Aa</span><span class="reader-language-name">Roman Urdu</span><span class="reader-language-code">RU</span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="reader-layout">
+    <aside class="story-toc" id="story-toc" aria-label="Story contents">
+      <div class="story-toc-head">
+        <div class="k">Contents</div>
+        <div class="t" id="story-toc-title">Prophet Story</div>
+        <div class="a" id="story-toc-subtitle">Story sections</div>
+      </div>
+      <ol class="story-toc-list" id="story-toc-list"></ol>
+    </aside>
+    <div class="story-toc-scrim" id="story-toc-scrim"></div>
+    <div class="story-reading" id="story-reading">
+      <div class="story-progress"><i id="story-progress-bar"></i></div>
+      <div class="story-reader-main">
+        <div class="story-reader-breadcrumb"><span>Anbiya-e-Kiram</span><span>›</span><b id="story-breadcrumb-name">Story</b></div>
+        <div class="story-reader-intro">
+          <h2 id="story-title">Story</h2>
+          <p class="story-summary" id="story-summary"></p>
+          <div class="story-rule"></div>
+          <div class="story-status" id="story-status" role="status"></div>
+        </div>
+        <article class="story-content" id="story-content"></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="anbiya-section alt" id="books" aria-labelledby="books-title">
+  <div class="sec-wrap">
+    <div class="sec-head"><div><span class="section-tag">BOOKS</span><h2 class="section-title" id="books-title">Continue reading</h2></div></div>
+    <div class="books-grid">
+      <article class="book-option"><small>COMPLETE COLLECTION</small><h3>One author, all the Prophets</h3><p>Keep one author's book together, with its chapters connected to the relevant Prophets.</p></article>
+      <article class="book-option"><small>INDIVIDUAL BOOKS</small><h3>One Prophet, one book</h3><p>Find a dedicated book under that Prophet's own page when available.</p></article>
+    </div>
+    <p class="audio-line"><strong>Audio</strong> will sit beside the story or chapter it narrates.</p>
+  </div>
+</section>
+
+<section class="anbiya-section anbiya-quiz" id="quiz" aria-labelledby="quiz-title">
+  <div class="sec-wrap">
+    <div class="quiz-callout"><div><h2 id="quiz-title">25 Prophets Quiz</h2><p>One combined quiz after the stories, with answers and references.</p></div><span class="quiz-tag">COMING LATER</span></div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer" id="about">
+  <div class="footer-inner">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <div class="footer-brand-mark"><a href="index.html" class="footer-seerah-home" aria-label="Home" title="Home"><img data-site-logo src="" alt="Seerah logo" class="footer-logo-img" loading="lazy" decoding="async"></a></div>
+        <div class="footer-brand-text">
+          <strong>Seerah</strong>
+          <span>The Life of the Prophet ﷺ</span>
+        </div>
+      </div>
+
+      <div class="footer-quote" dir="rtl">
+        لَقَدْ كَانَ لَكُمْ فِي رَسُولِ اللَّهِ أُسْوَةٌ حَسَنَةٌ...
+        <span dir="ltr">“Indeed, in the Messenger of Allah you have an excellent example.” — Quran 33:21</span>
+        <span>سورة الأحزاب — 33:21</span>
+      </div>
+
+      <div class="footer-links">
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Seerah</span>
+      
+      <span class="footer-powered-brand">
+  <span class="powered-label">Powered by</span>
+  <a href="https://ummahtechs.com" target="_blank" rel="noopener" class="ummahtechs-powered">
+    <img src="data:image/png;base64,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" alt="UmmahTechs" class="ummahtechs-logo-img" loading="lazy" decoding="async">
+    <strong>UmmahTechs</strong>
+  </a>
+</span>
+    </div>
+  </div>
+</footer>
+<script id="anbiya-boot">
+(function () {
+  var logo = document.getElementById('site-logo');
+  if (logo) {
+    document.querySelectorAll('img[data-site-logo]').forEach(function (img) { img.src = logo.src; });
+    var fav = document.getElementById('site-favicon');
+    if (fav) fav.href = logo.src;
+  }
+  window.showProphetsError = function () {
+    var grid = document.getElementById('prophet-grid');
+    if (!grid) return;
+    grid.innerHTML = '<li class="prophet-tile prophet-loading"><strong class="prophet-name">Could not load the Prophets. Check your connection.</strong><button type="button" class="prophets-retry" onclick="location.reload()">Try again</button></li>';
+  };
+  // Fallback: hide loader even if the Supabase module fails to load
+  function forceHide() {
+    var loader = document.getElementById('page-loader');
+    document.body.classList.remove('is-loading');
+    if (loader) { loader.classList.add('is-hidden'); setTimeout(function () { loader.remove(); }, 560); }
+  }
+  setTimeout(forceHide, 6000);
+  window.addEventListener('error', function (e) {
+    if (e.target && e.target.tagName === 'SCRIPT') { forceHide(); window.showProphetsError(); }
+  }, true);
+})();
+</script>
+<script type="module" id="anbiya-supabase-data">
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.1/+esm';
+
+const SUPABASE_URL = 'https://nhxgjqeatmwqopgeqmir.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_tf9SZeTWmoEaBceJsQdCRQ_ysQFtwys';
+const db = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+// ANBIYA_DB_SCHEMA_20260929: supports heading, subheading, ayah, arabic_text and ayah_ref.
+
+const grid = document.getElementById('prophet-grid');
+const reader = document.getElementById('story-reader');
+const title = document.getElementById('story-title');
+const summary = document.getElementById('story-summary');
+const status = document.getElementById('story-status');
+const content = document.getElementById('story-content');
+const closeButton = document.getElementById('story-close');
+const toolbarTitle = document.getElementById('story-toolbar-title');
+const toolbarHonorific = document.getElementById('story-toolbar-honorific');
+const fontDown = document.getElementById('reader-font-down');
+const fontUp = document.getElementById('reader-font-up');
+const readerTheme = document.getElementById('reader-theme');
+const readingPane = document.getElementById('story-reading');
+const progressBar = document.getElementById('story-progress-bar');
+const toc = document.getElementById('story-toc');
+const tocList = document.getElementById('story-toc-list');
+const tocToggle = document.getElementById('reader-toc-toggle');
+const tocScrim = document.getElementById('story-toc-scrim');
+const tocTitle = document.getElementById('story-toc-title');
+const tocSubtitle = document.getElementById('story-toc-subtitle');
+const breadcrumbName = document.getElementById('story-breadcrumb-name');
+const readerLanguage = document.getElementById('reader-language');
+const readerLanguageBtn = document.getElementById('reader-language-btn');
+const readerLanguageMenu = document.getElementById('reader-language-menu');
+const readerLanguageOptions = [...document.querySelectorAll('.reader-language-option')];
+const languageNames = { en:'English', hi:'हिंदी', ur:'اردو', ne:'नेपाली', bn:'বাংলা', ta:'தமிழ்', ar:'العربية', id:'Indonesia', tr:'Türkçe', roman_ur:'Roman Urdu' };
+let currentLanguage = 'en';
+let readerFontSize = window.innerWidth <= 520 ? 16 : 18;
+let allProphets = [];
+let currentProphetId = null;
+const pageLoader = document.getElementById('page-loader');
+
+function hidePageLoader() {
+  if (!pageLoader || pageLoader.classList.contains('is-hidden')) return;
+  pageLoader.classList.add('is-hidden');
+  document.body.classList.remove('is-loading');
+  window.setTimeout(() => pageLoader.remove(), 560);
+}
+
+window.addEventListener('load', () => window.setTimeout(hidePageLoader, 250), { once: true });
+window.setTimeout(hidePageLoader, 5000);
+
+function prophetLabel(p) {
+  return p.name === 'Muhammad' ? `Hazrat ${p.name} ﷺ` : `Hazrat ${p.name} (عليه السلام)`;
+}
+
+// Same label as DOM: keeps "(عليه السلام)" together and in correct RTL order
+function setProphetLabel(el, p) {
+  if (!el) return;
+  el.replaceChildren(document.createTextNode(`Hazrat ${p.name} `));
+  const hon = document.createElement('span');
+  hon.className = 'pbuh';
+  if (p.name === 'Muhammad') {
+    hon.textContent = 'ﷺ';
+  } else {
+    const ar = document.createElement('bdi');
+    ar.lang = 'ar';
+    ar.textContent = 'عليه السلام';
+    hon.append('(', ar, ')');
+  }
+  el.appendChild(hon);
+}
+
+function renderProphets(prophets) {
+  grid.replaceChildren();
+  prophets.forEach((p) => {
+    const li = document.createElement('li');
+    li.className = 'prophet-tile';
+    li.tabIndex = 0;
+    li.setAttribute('role', 'button');
+    li.setAttribute('aria-label', `Read the story of ${p.name}`);
+    li.dataset.prophetId = String(p.id);
+
+    const index = document.createElement('span');
+    index.className = 'prophet-index';
+    index.textContent = String(p.display_order).padStart(2, '0');
+
+    const ar = document.createElement('span');
+    ar.className = 'prophet-arabic';
+    ar.lang = 'ar';
+    ar.dir = 'rtl';
+    ar.textContent = p.arabic_name || '';
+
+    const name = document.createElement('strong');
+    name.className = 'prophet-name';
+    setProphetLabel(name, p);
+
+    li.append(index, ar, name);
+    const open = () => loadStory(p);
+    li.addEventListener('click', open);
+    li.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+    grid.appendChild(li);
+  });
+}
+
+function appendTable(rows) {
+  const wrap = document.createElement('div');
+  wrap.className = 'story-table-wrap';
+  const table = document.createElement('table');
+  const tbody = document.createElement('tbody');
+  rows.forEach((row) => {
+    const tr = document.createElement('tr');
+    [row.table_col_1, row.table_col_2, row.table_col_3].filter(v => v !== null && v !== '').forEach((value) => {
+      const td = document.createElement('td');
+      td.textContent = value;
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+  table.appendChild(tbody);
+  wrap.appendChild(table);
+  content.appendChild(wrap);
+}
+
+function renderMuhammadSeerah() {
+  content.replaceChildren();
+  const wrap = document.createElement('div');
+  wrap.className = 'muhammad-seerah';
+  wrap.innerHTML = `
+    <p class="muhammad-intro"><strong>Hazrat Muhammad ﷺ</strong> is the final Messenger of Allah. Born in Makkah, he received revelation at the age of forty, called people to worship Allah alone, migrated to Madinah, and left an enduring example of faith, character, mercy, patience, and leadership.</p>
+    <div class="muhammad-feature-grid">
+      <a class="muhammad-card book-card" href="index.html?book=arraheeq#featured" aria-label="Open Ar-Raheeq Al-Makhtum on the Seerah home page">
+        <div>
+          <div class="muhammad-card-top">
+            <div class="eyebrow">Featured Seerah Book</div>
+            <div class="book-emblem" aria-hidden="true">R</div>
+          </div>
+          <h3>Ar-Raheeq Al-Makhtum</h3>
+          <p><em>The Sealed Nectar</em> by Safiur Rahman Mubarakpuri. Continue with a dedicated Seerah reading experience covering the life of Prophet Muhammad ﷺ.</p>
+        </div>
+        <span class="open-link">Open book <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="muhammad-card project-card" href="https://ummahtechs.com" target="_blank" rel="noopener" aria-label="Visit UmmahTechs">
+        <div>
+          <div class="muhammad-card-top">
+            <div class="eyebrow">UmmahTech Project</div>
+            <div class="project-mark" aria-hidden="true">U</div>
+          </div>
+          <h3>Islamic knowledge, easier to explore</h3>
+          <p>UmmahTech brings Seerah, stories of the Prophets, books, languages, and future study tools together in one clean digital learning experience.</p>
+        </div>
+        <span class="open-link">About UmmahTech <span aria-hidden="true">↗</span></span>
+      </a>
+    </div>`;
+  content.appendChild(wrap);
+}
+
+// Safe inline formatting: **text** -> <strong>text</strong> (no innerHTML)
+function appendRichText(el, text) {
+  const parts = String(text).split(/\*\*(.+?)\*\*/g);
+  parts.forEach((part, i) => {
+    if (!part) return;
+    if (i % 2 === 1) {
+      const b = document.createElement('strong');
+      b.textContent = part;
+      el.appendChild(b);
+    } else {
+      el.appendChild(document.createTextNode(part));
+    }
+  });
+  return el;
+}
+
+// Detect Quran quotes already written inside paragraphs:
+//   “...ayah text...” — (Surah Al-Hijr 15:33)
+const QURAN_REF = String.raw`\((?:Surah|Sura|Surat|Quran|Qur['’]?an|सूरह|सूरा|سورہ|سورة|سورۃ)[^)]*\)`;
+const AYAH_INLINE_RE = new RegExp(String.raw`([“"])([^“”"]+?)([”"])(\s*[—–-]?\s*)(` + QURAN_REF + ')', 'gi');
+const AYAH_FULL_RE = new RegExp(String.raw`^\s*[“"]([^“”"]+?)[”"]\s*[—–-]?\s*(` + QURAN_REF + String.raw`)\s*$`, 'i');
+const REF_ONLY_RE = new RegExp(String.raw`([—–-]\s*)?` + QURAN_REF, 'gi');
+
+function appendRefs(el, text) {
+  let last = 0;
+  String(text).replace(REF_ONLY_RE, (m, dash, offset) => {
+    appendRichText(el, text.slice(last, offset));
+    const cite = document.createElement('cite');
+    cite.className = 'ayah-cite';
+    cite.dir = 'ltr';
+    cite.textContent = m.replace(/^[—–-]\s*/, '');
+    el.appendChild(cite);
+    last = offset + m.length;
+    return m;
+  });
+  appendRichText(el, text.slice(last));
+}
+
+function appendStoryText(el, text) {
+  let last = 0;
+  String(text).replace(AYAH_INLINE_RE, (m, open, quote, close, gap, ref, offset) => {
+    appendRefs(el, text.slice(last, offset));
+    const q = document.createElement('strong');
+    q.className = 'ayah-inline';
+    q.textContent = `“${quote.trim()}”`;
+    el.appendChild(q);
+    el.appendChild(document.createTextNode(gap.includes('\n') ? '\n' : ' '));
+    const cite = document.createElement('cite');
+    cite.className = 'ayah-cite';
+    cite.dir = 'ltr';
+    cite.textContent = ref;
+    el.appendChild(cite);
+    last = offset + m.length;
+    return m;
+  });
+  appendRefs(el, text.slice(last));
+  return el;
+}
+
+function looksLikeHeading(text) {
+  const t = String(text).trim();
+  if (!t || t.length > 90 || t.includes('\n')) return false;
+  if (/[.!:;,]["”’)]?$/.test(t)) return false;
+  const latin = t.replace(/[^A-Za-z]/g, '');
+  return latin.length >= 4 && latin === latin.toUpperCase();
+}
+
+function renderAyah(block) {
+  const quote = document.createElement('blockquote');
+  quote.className = 'story-ayah';
+  if (block.arabic_text) {
+    const ar = document.createElement('div');
+    ar.className = 'ayah-ar';
+    ar.lang = 'ar';
+    ar.dir = 'rtl';
+    ar.textContent = block.arabic_text;
+    quote.appendChild(ar);
+  }
+  if (block.story_text && block.story_text.trim()) {
+    const tr = document.createElement('div');
+    tr.className = 'ayah-tr';
+    appendRichText(tr, block.story_text);
+    quote.appendChild(tr);
+  }
+  if (block.ayah_ref) {
+    const cite = document.createElement('cite');
+    cite.className = 'ayah-ref';
+    cite.dir = 'ltr';
+    cite.textContent = block.ayah_ref;
+    quote.appendChild(cite);
+  }
+  if (quote.childElementCount) content.appendChild(quote);
+}
+
+function renderBlocks(blocks) {
+  content.replaceChildren();
+  if (!blocks.length) {
+    const empty = document.createElement('div');
+    empty.className = 'story-empty';
+    empty.textContent = 'Story content is not available in the database yet.';
+    content.appendChild(empty);
+    return;
+  }
+
+  let tableRows = [];
+  const flushTable = () => { if (tableRows.length) { appendTable(tableRows); tableRows = []; } };
+
+  blocks.forEach((block) => {
+    if (block.block_type === 'table row') { tableRows.push(block); return; }
+    flushTable();
+    const rawType = String(block.block_type || '').trim().toLowerCase();
+    const type = rawType.replace(/[_-]+/g, ' ').replace(/\s+/g, ' ');
+    if (type === 'ayah' || type === 'quran' || type === 'quran ayah') { renderAyah(block); return; }
+    const text = block.story_text || '';
+    if (!text.trim()) return;
+    let el;
+    if (type === 'heading') {
+      el = document.createElement('h3');
+    } else if (type === 'subheading' || type === 'sub heading' || type === 'section heading') {
+      el = document.createElement('h4');
+      el.className = 'story-section-heading';
+    } else {
+      el = document.createElement('p');
+      // Old data: subheadings saved as paragraphs in ALL CAPS
+      if (looksLikeHeading(text)) {
+        const h = document.createElement('h4');
+        h.className = 'story-section-heading';
+        appendRichText(h, text.trim());
+        content.appendChild(h);
+        return;
+      }
+      const full = text.match(AYAH_FULL_RE);
+      if (full) {
+        renderAyah({ arabic_text: block.arabic_text, story_text: full[1].trim(), ayah_ref: full[2].replace(/^\(|\)$/g, '') });
+        return;
+      }
+      appendStoryText(el, text);
+      content.appendChild(el);
+      return;
+    }
+    appendRichText(el, text);
+    content.appendChild(el);
+  });
+  flushTable();
+}
+
+function closeToc() {
+  toc?.classList.remove('open');
+  tocScrim?.classList.remove('open');
+  tocToggle?.setAttribute('aria-expanded', 'false');
+}
+
+function buildStoryToc() {
+  if (!tocList) return;
+  tocList.replaceChildren();
+
+  allProphets.forEach((prophet, index) => {
+    const li = document.createElement('li');
+    li.className = 'story-toc-item';
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'story-toc-link';
+    btn.dataset.prophetId = String(prophet.id);
+    btn.classList.toggle('active', prophet.id === currentProphetId);
+    btn.setAttribute('aria-current', prophet.id === currentProphetId ? 'true' : 'false');
+
+    const num = document.createElement('span');
+    num.className = 'story-toc-num';
+    num.textContent = String(index + 1).padStart(2, '0');
+
+    const tx = document.createElement('span');
+    tx.className = 'story-toc-text';
+    setProphetLabel(tx, prophet);
+
+    btn.append(num, tx);
+    btn.addEventListener('click', () => {
+      if (prophet.id !== currentProphetId) loadStory(prophet);
+      closeToc();
+    });
+
+    li.appendChild(btn);
+    tocList.appendChild(li);
+  });
+
+  if (tocTitle) tocTitle.textContent = '25 Prophets';
+  if (tocSubtitle) tocSubtitle.textContent = 'Choose a Prophet';
+  requestAnimationFrame(scrollActiveProphetIntoView);
+}
+
+function scrollActiveProphetIntoView() {
+  if (!tocList) return;
+  const active = tocList.querySelector('.story-toc-link.active');
+  if (!active) return;
+  active.scrollIntoView({ block: 'center', inline: 'nearest', behavior: 'smooth' });
+}
+
+function updateReaderProgress() {
+  if (!readingPane || !progressBar) return;
+  const distance = readingPane.scrollHeight - readingPane.clientHeight;
+  const pct = distance > 0 ? Math.min(100, Math.max(0, readingPane.scrollTop / distance * 100)) : 0;
+  progressBar.style.width = `${pct}%`;
+}
+
+let storyRequestId = 0;
+
+let readerOpener = null;
+const backgroundEls = [...document.querySelectorAll('.site-header, #main-content > section:not(#story-reader), .site-footer, .skip-link')];
+function setBackgroundInert(on) {
+  backgroundEls.forEach((el) => { if (on) el.setAttribute('inert', ''); else el.removeAttribute('inert'); });
+}
+
+async function loadStory(prophet) {
+  const requestId = ++storyRequestId;
+  const wasOpen = !reader.hidden;
+  if (!wasOpen) readerOpener = document.activeElement;
+  const requestLanguage = currentLanguage;
+  currentProphetId = prophet.id;
+  reader.hidden = false;
+  document.body.classList.add('reader-open');
+  requestAnimationFrame(() => reader.classList.add('reader-show'));
+  setBackgroundInert(true);
+  if (!wasOpen) closeButton?.focus({ preventScroll: true });
+  if (readingPane) readingPane.scrollTop = 0;
+  closeToc();
+  setProphetLabel(title, prophet);
+  setProphetLabel(toolbarTitle, prophet);
+  if (toolbarHonorific) toolbarHonorific.textContent = prophet.name === 'Muhammad' ? '(peace and blessings be upon him)' : '(peace be upon him)';
+  if (tocTitle) tocTitle.textContent = '25 Prophets';
+  setProphetLabel(breadcrumbName, prophet);
+  document.title = `${prophetLabel(prophet)} — Seerah`;
+  summary.textContent = prophet.short_description || '';
+  status.textContent = 'Loading story…';
+  content.replaceChildren();
+  buildStoryToc();
+  updateReaderProgress();
+
+  let data, error;
+  try {
+    ({ data, error } = await db
+    .from('anbiya_story_blocks')
+    .select('id,prophet_id,block_order,block_type,story_text,table_col_1,table_col_2,table_col_3,language_code,arabic_text,ayah_ref')
+    .eq('prophet_id', prophet.id)
+    .eq('language_code', requestLanguage)
+    .order('block_order', { ascending: true }));
+  } catch (err) {
+    error = err;
+  }
+
+  // Ignore stale responses (user switched prophet/language meanwhile)
+  if (requestId !== storyRequestId) return;
+
+  if (error) {
+    status.textContent = 'Could not load this story. Please try again.';
+    console.error(error);
+    return;
+  }
+  status.textContent = '';
+  content.classList.toggle('is-rtl', currentLanguage === 'ar' || currentLanguage === 'ur');
+  content.lang = currentLanguage === 'roman_ur' ? 'ur-Latn' : currentLanguage;
+  content.dir = (currentLanguage === 'ar' || currentLanguage === 'ur') ? 'rtl' : 'ltr';
+  if (prophet.name === 'Muhammad' && currentLanguage === 'en') {
+    renderMuhammadSeerah();
+  } else if (!data || !data.length) {
+    content.replaceChildren();
+    const empty = document.createElement('div');
+    empty.className = 'story-empty';
+    empty.textContent = `${languageNames[currentLanguage] || currentLanguage.toUpperCase()} content is not available in the database for this story yet.`;
+    content.appendChild(empty);
+  } else {
+    renderBlocks(data);
+  }
+  buildStoryToc();
+  updateReaderProgress();
+}
+
+function closeReader() {
+  reader?.classList.remove('reader-show');
+  document.body.classList.remove('reader-open');
+  closeToc();
+  setBackgroundInert(false);
+  window.setTimeout(() => { if (reader) reader.hidden = true; }, 430);
+  const target = readerOpener && document.contains(readerOpener) ? readerOpener
+    : grid.querySelector(`[data-prophet-id="${currentProphetId}"]`);
+  target?.focus({ preventScroll: true });
+  readerOpener = null;
+}
+
+closeButton?.addEventListener('click', closeReader);
+tocToggle?.addEventListener('click', () => {
+  const open = !toc?.classList.contains('open');
+  toc?.classList.toggle('open', open);
+  tocScrim?.classList.toggle('open', open);
+  tocToggle?.setAttribute('aria-expanded', String(open));
+});
+tocScrim?.addEventListener('click', closeToc);
+readerTheme?.addEventListener('click', () => window.toggleTheme?.());
+
+function closeLanguageMenu() {
+  readerLanguage?.classList.remove('open');
+  readerLanguageBtn?.setAttribute('aria-expanded', 'false');
+}
+readerLanguageBtn?.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const open = !readerLanguage?.classList.contains('open');
+  readerLanguage?.classList.toggle('open', open);
+  readerLanguageBtn.setAttribute('aria-expanded', String(open));
+});
+readerLanguageOptions.forEach((option) => {
+  option.addEventListener('click', async () => {
+    const nextLanguage = option.dataset.language || 'en';
+    if (nextLanguage === currentLanguage) { closeLanguageMenu(); return; }
+    currentLanguage = nextLanguage;
+    readerLanguageOptions.forEach((item) => {
+      const active = item.dataset.language === currentLanguage;
+      item.classList.toggle('active', active);
+      item.setAttribute('aria-checked', String(active));
+    });
+    readerLanguageBtn.title = `Language: ${languageNames[currentLanguage] || currentLanguage.toUpperCase()}`;
+    closeLanguageMenu();
+    const prophet = allProphets.find((item) => item.id === currentProphetId);
+    if (prophet) await loadStory(prophet);
+  });
+});
+document.addEventListener('click', (e) => {
+  if (readerLanguage && !readerLanguage.contains(e.target)) closeLanguageMenu();
+});
+
+readingPane?.addEventListener('scroll', updateReaderProgress, { passive:true });
+
+function applyReaderFontSize() {
+  readerFontSize = Math.max(16, Math.min(24, readerFontSize));
+  reader?.style.setProperty('--reader-font-size', `${readerFontSize}px`);
+}
+fontDown?.addEventListener('click', () => { readerFontSize -= 1; applyReaderFontSize(); });
+fontUp?.addEventListener('click', () => { readerFontSize += 1; applyReaderFontSize(); });
+applyReaderFontSize();
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && reader && !reader.hidden) {
+    if (readerLanguage?.classList.contains('open')) closeLanguageMenu();
+    else if (toc?.classList.contains('open')) closeToc();
+    else closeReader();
+  }
+});
+
+let prophets = null, error = null;
+try {
+  ({ data: prophets, error } = await db
+    .from('anbiya_prophets')
+    .select('id,slug,name,arabic_name,short_description,story_status,display_order')
+    .order('display_order', { ascending: true }));
+} catch (err) {
+  error = err;
+}
+
+if (error || !prophets) {
+  window.showProphetsError?.();
+  console.error(error);
+  hidePageLoader();
+} else {
+  allProphets = prophets;
+  renderProphets(prophets);
+  hidePageLoader();
+}
+</script>
+<script id="anbiya-page-interactions">
+(function () {
+  const themeButton = document.querySelector('.theme-toggle');
+  themeButton?.addEventListener('click', () => window.toggleTheme?.());
+  const menu = document.getElementById('mobileNav');
+  const menuButton = document.querySelector('.hamburger');
+  const setMenu = open => {
+    menu?.classList.toggle('open', open);
+    menu?.setAttribute('aria-hidden', String(!open));
+    menuButton?.setAttribute('aria-expanded', String(open));
+    menuButton?.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+  menuButton?.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false); });
+  const progress = document.getElementById('progress-bar');
+  const updateProgress = () => {
+    const distance = document.documentElement.scrollHeight - window.innerHeight;
+    if (progress) progress.style.width = `${distance > 0 ? Math.min(100, window.scrollY / distance * 100) : 0}%`;
+  };
+  window.addEventListener('scroll', updateProgress, {passive: true});
+  updateProgress();
+})();
+</script>
+</body>
+</html>
