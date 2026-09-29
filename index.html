@@ -2095,6 +2095,10 @@ button:disabled{cursor:default}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
 }
+
+/* ── reminder-auto-fit-text ── */
+:is(#hadith-reminder,#quran-reminder) .hadith-quote{overflow:hidden;}
+:is(#hadith-reminder,#quran-reminder) .hadith-quote.fit-overflow{overflow:auto;}
 </style>
 
 <!-- Madinah timeline label updated -->
@@ -3118,6 +3122,40 @@ document.addEventListener('keydown',function(event){
   let initial='EN';
   try{initial=localStorage.getItem('seerah-language')||localStorage.getItem('seerah-hadith-language')||'EN';}catch{}
   window.setQuranLanguage(initial);
+})();
+</script>
+<script>
+/* Auto-fit: long hadith/ayah text shrinks until it fits the card — no scroll, no cut */
+(function reminderAutoFit(){
+  const MIN=12; // px — isse chota nahi hoga (readability)
+  const els=['hadith-quote','following-ayat-meaning'].map(id=>document.getElementById(id)).filter(Boolean);
+  if(!els.length)return;
+  function fit(el){
+    el.style.fontSize='';
+    el.classList.remove('fit-overflow');
+    const fits=()=>el.scrollHeight<=el.clientHeight+1;
+    if(!el.clientHeight||fits())return;
+    let lo=MIN,hi=parseFloat(getComputedStyle(el).fontSize);
+    el.style.fontSize=lo+'px';
+    if(!fits()){el.classList.add('fit-overflow');return;} // extreme case: min size par bhi na aaye to scroll fallback
+    for(let k=0;k<8&&hi-lo>0.25;k++){
+      const mid=(lo+hi)/2;
+      el.style.fontSize=mid+'px';
+      if(fits())lo=mid;else hi=mid;
+    }
+    el.style.fontSize=lo+'px';
+    el.scrollTop=0;
+  }
+  const queue=new Set();let raf=0;
+  const schedule=el=>{queue.add(el);if(!raf)raf=requestAnimationFrame(()=>{raf=0;queue.forEach(fit);queue.clear();});};
+  els.forEach(el=>{
+    new MutationObserver(()=>schedule(el)).observe(el,{childList:true,characterData:true,subtree:true});
+    if('ResizeObserver' in window){
+      let w=0;new ResizeObserver(e=>{const nw=Math.round(e[0].contentRect.width);if(nw!==w){w=nw;schedule(el);}}).observe(el);
+    }
+    schedule(el);
+  });
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>els.forEach(schedule));
 })();
 </script>
 </body>
