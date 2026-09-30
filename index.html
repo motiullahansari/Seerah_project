@@ -516,7 +516,7 @@ a.explore-card:hover .go-link .i{transform:translateX(3px)}
 a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
 
 /* Contribute + Support */
-.involve{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:20px;align-items:stretch}
+.involve{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:stretch}
 .contribute-panel{padding:36px}
 .contribute-panel h2{font:700 clamp(28px,3.2vw,36px)/1.15 var(--font-display);letter-spacing:-.01em;color:var(--ink)}
 .contribute-panel>p{max-width:58ch;margin-top:12px;font-size:16px;line-height:1.65;color:var(--ink-2)}
@@ -528,12 +528,31 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
 .skill p{margin-top:4px;font-size:13.5px;line-height:1.55;color:var(--ink-2)}
 .contribute-action{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin-top:26px}
 .contribute-action p{font-size:13.5px;color:var(--ink-3)}
-.donate-card{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:12px;padding:36px;border-radius:var(--r-lg);background:linear-gradient(160deg,#1F7A53 0%,#15553A 58%,#0F4430 100%);color:#fff;scroll-margin-top:100px}
-.donate-card::before{content:"";position:absolute;inset:0;z-index:-1;background-image:var(--lattice-gold);background-size:64px 64px;opacity:.16;-webkit-mask-image:radial-gradient(85% 70% at 100% 0,#000 10%,transparent 75%);mask-image:radial-gradient(85% 70% at 100% 0,#000 10%,transparent 75%)}
-.donate-card .star{width:30px;height:30px;color:var(--gold-3)}
-.donate-card h2{margin-top:4px;font:700 30px/1.15 var(--font-display);color:#fff}
-.donate-card p{font-size:15.5px;line-height:1.65;color:rgba(255,255,255,.84)}
-.donate-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+
+/* Support banner — intentionally separate from the Qur'an/Hadith reminder cards */
+.donate-card{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.55fr);gap:clamp(28px,4vw,64px);align-items:center;padding:clamp(30px,4vw,48px);border-radius:28px;background:linear-gradient(118deg,#176844 0%,#0F5739 58%,#083C29 100%);color:#fff;scroll-margin-top:100px;box-shadow:0 24px 52px rgba(8,60,41,.18)}
+.donate-card::before{content:"";position:absolute;inset:0;z-index:-2;background-image:var(--lattice-gold);background-size:66px 66px;opacity:.11}
+.donate-card::after{content:"";position:absolute;z-index:-1;width:520px;height:520px;right:-170px;bottom:-330px;border-radius:50%;background:radial-gradient(circle,rgba(46,175,119,.22),transparent 68%)}
+.donate-main{min-width:0}
+.support-badge{display:inline-flex;align-items:center;gap:9px;padding:6px 13px;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(255,255,255,.08);font-size:12.5px;font-weight:700;letter-spacing:.045em;color:#F6FBF8}
+.support-badge::before{content:"";width:7px;height:7px;border-radius:50%;background:#58D5A1;box-shadow:0 0 0 5px rgba(88,213,161,.11)}
+.donate-card h2{max-width:730px;margin-top:16px;font:700 clamp(31px,4vw,48px)/1.07 var(--font-display);letter-spacing:-.018em;color:#fff}
+.donate-card h2 em{font-style:normal;color:#61D6A3}
+.donate-lead{max-width:64ch;margin-top:15px;font-size:16.5px;line-height:1.7;color:rgba(255,255,255,.82)}
+.support-points{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:24px}
+.support-point{display:grid;gap:1px}
+.support-point strong{font-size:15px;line-height:1.3;color:#6FE0AE}
+.support-point span{font-size:11.5px;letter-spacing:.055em;text-transform:uppercase;color:rgba(255,255,255,.58)}
+.donate-side{display:flex;flex-direction:column;justify-content:center;gap:15px;padding-left:clamp(0px,2vw,26px);border-left:1px solid rgba(255,255,255,.14)}
+.support-ayah{padding-bottom:3px;text-align:left}
+.support-ayah blockquote{font:400 clamp(22px,2.7vw,31px)/1.65 var(--font-ar);color:#E8C96B;text-align:right}
+.support-ayah figcaption{margin-top:2px;font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.58)}
+.donate-actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:2px}
+.donate-actions .btn{width:100%;min-height:52px}
+.donate-actions .btn-light{font-weight:700;box-shadow:0 10px 24px rgba(0,0,0,.12)}
+.donate-actions .btn-outline-light{background:rgba(0,0,0,.06);border-color:rgba(255,255,255,.28)}
+.donate-actions .btn-outline-light:hover{background:rgba(255,255,255,.08)}
+.donate-note{font-size:12.5px;line-height:1.5;text-align:center;color:rgba(255,255,255,.5)}
 .donate-card :focus-visible{outline-color:#F3D27A}
 
 
@@ -599,6 +618,10 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
   .bk-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:960px){
+  .donate-card{grid-template-columns:minmax(0,1fr);gap:24px}
+  .donate-side{padding-left:0;padding-top:22px;border-left:0;border-top:1px solid rgba(255,255,255,.14)}
+  .support-ayah{max-width:620px}
+  .support-ayah blockquote{text-align:left}
   .hero{padding:32px 0 36px}
   .hero-grid{grid-template-columns:minmax(0,1fr);gap:20px}
   .hero-art{order:-1}
@@ -643,7 +666,12 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
   .fb-stats dd{font-size:28px}
   .fb-actions .btn{flex:1 1 180px}
   .bk-grid,.explore-grid,.skill-list{grid-template-columns:minmax(0,1fr)}
-  .panel,.contribute-panel,.donate-card{padding:22px}
+  .panel,.contribute-panel{padding:22px}
+  .donate-card{padding:24px 20px;border-radius:20px}
+  .donate-card h2{font-size:clamp(29px,9vw,38px)}
+  .support-points{gap:12px 22px}
+  .support-ayah blockquote{font-size:24px}
+  .donate-actions .btn{min-height:50px}
   .timeline-card .soon-tag{position:static;align-self:flex-start;margin-top:12px}
   .tl{grid-template-columns:minmax(0,1fr);gap:18px;padding-top:22px}
   .tl::before{left:7px;right:auto;top:30px;bottom:8px;width:2px;height:auto;background:linear-gradient(180deg,var(--green-3),var(--gold-3))}
@@ -1611,12 +1639,27 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
     </div>
 
     <aside class="donate-card" id="support" aria-labelledby="support-title">
-      <svg class="star" aria-hidden="true"><use href="#i-star"/></svg>
-      <h2 id="support-title">Support the mission</h2>
-      <p>Help us make authentic Islamic knowledge accessible to every Muslim — in their own language.</p>
-      <div class="donate-actions">
-        <a class="btn btn-light" href="mailto:seerahlibrary@gmail.com?subject=Donation%20Inquiry">Donate now</a>
-        <a class="btn btn-outline-light" href="https://wa.me/905063668067" target="_blank" rel="noopener noreferrer">WhatsApp us<span class="visually-hidden"> (opens in a new tab)</span></a>
+      <div class="donate-main">
+        <span class="support-badge">SUPPORT THE MISSION</span>
+        <h2 id="support-title">Help Us Bring <em>Islamic Knowledge</em> to Every Muslim</h2>
+        <p class="donate-lead">We are building a free, source-based Islamic learning library in multiple languages. Your support helps us keep the library accessible, improve translations, and continue publishing carefully reviewed content.</p>
+        <div class="support-points" aria-label="Project principles">
+          <span class="support-point"><strong>Free access</strong><span>No paywall</span></span>
+          <span class="support-point"><strong>Multilingual</strong><span>More languages</span></span>
+          <span class="support-point"><strong>Source-based</strong><span>Careful review</span></span>
+        </div>
+      </div>
+
+      <div class="donate-side">
+        <figure class="support-ayah">
+          <blockquote lang="ar" dir="rtl">وَأَنفِقُوا۟ فِى سَبِيلِ ٱللَّهِ</blockquote>
+          <figcaption>Qur’an 2:195 · “Spend in the way of Allah.”</figcaption>
+        </figure>
+        <div class="donate-actions">
+          <a class="btn btn-light" href="mailto:seerahlibrary@gmail.com?subject=Donation%20Inquiry" aria-label="Contact us about making a donation">♡&nbsp; Donate now</a>
+          <a class="btn btn-outline-light" href="https://wa.me/905063668067" target="_blank" rel="noopener noreferrer">WhatsApp us<span class="visually-hidden"> (opens in a new tab)</span></a>
+        </div>
+        <p class="donate-note">Support the library and help keep beneficial knowledge freely accessible.</p>
       </div>
     </aside>
   </div>
@@ -1633,7 +1676,7 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
         <div class="footer-brand-text">
           <strong>Seerah</strong>
           <span>The Life of the Prophet ﷺ</span>
-          <p>A multilingual library of authentic Seerah books, built by UmmahTechs.</p>
+          <p>A multilingual library of authentic Seerah books, built by UmmahTech.</p>
         </div>
       </div>
       <figure class="footer-quote">
