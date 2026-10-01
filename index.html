@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
-<!-- Build: Quran intro 12 quotes connected — 2026-09-30 v2 -->
+<!-- Build: Seerah Timeline connected; embedded Q&A preserved — 2026-10-01 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Seerah — The Life of Prophet Muhammad ﷺ</title>
 <meta name="description" content="Explore authentic Seerah books, the life of Prophet Muhammad ﷺ, Sahaba and Sahabiyat, Prophets, timelines, and source-based Islamic learning in multiple languages.">
@@ -485,7 +485,13 @@ a.reminder-source[href]:hover{text-decoration:underline;text-underline-offset:3p
 .soon-tag{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface-2);font-size:12px;font-weight:600;color:var(--ink-3);white-space:nowrap}
 .soon-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold-3)}
 .timeline-card{display:flex;flex-direction:column}
-.timeline-card .soon-tag{position:absolute;top:22px;right:22px}
+.timeline-card-link{color:inherit}
+.timeline-card-link:hover{color:var(--accent-ink)}
+.tl-link{display:block;color:inherit;border-radius:8px}
+.tl-link:hover .tl-title{color:var(--accent-ink)}
+.tl-link:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
+.timeline-card-foot{margin-top:22px}
+.timeline-card .go-link:hover .i{transform:translateX(3px)}
 .tl{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:auto;padding-top:30px}
 .tl::before{content:"";position:absolute;left:7px;right:24px;top:37px;height:2px;background:linear-gradient(90deg,var(--green-3),var(--gold-3));opacity:.75}
 .tl li{position:relative;padding:28px 14px 0 0}
@@ -644,7 +650,6 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
   .support-points{gap:12px 22px}
   .support-ayah blockquote{font-size:24px}
   .donate-actions .btn{min-height:50px}
-  .timeline-card .soon-tag{position:static;align-self:flex-start;margin-top:12px}
   .tl{grid-template-columns:minmax(0,1fr);gap:18px;padding-top:22px}
   .tl::before{left:7px;right:auto;top:30px;bottom:8px;width:2px;height:auto;background:linear-gradient(180deg,var(--green-3),var(--gold-3))}
   .tl li{padding:0 0 0 30px}
@@ -727,7 +732,7 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
       <li class="has-dropdown">
         <a href="#explore">Explore <svg class="caret" aria-hidden="true"><use href="#i-caret"/></svg></a>
         <div class="dropdown">
-          <a href="#timeline">Seerah Timeline</a>
+          <a href="timeline.html">Seerah Timeline</a>
           <a href="anbiya.html">Anbiya-e-Kiram</a>
           <a href="#ahle-bayt">Ahle Bayt</a>
           <a href="#sahaba">Sahaba &amp; Sahabiyat</a>
@@ -776,7 +781,7 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
     </div>
     <div class="mobile-nav-group">
       <span class="mobile-nav-label">Explore</span>
-      <a href="#timeline">Seerah Timeline</a>
+      <a href="timeline.html">Seerah Timeline</a>
       <a href="anbiya.html">Anbiya-e-Kiram</a>
       <a href="#ahle-bayt">Ahle Bayt</a>
       <a href="#sahaba">Sahaba &amp; Sahabiyat</a>
@@ -977,17 +982,18 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
           <span class="icon-tile" aria-hidden="true"><svg class="i"><use href="#i-clock"/></svg></span>
           <div>
             <span class="card-kicker">Life in sequence</span>
-            <h3 class="card-title" id="timeline-title">Seerah Timeline</h3>
+            <h3 class="card-title" id="timeline-title"><a class="timeline-card-link" href="timeline.html">Seerah Timeline</a></h3>
             <p class="card-desc">A chronological guide to the major stages in the life of Prophet Muhammad ﷺ.</p>
           </div>
         </div>
-        <span class="soon-tag">Coming soon</span>
+        <!-- Each stage opens the same milestone on timeline.html (ids match the embedded timeline data). -->
         <ol class="tl" aria-label="Selected stages from the Seerah">
-          <li><span class="tl-year">c. 570 CE</span><span class="tl-title">Birth in Makkah</span><span class="tl-sub">Early life</span></li>
-          <li><span class="tl-year">610 CE</span><span class="tl-title">First Revelation</span><span class="tl-sub">Beginning of prophethood</span></li>
-          <li><span class="tl-year">622 CE · 1 AH</span><span class="tl-title">Hijrah to Madinah</span><span class="tl-sub">A new chapter</span></li>
-          <li><span class="tl-year">632 CE · 10 AH</span><span class="tl-title">Farewell Pilgrimage</span><span class="tl-sub">Final years</span></li>
+          <li><a class="tl-link" href="timeline.html#birth"><span class="tl-year">c. 570 CE</span><span class="tl-title">Birth in Makkah</span><span class="tl-sub">Early life</span></a></li>
+          <li><a class="tl-link" href="timeline.html#first-revelation"><span class="tl-year">c. 610 CE</span><span class="tl-title">First Revelation</span><span class="tl-sub">Beginning of prophethood</span></a></li>
+          <li><a class="tl-link" href="timeline.html#hijrah"><span class="tl-year">622 CE · 1 AH</span><span class="tl-title">Hijrah to Madinah</span><span class="tl-sub">A new chapter</span></a></li>
+          <li><a class="tl-link" href="timeline.html#farewell-hajj"><span class="tl-year">632 CE · 10 AH</span><span class="tl-title">Farewell Pilgrimage</span><span class="tl-sub">Final years</span></a></li>
         </ol>
+        <div class="card-foot timeline-card-foot"><a class="go-link" href="timeline.html">Explore all 43 milestones <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
       </article>
 
       <aside class="panel lineage-card" id="lineage" aria-labelledby="lineage-title">
@@ -1131,7 +1137,7 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
 
 <div class="seerah-toast" id="seerah-toast" role="status" aria-live="polite"></div>
 
-<!-- Featured questions data (questions page ke saath shared). File na mile to default question dikhega. -->
+<!-- Embedded featured questions: shared question IDs for the ticker and site search. -->
 <script>
 window.SEERAH_QA_TOPICS={
   seerah:{name:"Seerah",desc:"The life, character, and decisions of the Prophet ﷺ."},
@@ -1698,7 +1704,7 @@ $$('[data-future-route="reading"]').forEach(el=>el.addEventListener('click',()=>
 
   const SECTIONS=[
     {type:'Featured',title:'Ar-Raheeq Al-Makhtum',detail:'The Sealed Nectar · Safiur Rahman Mubarakpuri',href:'#featured',kw:'sealed nectar raheeq makhtum mubarakpuri featured biography'},
-    {type:'Section',title:'Seerah Timeline',detail:'Birth, first revelation, Hijrah, Farewell Pilgrimage',href:'#timeline',kw:'timeline birth makkah mecca revelation hira hijrah hijra migration madinah medina farewell pilgrimage hajj'},
+    {type:'Page',title:'Seerah Timeline',detail:'43 milestones · Birth, first revelation, Hijrah, Farewell Pilgrimage',href:'timeline.html',kw:'timeline birth makkah mecca revelation hira hijrah hijra migration madinah medina farewell pilgrimage hajj'},
     {type:'Section',title:'Prophetic Lineage',detail:'Abdullah → Prophet Muhammad ﷺ → Fatima',href:'#lineage',kw:'lineage family tree father daughter abdullah fatima nasab'},
     {type:'Section',title:'Anbiya-e-Kiram',detail:'Stories of the 25 Prophets named in the Qur’an',href:'anbiya.html',kw:'anbiya ambiya prophets nabi stories of the prophets'},
     {type:'Section',title:'Ahle Bayt',detail:'The household of the Prophet ﷺ',href:'#ahle-bayt',kw:'ahle bayt ahl al-bayt ahlul bayt household family wives children banu hashim'},
