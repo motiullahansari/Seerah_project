@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
-<!-- Build: Seerah Timeline connected; embedded Q&A preserved — 2026-10-01 -->
+<!-- Build: Ar-Raheeq reader connected (Start / Continue reading); Seerah Timeline connected; embedded Q&A preserved — 2026-10-01 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Seerah — The Life of Prophet Muhammad ﷺ</title>
 <meta name="description" content="Explore authentic Seerah books, the life of Prophet Muhammad ﷺ, Sahaba and Sahabiyat, Prophets, timelines, and source-based Islamic learning in multiple languages.">
@@ -316,6 +316,7 @@ a.reminder-source[href]:hover{text-decoration:underline;text-underline-offset:3p
 .fb-coming-soon{margin-top:12px;font-size:13.5px;color:var(--ink-3)}
 .fb-coming-soon strong{font-weight:600;color:var(--accent-ink)}
 .fb-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.fb-actions .btn[hidden]{display:none}
 .fb-actions .btn-secondary svg{width:20px;height:20px}
 .fb-stage{display:flex;justify-content:center}
 .fb-cover-trigger{display:block;border-radius:10px}
@@ -903,6 +904,9 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
       <p class="fb-coming-soon"><strong>Coming soon:</strong> Bosnian, Albanian</p>
       <div class="fb-actions">
         <button type="button" class="btn btn-primary" data-future-route="reading">Start reading</button>
+        <button type="button" class="btn btn-secondary" id="continue-reading" data-future-route="reading">
+          Continue reading <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </button>
         <a class="btn btn-secondary fb-app-link" href="https://play.google.com/store/apps/details?id=com.ummahtechnologies.seerah" target="_blank" rel="noopener noreferrer" aria-label="Get the Seerah app on Google Play (opens in a new tab)">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="#00B9F1" d="M4 2.6 13.3 12 4 21.4z"/><path fill="#00C68B" d="M4 2.6 16.1 9.4 13.3 12z"/><path fill="#EA4335" d="M4 21.4 13.3 12 16.1 14.6z"/><path fill="#FFCA28" d="m16.1 9.4 4.4 1.7c1.2.5 1.2 1.3 0 1.8l-4.4 1.7-2.8-2.6z"/></svg>
           Get it on Google Play
@@ -1687,11 +1691,38 @@ function revealBook(id){
 /* ═══════════════════════════════════════════════
    4. FEATURED BOOK — "Start reading"
    ═══════════════════════════════════════════════ */
-/* Ar-Raheeq reader page ready ho to yahan uska path likhein, e.g. 'ar-raheeq.html'. Khali = notice. */
-const READING_URL='';
+/* Ar-Raheeq reader page. Khali ('') karne par buttons "coming soon" notice dikhayenge. */
+const READING_URL='ar-raheeq.html';
+/* The reader saves the last opened lesson as JSON in "seerah.continue": {c: chapter, l: lesson, topic, title}. */
+function savedContinue(){
+  try{
+    const v=JSON.parse(localStorage.getItem('seerah.continue'));
+    return v&&Number(v.c)>0&&Number(v.l)>0?v:null;
+  }catch{return null;}
+}
+const continueBtn=$('#continue-reading');
+let continueAt=null;
+/* "Continue reading" only shows once a lesson has been opened. Re-checked on pageshow
+   so coming back from the reader with the Back button picks up the latest lesson. */
+function refreshContinue(){
+  continueAt=savedContinue();
+  if(!continueBtn)return;
+  continueBtn.hidden=!continueAt||!READING_URL;
+  if(continueAt){
+    const where=[continueAt.topic,continueAt.title].filter(Boolean).join(' · ');
+    continueBtn.title=where?'Continue: '+where:'Continue reading';
+    continueBtn.setAttribute('aria-label',where?'Continue reading: '+where:'Continue reading');
+  }
+}
+refreshContinue();
+window.addEventListener('pageshow',refreshContinue);
 $$('[data-future-route="reading"]').forEach(el=>el.addEventListener('click',()=>{
-  if(READING_URL)location.href=READING_URL;
-  else showToast('The reader for Ar-Raheeq Al-Makhtum is coming soon.');
+  if(!READING_URL){showToast('The reader for Ar-Raheeq Al-Makhtum is coming soon.');return;}
+  if(el===continueBtn&&continueAt){
+    location.href=READING_URL+'#'+new URLSearchParams({chapter:String(continueAt.c),lesson:String(continueAt.l)});
+    return;
+  }
+  location.href=READING_URL;
 }));
 
 /* ═══════════════════════════════════════════════
