@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
-<!-- Build: Lineage page linked; Ar-Raheeq reader connected (Start / Continue reading); Seerah Timeline connected; embedded Q&A preserved — 2026-10-01 -->
+<!-- Build: Sahaba, Ahle Bayt + Lineage pages linked; Ar-Raheeq reader connected (Start / Continue reading); Seerah Timeline connected; embedded Q&A preserved — 2026-10-01 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Seerah — The Life of Prophet Muhammad ﷺ</title>
 <meta name="description" content="Explore authentic Seerah books, the life of Prophet Muhammad ﷺ, Sahaba and Sahabiyat, Prophets, timelines, and source-based Islamic learning in multiple languages.">
@@ -740,8 +740,8 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
           <a href="timeline.html">Seerah Timeline</a>
         <a href="lineage.html">Prophetic Lineage</a>
           <a href="anbiya.html">Anbiya-e-Kiram</a>
-          <a href="#ahle-bayt">Ahle Bayt</a>
-          <a href="#sahaba">Sahaba &amp; Sahabiyat</a>
+          <a href="ahle-bayt.html">Ahle Bayt</a>
+          <a href="sahaba-sahabiya.html">Sahaba &amp; Sahabiyat</a>
           <a href="questions.html">Questions &amp; Answers</a>
         </div>
       </li>
@@ -790,8 +790,8 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
       <a href="timeline.html">Seerah Timeline</a>
         <a href="lineage.html">Prophetic Lineage</a>
       <a href="anbiya.html">Anbiya-e-Kiram</a>
-      <a href="#ahle-bayt">Ahle Bayt</a>
-      <a href="#sahaba">Sahaba &amp; Sahabiyat</a>
+      <a href="ahle-bayt.html">Ahle Bayt</a>
+      <a href="sahaba-sahabiya.html">Sahaba &amp; Sahabiyat</a>
       <a href="questions.html">Questions &amp; Answers</a>
     </div>
     <div class="mobile-nav-group">
@@ -1034,26 +1034,25 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
         <div class="card-foot"><span class="go-link">Explore <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
       </a>
 
-      <!-- Page ready hone par is <div> ko <a href="ahle-bayt.html"> bana dein aur soon-tag hata dein -->
-      <div class="panel explore-card is-soon" id="ahle-bayt">
+      <a class="panel explore-card" id="ahle-bayt" href="ahle-bayt.html" aria-labelledby="ahle-bayt-title">
         <span class="icon-tile" aria-hidden="true"><svg class="i"><use href="#i-house"/></svg></span>
         <div>
           <span class="card-kicker">Family of the Prophet ﷺ</span>
-          <h3 class="card-title">Ahle Bayt</h3>
+          <h3 class="card-title" id="ahle-bayt-title">Ahle Bayt</h3>
         </div>
         <p class="card-desc">The blessed household of Prophet Muhammad ﷺ — his wives, children, close family, and Banu Hashim.</p>
-        <div class="card-foot"><span class="soon-tag">Coming soon</span></div>
-      </div>
+        <div class="card-foot"><span class="go-link">Explore <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+      </a>
 
-      <div class="panel explore-card is-soon" id="sahaba">
+      <a class="panel explore-card" id="sahaba" href="sahaba-sahabiya.html" aria-labelledby="sahaba-title">
         <span class="icon-tile" aria-hidden="true"><svg class="i"><use href="#i-people"/></svg></span>
         <div>
           <span class="card-kicker">People around the Prophet ﷺ</span>
-          <h3 class="card-title">Sahaba &amp; Sahabiyat</h3>
+          <h3 class="card-title" id="sahaba-title">Sahaba &amp; Sahabiyat</h3>
         </div>
         <p class="card-desc">Organized profiles of the Companions, their relationships, and their contributions.</p>
-        <div class="card-foot"><span class="soon-tag">Coming soon</span></div>
-      </div>
+        <div class="card-foot"><span class="go-link">Explore <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+      </a>
 
       <a class="panel explore-card" id="questions" href="questions.html" aria-labelledby="questions-title">
         <span class="icon-tile" aria-hidden="true"><svg class="i"><use href="#i-question"/></svg></span>
@@ -1745,8 +1744,8 @@ $$('[data-future-route="reading"]').forEach(el=>el.addEventListener('click',()=>
     {type:'Page',title:'Seerah Timeline',detail:'43 milestones · Birth, first revelation, Hijrah, Farewell Pilgrimage',href:'timeline.html',kw:'timeline birth makkah mecca revelation hira hijrah hijra migration madinah medina farewell pilgrimage hajj'},
     {type:'Page',title:'Prophetic Lineage',detail:'Paternal lineage to ‘Adnan · Husayni family branch · sources',href:'lineage.html',kw:'lineage family tree father daughter abdullah fatima fatimah husayn hasan adnan hashim quraysh nasab genealogy ancestors'},
     {type:'Section',title:'Anbiya-e-Kiram',detail:'Stories of the 25 Prophets named in the Qur’an',href:'anbiya.html',kw:'anbiya ambiya prophets nabi stories of the prophets'},
-    {type:'Section',title:'Ahle Bayt',detail:'The household of the Prophet ﷺ',href:'#ahle-bayt',kw:'ahle bayt ahl al-bayt ahlul bayt household family wives children banu hashim'},
-    {type:'Section',title:'Sahaba & Sahabiyat',detail:'Profiles of the Companions',href:'#sahaba',kw:'sahaba sahabah companions sahabi sahabiyat'},
+    {type:'Page',title:'Ahle Bayt',detail:'The household of the Prophet ﷺ · wives, children, Banu Hashim',href:'ahle-bayt.html',kw:'ahle bayt ahl al-bayt ahlul bayt household family wives children banu hashim mothers of the believers khadijah aisha fatimah ali hasan husayn cloak kisa'},
+    {type:'Page',title:'Sahaba & Sahabiyat',detail:'Profiles of the Companions · 16 profiles, 14 themes',href:'sahaba-sahabiya.html',kw:'sahaba sahabah companions sahabi sahabiyat sahabiya khalid abu hurairah salman ibn abbas muadh anas hudhayfa bilal khadijah aisha nusayba sumayyah rufaydah umm salamah shifa umm sulaym khulafa rashideen ashra mubashara sabiqoon'},
     {type:'Section',title:'Questions & Answers',detail:'Source-based answers about the Seerah',href:'questions.html',kw:'questions answers q&a faq'}
   ];
   function buildIndex(){
