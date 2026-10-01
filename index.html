@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
-<!-- Build: Ar-Raheeq reader connected (Start / Continue reading); Seerah Timeline connected; embedded Q&A preserved — 2026-10-01 -->
+<!-- Build: Lineage page linked; Ar-Raheeq reader connected (Start / Continue reading); Seerah Timeline connected; embedded Q&A preserved — 2026-10-01 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Seerah — The Life of Prophet Muhammad ﷺ</title>
 <meta name="description" content="Explore authentic Seerah books, the life of Prophet Muhammad ﷺ, Sahaba and Sahabiyat, Prophets, timelines, and source-based Islamic learning in multiple languages.">
@@ -492,6 +492,10 @@ a.reminder-source[href]:hover{text-decoration:underline;text-underline-offset:3p
 .tl-link:hover .tl-title{color:var(--accent-ink)}
 .tl-link:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
 .timeline-card-foot{margin-top:22px}
+.lineage-card{display:flex;flex-direction:column}
+.lineage-card .lineage{flex:1}
+.lineage-card-foot{margin-top:22px}
+.lineage-card .go-link:hover .i{transform:translateX(3px)}
 .timeline-card .go-link:hover .i{transform:translateX(3px)}
 .tl{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:auto;padding-top:30px}
 .tl::before{content:"";position:absolute;left:7px;right:24px;top:37px;height:2px;background:linear-gradient(90deg,var(--green-3),var(--gold-3));opacity:.75}
@@ -734,6 +738,7 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
         <a href="#explore">Explore <svg class="caret" aria-hidden="true"><use href="#i-caret"/></svg></a>
         <div class="dropdown">
           <a href="timeline.html">Seerah Timeline</a>
+        <a href="lineage.html">Prophetic Lineage</a>
           <a href="anbiya.html">Anbiya-e-Kiram</a>
           <a href="#ahle-bayt">Ahle Bayt</a>
           <a href="#sahaba">Sahaba &amp; Sahabiyat</a>
@@ -783,6 +788,7 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
     <div class="mobile-nav-group">
       <span class="mobile-nav-label">Explore</span>
       <a href="timeline.html">Seerah Timeline</a>
+        <a href="lineage.html">Prophetic Lineage</a>
       <a href="anbiya.html">Anbiya-e-Kiram</a>
       <a href="#ahle-bayt">Ahle Bayt</a>
       <a href="#sahaba">Sahaba &amp; Sahabiyat</a>
@@ -1005,7 +1011,7 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
           <span class="icon-tile" aria-hidden="true"><svg class="i"><use href="#i-lineage"/></svg></span>
           <div>
             <span class="card-kicker">Family lineage</span>
-            <h3 class="card-title" id="lineage-title">Prophetic Lineage</h3>
+            <h3 class="card-title" id="lineage-title"><a class="timeline-card-link" href="lineage.html">Prophetic Lineage</a></h3>
           </div>
         </div>
         <ol class="lineage" aria-label="Lineage preview">
@@ -1013,6 +1019,7 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
           <li class="is-prophet">Prophet Muhammad ﷺ</li>
           <li>Fatima<span class="rel">Daughter</span></li>
         </ol>
+        <div class="card-foot lineage-card-foot"><a class="go-link" href="lineage.html">View family &amp; lineage <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
       </aside>
     </div>
 
@@ -1736,7 +1743,7 @@ $$('[data-future-route="reading"]').forEach(el=>el.addEventListener('click',()=>
   const SECTIONS=[
     {type:'Featured',title:'Ar-Raheeq Al-Makhtum',detail:'The Sealed Nectar · Safiur Rahman Mubarakpuri',href:'#featured',kw:'sealed nectar raheeq makhtum mubarakpuri featured biography'},
     {type:'Page',title:'Seerah Timeline',detail:'43 milestones · Birth, first revelation, Hijrah, Farewell Pilgrimage',href:'timeline.html',kw:'timeline birth makkah mecca revelation hira hijrah hijra migration madinah medina farewell pilgrimage hajj'},
-    {type:'Section',title:'Prophetic Lineage',detail:'Abdullah → Prophet Muhammad ﷺ → Fatima',href:'#lineage',kw:'lineage family tree father daughter abdullah fatima nasab'},
+    {type:'Page',title:'Prophetic Lineage',detail:'Paternal lineage to ‘Adnan · Husayni family branch · sources',href:'lineage.html',kw:'lineage family tree father daughter abdullah fatima fatimah husayn hasan adnan hashim quraysh nasab genealogy ancestors'},
     {type:'Section',title:'Anbiya-e-Kiram',detail:'Stories of the 25 Prophets named in the Qur’an',href:'anbiya.html',kw:'anbiya ambiya prophets nabi stories of the prophets'},
     {type:'Section',title:'Ahle Bayt',detail:'The household of the Prophet ﷺ',href:'#ahle-bayt',kw:'ahle bayt ahl al-bayt ahlul bayt household family wives children banu hashim'},
     {type:'Section',title:'Sahaba & Sahabiyat',detail:'Profiles of the Companions',href:'#sahaba',kw:'sahaba sahabah companions sahabi sahabiyat'},
@@ -1766,7 +1773,7 @@ $$('[data-future-route="reading"]').forEach(el=>el.addEventListener('click',()=>
     const q=norm(input.value);
     clear.hidden=!q;
     if(!q){results.innerHTML='';open(false);status.textContent='';return;}
-    const rank={Featured:0,Book:1,Section:2,Question:3};
+    const rank={Featured:0,Book:1,Page:2,Section:2,Question:3};
     found=INDEX.map(item=>({item,s:score(item,q)})).filter(r=>r.s>0)
       .sort((a,b)=>b.s-a.s||rank[a.item.type]-rank[b.item.type]||a.item.title.localeCompare(b.item.title))
       .slice(0,8).map(r=>r.item);
