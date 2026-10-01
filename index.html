@@ -282,8 +282,8 @@ a.reminder-source[href]:hover{text-decoration:underline;text-underline-offset:3p
 .qt-label{display:block;margin-bottom:1px;font-size:12.5px;font-weight:600;color:var(--accent-ink)}
 .qt-text{display:block;font:600 17px/1.45 var(--font-display);color:var(--ink);transition:opacity .3s,transform .3s,color .2s}
 .qt-text.is-changing{opacity:0;transform:translateY(4px)}
-.qt-link:hover .qt-text{color:var(--accent-ink)}
-.question-ticker .round-btn:hover .i{transform:translateX(2px)}
+.question-ticker:hover .qt-text{color:var(--accent-ink)}
+.question-ticker:hover .round-btn .i{transform:translateX(2px)}
 
 /* ══════════════════════════════════════════════
    7. SECTIONS
@@ -860,14 +860,14 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
       </article>
     </div>
 
-    <div class="question-ticker" id="featured-question" data-qa-target="q-1">
+    <a class="question-ticker" id="featured-question" href="questions.html?q=1" data-qa-target="q-1" aria-labelledby="featured-question-label popular-question-text">
       <span class="qt-icon" aria-hidden="true"><svg class="i"><use href="#i-question"/></svg></span>
-      <a class="qt-link" id="featured-question-link" href="questions.html#q-1">
+      <span class="qt-link" id="featured-question-link">
         <span class="qt-label" id="featured-question-label">Featured question · Seerah</span>
         <span class="qt-text" id="popular-question-text">Why did Prophet Muhammad ﷺ marry Aisha (RA) at a young age?</span>
-      </a>
-      <button class="round-btn" id="next-featured-question" type="button" aria-label="Next featured question" title="Next question"><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-    </div>
+      </span>
+      <span class="round-btn" id="featured-question-arrow" aria-hidden="true"><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+    </a>
   </div>
 </section>
 
@@ -1132,7 +1132,103 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
 <div class="seerah-toast" id="seerah-toast" role="status" aria-live="polite"></div>
 
 <!-- Featured questions data (questions page ke saath shared). File na mile to default question dikhega. -->
-<script src="questions-data.js"></script>
+<script>
+window.SEERAH_QA_TOPICS={
+  seerah:{name:"Seerah",desc:"The life, character, and decisions of the Prophet ﷺ."},
+  quran:{name:"Qur’an",desc:"Specific verses and how scholars have understood them."},
+  common:{name:"Common",desc:"Broader questions about faith, society, and history."},
+  articles:{name:"Articles",desc:"In-depth reading on key moments and themes from the Seerah."}
+};
+window.SEERAH_QUESTIONS=[
+  {"id": 1, "category": "seerah", "question": "Why did Prophet Muhammad ﷺ marry Aisha (RA) at a young age?"},
+  {"id": 2, "category": "seerah", "question": "Why did the Prophet ﷺ have multiple marriages?"},
+  {"id": 3, "category": "seerah", "question": "Why did the Prophet ﷺ marry Zaynab bint Jahsh (RA)?"},
+  {"id": 4, "category": "seerah", "question": "Why did the Prophet ﷺ participate in battles?"},
+  {"id": 5, "category": "seerah", "question": "How did the Prophet ﷺ treat people of other faiths?"},
+  {"id": 6, "category": "seerah", "question": "How did the Prophet ﷺ treat women?"},
+  {"id": 7, "category": "seerah", "question": "Did the Prophet ﷺ force anyone to accept Islam?"},
+  {"id": 8, "category": "seerah", "question": "Why did the Prophet ﷺ marry Safiyyah (RA)?"},
+  {"id": 9, "category": "seerah", "question": "What happened to Banu Qurayzah?"},
+  {"id": 10, "category": "seerah", "question": "How did the Prophet ﷺ respond to insults and persecution?"},
+  {"id": 11, "category": "seerah", "question": "Why did the Prophet ﷺ marry Juwayriyah (RA)?"},
+  {"id": 12, "category": "seerah", "question": "How do we know the reports about the Prophet’s ﷺ life are reliable?"},
+  {"id": 13, "category": "seerah", "question": "How do we know Prophet Muhammad ﷺ was truly a prophet?"},
+  {"id": 14, "category": "seerah", "question": "Did the Prophet ﷺ write the Qur’an himself?"},
+  {"id": 15, "category": "seerah", "question": "If the Prophet ﷺ could not read or write, how was the Qur’an recorded?"},
+  {"id": 16, "category": "seerah", "question": "Why did revelation come over many years instead of all at once?"},
+  {"id": 17, "category": "seerah", "question": "Did the Prophet ﷺ ever make mistakes?"},
+  {"id": 18, "category": "seerah", "question": "Why did the Prophet ﷺ receive revelations concerning his personal life?"},
+  {"id": 19, "category": "seerah", "question": "Did the Prophet ﷺ own enslaved people, and how did he treat them?"},
+  {"id": 20, "category": "seerah", "question": "What did the Prophet ﷺ do to help free enslaved people?"},
+  {"id": 21, "category": "seerah", "question": "Why were some people expelled from Madinah during the Prophet’s ﷺ lifetime?"},
+  {"id": 22, "category": "seerah", "question": "Did the Prophet ﷺ order the killing of people who criticized him?"},
+  {"id": 23, "category": "seerah", "question": "How did the Prophet ﷺ treat prisoners of war?"},
+  {"id": 24, "category": "seerah", "question": "Why did the Prophet ﷺ make treaties with his opponents?"},
+  {"id": 25, "category": "seerah", "question": "Did the Prophet ﷺ allow people to disagree with him?"},
+  {"id": 26, "category": "seerah", "question": "How did the Prophet ﷺ respond when his companions questioned a decision?"},
+  {"id": 27, "category": "seerah", "question": "Why did the Prophet ﷺ marry women who had been widowed?"},
+  {"id": 28, "category": "seerah", "question": "How did the Prophet ﷺ treat his wives during disagreements?"},
+  {"id": 29, "category": "seerah", "question": "Did the Prophet ﷺ seek political power for himself?"},
+  {"id": 30, "category": "seerah", "question": "Why did some of the Prophet’s ﷺ opponents eventually accept Islam?"},
+  {"id": 31, "category": "seerah", "question": "Are all stories commonly told about the Prophet ﷺ historically reliable?"},
+  {"id": 32, "category": "seerah", "question": "How can we distinguish an authentic hadith from a weak report?"},
+  {"id": 33, "category": "quran", "question": "What does Surah At-Tawbah 9:5 mean, and whom was it addressing?", "ref": "9:5"},
+  {"id": 34, "category": "quran", "question": "How should 9:5 be read alongside the treaty and protection verses, 9:4 and 9:6?", "ref": "9:5"},
+  {"id": 35, "category": "quran", "question": "How do Qur’an 2:190–191 describe the limits of fighting?", "ref": "2:190–191"},
+  {"id": 36, "category": "quran", "question": "How does “no compulsion in religion” (2:256) relate to the Qur’an’s verses about fighting?", "ref": "2:256"},
+  {"id": 37, "category": "quran", "question": "What does Qur’an 9:29 say about fighting and jizya, and what was its historical setting?", "ref": "9:29"},
+  {"id": 38, "category": "quran", "question": "What does awliya mean in Qur’an 5:51, and does the verse forbid friendship with Jews and Christians?", "ref": "5:51"},
+  {"id": 39, "category": "quran", "question": "How have scholars interpreted Qur’an 4:34 concerning marriage and violence?", "ref": "4:34"},
+  {"id": 40, "category": "quran", "question": "Why does Qur’an 4:11 give a son twice a daughter’s share in the case it describes?", "ref": "4:11"},
+  {"id": 41, "category": "quran", "question": "What does Qur’an 5:38 say about theft, and how have scholars understood its conditions?", "ref": "5:38"},
+  {"id": 42, "category": "quran", "question": "What does Qur’an 65:4 mean by women who “have not menstruated”?", "ref": "65:4"},
+  {"id": 43, "category": "quran", "question": "Has the Qur’an been preserved without change, and what evidence do early manuscripts and oral transmission provide?"},
+  {"id": 44, "category": "quran", "question": "Why are there different qirāʾāt (readings) of the Qur’an?"},
+  {"id": 45, "category": "quran", "question": "What is naskh (abrogation), and does it mean one Qur’anic ruling replaced another?"},
+  {"id": 46, "category": "quran", "question": "How does the Qur’an address someone who leaves Islam, and how did later scholars develop rulings on apostasy?"},
+  {"id": 47, "category": "quran", "question": "Why does Qur’an 4:24 mention female captives?", "ref": "4:24"},
+  {"id": 48, "category": "quran", "question": "Does Qur’an 18:86 say that the sun physically sets in a spring?", "ref": "18:86"},
+  {"id": 49, "category": "quran", "question": "How have scholars understood the description of human creation in Qur’an 86:6–7?", "ref": "86:6–7"},
+  {"id": 50, "category": "quran", "question": "What does Qur’an 4:157 say about the crucifixion of Jesus (Isa عليه السلام)?", "ref": "4:157"},
+  {"id": 51, "category": "quran", "question": "How does the Qur’an describe the salvation of Jews, Christians, and other believers in 2:62?", "ref": "2:62"},
+  {"id": 52, "category": "quran", "question": "Why does the Qur’an discuss enslavement without explicitly abolishing the institution?"},
+  {"id": 53, "category": "quran", "question": "Are there contradictions between different passages of the Qur’an, or differences in their context and interpretation?"},
+  {"id": 54, "category": "quran", "question": "How should verses with clear and less clear meanings be interpreted (Qur’an 3:7)?", "ref": "3:7"},
+  {"id": 55, "category": "quran", "question": "Why does Qur’an 2:282 mention one man and two women as witnesses for a deferred debt? Does this rule apply to every kind of testimony?", "ref": "2:282"},
+  {"id": 56, "category": "quran", "question": "What does Qur’an 24:2 prescribe for zina, and what evidence is required before an accusation can be proved?", "ref": "24:2"},
+  {"id": 57, "category": "quran", "question": "Why does Qur’an 33:53 instruct people to speak to the Prophet’s ﷺ wives from behind a partition? Was this rule specific to them?", "ref": "33:53"},
+  {"id": 58, "category": "quran", "question": "What does the Qur’an promise women in Paradise, and how should descriptions such as 56:22 be understood?", "ref": "56:22"},
+  {"id": 59, "category": "common", "question": "If Allah is merciful, why is eternal punishment described for disbelief?"},
+  {"id": 60, "category": "common", "question": "What happens to a good person who never became Muslim?"},
+  {"id": 61, "category": "common", "question": "If Allah already knows our choices, in what sense are humans free to choose?"},
+  {"id": 62, "category": "common", "question": "Why does Allah allow innocent children to suffer?"},
+  {"id": 63, "category": "common", "question": "What evidence would distinguish divine revelation from a human claim of revelation?"},
+  {"id": 64, "category": "common", "question": "Can someone openly question or criticize Islam without fear of punishment or rejection?"},
+  {"id": 65, "category": "common", "question": "How should Muslim families treat a relative who no longer believes in Islam?"},
+  {"id": 66, "category": "common", "question": "What does Islam teach about people who are LGBTQ+, and how should they be treated?"},
+  {"id": 67, "category": "common", "question": "Is wearing hijab a woman’s choice, and what is the difference between a religious teaching and coercion?"},
+  {"id": 68, "category": "common", "question": "When Muslims disagree about a troubling hadith, how can a reader assess the evidence without being asked to ignore the concern?"},
+  {"id": 69, "category": "common", "question": "Did Islam spread by force or by people choosing to accept it?"},
+  {"id": 70, "category": "common", "question": "Did Muslim rulers force people to convert?"},
+  {"id": 71, "category": "common", "question": "What role did trade, scholars, and local communities play in the spread of Islam?"},
+  {"id": 72, "category": "common", "question": "Did Muslim rulers destroy other religions’ places of worship?"},
+  {"id": 73, "category": "common", "question": "Do the actions of Muslim kings and empires represent the teachings of Islam?"},
+  {"id": 74, "category": "common", "question": "How should we judge historical Muslim rulers who acted unjustly?"},
+  {"id": 75, "category": "common", "question": "How have Muslims and people of other faiths lived and worked together?"},
+  {"id": 76, "category": "common", "question": "Does Islam teach respect for neighbours of other religions and their places of worship?"},
+  {"id": 77, "category": "common", "question": "Can a Muslim marry someone of another faith?"},
+  {"id": 78, "category": "common", "question": "Is conversion to Islam valid if it happens under pressure or only to get married?"},
+  {"id": 79, "category": "common", "question": "How should Muslims handle food practices that are deeply sensitive to their neighbours?"},
+  {"id": 80, "category": "common", "question": "Can Muslims be loyal citizens of a country where they are a religious minority?"}
+];
+window.SEERAH_ARTICLES=[
+  {"slug": "hijrah-why-madinah", "title": "The Hijrah: Why Madinah?", "summary": "How the migration unfolded, and why it became a turning point in the Prophet’s ﷺ mission.", "mark": "الهجرة", "featured": true},
+  {"slug": "hudaybiyyah-treaty", "title": "Hudaybiyyah: The Treaty That Opened Doors"},
+  {"slug": "constitution-of-madinah", "title": "The Constitution of Madinah: One City, Many Communities"},
+  {"slug": "year-of-sorrow", "title": "The Year of Sorrow: Loss and Patience in Makkah"},
+  {"slug": "mercy-towards-children", "title": "Mercy Towards Children in the Prophet’s ﷺ Life"}
+];
+</script>
 
 <script>
 /* ═══════════════════════════════════════════════
@@ -1615,7 +1711,7 @@ $$('[data-future-route="reading"]').forEach(el=>el.addEventListener('click',()=>
     SECTIONS.forEach(s=>items.push({...s}));
     const qs=Array.isArray(window.SEERAH_QUESTIONS)?window.SEERAH_QUESTIONS:[];
     const labels={seerah:'Seerah',quran:'Qur’an',common:'Common'};
-    qs.forEach(q=>{if(q&&q.question)items.push({type:'Question',title:q.question,detail:(labels[q.category]||'Question')+' · Q&A',href:'questions.html#q-'+encodeURIComponent(q.id),kw:''});});
+    qs.forEach(q=>{if(q&&q.question)items.push({type:'Question',title:q.question,detail:(labels[q.category]||'Question')+' · Q&A',href:'questions.html?q='+encodeURIComponent(q.id),kw:''});});
     return items.map(i=>({...i,_t:norm(i.title),_a:norm(i.alt),_k:norm(i.kw)}));
   }
   const INDEX=buildIndex();
@@ -1692,13 +1788,13 @@ $$('[data-future-route="reading"]').forEach(el=>el.addEventListener('click',()=>
   const longest=Math.max(...groups.map(g=>g.length));
   for(let i=0;i<longest;i++)groups.forEach(g=>{if(g[i])questions.push(g[i]);});
   if(!questions.length)return;
-  const card=$('#featured-question'),link=$('#featured-question-link'),labelEl=$('#featured-question-label'),nextButton=$('#next-featured-question');
+  const card=$('#featured-question'),link=card,labelEl=$('#featured-question-label');
   let index=0,timer,changeTimer;
   function paint(){
     const q=questions[index];
     questionEl.textContent=q.question;
     if(labelEl)labelEl.textContent='Featured question · '+(labels[q.category]||'Seerah');
-    if(link)link.href='questions.html#q-'+encodeURIComponent(q.id);
+    if(link)link.href='questions.html?q='+encodeURIComponent(q.id);
     if(card)card.dataset.qaTarget='q-'+q.id;
   }
   function renderNext(){index=(index+1)%questions.length;paint();questionEl.classList.remove('is-changing');}
@@ -1710,7 +1806,6 @@ $$('[data-future-route="reading"]').forEach(el=>el.addEventListener('click',()=>
   }
   const start=()=>{clearInterval(timer);if(!document.hidden)timer=setInterval(showNext,7000);};
   const stop=()=>clearInterval(timer);
-  nextButton?.addEventListener('click',()=>{announceOnce(questionEl);showNext();start();});
   card?.addEventListener('mouseenter',stop);card?.addEventListener('mouseleave',start);
   card?.addEventListener('focusin',stop);card?.addEventListener('focusout',start);
   document.addEventListener('visibilitychange',()=>document.hidden?stop():start());

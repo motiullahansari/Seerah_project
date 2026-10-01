@@ -16,8 +16,14 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Questions &amp; Answers — Seerah">
 <meta name="twitter:description" content="Clear, respectful, and source-based answers to common questions about the Seerah, the Qur’an, and Islam.">
-<script>/* Preserve old question links in this combined page. */
-if(/^#q-\d+$/.test(location.hash))location.replace('questions.html?q='+location.hash.slice(3));</script>
+<script>
+/* Keep saved question links on the integrated Questions page. */
+if(/^#q-\d+$/.test(location.hash)){
+  const url=new URL(location.href);
+  url.searchParams.set('q',location.hash.slice(3));url.hash='';
+  history.replaceState(null,'',url.href);
+}
+</script>
 <link rel="icon" type="image/png" href="data:image/png;base64,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">
 
 <script id="theme-system">
@@ -449,9 +455,12 @@ body.menu-open{overflow:hidden}
 .ummahtechs-powered{display:inline-flex;align-items:center;gap:7px;font-weight:600;color:var(--accent-ink);border-radius:6px}
 .ummahtechs-powered:hover{text-decoration:underline;text-underline-offset:3px}
 .ummahtechs-logo-img{width:22px;height:22px;border-radius:5px}
-/* ══════════════════════════════════════════════
-   7. READING PAGE — one question or article
-   ══════════════════════════════════════════════ */
+.soon-tag{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border:1px solid var(--gold-line);border-radius:999px;background:var(--gold-soft);font-size:12px;font-weight:600;color:var(--gold-ink);white-space:nowrap}
+.soon-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold-3)}
+.go-link{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--accent-ink)}
+.go-link .i{width:16px;height:16px;transition:transform .2s var(--ease)}
+.go-link:hover .i{transform:translateX(3px)}
+
 .read-hero{position:relative;isolation:isolate;padding:44px 0 40px;border-bottom:1px solid var(--line);background:radial-gradient(70% 120% at 88% 0%,var(--hero-glow-1),transparent 70%),radial-gradient(50% 90% at 0% 100%,var(--hero-glow-2),transparent 70%),var(--bg)}
 .read-hero::before{content:"";position:absolute;inset:0;z-index:-1;background-image:var(--lattice);background-size:72px 72px;opacity:var(--lattice-o);-webkit-mask-image:radial-gradient(55% 90% at 90% 20%,#000 20%,transparent 75%);mask-image:radial-gradient(55% 90% at 90% 20%,#000 20%,transparent 75%)}
 .read-hero-inner{max-width:820px}
@@ -510,57 +519,9 @@ body.menu-open{overflow:hidden}
 /* Not found */
 .read-missing .soon-mark{background:var(--bg-2);color:var(--ink-3)}
 
-/* ══════════════════════════════════════════════
-   8. RESPONSIVE
-   ══════════════════════════════════════════════ */
-@media (max-width:1100px){
-  .nav-links{display:none}
-  .nav-right{margin-left:auto}
-  .hamburger{display:grid}
-}
-@media (max-width:960px){
-  .read-layout{grid-template-columns:minmax(0,1fr);gap:48px}
-  .read-main{max-width:none}
-  .read-side{position:static}
-  .footer-main{flex-direction:column;text-align:center;gap:26px}
-  .footer-brand{flex-direction:column;gap:10px}
-}
-@media (max-width:840px){
-  .logo-tagline{display:none}
-  .contributor-login-desktop{display:none}
-  .contributor-login-mobile{display:inline}
-}
-@media (max-width:720px){
-  :root{--gutter:16px}
-  .site-header>nav{padding:0 12px;gap:8px}
-  .nav-right{gap:6px}
-  .seerah-nav-logo{width:38px;height:38px;border-radius:10px}
-  .logo-name{font-size:16px}
-  .lang-btn,.theme-toggle,.contributor-login,.hamburger{height:36px}
-  .theme-toggle,.hamburger{width:36px}
-  .lang-btn{padding:0 8px;gap:4px}
-  .contributor-login{padding:0 10px;font-size:12.5px}
-  .read-hero{padding:28px 0 30px}
-  .read-meta{margin-top:18px}
-  .read-layout{padding-top:28px;padding-bottom:64px}
-  .answer-soon{grid-template-columns:minmax(0,1fr);gap:14px;padding:22px}
-  .soon-mark{width:48px;height:48px;border-radius:14px}
-  .soon-actions .btn{flex:1 1 180px}
-  .read-pager{gap:10px}
-  .read-pager a{min-height:90px;padding:14px}
-}
-@media (max-width:400px){
-  .logo-name{font-size:15px;letter-spacing:.05em}
-  .nav-logo{gap:7px}
-  .seerah-nav-logo{width:34px;height:34px}
-  .lang-btn .i{display:none}
-  .contributor-login{padding:0 8px}
-}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-}
 
+@media(max-width:960px){.read-layout{grid-template-columns:minmax(0,1fr);gap:48px}.read-main{max-width:none}.read-side{position:static}}
+@media(max-width:720px){.read-hero{padding:28px 0 30px}.read-meta{margin-top:18px}.read-layout{padding-top:28px;padding-bottom:64px}.answer-soon{grid-template-columns:minmax(0,1fr);gap:14px;padding:22px}.soon-mark{width:48px;height:48px;border-radius:14px}.soon-actions .btn{flex:1 1 180px}.read-pager{gap:10px}.read-pager a{min-height:90px;padding:14px}}
 </style>
 </head>
 <body>
@@ -576,12 +537,12 @@ body.menu-open{overflow:hidden}
     <symbol id="i-question" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 1 1 3.8 1.95c-.95.65-1.6 1.15-1.6 2.3"/><path d="M12 16.8h.01"/></symbol>
     <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 7v5c0 4.4 3.2 7.6 8 9 4.8-1.4 8-4.6 8-9V7z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
     <symbol id="i-article" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></symbol>
-  </defs>
-<symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8.5 7H17v8.5"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8.5 7H17v8.5"/></symbol>
 <symbol id="i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16z"/><path d="m13.5 6.5 4 4"/><path d="M13 20h7"/></symbol>
 <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></symbol>
 <symbol id="i-chev-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></symbol>
 <symbol id="i-chev-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></symbol>
+</defs>
 </svg>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
@@ -887,10 +848,13 @@ body.menu-open{overflow:hidden}
 </div>
 </main>
 <script>
-const QA_READING_MODE=new URLSearchParams(location.search).has("q")||new URLSearchParams(location.search).has("article");
-document.getElementById(QA_READING_MODE?"qa-list-view":"qa-read-view").remove();
-if(QA_READING_MODE){document.querySelectorAll(".mobile-nav a").forEach(a=>{if(["#seerah","#quran","#common","#articles"].includes(a.getAttribute("href")))a.setAttribute("href","questions.html"+a.getAttribute("href"));});}
+const QA_READING_MODE=new URLSearchParams(location.search).has('q')||new URLSearchParams(location.search).has('article');
+document.getElementById(QA_READING_MODE?'qa-list-view':'qa-read-view').remove();
+if(QA_READING_MODE){
+ document.querySelectorAll('a[href="#seerah"],a[href="#quran"],a[href="#common"],a[href="#articles"]').forEach(a=>a.setAttribute('href','questions.html'+a.getAttribute('href')));
+}
 </script>
+
 
 <!-- ═════════════ FOOTER (same as index.html) ═════════════ -->
 <footer class="site-footer" id="about">
@@ -924,8 +888,7 @@ if(QA_READING_MODE){document.querySelectorAll(".mobile-nav a").forEach(a=>{if(["
   </div>
 </footer>
 
-<!-- Questions and article data embedded for standalone use. -->
-<script id="qa-data">
+<script>
 window.SEERAH_QA_TOPICS={
   seerah:{name:"Seerah",desc:"The life, character, and decisions of the Prophet ﷺ."},
   quran:{name:"Qur’an",desc:"Specific verses and how scholars have understood them."},
@@ -1035,7 +998,7 @@ const store={
 const REDUCED_MOTION=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const icon=(id,cls='i')=>`<svg class="${cls}" aria-hidden="true"><use href="#i-${id}"/></svg>`;
-/* Q&A data is embedded in this page above. */
+/* Shared Q&A data (questions-data.js). Missing file → empty lists, and the pages show a clear message. */
 const QA={
   topics:window.SEERAH_QA_TOPICS||{seerah:{name:'Seerah'},quran:{name:'Qur’an'},common:{name:'Common'},articles:{name:'Articles'}},
   questions:Array.isArray(window.SEERAH_QUESTIONS)?window.SEERAH_QUESTIONS:[],
@@ -1163,10 +1126,9 @@ if(yearEl)yearEl.textContent=new Date().getFullYear();
 })();
 
 /* ═══════════════════════════════════════════════
-   4. QUESTIONS — rendered from the embedded data
+   4. QUESTIONS — rendered from questions-data.js
    ═══════════════════════════════════════════════ */
 (function questions(){
-  if(QA_READING_MODE)return;
   const body=$('#qa-body'),input=$('#site-search'),clear=$('#clear-search'),result=$('#qa-result');
   const empty=$('#qa-empty'),emptyTerm=$('#qa-empty-term');
   if(!body||!input)return;
@@ -1295,6 +1257,8 @@ if(yearEl)yearEl.textContent=new Date().getFullYear();
     requestAnimationFrame(()=>window.scrollTo(0,body.getBoundingClientRect().top+scrollY-16));
   }else render();
 })();
+</script>
+<script>
 (function readPage(){
   if(!QA_READING_MODE)return;
   const params=new URLSearchParams(location.search);
