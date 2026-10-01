@@ -1708,22 +1708,27 @@ function savedContinue(){
 }
 const continueBtn=$('#continue-reading');
 let continueAt=null;
-/* "Continue reading" only shows once a lesson has been opened. Re-checked on pageshow
-   so coming back from the reader with the Back button picks up the latest lesson. */
+/* Keep "Continue reading" visible even when progress is missing or storage is unavailable.
+   Saved progress opens that lesson; otherwise the button opens the reader's chapter list. */
 function refreshContinue(){
   continueAt=savedContinue();
   if(!continueBtn)return;
-  continueBtn.hidden=!continueAt||!READING_URL;
-  if(continueAt){
-    const where=[continueAt.topic,continueAt.title].filter(Boolean).join(' · ');
-    continueBtn.title=where?'Continue: '+where:'Continue reading';
-    continueBtn.setAttribute('aria-label',where?'Continue reading: '+where:'Continue reading');
-  }
+  continueBtn.hidden=false;
+  const where=continueAt?[continueAt.topic,continueAt.title].filter(Boolean).join(' · '):'';
+  continueBtn.title=where?'Continue: '+where:'Continue reading';
+  continueBtn.setAttribute('aria-label',where?'Continue reading: '+where:'Continue reading');
 }
 refreshContinue();
 window.addEventListener('pageshow',refreshContinue);
+window.addEventListener('storage',e=>{
+  if(e.key==='seerah.continue'||e.key===null)refreshContinue();
+});
+document.addEventListener('visibilitychange',()=>{
+  if(!document.hidden)refreshContinue();
+});
 $$('[data-future-route="reading"]').forEach(el=>el.addEventListener('click',()=>{
   if(!READING_URL){showToast('The reader for Ar-Raheeq Al-Makhtum is coming soon.');return;}
+  if(el===continueBtn)refreshContinue();
   if(el===continueBtn&&continueAt){
     location.href=READING_URL+'#'+new URLSearchParams({chapter:String(continueAt.c),lesson:String(continueAt.l)});
     return;
