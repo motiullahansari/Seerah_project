@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Build: Sahaba & Sahabiyat on the shared Seerah shell (header, footer, theme, language) — 2026-10-01 -->
+<!-- Build: Sahaba & Sahabiyat on the shared Seerah shell — redesign: doors hub + one open section at a time — 2026-10-01 -->
 <meta name="description" content="Explore Sahaba and Sahabiyat profiles, the Rightly Guided Caliphs, Ashra Mubashara, and Al-Sabiqoon al-Awwaloon.">
 <meta name="robots" content="index, follow">
 <meta name="color-scheme" content="light dark">
@@ -233,6 +233,7 @@ body.menu-open{overflow:hidden}
 
 /* ══════════════════════════════════════════════
    SAHABA & SAHABIYAT PAGE
+   Short page: hero → doors hub → one open section at a time.
    ══════════════════════════════════════════════ */
 :root{--ui:'DM Sans','Amiri',system-ui,-apple-system,'Segoe UI',sans-serif;--serif:'Playfair Display','Amiri',Georgia,serif;--ar:'Amiri','Noto Naskh Arabic',serif;--max:1140px;--header:76px;--lattice:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='88' height='88' viewBox='0 0 88 88'%3E%3Cg fill='none' stroke='%23D9BB75' stroke-width='.8'%3E%3Cpath d='M27 27h34v34H27zM44 20 68 44 44 68 20 44zM0 44h20m48 0h20M44 0v20m0 48v20'/%3E%3Ccircle cx='44' cy='44' r='5'/%3E%3C/g%3E%3C/svg%3E")}
 [data-theme="light"]{color-scheme:light;--bg:#FAFAF7;--surface:#fff;--wash:#F1F3EC;--paper:#F7F6F0;--ink:#1C2C23;--muted:#59665C;--quiet:#727B72;--line:#E0E5DC;--green:#1B6B4A;--green-hover:#14563B;--green-soft:#EAF3EC;--gold:#937025;--gold-soft:#F8F2E2;--rose:#8C5265;--rose-soft:#F7EDF0;--nav:rgba(250,250,247,.94);--shadow:0 12px 35px rgba(31,57,37,.065)}
@@ -243,12 +244,10 @@ html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header) + 22px)}
 body{font-family:var(--ui);background:var(--bg);color:var(--ink);line-height:1.6}
 button,input,select{font:inherit}
 button,a,input,select{-webkit-tap-highlight-color:transparent}
-button{cursor:pointer}
+button{cursor:pointer;color:inherit;touch-action:manipulation}
 a{color:inherit;text-decoration:none}
-button{color:inherit}
 button:disabled{cursor:default}
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
-button{touch-action:manipulation}
 .wrap{width:min(var(--max),calc(100% - 64px));margin-inline:auto}
 .i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 .hidden-icon{position:absolute;width:0;height:0;overflow:hidden}
@@ -258,25 +257,27 @@ button{touch-action:manipulation}
 .skip-link:focus{transform:none}
 .icon-btn{display:inline-grid;place-items:center;width:40px;height:40px;padding:0;border:1px solid var(--line);background:var(--surface);border-radius:10px;color:var(--muted);transition:background .18s,color .18s}
 .icon-btn:hover{background:var(--green-soft);color:var(--green)}
-.hero{padding:32px 0 46px;position:relative;background:radial-gradient(ellipse at 14% 64%,rgba(205,223,203,.21),transparent 56%)}
-.breadcrumbs{display:flex;align-items:center;gap:9px;font-size:11px;color:var(--quiet);margin-bottom:34px}
+
+/* ── Hero (same look as before, a little tighter) ── */
+.hero{padding:30px 0 42px;position:relative;background:radial-gradient(ellipse at 14% 64%,rgba(205,223,203,.21),transparent 56%)}
+.breadcrumbs{display:flex;align-items:center;gap:9px;font-size:11.5px;color:var(--quiet);margin-bottom:30px}
 .breadcrumbs a:hover{color:var(--green)}
 .breadcrumbs .i{width:13px;height:13px}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:90px;align-items:center}
-.eyebrow{display:flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:2px;font-weight:600;font-size:10px;color:var(--green)}
+.eyebrow{display:flex;align-items:center;gap:10px;text-transform:uppercase;letter-spacing:2px;font-weight:600;font-size:10.5px;color:var(--green)}
 .eyebrow::before{content:'';width:23px;height:1px;background:currentColor}
 .hero h1{font-family:var(--serif);font-weight:500;line-height:1.09;letter-spacing:-2.1px;font-size:clamp(48px,5.3vw,72px);margin:18px 0 20px}
 .hero h1 em{font-weight:500;color:var(--gold);display:block}
-.hero-desc{max-width:450px;color:var(--muted);font-size:14px;line-height:1.85}
+.hero-desc{max-width:450px;color:var(--muted);font-size:14.5px;line-height:1.85}
 .hero-actions{display:flex;gap:11px;align-items:center;flex-wrap:wrap;margin-top:26px}
-.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:45px;padding:10px 19px;border-radius:9px;font-size:12px;font-weight:600;border:1px solid var(--line);background:var(--surface);transition:background .18s,transform .18s}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:45px;padding:10px 19px;border-radius:9px;font-size:12.5px;font-weight:600;border:1px solid var(--line);background:var(--surface);transition:background .18s,transform .18s}
 .btn:hover{background:var(--wash);transform:translateY(-1px)}
 .btn-primary{background:#1B6B4A;color:#fff;border-color:#1B6B4A}
 .btn-primary:hover{background:#14563B;color:#fff}
 .btn .i{width:17px;height:17px}
-.hero-note{display:flex;align-items:center;gap:7px;margin-top:19px;color:var(--quiet);font-size:10px}
+.hero-note{display:flex;align-items:center;gap:7px;margin-top:19px;color:var(--quiet);font-size:11px}
 .hero-note .i{width:13px;height:13px}
-.verse-panel{position:relative;min-height:366px;padding:27px 31px 26px;border-radius:125px 125px 22px 22px;background:#163F2E;box-shadow:0 16px 30px rgba(25,70,47,.11);color:#F7F4E9;text-align:center;isolation:isolate;overflow:hidden}
+.verse-panel{position:relative;min-height:350px;padding:27px 31px 26px;border-radius:125px 125px 22px 22px;background:#163F2E;box-shadow:0 16px 30px rgba(25,70,47,.11);color:#F7F4E9;text-align:center;isolation:isolate;overflow:hidden}
 .verse-panel::before{content:'';position:absolute;inset:0;background-image:var(--lattice);opacity:.12;z-index:-1}
 .verse-panel::after{content:'';position:absolute;inset:11px;border:1px solid rgba(214,186,117,.3);border-radius:116px 116px 14px 14px;pointer-events:none}
 .ornament{display:block;margin:0 auto 13px;color:#D4BA80;width:32px;height:32px}
@@ -285,301 +286,347 @@ button{touch-action:manipulation}
 .verse-rule::before,.verse-rule::after{content:'';height:1px;width:50px;background:currentColor;opacity:.6}
 .verse-rule .i{width:11px;height:11px}
 .verse-ar{font:400 19px/1.85 var(--ar);color:#F5F2E9}
-.verse-en{font:400 10.5px/1.8 var(--ui);color:#CFDDD0;margin:10px auto;max-width:345px}
-.verse-ref{font:500 9px var(--ui);text-transform:uppercase;letter-spacing:1.3px;color:#DEC184;display:inline-flex;gap:6px;align-items:center}
+.verse-en{font:400 11px/1.8 var(--ui);color:#CFDDD0;margin:10px auto;max-width:345px}
+.verse-ref{font:500 9.5px var(--ui);text-transform:uppercase;letter-spacing:1.3px;color:#DEC184;display:inline-flex;gap:6px;align-items:center}
 .verse-ref .i{width:13px;height:13px}
-.directory-stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface)}
-.stats-inner{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
-.stat{display:flex;align-items:center;justify-content:center;gap:12px;padding:19px 0;position:relative}
-.stat+.stat::before{content:'';position:absolute;left:0;width:1px;height:30px;background:var(--line)}
-.stat-num{font:500 26px var(--serif);color:var(--green);font-variant-numeric:tabular-nums}
-.stat-label{font-size:10px;line-height:1.5;color:var(--muted);max-width:91px}
-.stat:first-child .stat-num,.stat:last-child .stat-num{color:var(--gold)}
-.section{padding:47px 0}
-.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:23px}
+
+/* ── Explore: section head ── */
+.explore{padding:44px 0 60px;border-top:1px solid var(--line)}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:24px}
 .section-head>div{flex:1;min-width:0}
-.section-head h2{font:500 clamp(23px,2.5vw,31px)/1.3 var(--serif);letter-spacing:-.6px;margin-top:8px}
-.section-head p{font-size:12px;color:var(--muted);margin-top:7px}
-.section-kicker{font-size:9px;letter-spacing:1.9px;font-weight:600;text-transform:uppercase;color:var(--green)}
-.subtle-link{font-size:11px;color:var(--muted);display:inline-flex;gap:7px;align-items:center;padding:8px 0}
-.subtle-link .i{width:14px;height:14px}
-.subtle-link:hover{color:var(--green)}
-.collection-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
-.collection{display:block;position:relative;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s}
-.collection:hover{transform:translateY(-3px);border-color:var(--green);box-shadow:var(--shadow)}
-.collection-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}
+.section-head h2{font:500 clamp(25px,2.6vw,32px)/1.25 var(--serif);letter-spacing:-.6px}
+.section-head p{font-size:13px;color:var(--muted);margin-top:6px}
+h2[tabindex="-1"]:focus{outline:none}
+.explore-tools{display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-end}
+.saved-link{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 13px;border:1px solid var(--line);border-radius:10px;background:var(--surface);font-size:12.5px;font-weight:600;color:var(--muted);transition:border-color .18s,color .18s}
+.saved-link:hover{border-color:var(--gold);color:var(--gold)}
+.saved-link .i{width:15px;height:15px}
+.continue-btn{border:0;background:none;padding:3px 0;color:var(--green);font-size:12px;display:flex;gap:6px;align-items:center;text-align:end}
+.continue-btn .i{width:14px;height:14px}
+.continue-btn:hover span{text-decoration:underline;text-underline-offset:3px}
+.tab-count{font-size:10px;font-weight:600;border-radius:5px;background:var(--wash);color:var(--muted);min-width:20px;padding:1px 5px;text-align:center;font-variant-numeric:tabular-nums}
+
+/* ── Doors: the two arched entrances ── */
+.doors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.door{--door-accent:var(--green);--door-soft:var(--green-soft);position:relative;isolation:isolate;display:flex;flex-direction:column;align-items:center;text-align:center;min-height:350px;padding:44px 36px 28px;background:var(--door-soft);border:1px solid color-mix(in srgb,var(--door-accent) 24%,transparent);border-radius:50% 50% 18px 18px/132px 132px 18px 18px;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.door-sahabiyat{--door-accent:var(--rose);--door-soft:var(--rose-soft)}
+.door::before{content:'';position:absolute;inset:0;z-index:-1;background-image:var(--lattice);background-position:center 8px;opacity:.28;-webkit-mask-image:linear-gradient(to bottom,#000 0,transparent 62%);mask-image:linear-gradient(to bottom,#000 0,transparent 62%)}
+.door::after{content:'';position:absolute;inset:9px;border:1px solid color-mix(in srgb,var(--door-accent) 20%,transparent);border-radius:50% 50% 11px 11px/124px 124px 11px 11px;pointer-events:none}
+.door:hover{border-color:var(--door-accent);box-shadow:var(--shadow)}
+.door-orn{width:26px;height:26px;color:var(--gold)}
+.door-ar{font:400 46px/1.45 var(--ar);color:var(--door-accent);margin-top:4px}
+.door-title{font:500 30px/1.2 var(--serif);letter-spacing:-.5px;color:var(--ink)}
+.door-count{margin-top:6px;font-size:12.5px;font-weight:600;color:var(--door-accent)}
+.door-desc{max-width:390px;margin-top:12px;font-size:13.5px;line-height:1.7;color:var(--muted)}
+.door-names{max-width:410px;margin-top:10px;font-size:12px;line-height:1.65;color:var(--quiet)}
+.door-cue{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:20px;font-size:13px;font-weight:600;color:var(--door-accent)}
+.door-cue .i{width:16px;height:16px;transition:transform .2s}
+.door:hover .door-cue .i,.theme-door:hover .door-cue .i{transform:translateX(3px)}
+[dir="rtl"] .door-cue .i{transform:scaleX(-1)}
+
+/* ── Hub row: chapters (direct links) + themes door ── */
+.hub-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:20px}
+.chapters-card,.theme-door{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+.card-title{font:600 21px/1.3 var(--serif);letter-spacing:-.3px}
+.card-sub{font-size:13px;color:var(--muted);margin-top:4px}
+.chapter-list{list-style:none;margin:14px 0 0;padding:0}
+.chapter-link{display:grid;grid-template-columns:38px minmax(0,1fr) auto 16px;align-items:center;gap:14px;padding:12px 0;border-top:1px solid var(--line)}
+.chapter-link:last-child{padding-bottom:0}
+.chapter-text{min-width:0}
+.chapter-text strong{display:block;font:600 15.5px/1.35 var(--serif);color:var(--ink);transition:color .18s}
+.chapter-sub{display:block;font-size:11.5px;color:var(--quiet);margin-top:1px}
+.chapter-ar{font:400 16px/1.6 var(--ar);color:var(--muted)}
+.chapter-link>.i{width:16px;height:16px;color:var(--quiet);transition:color .18s,transform .18s}
+.chapter-link:hover strong,.chapter-link:hover>.i{color:var(--green)}
+.chapter-link:hover>.i{transform:translateX(3px)}
 .icon-tile{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;background:var(--green-soft);color:var(--green)}
-.icon-tile .i{width:21px;height:21px}
-.collection-index{font:400 12px var(--serif);color:var(--quiet)}
-.collection h3{font:600 19px var(--serif);letter-spacing:-.3px}
-.collection-ar{font:400 16px/1.7 var(--ar);color:var(--muted);text-align:start;direction:rtl;margin-top:4px}
-.collection p{font-size:11px;line-height:1.7;color:var(--muted);margin-top:9px;min-height:39px}
-.collection-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:18px;padding-top:12px;border-top:1px solid var(--line);font-size:10px;font-weight:600;color:var(--green)}
-.collection-foot .i{width:16px;height:16px}
-.collection-gold{background:var(--gold-soft);border-color:color-mix(in srgb,var(--gold) 22%,var(--line))}
-.collection-gold .icon-tile{background:color-mix(in srgb,var(--gold) 13%,transparent);color:var(--gold)}
-.collection-gold .collection-foot{color:var(--gold);border-color:color-mix(in srgb,var(--gold) 20%,transparent)}
-.collection-gold:hover{border-color:var(--gold)}
-.profiles-section{border-top:1px solid var(--line);background:var(--wash);padding-bottom:51px}
-.toolbar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:0 0 17px;border-bottom:1px solid var(--line);margin-bottom:17px}
-.filter-tabs{display:flex;align-items:center;gap:4px;border:1px solid var(--line);border-radius:11px;padding:4px;background:var(--surface)}
-.filter-tab{display:flex;align-items:center;gap:7px;padding:9px 12px;border:0;border-radius:7px;background:transparent;font-size:11px;font-weight:500;white-space:nowrap;color:var(--muted);min-height:36px}
-.filter-tab[aria-pressed="true"]{background:#1B6B4A;color:#fff}
-.filter-tab:hover:not([aria-pressed="true"]){background:var(--wash)}
-.filter-tab .i{width:13px;height:13px}
-.tab-count{font-size:9px;border-radius:5px;background:var(--wash);color:var(--muted);min-width:18px;padding:0 4px;text-align:center}
-.filter-tab[aria-pressed="true"] .tab-count{color:#fff;background:rgba(255,255,255,.15)}
-.search-field{display:flex;gap:9px;align-items:center;flex:1;min-width:205px;height:45px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:0 12px}
+.icon-tile .i{width:20px;height:20px}
+.icon-tile.is-gold{background:var(--gold-soft);color:var(--gold)}
+.theme-door{display:flex;flex-direction:column;text-align:start;transition:border-color .2s,box-shadow .2s}
+.theme-door:hover{border-color:var(--green);box-shadow:var(--shadow)}
+.theme-door-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.theme-door .door-count{margin-top:0;color:var(--green)}
+.theme-door .door-desc,.theme-door .door-names{max-width:none}
+.theme-door .door-desc{margin-top:6px}
+.theme-door .door-cue{color:var(--green)}
+.theme-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.theme-chips span{font:400 14px/1.7 var(--ar);padding:1px 10px;border-radius:6px;background:var(--wash);color:var(--muted)}
+
+/* ── Sticky section switcher (shown while a section is open) ── */
+.panel-bar{position:sticky;top:calc(var(--header-h) + 10px);z-index:20;align-items:center;gap:6px;padding:5px;margin-bottom:28px;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-sm)}
+.panel-back{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 12px;border:0;border-radius:9px;background:none;font-size:12.5px;font-weight:600;color:var(--muted);white-space:nowrap;flex-shrink:0}
+.panel-back .i{width:15px;height:15px;transform:rotate(180deg)}
+.panel-back:hover{background:var(--wash);color:var(--ink)}
+.panel-divider{width:1px;height:22px;background:var(--line);flex-shrink:0}
+.panel-tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+.panel-tabs::-webkit-scrollbar{display:none}
+.panel-tab{display:inline-flex;align-items:center;gap:7px;height:38px;padding:0 13px;border:0;border-radius:9px;background:none;font-size:12.5px;font-weight:500;color:var(--muted);white-space:nowrap;flex-shrink:0}
+.panel-tab .i{width:14px;height:14px}
+.panel-tab:hover:not([aria-pressed="true"]){background:var(--wash)}
+.panel-tab[aria-pressed="true"]{background:#1B6B4A;color:#fff}
+.panel-tab[data-view="sahabiyat"][aria-pressed="true"]{background:#8C5265}
+.panel-tab[data-view="saved"][aria-pressed="true"]{background:#7A5C1C}
+.panel-tab[aria-pressed="true"] .tab-count{color:#fff;background:rgba(255,255,255,.18)}
+
+/* ── Panels ── */
+.js-ready .panel:not(.is-open){display:none}
+.panel+.panel{margin-top:64px}
+.is-entering{animation:enter .32s var(--ease) both}
+@keyframes enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.panel-head{margin-bottom:22px;max-width:640px}
+.panel-head .panel-ar{font:400 30px/1.5 var(--ar);color:var(--panel-accent,var(--green));text-align:left;margin:0 0 2px}
+.panel-head h2{font:500 clamp(28px,3vw,36px)/1.2 var(--serif);letter-spacing:-.7px}
+.panel-head p{font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.7}
+html[lang="ur"] .panel-head .panel-ar{text-align:right}
+#panel-profiles[data-group="sahabiyat"]{--panel-accent:var(--rose)}
+#panel-profiles[data-group="saved"]{--panel-accent:var(--gold)}
+
+.toolbar{align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.search-field{display:flex;gap:9px;align-items:center;flex:1;min-width:220px;height:46px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:0 12px}
 .search-field:focus-within{border-color:var(--green);box-shadow:0 0 0 2px color-mix(in srgb,var(--green) 12%,transparent)}
 .search-field .i{width:17px;height:17px;color:var(--quiet)}
-.search-field input{width:100%;min-width:0;background:none;border:0;color:var(--ink);outline:none!important;font-size:12px;height:100%}
+.search-field input{width:100%;min-width:0;background:none;border:0;color:var(--ink);outline:none!important;font-size:13px;height:100%}
 .search-field input::placeholder{color:var(--quiet)}
 .search-clear{width:26px;height:26px;display:grid;place-items:center;border:0;background:none;border-radius:6px;color:var(--quiet);padding:0}
 .search-clear:hover{background:var(--wash)}
-.sort-box{display:flex;align-items:center;gap:7px;font-size:10px;color:var(--quiet)}
-.sort-box select{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:7px 25px 7px 9px;color:var(--muted);max-width:138px;font-size:11px;height:34px}
-.results-line{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:20px;font-size:10px;color:var(--muted)}
-.continue-btn{border:0;background:none;padding:3px 0;color:var(--green);font-size:10px;display:flex;gap:6px;align-items:center;text-align:end}
-.continue-btn .i{width:13px;height:13px}
-.translation-note{font-size:11px;color:var(--muted);background:var(--surface);padding:9px 12px;border-radius:8px;margin-bottom:15px}
-.profile-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
-.profile-card{width:100%;position:relative;background:var(--surface);border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;padding:19px 22px 0;transition:transform .2s,border-color .2s,box-shadow .2s;min-width:0;min-height:312px;isolation:isolate}
-.profile-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--green)}
+.sort-box{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--quiet)}
+.sort-box select{border:1px solid var(--line);background:var(--surface);border-radius:9px;padding:0 26px 0 10px;color:var(--muted);max-width:150px;font-size:12px;height:46px}
+.results-line{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px;font-size:12px;color:var(--muted)}
+.translation-note{font-size:12px;color:var(--muted);background:var(--surface);border:1px solid var(--line);padding:9px 12px;border-radius:8px;margin-bottom:14px}
+
+/* Compact profile cards: name first, the full summary opens in the reader */
+.profile-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.profile-card{width:100%;position:relative;background:var(--surface);border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;padding:16px 18px 0;transition:transform .2s,border-color .2s,box-shadow .2s;min-width:0;isolation:isolate}
+.profile-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:var(--card-accent)}
 .profile-card[data-group="sahabiyat"]{--card-accent:var(--rose);--card-soft:var(--rose-soft)}
 .profile-card[data-group="sahaba"]{--card-accent:var(--green);--card-soft:var(--green-soft)}
-.profile-card[data-group="sahabiyat"]:hover{border-color:var(--rose)}
 .profile-card>*{min-width:0}
-.profile-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
-.profile-role{display:flex;align-items:center;gap:8px;color:var(--card-accent);font-size:9px;font-weight:600;letter-spacing:.3px}
-.profile-role .i{width:16px;height:16px}
-.save-btn{width:29px;height:29px;display:grid;place-items:center;border:0;border-radius:7px;background:none;color:var(--quiet);padding:0;position:relative;z-index:2;flex-shrink:0}
+.profile-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px}
+.profile-role{display:flex;align-items:center;gap:7px;color:var(--card-accent);font-size:11px;font-weight:600;letter-spacing:.2px;min-width:0}
+.profile-role .i{width:15px;height:15px}
+.save-btn{width:32px;height:32px;display:grid;place-items:center;border:0;border-radius:8px;background:none;color:var(--quiet);padding:0;position:relative;z-index:2;flex-shrink:0}
 .save-btn .i{width:16px;height:16px}
 .save-btn:hover{background:var(--card-soft);color:var(--card-accent)}
 .save-btn[aria-pressed="true"]{background:var(--gold-soft);color:var(--gold)}
 .save-btn[aria-pressed="true"] .i{fill:currentColor;stroke-width:1.3}
-.profile-ar{font:400 24px/1.65 var(--ar);text-align:right;color:var(--card-accent);margin:0 0 9px;min-height:39px}
-.profile-card h3{font:600 21px/1.35 var(--serif);letter-spacing:-.3px}
+.profile-ar{font:400 22px/1.6 var(--ar);text-align:right;color:var(--card-accent);margin:0 0 2px}
+.profile-card h3{font:600 18px/1.35 var(--serif);letter-spacing:-.2px}
 .profile-name-btn{background:none;border:0;padding:0;text-align:start;font:inherit;color:inherit}
 .profile-name-btn::after{content:'';position:absolute;inset:0;z-index:1;border-radius:inherit}
 .profile-name-btn:focus-visible{outline:none}
 .profile-card:has(.profile-name-btn:focus-visible){outline:3px solid var(--gold);outline-offset:4px}
-.ra{font:500 9px var(--ui);color:var(--quiet);white-space:nowrap;display:inline-block;margin-left:4px;vertical-align:middle}
-.profile-title{color:var(--card-accent);font-size:11px;margin:4px 0 11px;font-style:italic}
-.profile-summary{width:100%;font-size:13px;color:var(--muted);line-height:1.75;flex:1;padding-bottom:17px}
-.profile-footer{border-top:1px solid var(--line);padding:12px 0;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:9px;color:var(--quiet);min-height:45px}
-.profile-dates{flex:1}
+.ra{font:500 10px var(--ui);color:var(--quiet);white-space:nowrap;display:inline-block;margin-left:4px;vertical-align:middle}
+.profile-title{color:var(--card-accent);font-size:12px;margin:3px 0 14px;font-style:italic}
+.profile-summary{font-size:13px;color:var(--muted);line-height:1.75;padding-bottom:14px}
+.js-ready .profile-summary{display:none}
+.profile-footer{margin-top:auto;border-top:1px solid var(--line);padding:11px 0;display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:11px;color:var(--quiet)}
+.profile-dates{flex:1;min-width:0}
 .read-cue{display:flex;gap:6px;align-items:center;white-space:nowrap;color:var(--card-accent);font-weight:600}
-.read-cue .i{width:13px;height:13px}
+.read-cue .i{width:14px;height:14px}
+.read-text{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
 .empty-state{padding:42px 20px;text-align:center;border:1px dashed var(--line);border-radius:16px;background:var(--surface)}
 .empty-state>.i{width:33px;height:33px;color:var(--gold);margin-bottom:13px}
 .empty-state h3{font:500 24px var(--serif)}
-.empty-state p{font-size:12px;color:var(--muted);margin:8px 0 20px}
-.empty-state .btn{font-size:11px}
-.themes-intro{max-width:610px}
-.theme-tabs{display:flex;gap:18px;align-items:center;margin:5px 0 23px;border-bottom:1px solid var(--line)}
-.theme-tab{border:0;background:none;padding:10px 0;font-size:11px;color:var(--muted);position:relative}
+.empty-state p{font-size:13px;color:var(--muted);margin:8px 0 20px}
+
+/* Theme cards */
+.theme-tabs{gap:20px;align-items:center;margin:0 0 20px;border-bottom:1px solid var(--line)}
+.theme-tab{border:0;background:none;padding:10px 0;font-size:12.5px;color:var(--muted);position:relative}
 .theme-tab[aria-pressed="true"]{color:var(--green);font-weight:600}
 .theme-tab[aria-pressed="true"]::after{position:absolute;content:'';height:2px;bottom:-1px;inset-inline:0;background:var(--green)}
 .theme-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
-.theme-card{width:100%;min-width:0;display:flex;flex-direction:column;position:relative;border:1px solid var(--line);background:var(--surface);border-radius:11px;padding:17px;text-align:start;transition:background .18s,border-color .18s}
+.theme-card{width:100%;min-width:0;display:flex;flex-direction:column;position:relative;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:17px;text-align:start;transition:background .18s,border-color .18s}
 .theme-card:hover{border-color:var(--green);background:var(--green-soft)}
 .theme-card[data-group="sahabiyat"]:hover{border-color:var(--rose);background:var(--rose-soft)}
-.theme-top{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--green);margin-bottom:13px}
+.theme-top{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--green);margin-bottom:12px}
 .theme-card[data-group="sahabiyat"] .theme-top{color:var(--rose)}
 .theme-top .i{width:18px;height:18px}
-.status-pill{font-size:8px;background:var(--wash);color:var(--quiet);padding:2px 6px;border-radius:4px;letter-spacing:.4px}
-.status-live{background:var(--green-soft);color:var(--green)}
-.theme-card h3{font:600 14px/1.4 var(--serif)}
-.theme-ar{font:400 13px/1.8 var(--ar);color:var(--muted);margin-top:4px;text-align:start}
-.theme-card p{width:100%;min-width:0;white-space:normal;font-size:10px;color:var(--muted);margin-top:7px;line-height:1.7;flex:1}
-.theme-bottom{display:flex;align-items:center;justify-content:space-between;gap:5px;margin-top:14px;font-size:9px;color:var(--quiet)}
+.theme-card h3{font:600 15px/1.4 var(--serif)}
+.theme-ar{font:400 14px/1.8 var(--ar);color:var(--muted);margin-top:2px;text-align:start}
+.theme-card p{width:100%;min-width:0;font-size:12px;color:var(--muted);margin-top:6px;line-height:1.65;flex:1}
+.theme-bottom{display:flex;align-items:center;justify-content:space-between;gap:5px;margin-top:14px;font-size:11px;color:var(--quiet)}
 .theme-bottom .i{width:13px;height:13px}
+
+/* Milestones strip */
 .history{background:var(--paper);border-block:1px solid var(--line);padding:23px 0}
 .history-inner{display:flex;align-items:center;gap:30px;justify-content:space-between}
-.history-title{font-size:9px;color:var(--quiet);max-width:102px;text-transform:uppercase;letter-spacing:1.1px}
+.history-title{font-size:10px;color:var(--quiet);max-width:110px;text-transform:uppercase;letter-spacing:1.1px}
 .history-items{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:25px;flex:1}
-.history-item{display:flex;gap:8px;align-items:center}
-.history-item b{font:500 20px var(--serif);color:var(--gold)}
-.history-item span{font-size:9px;line-height:1.5;color:var(--muted);max-width:105px}
+.history-item{display:flex;gap:9px;align-items:center}
+.history-item b{font:500 21px var(--serif);color:var(--gold)}
+.history-item span{font-size:11px;line-height:1.45;color:var(--muted);max-width:115px}
+
 .back-top{position:fixed;right:22px;bottom:22px;z-index:7;box-shadow:var(--shadow)}
+
+/* Reader dialog */
 .reader{border:1px solid var(--line);border-radius:20px;background:var(--surface);color:var(--ink);padding:0;width:min(590px,calc(100% - 32px));max-height:calc(100dvh - 44px);box-shadow:0 25px 100px rgba(0,0,0,.25)}
 .reader::backdrop{background:rgba(7,22,13,.57);backdrop-filter:blur(4px)}
 .reader-shell{padding:30px 35px}
-.reader-header{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:10px;color:var(--green);text-transform:uppercase;letter-spacing:1.5px}
-.reader-header .icon-btn{width:32px;height:32px}
+.reader-header{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:10.5px;color:var(--green);text-transform:uppercase;letter-spacing:1.5px}
+.reader-header .icon-btn{width:34px;height:34px}
 .reader-ar{font:400 35px/1.8 var(--ar);text-align:center;color:var(--gold);margin-top:22px}
 .reader h2{font:500 31px/1.3 var(--serif);text-align:center;letter-spacing:-.7px;margin-top:8px}
-.reader-title{font-size:12px;color:var(--green);text-align:center;margin-top:7px}
+.reader-title{font-size:13px;color:var(--green);text-align:center;margin-top:7px}
 .reader-content{font:400 17px/1.9 Georgia,serif;margin-top:23px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted)}
-.reader-details{display:flex;flex-wrap:wrap;gap:14px;margin-top:20px;padding:14px 16px;border-radius:10px;background:var(--wash);font-size:11px}
-.reader-details dt{font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:var(--quiet);margin-bottom:3px}
+.reader-details{display:flex;flex-wrap:wrap;gap:14px 22px;margin-top:20px;padding:14px 16px;border-radius:10px;background:var(--wash);font-size:12px}
+.reader-details dt{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--quiet);margin-bottom:3px}
 .reader-details dd{color:var(--ink)}
 .reader-footer{margin-top:25px;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.reader-footer .btn{padding:9px 13px;min-height:40px;font-size:11px}
+.reader-footer:empty{display:none}
+.reader-footer .btn{padding:9px 13px;min-height:40px;font-size:12px}
 .reader-navigation{display:flex;gap:7px}
-.reader-nav-btn{width:36px;height:36px}
+.reader-nav-btn{width:38px;height:38px}
 .reader-nav-btn:disabled{opacity:.4}
 .reader-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
-.reader-chips span{padding:4px 10px;border-radius:5px;background:var(--green-soft);color:var(--green);font-size:10px}
-.reader-notice{font-size:11px;background:var(--gold-soft);border-radius:8px;padding:10px 12px;margin-top:20px;color:var(--gold)}
+.reader-chips span{padding:4px 10px;border-radius:5px;background:var(--green-soft);color:var(--green);font-size:11.5px}
+.reader-notice{font-size:12px;background:var(--gold-soft);border-radius:8px;padding:10px 12px;margin-top:20px;color:var(--gold)}
 .reader-matches{margin-top:20px}
-.reader-matches p{font-size:10px;color:var(--quiet);margin-bottom:7px}
-.reader-matches button{display:flex;align-items:center;justify-content:space-between;width:100%;padding:10px 0;border:0;border-top:1px solid var(--line);background:none;color:var(--green);font-size:12px;text-align:start}
+.reader-matches p{font-size:11px;color:var(--quiet);margin-bottom:7px}
+.reader-matches button{display:flex;align-items:center;justify-content:space-between;width:100%;padding:11px 0;border:0;border-top:1px solid var(--line);background:none;color:var(--green);font-size:13px;text-align:start}
 .reader-matches .i{width:15px;height:15px}
-.toast{position:fixed;bottom:23px;left:50%;transform:translateX(-50%);z-index:30;font-size:12px;background:var(--ink);color:var(--bg);padding:11px 17px;border-radius:10px;box-shadow:var(--shadow);max-width:calc(100% - 40px);text-align:center;pointer-events:none}
+.toast{position:fixed;bottom:23px;left:50%;transform:translateX(-50%);z-index:30;font-size:12.5px;background:var(--ink);color:var(--bg);padding:11px 17px;border-radius:10px;box-shadow:var(--shadow);max-width:calc(100% - 40px);text-align:center;pointer-events:none}
 .js-only{display:none}
 .js-ready .js-only{display:flex}
 .js-ready .icon-btn.js-only,.js-ready .save-btn.js-only{display:inline-grid}
 .no-script{background:var(--gold-soft);color:var(--gold);font-size:12px;padding:12px;text-align:center}
 [data-ui][lang="ur"]{font-family:var(--ar);letter-spacing:0}
-@media(min-width:1400px){.hero{padding-bottom:54px}
+
+/* ── Responsive ── */
+@media(min-width:1400px){.hero{padding-bottom:50px}
 .hero-grid{gap:110px}
-.verse-panel{min-height:390px;padding-top:35px}
+.verse-panel{min-height:380px;padding-top:35px}
 .hero-desc{font-size:15px}}
 @media(max-width:1020px){.hero-grid{gap:50px;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
 .hero h1{font-size:60px}
 .verse-panel{padding-inline:22px}
 .hero-arabic{font-size:33px}
-.collection{padding:18px}
+.profile-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 .theme-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.profile-card{padding-inline:18px}
-.sort-box>span{display:none}
-.search-field{min-width:170px}
-.filter-tab{padding-inline:9px}
-.toolbar{gap:10px}}
+.door{padding-inline:26px}
+.chapters-card,.theme-door{padding:20px}
+.chapter-ar{display:none}
+.chapter-link{grid-template-columns:38px minmax(0,1fr) 16px}}
 @media(max-width:800px){:root{--header:66px}
 .wrap{width:calc(100% - 40px)}
 .hero{padding-top:22px;padding-bottom:34px}
-.breadcrumbs{margin-bottom:28px}
+.breadcrumbs{margin-bottom:26px}
 .hero-grid{gap:28px}
 .hero h1{font-size:50px;letter-spacing:-1.8px}
-.hero-desc{font-size:12px}
+.hero-desc{font-size:13px}
 .hero-actions{gap:8px;margin-top:20px}
-.hero-actions .btn{padding-inline:12px;font-size:10px}
-.hero-note{font-size:9px}
-.verse-panel{padding:26px 20px 22px;min-height:330px;border-radius:100px 100px 18px 18px}
+.hero-actions .btn{padding-inline:13px;font-size:11.5px}
+.verse-panel{padding:26px 20px 22px;min-height:320px;border-radius:100px 100px 18px 18px}
 .verse-panel::after{border-radius:92px 92px 11px 11px;inset:8px}
 .hero-arabic{font-size:28px}
 .verse-ar{font-size:17px}
-.verse-en{font-size:9px}
+.verse-en{font-size:10px}
 .ornament{width:26px;height:26px;margin-bottom:10px}
-.stat{gap:8px}
-.stat-label{font-size:9px}
-.stat-num{font-size:24px}
-.section{padding:36px 0}
-.collection-grid{gap:12px}
-.collection{padding:16px}
-.collection h3{font-size:17px}
-.collection p{font-size:10px;min-height:51px}
-.collection-ar{font-size:14px}
-.collection-foot{font-size:9px}
-.toolbar{gap:12px}
-.filter-tabs{order:1}
-.search-field{order:2;min-width:200px}
-.sort-box{order:3}
-.profile-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.profile-card{padding-inline:20px}
-.profile-card h3{font-size:19px}
-.profile-summary{font-size:12px}
-.profile-ar{font-size:26px}
-.theme-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.explore{padding:36px 0 48px}
+.door{min-height:320px;padding:38px 22px 24px;border-radius:50% 50% 16px 16px/110px 110px 16px 16px}
+.door::after{border-radius:50% 50% 10px 10px/102px 102px 10px 10px}
+.door-ar{font-size:38px}
+.door-title{font-size:26px}
+.door-desc{font-size:13px}
+.hub-row{grid-template-columns:minmax(0,1fr)}
+.profile-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.theme-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .history-inner{gap:20px}
 .history-items{gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:600px){.wrap{width:calc(100% - 36px)}
-.icon-btn{width:36px;height:36px;border-radius:9px}
-.hero{padding-top:20px}
-.breadcrumbs{font-size:10px;gap:6px;margin-bottom:27px}
-.hero-grid{grid-template-columns:minmax(0,1fr);gap:30px}
-.hero h1{font-size:53px;letter-spacing:-1.6px;margin-top:14px;margin-bottom:16px}
+@media(max-width:600px){.wrap{width:calc(100% - 32px)}
+.icon-btn{width:38px;height:38px;border-radius:9px}
+.hero{padding-top:18px;padding-bottom:30px}
+.breadcrumbs{font-size:11px;gap:6px;margin-bottom:22px}
+.hero-grid{grid-template-columns:minmax(0,1fr);gap:28px}
+.hero h1{font-size:50px;letter-spacing:-1.6px;margin-top:14px;margin-bottom:14px}
 .hero h1 em{display:inline}
-.hero-desc{font-size:13px;max-width:100%}
-.eyebrow{font-size:9px;letter-spacing:1.8px}
-.hero-actions{margin-top:22px}
-.hero-actions .btn{font-size:11px;padding:10px 15px}
-.hero-note{margin-top:15px}
+.hero-desc{font-size:13.5px;max-width:100%}
+.eyebrow{font-size:10px;letter-spacing:1.8px}
+.hero-actions{margin-top:20px}
+.hero-actions .btn{font-size:12px;padding:10px 15px}
 .verse-panel{max-width:410px;width:100%;margin-inline:auto;min-height:0;padding:24px 25px;border-radius:84px 84px 17px 17px}
 .verse-panel::after{border-radius:76px 76px 11px 11px}
 .hero-arabic{font-size:31px;max-width:100%}
 .hero-arabic br{display:none}
-.ornament{margin-bottom:9px}
 .verse-rule{margin:9px 0}
 .verse-ar{font-size:19px}
-.verse-en{font-size:10px;line-height:1.7;margin-block:8px}
-.verse-ref{font-size:8px;letter-spacing:1px}
-.stats-inner{grid-template-columns:repeat(2,minmax(0,1fr));padding-block:7px}
-.stat{padding:10px;justify-content:flex-start;gap:12px}
-.stat-num{min-width:30px}
-.stat:nth-child(3)::before{display:none}
-.stat-label{font-size:10px;max-width:125px}
-.section-head{gap:12px;margin-bottom:20px;align-items:flex-start}
-.section-head h2{font-size:27px;margin-top:5px}
-.section-head p{font-size:11px}
-.subtle-link{font-size:10px;padding-top:2px;white-space:nowrap;align-self:flex-end}
-.collection-grid{grid-template-columns:minmax(0,1fr);gap:11px}
-.collection{padding:17px 18px;display:grid;grid-template-columns:40px 1fr;column-gap:14px}
-.collection-top{grid-column:1;grid-row:1/4;margin:0;display:block}
-.collection-index{display:none}
-.collection h3{font-size:19px}
-.collection-ar{margin-top:0;font-size:14px;grid-column:2}
-.collection p{grid-column:2;font-size:11px;min-height:0;margin-top:5px}
-.collection-foot{grid-column:2;margin-top:11px;padding-top:9px;font-size:10px}
-.section-kicker{font-size:8px;letter-spacing:1.7px}
-.profiles-section .section-head{display:block}
-.profiles-section .section-head p{max-width:270px}
-.filter-tabs{width:100%;justify-content:space-between;gap:0}
-.filter-tab{font-size:10px;padding:8px 9px;justify-content:center;flex:1;gap:6px}
-.toolbar{padding-bottom:14px;row-gap:12px}
-.search-field{flex:1;min-width:0}
-.sort-box select{max-width:106px;font-size:10px;padding-inline:8px;height:43px}
-.results-line{font-size:10px;align-items:flex-start;gap:12px;margin-bottom:17px}
-.continue-btn{font-size:9px;max-width:150px}
-.profile-grid{grid-template-columns:minmax(0,1fr);gap:13px}
-.profile-card{min-height:0;padding:18px 21px 0}
-.profile-top{margin-bottom:9px}
-.profile-ar{font-size:27px;line-height:1.5;min-height:0;margin-bottom:8px}
-.profile-role{font-size:10px}
-.profile-card h3{font-size:22px}
-.profile-title{font-size:11px;margin-bottom:12px}
-.profile-summary{width:100%;font-size:13px;line-height:1.8;padding-bottom:16px}
-.profile-footer{font-size:10px;padding-block:13px}
+.verse-en{font-size:11px;line-height:1.7;margin-block:8px}
+.verse-ref{font-size:9px;letter-spacing:1px}
+.explore{padding:30px 0 40px}
+.section-head{flex-wrap:wrap;align-items:flex-start;gap:12px;margin-bottom:18px}
+.section-head>div{flex-basis:100%}
+.explore-tools{width:100%;justify-content:space-between}
+/* Two small arched doors side by side */
+.doors{gap:12px}
+.door{min-height:0;padding:30px 10px 18px;border-radius:50% 50% 14px 14px/72px 72px 14px 14px}
+.door::after{inset:6px;border-radius:50% 50% 10px 10px/66px 66px 10px 10px}
+.door-orn{width:20px;height:20px}
+.door-ar{font-size:27px;line-height:1.5;margin-top:2px}
+.door-title{font-size:21px}
+.door-count{font-size:11.5px;margin-top:3px}
+.door-desc,.door-names{display:none}
+.door-cue{padding-top:14px;font-size:12px}
+.hub-row{gap:12px;margin-top:12px}
+.chapters-card,.theme-door{padding:18px}
+.card-title{font-size:19px}
+.chapter-link{gap:12px;padding:11px 0}
+.chapter-text strong{font-size:15px}
+.theme-door .door-desc{display:block;font-size:12.5px}
+.theme-chips span{font-size:13px}
+/* Switcher bar */
+.panel-bar{top:calc(var(--header-h) + 8px);margin-inline:-6px;margin-bottom:22px;padding:4px;gap:2px}
+.panel-back{padding:0 10px}
+.panel-back span{display:none}
+.panel-tab{padding:0 10px;font-size:12px;gap:6px}
+.panel-tab .tab-count{display:none}
+.panel-head{margin-bottom:18px}
+.panel-head .panel-ar{font-size:26px}
+.panel-head p{font-size:13px}
+.toolbar{gap:8px;flex-wrap:nowrap}
+.search-field{min-width:0;flex:1 1 auto;height:44px}
+.sort-box>span{display:none}
+.sort-box select{width:112px;height:44px}
+/* Profile cards become compact rows */
+.profile-grid{grid-template-columns:minmax(0,1fr);gap:10px}
+.js-ready .profile-card{flex-direction:row;flex-wrap:wrap;align-items:baseline;column-gap:12px;padding:12px 14px 13px}
+.js-ready .profile-top{flex-basis:100%;margin-bottom:2px}
+.js-ready .profile-card h3{order:1;font-size:17px}
+.js-ready .profile-ar{order:2;margin:0 0 0 auto;font-size:20px;line-height:1.5}
+.js-ready .profile-title{order:3;flex-basis:100%;margin:2px 0 0;font-size:12px}
+.js-ready .profile-footer{display:none}
 .save-btn{width:34px;height:34px}
 .save-btn .i{width:18px;height:18px}
-.theme-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.theme-card{padding:15px 14px}
+.theme-grid{gap:10px}
+.theme-card{padding:14px}
 .theme-card h3{font-size:15px}
-.theme-card p{font-size:10px}
-.theme-ar{font-size:12px}
-.theme-tabs{gap:18px}
-.theme-tab{font-size:10px}
+.js-ready .theme-card p{display:none}
+.theme-bottom{margin-top:10px}
 .history-inner{display:block}
-.history-title{max-width:none;margin-bottom:17px}
+.history-title{max-width:none;margin-bottom:15px}
 .history-items{gap:16px 23px}
-.history-item{gap:10px}
-.history-item b{font-size:21px;min-width:45px}
-.history-item span{font-size:9px}
+.history-item{flex-direction:column;align-items:flex-start;gap:1px}
+.history-item b{font-size:21px}
+.history-item span{font-size:11px;max-width:none}
 .back-top{right:15px;bottom:15px}
 .reader-shell{padding:23px}
 .reader h2{font-size:27px}
 .reader-ar{font-size:30px;line-height:1.8;margin-top:18px}
 .reader-content{font-size:16px}
 .reader-footer{gap:8px}
-.reader-details{font-size:10px}
-.toast{bottom:20px;max-width:calc(100% - 90px);font-size:11px}}
-@media(max-width:360px){.wrap{width:calc(100% - 28px)}
-.hero h1{font-size:47px}
-.filter-tab{font-size:9px;padding-inline:7px}
-.filter-tab .i{display:none}
-.tab-count{font-size:8px;min-width:15px}
-.theme-card{padding:12px}
-.theme-card h3{font-size:14px}}
+.toast{bottom:20px;max-width:calc(100% - 90px);font-size:12px}}
+@media(max-width:360px){.wrap{width:calc(100% - 26px)}
+.hero h1{font-size:44px}
+.door-ar{font-size:23px}
+.door-title{font-size:19px}
+.panel-tab .i{display:none}
+.theme-grid{grid-template-columns:minmax(0,1fr)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
 *,*::before,*::after{transition:none!important;animation:none!important}}
-@media print{.site-header,.hero-actions,.toolbar,.section-kicker,.save-btn,.back-top,.collection-grid,.themes-section,.reader,.toast,.continue-btn{display:none!important}.hero-grid{grid-template-columns:1fr 1fr;gap:25px}.hero h1{font-size:45px}.profile-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.profile-card{break-inside:avoid;box-shadow:none}.wrap{width:100%}.section{padding:20px 0}body{background:#fff;color:#000}}
+@media print{.site-header,.hero-actions,.explore-head,.hub,.panel-bar,.toolbar,.save-btn,.back-top,#panel-themes,.reader,.toast{display:none!important}.panel{display:block!important}.profile-summary{display:block!important}.hero-grid{grid-template-columns:1fr 1fr;gap:25px}.hero h1{font-size:45px}.profile-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.profile-card{break-inside:avoid;box-shadow:none}.wrap{width:100%}body{background:#fff;color:#000}}
 </style>
 </head>
 <body>
 <script>document.documentElement.classList.add('js-ready')</script>
-<a class="skip-link" href="#profiles">Skip to profiles</a>
+<a class="skip-link" href="#explore">Skip to the Companions</a>
 <div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
 <svg class="hidden-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
 <symbol id="i-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
@@ -677,8 +724,9 @@ button{touch-action:manipulation}
     </div>
     <div class="mobile-nav-group">
       <span class="mobile-nav-label" data-ui="companions">Companions</span>
+      <a href="#sahaba"><span data-ui="sahaba">Sahaba</span></a>
+      <a href="#sahabiyat"><span data-ui="sahabiyat">Sahabiyat</span></a>
       <a href="#chapters"><span data-ui="readingChapters">Reading chapters</span></a>
-      <a href="#profiles"><span data-ui="allProfiles">All profiles</span></a>
       <a href="#themes"><span data-ui="browseThemes">Browse themes</span></a>
     </div>
     <div class="mobile-nav-group">
@@ -710,21 +758,74 @@ button{touch-action:manipulation}
  <section class="hero" aria-labelledby="page-title"><div class="wrap">
   <div class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html" data-ui="home">Home</a><svg class="i" aria-hidden="true"><use href="#i-chevron"/></svg><a href="index.html#explore" data-ui="biography">Biography</a><svg class="i" aria-hidden="true"><use href="#i-chevron"/></svg><span data-ui="companions">Companions</span></div>
   <div class="hero-grid">
-   <div class="hero-copy"><span class="eyebrow" data-ui="heroKicker">The companions of the Prophet ﷺ</span><h1 id="page-title"><span data-ui="sahabaTitle">Sahaba &</span> <em data-ui="sahabiyatTitle">Sahabiya.</em></h1><p class="hero-desc" data-ui="heroDescription">Lives of faith, courage, and knowledge. Meet the men and women who stood beside Prophet Muhammad ﷺ and whose legacies continue to inspire the Ummah.</p><div class="hero-actions"><a class="btn btn-primary" href="#profiles"><span data-ui="exploreProfiles">Explore profiles</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="btn" href="#themes"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg><span data-ui="browseThemes">Browse themes</span></a></div><p class="hero-note"><svg class="i" aria-hidden="true"><use href="#i-bookmark"/></svg><span data-ui="heroNote">Read at your pace. Save the profiles that inspire you.</span></p></div>
+   <div class="hero-copy"><span class="eyebrow" data-ui="heroKicker">The companions of the Prophet ﷺ</span><h1 id="page-title"><span data-ui="sahabaTitle">Sahaba &</span> <em data-ui="sahabiyatTitle">Sahabiya.</em></h1><p class="hero-desc" data-ui="heroDescription">Lives of faith, courage, and knowledge. Meet the men and women who stood beside Prophet Muhammad ﷺ and whose legacies continue to inspire the Ummah.</p><div class="hero-actions"><a class="btn btn-primary" href="#explore" data-view="hub"><span data-ui="exploreProfiles">Explore profiles</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="btn" href="#panel-themes" data-view="themes"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg><span data-ui="browseThemes">Browse themes</span></a></div><p class="hero-note"><svg class="i" aria-hidden="true"><use href="#i-bookmark"/></svg><span data-ui="heroNote">Read at your pace. Save the profiles that inspire you.</span></p></div>
    <figure class="verse-panel"><svg class="i ornament" aria-hidden="true"><use href="#i-ornament"/></svg><div class="hero-arabic" lang="ar" dir="rtl">الصَّحَابَةُ<br> وَالصَّحَابِيَّات</div><div class="verse-rule" aria-hidden="true"><svg class="i"><use href="#i-star"/></svg></div><blockquote><p class="verse-ar" lang="ar" dir="rtl">مُحَمَّدٌ رَّسُولُ اللَّهِ ۚ وَالَّذِينَ مَعَهُ أَشِدَّاءُ عَلَى الكُفَّارِ رُحَمَاءُ بَيْنَهُمْ</p><p class="verse-en" lang="en" dir="ltr">&quot;Muhammad is the Messenger of Allah, and those with him are forceful against the disbelievers, merciful among themselves.&quot;</p></blockquote><figcaption class="verse-ref"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg>Qur’an · Al-Fath 48:29 · Excerpt</figcaption></figure>
   </div>
  </div></section>
- <div class="directory-stats"><div class="wrap stats-inner" aria-label="This directory"><div class="stat"><span class="stat-num">08</span><span class="stat-label" data-ui="sahabaProfiles">Sahaba profiles</span></div><div class="stat"><span class="stat-num">08</span><span class="stat-label" data-ui="sahabiyatProfiles">Sahabiyat profiles</span></div><div class="stat"><span class="stat-num">03</span><span class="stat-label" data-ui="readingChapters">Reading chapters</span></div><div class="stat"><span class="stat-num">14</span><span class="stat-label" data-ui="studyThemes">Study themes</span></div></div></div>
- <section class="section" id="chapters" aria-labelledby="chapters-title"><div class="wrap"><div class="section-head"><div><span class="section-kicker" data-ui="beginHere">Begin here</span><h2 id="chapters-title" data-ui="chapterHeading">Remarkable lives. Lasting legacies.</h2></div><a class="subtle-link" href="#profiles"><span data-ui="allProfiles">All profiles</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
-  <div class="collection-grid">
-   <a class="collection" href="khulafa-rashideen.html"><div class="collection-top"><span class="icon-tile"><svg class="i" aria-hidden="true"><use href="#i-crown"/></svg></span><span class="collection-index">01</span></div><h3>Khulafa-e-Rashideen</h3><div class="collection-ar" lang="ar" dir="rtl">الخُلَفَاءُ الرَّاشِدُون</div><p lang="en">The four Rightly-Guided Caliphs who led the Ummah after the Prophet ﷺ.</p><div class="collection-foot"><span data-ui="fourCaliphs">Four caliphs · Read chapter</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></div></a>
-   <a class="collection collection-gold" href="ashra-mubashara.html"><div class="collection-top"><span class="icon-tile"><svg class="i" aria-hidden="true"><use href="#i-star"/></svg></span><span class="collection-index">02</span></div><h3>Ashra Mubashara</h3><div class="collection-ar" lang="ar" dir="rtl">العَشَرَةُ المُبَشَّرَةُ بِالجَنَّة</div><p lang="en">The Ten Companions promised Paradise by the Prophet ﷺ in this very life.</p><div class="collection-foot"><span data-ui="tenCompanions">Ten companions · Read chapter</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></div></a>
-   <a class="collection" href="sabiqoon.html"><div class="collection-top"><span class="icon-tile"><svg class="i" aria-hidden="true"><use href="#i-route"/></svg></span><span class="collection-index">03</span></div><h3>Al-Sabiqoon al-Awwaloon</h3><div class="collection-ar" lang="ar" dir="rtl">السَّابِقُونَ الأَوَّلُون</div><p lang="en">Explore the dedicated chapter on the earliest Companions.</p><div class="collection-foot"><span data-ui="earlyBelievers">Early believers · Read chapter</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></div></a>
+ <section class="explore" id="explore" aria-labelledby="explore-title"><div class="wrap">
+  <div class="section-head explore-head" id="explore-head">
+   <div><h2 id="explore-title" tabindex="-1" data-ui="profilesHeading">Meet the Companions</h2><p data-ui="chooseGroup">Choose a group to open its profiles.</p></div>
+   <div class="explore-tools js-only"><button type="button" class="continue-btn" id="continue-reading" hidden></button><button type="button" class="saved-link" data-view="saved"><svg class="i" aria-hidden="true"><use href="#i-bookmark"/></svg><span data-ui="saved">Saved</span><span class="tab-count" data-count="saved">0</span></button></div>
   </div>
- </div></section>
- <section class="section profiles-section" id="profiles" aria-labelledby="profiles-title"><div class="wrap"><div class="section-head"><div><span class="section-kicker" data-ui="profileKicker">People who shaped the Ummah</span><h2 id="profiles-title" data-ui="profilesHeading">Meet the Companions</h2><p data-ui="profilesDescription">Discover their lives, their contributions, and what they are remembered for.</p></div></div>
-  <div class="toolbar js-only"><div class="filter-tabs" role="group" aria-label="Filter profiles"><button type="button" class="filter-tab" data-filter="all" aria-pressed="true"><span data-ui="all">All</span><span class="tab-count">16</span></button><button type="button" class="filter-tab" data-filter="sahaba" aria-pressed="false"><span data-ui="sahaba">Sahaba</span><span class="tab-count">8</span></button><button type="button" class="filter-tab" data-filter="sahabiyat" aria-pressed="false"><span data-ui="sahabiyat">Sahabiyat</span><span class="tab-count">8</span></button><button type="button" class="filter-tab" data-filter="saved" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-bookmark"/></svg><span data-ui="saved">Saved</span><span class="tab-count" id="saved-count">0</span></button></div><label class="search-field" for="profile-search"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><input id="profile-search" type="search" autocomplete="off" spellcheck="false" placeholder="Search a name, title, or contribution…" aria-label="Search profiles"><button type="button" class="search-clear" id="search-clear" aria-label="Clear search" hidden><svg class="i" aria-hidden="true"><use href="#i-close"/></svg></button></label><label class="sort-box"><span data-ui="sortLabel">Sort</span><select id="profile-sort" aria-label="Sort profiles"><option value="featured" data-ui="featured">Featured</option><option value="az" data-ui="alphabetical">Name A–Z</option></select></label></div>
-  <p class="translation-note" id="translation-note" hidden>Profile summaries are currently available in English.</p><div class="results-line"><span id="results-count" role="status" aria-live="polite">Showing 16 profiles</span><button type="button" class="continue-btn" id="continue-reading" hidden></button></div><div class="profile-grid" id="profile-grid"><article class="profile-card" data-profile="khalid" data-group="sahaba" lang="en" dir="ltr">
+
+  <div class="hub" id="hub">
+   <div class="doors">
+    <a class="door door-sahaba" href="#panel-profiles" data-view="sahaba" aria-labelledby="sahaba-door-title sahaba-door-count" aria-describedby="sahaba-door-desc">
+     <svg class="i door-orn" aria-hidden="true"><use href="#i-ornament"/></svg>
+     <span class="door-ar" lang="ar" dir="rtl">الصَّحَابَة</span>
+     <span class="door-title" id="sahaba-door-title" data-ui="sahaba">Sahaba</span>
+     <span class="door-count" id="sahaba-door-count" data-door-count="sahaba">8 profiles</span>
+     <span class="door-desc" id="sahaba-door-desc" data-ui="sahabaDoorDesc">The men who stood beside the Prophet ﷺ: generals, scholars, narrators, and the first voice of the adhan.</span>
+     <span class="door-names" data-door-names="sahaba"><span lang="en" dir="ltr">Khalid ibn al-Walid, Abu Hurairah, Salman al-Farisi</span> <span class="door-more">and 5 more</span></span>
+     <span class="door-cue"><span data-ui="open">Open</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+    </a>
+    <a class="door door-sahabiyat" href="#panel-profiles" data-view="sahabiyat" aria-labelledby="sahabiyat-door-title sahabiyat-door-count" aria-describedby="sahabiyat-door-desc">
+     <svg class="i door-orn" aria-hidden="true"><use href="#i-ornament"/></svg>
+     <span class="door-ar" lang="ar" dir="rtl">الصَّحَابِيَّات</span>
+     <span class="door-title" id="sahabiyat-door-title" data-ui="sahabiyat">Sahabiyat</span>
+     <span class="door-count" id="sahabiyat-door-count" data-door-count="sahabiyat">8 profiles</span>
+     <span class="door-desc" id="sahabiyat-door-desc" data-ui="sahabiyatDoorDesc">The women who believed first, taught, healed the wounded, and stood firm for the deen.</span>
+     <span class="door-names" data-door-names="sahabiyat"><span lang="en" dir="ltr">Khadijah bint Khuwaylid, Aisha bint Abi Bakr, Nusayba bint Ka'b</span> <span class="door-more">and 5 more</span></span>
+     <span class="door-cue"><span data-ui="open">Open</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+    </a>
+   </div>
+   <div class="hub-row">
+    <section class="chapters-card" id="chapters" aria-labelledby="chapters-title">
+     <h3 class="card-title" id="chapters-title" data-ui="readingChapters">Reading chapters</h3>
+     <p class="card-sub" data-ui="chaptersDesc">Full chapters you can read now.</p>
+     <ul class="chapter-list">
+      <li><a class="chapter-link" href="khulafa-rashideen.html"><span class="icon-tile"><svg class="i" aria-hidden="true"><use href="#i-crown"/></svg></span><span class="chapter-text"><strong lang="en">Khulafa-e-Rashideen</strong><span class="chapter-sub" data-ui="fourCaliphs">Four caliphs · Read chapter</span></span><span class="chapter-ar" lang="ar" dir="rtl">الخُلَفَاءُ الرَّاشِدُون</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      <li><a class="chapter-link" href="ashra-mubashara.html"><span class="icon-tile is-gold"><svg class="i" aria-hidden="true"><use href="#i-star"/></svg></span><span class="chapter-text"><strong lang="en">Ashra Mubashara</strong><span class="chapter-sub" data-ui="tenCompanions">Ten companions · Read chapter</span></span><span class="chapter-ar" lang="ar" dir="rtl">العَشَرَةُ المُبَشَّرَةُ بِالجَنَّة</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      <li><a class="chapter-link" href="sabiqoon.html"><span class="icon-tile"><svg class="i" aria-hidden="true"><use href="#i-route"/></svg></span><span class="chapter-text"><strong lang="en">Al-Sabiqoon al-Awwaloon</strong><span class="chapter-sub" data-ui="earlyBelievers">Early believers · Read chapter</span></span><span class="chapter-ar" lang="ar" dir="rtl">السَّابِقُونَ الأَوَّلُون</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+     </ul>
+    </section>
+    <a class="theme-door" href="#panel-themes" data-view="themes" aria-labelledby="themes-door-title themes-door-count">
+     <span class="theme-door-top"><span class="icon-tile"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg></span><span class="door-count" id="themes-door-count" data-door-count="themes">12 themes</span></span>
+     <span class="card-title" id="themes-door-title" data-ui="themesHeading">Explore by theme</span>
+     <span class="door-desc" data-ui="themesDescription">From scholars and narrators to the women who shaped the community.</span>
+     <span class="theme-chips" aria-hidden="true"><span lang="ar" dir="rtl">المُهَاجِرُون</span><span lang="ar" dir="rtl">الأَنْصَار</span><span lang="ar" dir="rtl">المُحَدِّثُونَ مِنَ الصَّحَابَة</span><span lang="ar" dir="rtl">الفُقَهَاءُ الصَّحَابَة</span></span>
+     <span class="door-cue"><span data-ui="open">Open</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+    </a>
+   </div>
+  </div>
+
+  <nav class="panel-bar js-only" id="panel-bar" aria-label="Companion sections" hidden>
+   <button type="button" class="panel-back" data-view="hub" aria-label="All sections"><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg><span data-ui="allSections">All sections</span></button>
+   <span class="panel-divider" aria-hidden="true"></span>
+   <div class="panel-tabs">
+    <button type="button" class="panel-tab" data-view="sahaba" aria-pressed="false"><span data-ui="sahaba">Sahaba</span><span class="tab-count" data-count="sahaba">8</span></button>
+    <button type="button" class="panel-tab" data-view="sahabiyat" aria-pressed="false"><span data-ui="sahabiyat">Sahabiyat</span><span class="tab-count" data-count="sahabiyat">8</span></button>
+    <button type="button" class="panel-tab" data-view="themes" aria-pressed="false"><span data-ui="studyThemes">Study themes</span><span class="tab-count" data-count="themes">12</span></button>
+    <button type="button" class="panel-tab" data-view="saved" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-bookmark"/></svg><span data-ui="saved">Saved</span><span class="tab-count" data-count="saved">0</span></button>
+   </div>
+  </nav>
+
+  <div class="panel" id="panel-profiles" role="region" aria-labelledby="panel-profiles-title">
+   <div class="panel-head"><p class="panel-ar" id="panel-ar" lang="ar" dir="rtl" hidden></p><h2 id="panel-profiles-title" tabindex="-1" data-ui="allProfiles">All profiles</h2><p id="panel-profiles-desc" data-ui="profilesDescription">Discover their lives, their contributions, and what they are remembered for.</p></div>
+   <div class="toolbar js-only"><label class="search-field" for="profile-search"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><input id="profile-search" type="search" autocomplete="off" spellcheck="false" placeholder="Search a name, title, or contribution…" aria-label="Search profiles"><button type="button" class="search-clear" id="search-clear" aria-label="Clear search" hidden><svg class="i" aria-hidden="true"><use href="#i-close"/></svg></button></label><label class="sort-box"><span data-ui="sortLabel">Sort</span><select id="profile-sort" aria-label="Sort profiles"><option value="featured" data-ui="featured">Featured</option><option value="az" data-ui="alphabetical">Name A–Z</option></select></label></div>
+   <p class="translation-note" id="translation-note" hidden>Profile summaries are currently available in English.</p>
+   <div class="results-line"><span id="results-count" role="status" aria-live="polite">Showing 16 profiles</span></div>
+   <div class="profile-grid" id="profile-grid"><article class="profile-card" data-profile="khalid" data-group="sahaba" lang="en" dir="ltr">
 <div class="profile-top"><span class="profile-role"><svg class="i" aria-hidden="true"><use href="#i-swords"/></svg>Saifullah</span><button type="button" class="save-btn js-only" data-save="khalid" aria-label="Save profile: Khalid ibn al-Walid" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-bookmark"/></svg></button></div>
 <p class="profile-ar" lang="ar" dir="rtl">خَالِد بْنُ الوَلِيد</p><h3><button type="button" class="profile-name-btn" data-open-profile="khalid">Khalid ibn al-Walid<span class="ra">(RA)</span></button></h3><p class="profile-title">&quot;Sword of Allah&quot;</p><p class="profile-summary">Greatest general of Islamic history; undefeated in 100+ battles; conqueror of Persia &amp; Sham.</p><div class="profile-footer"><span class="profile-dates">~592 – 642 CE · Madinah</span><span class="read-cue js-only"><span class="read-text">Read profile</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></div></article>
 <article class="profile-card" data-profile="abu-hurairah" data-group="sahaba" lang="en" dir="ltr">
@@ -772,22 +873,26 @@ button{touch-action:manipulation}
 <article class="profile-card" data-profile="umm-sulaym" data-group="sahabiyat" lang="en" dir="ltr">
 <div class="profile-top"><span class="profile-role"><svg class="i" aria-hidden="true"><use href="#i-leaf"/></svg>Ansariyya</span><button type="button" class="save-btn js-only" data-save="umm-sulaym" aria-label="Save profile: Umm Sulaym" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="#i-bookmark"/></svg></button></div>
 <p class="profile-ar" lang="ar" dir="rtl">أُمُّ سُلَيْم</p><h3><button type="button" class="profile-name-btn" data-open-profile="umm-sulaym">Umm Sulaym<span class="ra">(RA)</span></button></h3><p class="profile-title">&quot;Umm Anas&#x27;s Mother&quot;</p><p class="profile-summary">Her mahr was the Islam of Abu Talha RA; carried a dagger at Hunayn; known for her sabr and tawakkul.</p><div class="profile-footer"><span class="profile-dates">d. ~634 CE · Madinah</span><span class="read-cue js-only"><span class="read-text">Read profile</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></div></article></div>
-  <div class="empty-state" id="empty-state" hidden><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><h3 id="empty-title">No profiles found</h3><p id="empty-description">Try another name or choose a different group.</p><button type="button" class="btn" id="reset-filters" data-ui="reset">Reset filters</button></div>
+   <div class="empty-state" id="empty-state" hidden><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><h3 id="empty-title">No profiles found</h3><p id="empty-description">Try another name or choose a different group.</p><button type="button" class="btn" id="reset-filters" data-ui="reset">Reset filters</button></div>
+  </div>
+
+  <div class="panel" id="panel-themes" role="region" aria-labelledby="themes-title">
+   <div class="panel-head"><h2 id="themes-title" tabindex="-1" data-ui="themesHeading">Explore by theme</h2><p data-ui="themesDescription">From scholars and narrators to the women who shaped the community.</p></div>
+   <div class="theme-tabs js-only" role="group" aria-label="Filter study themes"><button type="button" class="theme-tab" data-theme-filter="all" aria-pressed="true" data-ui="allThemes">All themes</button><button type="button" class="theme-tab" data-theme-filter="sahaba" aria-pressed="false" data-ui="sahaba">Sahaba</button><button type="button" class="theme-tab" data-theme-filter="sahabiyat" aria-pressed="false" data-ui="sahabiyat">Sahabiyat</button></div>
+   <div class="theme-grid" id="theme-grid"><button type="button" data-open-theme="theme-3" class="theme-card" data-group="sahaba" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-route"/></svg></div><h3>Muhajirin</h3><div class="theme-ar" lang="ar" dir="rtl">المُهَاجِرُون</div><p>Those who left Makkah for the sake of Allah and emigrated to Madinah.</p><span class="theme-bottom"><span>Sahaba</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
+<button type="button" data-open-theme="theme-4" class="theme-card" data-group="sahaba" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-home"/></svg></div><h3>Ansar</h3><div class="theme-ar" lang="ar" dir="rtl">الأَنْصَار</div><p>The helpers of Madinah — Aws and Khazraj — who welcomed and supported the Muhajirin.</p><span class="theme-bottom"><span>Sahaba</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
+<button type="button" data-open-theme="theme-5" class="theme-card" data-group="sahaba" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg></div><h3>Hadith Narrators</h3><div class="theme-ar" lang="ar" dir="rtl">المُحَدِّثُونَ مِنَ الصَّحَابَة</div><p>The top Sahaba who narrated the most hadith from the Prophet ﷺ.</p><span class="theme-bottom"><span>Sahaba</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
+<button type="button" data-open-theme="theme-6" class="theme-card" data-group="sahaba" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-scales"/></svg></div><h3>Fuqaha-e-Sahaba</h3><div class="theme-ar" lang="ar" dir="rtl">الفُقَهَاءُ الصَّحَابَة</div><p>The legal scholars and judges from the Companions; Umar&#x27;s RA consultative council.</p><span class="theme-bottom"><span>Sahaba</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
+<button type="button" data-open-theme="theme-7" class="theme-card" data-group="sahabiyat" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-gem"/></svg></div><h3>Ummahaat ul Mumineen</h3><div class="theme-ar" lang="ar" dir="rtl">أُمَّهَاتُ المُؤْمِنِين</div><p>The blessed wives of the Prophet ﷺ — Mothers of all believers, each a scholar in her own right.</p><span class="theme-bottom"><span>Sahabiyat</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
+<button type="button" data-open-theme="theme-8" class="theme-card" data-group="sahabiyat" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-flower"/></svg></div><h3>Banat-e-Rasool ﷺ</h3><div class="theme-ar" lang="ar" dir="rtl">بَنَاتُ الرَّسُول ﷺ</div><p>The four daughters of the Prophet ﷺ — Zaynab, Ruqayyah, Umm Kulthum, and Fatimah.</p><span class="theme-bottom"><span>Sahabiyat</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
+<button type="button" data-open-theme="theme-9" class="theme-card" data-group="sahabiyat" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-route"/></svg></div><h3>Muhajirat</h3><div class="theme-ar" lang="ar" dir="rtl">المُهَاجِرَات</div><p>The women who left their homes in Makkah for Allah&#x27;s sake and migrated to Madinah.</p><span class="theme-bottom"><span>Sahabiyat</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
+<button type="button" data-open-theme="theme-10" class="theme-card" data-group="sahabiyat" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-home"/></svg></div><h3>Ansariyat</h3><div class="theme-ar" lang="ar" dir="rtl">الأَنْصَارِيَّات</div><p>The women of Madinah who welcomed the Prophet ﷺ and stood firm in supporting Islam.</p><span class="theme-bottom"><span>Sahabiyat</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
+<button type="button" data-open-theme="theme-11" class="theme-card" data-group="sahabiyat" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg></div><h3>Mujahidat</h3><div class="theme-ar" lang="ar" dir="rtl">المُجَاهِدَات</div><p>The warrior women who participated in battles — treating the wounded, supplying water, and fighting.</p><span class="theme-bottom"><span>Sahabiyat</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
+<button type="button" data-open-theme="theme-12" class="theme-card" data-group="sahabiyat" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg></div><h3>Hadith Narrators</h3><div class="theme-ar" lang="ar" dir="rtl">المُحَدِّثَاتُ مِنَ الصَّحَابِيَّات</div><p>Women Companions who preserved and transmitted thousands of hadith to the Ummah.</p><span class="theme-bottom"><span>Sahabiyat</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
+<button type="button" data-open-theme="theme-13" class="theme-card" data-group="sahabiyat" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-flower"/></svg></div><h3>Shuhada-e-Khawateen</h3><div class="theme-ar" lang="ar" dir="rtl">الشَّهِيدَات</div><p>The women who gave their lives for Islam — beginning with the first martyr Sumayyah RA.</p><span class="theme-bottom"><span>Sahabiyat</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
+<button type="button" data-open-theme="theme-14" class="theme-card" data-group="sahabiyat" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-graduation"/></svg></div><h3>Scholars &amp; Teachers</h3><div class="theme-ar" lang="ar" dir="rtl">العَالِمَاتُ المُعَلِّمَات</div><p>Women Companions who were recognized scholars, teachers, and muftis of the early Ummah.</p><span class="theme-bottom"><span>Sahabiyat</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button></div>
+  </div>
  </div></section>
- <section class="section themes-section" id="themes" aria-labelledby="themes-title"><div class="wrap"><div class="section-head"><div class="themes-intro"><span class="section-kicker" data-ui="themesKicker">Follow your curiosity</span><h2 id="themes-title" data-ui="themesHeading">Explore by theme</h2><p data-ui="themesDescription">From scholars and narrators to the women who shaped the community.</p></div></div><div class="theme-tabs js-only" role="group" aria-label="Filter study themes"><button type="button" class="theme-tab" data-theme-filter="all" aria-pressed="true" data-ui="allThemes">All themes</button><button type="button" class="theme-tab" data-theme-filter="sahaba" aria-pressed="false" data-ui="sahaba">Sahaba</button><button type="button" class="theme-tab" data-theme-filter="sahabiyat" aria-pressed="false" data-ui="sahabiyat">Sahabiyat</button></div><div class="theme-grid" id="theme-grid"><a href="khulafa-rashideen.html" class="theme-card" data-group="sahaba" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-crown"/></svg><span class="status-pill status-live">Read chapter</span></div><h3>Khulafa-e-Rashideen</h3><div class="theme-ar" lang="ar" dir="rtl">الخُلَفَاءُ الرَّاشِدُون</div><p>The four Rightly-Guided Caliphs who led the Ummah after the Prophet ﷺ.</p><span class="theme-bottom"><span>Sahaba</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-<a href="ashra-mubashara.html" class="theme-card" data-group="sahaba" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-star"/></svg><span class="status-pill status-live">Read chapter</span></div><h3>Ashra Mubashara</h3><div class="theme-ar" lang="ar" dir="rtl">العَشَرَةُ المُبَشَّرَةُ بِالجَنَّة</div><p>The Ten Companions promised Paradise by the Prophet ﷺ in this very life.</p><span class="theme-bottom"><span>Sahaba</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></a>
-<button type="button" data-open-theme="theme-3" class="theme-card" data-group="sahaba" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-route"/></svg><span class="status-pill ">Overview</span></div><h3>Muhajirin</h3><div class="theme-ar" lang="ar" dir="rtl">المُهَاجِرُون</div><p>Those who left Makkah for the sake of Allah and emigrated to Madinah.</p><span class="theme-bottom"><span>Sahaba</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
-<button type="button" data-open-theme="theme-4" class="theme-card" data-group="sahaba" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-home"/></svg><span class="status-pill ">Overview</span></div><h3>Ansar</h3><div class="theme-ar" lang="ar" dir="rtl">الأَنْصَار</div><p>The helpers of Madinah — Aws and Khazraj — who welcomed and supported the Muhajirin.</p><span class="theme-bottom"><span>Sahaba</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
-<button type="button" data-open-theme="theme-5" class="theme-card" data-group="sahaba" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg><span class="status-pill ">Overview</span></div><h3>Hadith Narrators</h3><div class="theme-ar" lang="ar" dir="rtl">المُحَدِّثُونَ مِنَ الصَّحَابَة</div><p>The top Sahaba who narrated the most hadith from the Prophet ﷺ.</p><span class="theme-bottom"><span>Sahaba</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
-<button type="button" data-open-theme="theme-6" class="theme-card" data-group="sahaba" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-scales"/></svg><span class="status-pill ">Overview</span></div><h3>Fuqaha-e-Sahaba</h3><div class="theme-ar" lang="ar" dir="rtl">الفُقَهَاءُ الصَّحَابَة</div><p>The legal scholars and judges from the Companions; Umar&#x27;s RA consultative council.</p><span class="theme-bottom"><span>Sahaba</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
-<button type="button" data-open-theme="theme-7" class="theme-card" data-group="sahabiyat" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-gem"/></svg><span class="status-pill ">Overview</span></div><h3>Ummahaat ul Mumineen</h3><div class="theme-ar" lang="ar" dir="rtl">أُمَّهَاتُ المُؤْمِنِين</div><p>The blessed wives of the Prophet ﷺ — Mothers of all believers, each a scholar in her own right.</p><span class="theme-bottom"><span>Sahabiyat</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
-<button type="button" data-open-theme="theme-8" class="theme-card" data-group="sahabiyat" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-flower"/></svg><span class="status-pill ">Overview</span></div><h3>Banat-e-Rasool ﷺ</h3><div class="theme-ar" lang="ar" dir="rtl">بَنَاتُ الرَّسُول ﷺ</div><p>The four daughters of the Prophet ﷺ — Zaynab, Ruqayyah, Umm Kulthum, and Fatimah.</p><span class="theme-bottom"><span>Sahabiyat</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
-<button type="button" data-open-theme="theme-9" class="theme-card" data-group="sahabiyat" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-route"/></svg><span class="status-pill ">Overview</span></div><h3>Muhajirat</h3><div class="theme-ar" lang="ar" dir="rtl">المُهَاجِرَات</div><p>The women who left their homes in Makkah for Allah&#x27;s sake and migrated to Madinah.</p><span class="theme-bottom"><span>Sahabiyat</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
-<button type="button" data-open-theme="theme-10" class="theme-card" data-group="sahabiyat" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-home"/></svg><span class="status-pill ">Overview</span></div><h3>Ansariyat</h3><div class="theme-ar" lang="ar" dir="rtl">الأَنْصَارِيَّات</div><p>The women of Madinah who welcomed the Prophet ﷺ and stood firm in supporting Islam.</p><span class="theme-bottom"><span>Sahabiyat</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
-<button type="button" data-open-theme="theme-11" class="theme-card" data-group="sahabiyat" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg><span class="status-pill ">Overview</span></div><h3>Mujahidat</h3><div class="theme-ar" lang="ar" dir="rtl">المُجَاهِدَات</div><p>The warrior women who participated in battles — treating the wounded, supplying water, and fighting.</p><span class="theme-bottom"><span>Sahabiyat</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
-<button type="button" data-open-theme="theme-12" class="theme-card" data-group="sahabiyat" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-book"/></svg><span class="status-pill ">Overview</span></div><h3>Hadith Narrators</h3><div class="theme-ar" lang="ar" dir="rtl">المُحَدِّثَاتُ مِنَ الصَّحَابِيَّات</div><p>Women Companions who preserved and transmitted thousands of hadith to the Ummah.</p><span class="theme-bottom"><span>Sahabiyat</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
-<button type="button" data-open-theme="theme-13" class="theme-card" data-group="sahabiyat" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-flower"/></svg><span class="status-pill ">Overview</span></div><h3>Shuhada-e-Khawateen</h3><div class="theme-ar" lang="ar" dir="rtl">الشَّهِيدَات</div><p>The women who gave their lives for Islam — beginning with the first martyr Sumayyah RA.</p><span class="theme-bottom"><span>Sahabiyat</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button>
-<button type="button" data-open-theme="theme-14" class="theme-card" data-group="sahabiyat" lang="en" dir="ltr"><div class="theme-top"><svg class="i" aria-hidden="true"><use href="#i-graduation"/></svg><span class="status-pill ">Overview</span></div><h3>Scholars &amp; Teachers</h3><div class="theme-ar" lang="ar" dir="rtl">العَالِمَاتُ المُعَلِّمَات</div><p>Women Companions who were recognized scholars, teachers, and muftis of the early Ummah.</p><span class="theme-bottom"><span>Sahabiyat</span><svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></button></div></div></section>
  <aside class="history" aria-label="Historical milestones"><div class="wrap history-inner"><p class="history-title" data-ui="historyTitle">Historical milestones</p><div class="history-items"><div class="history-item"><b>100,000+</b><span>Sahaba at Hajjat-ul-Wada</span></div><div class="history-item"><b>1,400</b><span>At Bay’at-e-Ridwan</span></div><div class="history-item"><b>313</b><span>Ahl-e-Badr</span></div><div class="history-item"><b>10</b><span>Ashra Mubashara</span></div></div></div></aside>
 </main>
 <footer class="site-footer" id="about">
@@ -833,19 +938,53 @@ button{touch-action:manipulation}
  const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const icon=name=>`<svg class="i" aria-hidden="true"><use href="#i-${escape(name)}"/></svg>`;
  const storage={get(key){try{return localStorage.getItem(key)}catch{return null}},set(key,value){try{localStorage.setItem(key,value);return true}catch{return false}}};
- let saved=new Set(),filter='all',themeFilter='all',query='',sort='featured',language='EN',currentProfile=null,currentTheme=null,visible=DATA.profiles.slice(),opener=null,toastTimer;
+ const reduceMotion=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ /* Views: the hub (doors) or one open section. Profile views share one grid. */
+ const PROFILE_VIEWS=['sahaba','sahabiyat','saved'],VIEWS=[...PROFILE_VIEWS,'themes'];
+ const ARABIC={sahaba:'الصَّحَابَة',sahabiyat:'الصَّحَابِيَّات'};
+ const THEMES=DATA.categories.filter(c=>!c.url);   // themes with their own chapter live in the chapters card
+ let saved=new Set(),view='hub',filter='all',themeFilter='all',query='',sort='featured',language='EN',currentProfile=null,currentTheme=null,visible=DATA.profiles.slice(),opener=null,toastTimer;
  try{const stored=JSON.parse(storage.get('seerah-companion-bookmarks')||'[]');if(Array.isArray(stored))saved=new Set(stored.filter(id=>DATA.profiles.some(p=>p.id===id)))}catch{}
  const TEXT={
-  EN:{home:'Home',biography:'Biography',seerahLibrary:'Seerah library',companions:'Companions',browseThemes:'Browse themes',heroKicker:'The companions of the Prophet ﷺ',sahabaTitle:'Sahaba &',sahabiyatTitle:'Sahabiya.',heroDescription:'Lives of faith, courage, and knowledge. Meet the men and women who stood beside Prophet Muhammad ﷺ and whose legacies continue to inspire the Ummah.',exploreProfiles:'Explore profiles',heroNote:'Read at your pace. Save the profiles that inspire you.',sahabaProfiles:'Sahaba profiles',sahabiyatProfiles:'Sahabiyat profiles',readingChapters:'Reading chapters',studyThemes:'Study themes',beginHere:'Begin here',chapterHeading:'Remarkable lives. Lasting legacies.',allProfiles:'All profiles',fourCaliphs:'Four caliphs · Read chapter',tenCompanions:'Ten companions · Read chapter',earlyBelievers:'Early believers · Read chapter',profileKicker:'People who shaped the Ummah',profilesHeading:'Meet the Companions',profilesDescription:'Discover their lives, their contributions, and what they are remembered for.',all:'All',sahaba:'Sahaba',sahabiyat:'Sahabiyat',saved:'Saved',sortLabel:'Sort',featured:'Featured',alphabetical:'Name A–Z',reset:'Reset filters',themesKicker:'Follow your curiosity',themesHeading:'Explore by theme',themesDescription:'From scholars and narrators to the women who shaped the community.',allThemes:'All themes',historyTitle:'Historical milestones',backHome:'Back to home',searchPlaceholder:'Search a name, title, or contribution…',result:'Showing {n} profiles',emptyTitle:'No profiles found',emptyDescription:'Try another name or choose a different group.',emptySavedTitle:'Your reading list starts here',emptySavedDescription:'Tap the bookmark on a profile to save it for later.',translationNote:'Profile summaries are currently available in English.',read:'Read profile',shortProfile:'Short profile',save:'Save profile',remove:'Remove from saved',savedToast:'Profile saved for later',removedToast:'Profile removed from saved',sessionToast:'Bookmark saved for this visit',continue:'Last opened',themeOverview:'Theme overview',coming:'Full chapter coming soon',available:'Available profiles in this theme',knownFor:'Known for',life:'Life & location',profileGroup:'Collection',saveNotice:'Bookmarks are kept on this device.'},
-  HI:{home:'होम',biography:'जीवनी',seerahLibrary:'सीरत पुस्तकालय',companions:'सहाबा',browseThemes:'विषय देखें',heroKicker:'पैग़म्बर ﷺ के साथी',sahabaTitle:'सहाबा और',sahabiyatTitle:'सहाबियात।',heroDescription:'ईमान, साहस और ज्ञान से भरा जीवन। पैग़म्बर मुहम्मद ﷺ के साथ खड़े उन पुरुषों और महिलाओं को जानें, जिनकी विरासत आज भी उम्मत को प्रेरित करती है।',exploreProfiles:'परिचय पढ़ें',heroNote:'अपनी गति से पढ़ें और पसंदीदा परिचय सहेजें।',sahabaProfiles:'सहाबा परिचय',sahabiyatProfiles:'सहाबियात परिचय',readingChapters:'पढ़ने के अध्याय',studyThemes:'अध्ययन के विषय',beginHere:'यहाँ से शुरू करें',chapterHeading:'प्रेरणादायक जीवन और विरासत।',allProfiles:'सभी परिचय',fourCaliphs:'चार ख़लीफ़ा · अध्याय पढ़ें',tenCompanions:'दस सहाबा · अध्याय पढ़ें',earlyBelievers:'प्रारंभिक मुसलमान · अध्याय पढ़ें',profileKicker:'उम्मत को आकार देने वाले लोग',profilesHeading:'साथियों को जानें',profilesDescription:'उनके जीवन, योगदान और पहचान के बारे में पढ़ें।',all:'सभी',sahaba:'सहाबा',sahabiyat:'सहाबियात',saved:'सहेजे हुए',sortLabel:'क्रम',featured:'चुनिंदा',alphabetical:'नाम A–Z',reset:'फ़िल्टर हटाएँ',themesKicker:'और जानें',themesHeading:'विषय के अनुसार पढ़ें',themesDescription:'विद्वानों, हदीस के रावियों और समुदाय को संवारने वाली महिलाओं के बारे में।',allThemes:'सभी विषय',historyTitle:'ऐतिहासिक पड़ाव',backHome:'होम पर जाएँ',searchPlaceholder:'नाम या योगदान खोजें…',result:'{n} परिचय दिखाए जा रहे हैं',emptyTitle:'कोई परिचय नहीं मिला',emptyDescription:'दूसरा नाम खोजें या समूह बदलें।',emptySavedTitle:'अपनी पढ़ने की सूची बनाएँ',emptySavedDescription:'बाद में पढ़ने के लिए परिचय के बुकमार्क पर टैप करें।',translationNote:'अभी जीवन परिचय अंग्रेज़ी में उपलब्ध हैं।',read:'परिचय पढ़ें',shortProfile:'संक्षिप्त परिचय',save:'परिचय सहेजें',remove:'सहेजे हुए से हटाएँ',savedToast:'परिचय सहेज लिया गया',removedToast:'परिचय सूची से हटा दिया गया',sessionToast:'इस विज़िट के लिए सहेजा गया',continue:'आख़िरी बार पढ़ा',themeOverview:'विषय का परिचय',coming:'पूरा अध्याय जल्द आएगा',available:'इस विषय में उपलब्ध परिचय',knownFor:'पहचान',life:'जीवन और स्थान',profileGroup:'समूह'},
-  UR:{home:'ہوم',biography:'سیرت',seerahLibrary:'سیرت کتب خانہ',companions:'صحابہ',browseThemes:'موضوعات دیکھیں',heroKicker:'نبی کریم ﷺ کے ساتھی',sahabaTitle:'صحابہ و',sahabiyatTitle:'صحابیات',heroDescription:'ایمان، شجاعت اور علم سے بھرپور زندگیاں۔ نبی کریم محمد ﷺ کے ساتھ کھڑے ان مردوں اور خواتین کو جانیے جن کی میراث آج بھی امت کو روشنی دیتی ہے۔',exploreProfiles:'تعارف پڑھیں',heroNote:'اپنی رفتار سے پڑھیں اور پسندیدہ تعارف محفوظ کریں۔',sahabaProfiles:'صحابہ کے تعارف',sahabiyatProfiles:'صحابیات کے تعارف',readingChapters:'پڑھنے کے ابواب',studyThemes:'مطالعے کے موضوعات',beginHere:'یہاں سے شروع کریں',chapterHeading:'روشن زندگیاں، پائیدار میراث۔',allProfiles:'تمام تعارف',fourCaliphs:'چار خلفاء · باب پڑھیں',tenCompanions:'دس صحابہ · باب پڑھیں',earlyBelievers:'ابتدائی مسلمان · باب پڑھیں',profileKicker:'امت کی تعمیر کرنے والے لوگ',profilesHeading:'صحابہ و صحابیات کو جانیے',profilesDescription:'ان کی زندگی، خدمات اور پہچان کے بارے میں پڑھیے۔',all:'تمام',sahaba:'صحابہ',sahabiyat:'صحابیات',saved:'محفوظ',sortLabel:'ترتیب',featured:'منتخب',alphabetical:'نام A–Z',reset:'فلٹر ہٹائیں',themesKicker:'مزید جانیے',themesHeading:'موضوع کے مطابق پڑھیے',themesDescription:'علماء، راویوں اور معاشرے کو سنوارنے والی خواتین کے بارے میں۔',allThemes:'تمام موضوعات',historyTitle:'تاریخی مراحل',backHome:'ہوم پر جائیں',searchPlaceholder:'نام، لقب یا خدمت تلاش کریں…',result:'{n} تعارف دکھائے جا رہے ہیں',emptyTitle:'کوئی تعارف نہیں ملا',emptyDescription:'دوسرا نام تلاش کریں یا گروپ بدلیں۔',emptySavedTitle:'اپنی مطالعے کی فہرست بنائیں',emptySavedDescription:'بعد میں پڑھنے کے لیے تعارف کا بُک مارک دبائیں۔',translationNote:'فی الحال زندگی کے تعارف انگریزی میں دستیاب ہیں۔',read:'تعارف پڑھیں',shortProfile:'مختصر تعارف',save:'تعارف محفوظ کریں',remove:'محفوظ فہرست سے ہٹائیں',savedToast:'تعارف محفوظ کر لیا گیا',removedToast:'تعارف فہرست سے ہٹا دیا گیا',sessionToast:'اس وزٹ کے لیے محفوظ کیا گیا',continue:'آخری بار پڑھا',themeOverview:'موضوع کا تعارف',coming:'مکمل باب جلد آ رہا ہے',available:'اس موضوع میں دستیاب تعارف',knownFor:'پہچان',life:'زندگی اور مقام',profileGroup:'گروپ'},
-  ROM:{home:'Home',biography:'Seerat',seerahLibrary:'Seerat ki kitabein',companions:'Sahaba',browseThemes:'Mauzuaat dekhein',heroKicker:'Nabi Kareem ﷺ ke saathi',sahabaTitle:'Sahaba aur',sahabiyatTitle:'Sahabiyat.',heroDescription:'Imaan, himmat aur ilm se bhari zindagiyan. Nabi Muhammad ﷺ ke saath khare un mardon aur aurton ko janiye jin ki misaal aaj bhi Ummah ko roshni deti hai.',exploreProfiles:'Taaruf parhein',heroNote:'Apni raftaar se parhein. Pasandeeda taaruf save karein.',sahabaProfiles:'Sahaba ke taaruf',sahabiyatProfiles:'Sahabiyat ke taaruf',readingChapters:'Parhne ke chapters',studyThemes:'Mutale ke mauzuaat',beginHere:'Yahan se shuru karein',chapterHeading:'Roshan zindagiyan. Yaadgaar misaalein.',allProfiles:'Sab taaruf',fourCaliphs:'Chaar Khulafa · Chapter parhein',tenCompanions:'Das Sahaba · Chapter parhein',earlyBelievers:'Ibtidai Musalman · Chapter parhein',profileKicker:'Ummah ko sanwarne wale log',profilesHeading:'Sahaba aur Sahabiyat ko janiye',profilesDescription:'Unki zindagi, khidmaat aur pehchaan ke bare mein parhein.',all:'Sab',sahaba:'Sahaba',sahabiyat:'Sahabiyat',saved:'Saved',sortLabel:'Tarteeb',featured:'Chuninda',alphabetical:'Naam A–Z',reset:'Filters hataein',themesKicker:'Mazeed janiye',themesHeading:'Mauzu ke mutabiq parhein',themesDescription:'Ulama, hadees ke raaviyon aur Ummah ko sanwarne wali aurton ke bare mein.',allThemes:'Sab mauzuaat',historyTitle:'Tareekhi marahil',backHome:'Home par wapas',searchPlaceholder:'Naam, laqab ya khidmat talash karein…',result:'{n} taaruf dikhaye ja rahe hain',emptyTitle:'Koi taaruf nahi mila',emptyDescription:'Doosra naam talash karein ya group badlein.',emptySavedTitle:'Apni parhne ki list banaein',emptySavedDescription:'Baad mein parhne ke liye profile ka bookmark dabayein.',translationNote:'Filhaal profile summaries English mein dastiyab hain.',read:'Taaruf parhein',shortProfile:'Mukhtasar taaruf',save:'Taaruf save karein',remove:'Saved se hataein',savedToast:'Taaruf save ho gaya',removedToast:'Taaruf list se hata diya gaya',sessionToast:'Is visit ke liye save ho gaya',continue:'Aakhri baar parha',themeOverview:'Mauzu ka taaruf',coming:'Poora chapter jald aayega',available:'Is mauzu mein dastiyab taaruf',knownFor:'Pehchaan',life:'Zindagi aur jagah',profileGroup:'Group'}
+  EN:{home:'Home',biography:'Biography',seerahLibrary:'Seerah library',companions:'Companions',browseThemes:'Browse themes',heroKicker:'The companions of the Prophet ﷺ',sahabaTitle:'Sahaba &',sahabiyatTitle:'Sahabiya.',heroDescription:'Lives of faith, courage, and knowledge. Meet the men and women who stood beside Prophet Muhammad ﷺ and whose legacies continue to inspire the Ummah.',exploreProfiles:'Explore profiles',heroNote:'Read at your pace. Save the profiles that inspire you.',sahabaProfiles:'Sahaba profiles',sahabiyatProfiles:'Sahabiyat profiles',readingChapters:'Reading chapters',studyThemes:'Study themes',beginHere:'Begin here',chapterHeading:'Remarkable lives. Lasting legacies.',allProfiles:'All profiles',fourCaliphs:'Four caliphs · Read chapter',tenCompanions:'Ten companions · Read chapter',earlyBelievers:'Early believers · Read chapter',profileKicker:'People who shaped the Ummah',profilesHeading:'Meet the Companions',profilesDescription:'Discover their lives, their contributions, and what they are remembered for.',all:'All',sahaba:'Sahaba',sahabiyat:'Sahabiyat',saved:'Saved',sortLabel:'Sort',featured:'Featured',alphabetical:'Name A–Z',reset:'Reset filters',themesKicker:'Follow your curiosity',themesHeading:'Explore by theme',themesDescription:'From scholars and narrators to the women who shaped the community.',allThemes:'All themes',historyTitle:'Historical milestones',backHome:'Back to home',searchPlaceholder:'Search a name, title, or contribution…',result:'Showing {n} profiles',emptyTitle:'No profiles found',emptyDescription:'Try another name or choose a different group.',emptySavedTitle:'Your reading list starts here',emptySavedDescription:'Tap the bookmark on a profile to save it for later.',translationNote:'Profile summaries are currently available in English.',read:'Read profile',shortProfile:'Short profile',save:'Save profile',remove:'Remove from saved',savedToast:'Profile saved for later',removedToast:'Profile removed from saved',sessionToast:'Bookmark saved for this visit',continue:'Last opened',themeOverview:'Theme overview',coming:'Full chapter coming soon',available:'Available profiles in this theme',knownFor:'Known for',life:'Life & location',profileGroup:'Collection',saveNotice:'Bookmarks are kept on this device.',chooseGroup:'Choose a group to open its profiles.',sahabaDoorDesc:'The men who stood beside the Prophet ﷺ: generals, scholars, narrators, and the first voice of the adhan.',sahabiyatDoorDesc:'The women who believed first, taught, healed the wounded, and stood firm for the deen.',profilesCount:'{n} profiles',themesCount:'{n} themes',andMore:'and {n} more',open:'Open',allSections:'All sections',chaptersDesc:'Full chapters you can read now.',savedHeading:'Saved profiles',savedDesc:'Your reading list, kept on this device.'},
+  HI:{home:'होम',biography:'जीवनी',seerahLibrary:'सीरत पुस्तकालय',companions:'सहाबा',browseThemes:'विषय देखें',heroKicker:'पैग़म्बर ﷺ के साथी',sahabaTitle:'सहाबा और',sahabiyatTitle:'सहाबियात।',heroDescription:'ईमान, साहस और ज्ञान से भरा जीवन। पैग़म्बर मुहम्मद ﷺ के साथ खड़े उन पुरुषों और महिलाओं को जानें, जिनकी विरासत आज भी उम्मत को प्रेरित करती है।',exploreProfiles:'परिचय पढ़ें',heroNote:'अपनी गति से पढ़ें और पसंदीदा परिचय सहेजें।',sahabaProfiles:'सहाबा परिचय',sahabiyatProfiles:'सहाबियात परिचय',readingChapters:'पढ़ने के अध्याय',studyThemes:'अध्ययन के विषय',beginHere:'यहाँ से शुरू करें',chapterHeading:'प्रेरणादायक जीवन और विरासत।',allProfiles:'सभी परिचय',fourCaliphs:'चार ख़लीफ़ा · अध्याय पढ़ें',tenCompanions:'दस सहाबा · अध्याय पढ़ें',earlyBelievers:'प्रारंभिक मुसलमान · अध्याय पढ़ें',profileKicker:'उम्मत को आकार देने वाले लोग',profilesHeading:'साथियों को जानें',profilesDescription:'उनके जीवन, योगदान और पहचान के बारे में पढ़ें।',all:'सभी',sahaba:'सहाबा',sahabiyat:'सहाबियात',saved:'सहेजे हुए',sortLabel:'क्रम',featured:'चुनिंदा',alphabetical:'नाम A–Z',reset:'फ़िल्टर हटाएँ',themesKicker:'और जानें',themesHeading:'विषय के अनुसार पढ़ें',themesDescription:'विद्वानों, हदीस के रावियों और समुदाय को संवारने वाली महिलाओं के बारे में।',allThemes:'सभी विषय',historyTitle:'ऐतिहासिक पड़ाव',backHome:'होम पर जाएँ',searchPlaceholder:'नाम या योगदान खोजें…',result:'{n} परिचय दिखाए जा रहे हैं',emptyTitle:'कोई परिचय नहीं मिला',emptyDescription:'दूसरा नाम खोजें या समूह बदलें।',emptySavedTitle:'अपनी पढ़ने की सूची बनाएँ',emptySavedDescription:'बाद में पढ़ने के लिए परिचय के बुकमार्क पर टैप करें।',translationNote:'अभी जीवन परिचय अंग्रेज़ी में उपलब्ध हैं।',read:'परिचय पढ़ें',shortProfile:'संक्षिप्त परिचय',save:'परिचय सहेजें',remove:'सहेजे हुए से हटाएँ',savedToast:'परिचय सहेज लिया गया',removedToast:'परिचय सूची से हटा दिया गया',sessionToast:'इस विज़िट के लिए सहेजा गया',continue:'आख़िरी बार पढ़ा',themeOverview:'विषय का परिचय',coming:'पूरा अध्याय जल्द आएगा',available:'इस विषय में उपलब्ध परिचय',knownFor:'पहचान',life:'जीवन और स्थान',profileGroup:'समूह',chooseGroup:'कोई समूह खोलें और उनके परिचय पढ़ें।',sahabaDoorDesc:'पैग़म्बर ﷺ के साथ खड़े पुरुष: सेनापति, विद्वान, हदीस के रावी और अज़ान की पहली आवाज़।',sahabiyatDoorDesc:'वे महिलाएँ जो सबसे पहले ईमान लाईं, जिन्होंने पढ़ाया, घायलों का इलाज किया और दीन पर डटी रहीं।',profilesCount:'{n} परिचय',themesCount:'{n} विषय',andMore:'और {n} अन्य',open:'खोलें',allSections:'सभी हिस्से',chaptersDesc:'पूरे अध्याय, जो अभी पढ़े जा सकते हैं।',savedHeading:'सहेजे हुए परिचय',savedDesc:'आपकी पढ़ने की सूची, इसी डिवाइस पर।'},
+  UR:{home:'ہوم',biography:'سیرت',seerahLibrary:'سیرت کتب خانہ',companions:'صحابہ',browseThemes:'موضوعات دیکھیں',heroKicker:'نبی کریم ﷺ کے ساتھی',sahabaTitle:'صحابہ و',sahabiyatTitle:'صحابیات',heroDescription:'ایمان، شجاعت اور علم سے بھرپور زندگیاں۔ نبی کریم محمد ﷺ کے ساتھ کھڑے ان مردوں اور خواتین کو جانیے جن کی میراث آج بھی امت کو روشنی دیتی ہے۔',exploreProfiles:'تعارف پڑھیں',heroNote:'اپنی رفتار سے پڑھیں اور پسندیدہ تعارف محفوظ کریں۔',sahabaProfiles:'صحابہ کے تعارف',sahabiyatProfiles:'صحابیات کے تعارف',readingChapters:'پڑھنے کے ابواب',studyThemes:'مطالعے کے موضوعات',beginHere:'یہاں سے شروع کریں',chapterHeading:'روشن زندگیاں، پائیدار میراث۔',allProfiles:'تمام تعارف',fourCaliphs:'چار خلفاء · باب پڑھیں',tenCompanions:'دس صحابہ · باب پڑھیں',earlyBelievers:'ابتدائی مسلمان · باب پڑھیں',profileKicker:'امت کی تعمیر کرنے والے لوگ',profilesHeading:'صحابہ و صحابیات کو جانیے',profilesDescription:'ان کی زندگی، خدمات اور پہچان کے بارے میں پڑھیے۔',all:'تمام',sahaba:'صحابہ',sahabiyat:'صحابیات',saved:'محفوظ',sortLabel:'ترتیب',featured:'منتخب',alphabetical:'نام A–Z',reset:'فلٹر ہٹائیں',themesKicker:'مزید جانیے',themesHeading:'موضوع کے مطابق پڑھیے',themesDescription:'علماء، راویوں اور معاشرے کو سنوارنے والی خواتین کے بارے میں۔',allThemes:'تمام موضوعات',historyTitle:'تاریخی مراحل',backHome:'ہوم پر جائیں',searchPlaceholder:'نام، لقب یا خدمت تلاش کریں…',result:'{n} تعارف دکھائے جا رہے ہیں',emptyTitle:'کوئی تعارف نہیں ملا',emptyDescription:'دوسرا نام تلاش کریں یا گروپ بدلیں۔',emptySavedTitle:'اپنی مطالعے کی فہرست بنائیں',emptySavedDescription:'بعد میں پڑھنے کے لیے تعارف کا بُک مارک دبائیں۔',translationNote:'فی الحال زندگی کے تعارف انگریزی میں دستیاب ہیں۔',read:'تعارف پڑھیں',shortProfile:'مختصر تعارف',save:'تعارف محفوظ کریں',remove:'محفوظ فہرست سے ہٹائیں',savedToast:'تعارف محفوظ کر لیا گیا',removedToast:'تعارف فہرست سے ہٹا دیا گیا',sessionToast:'اس وزٹ کے لیے محفوظ کیا گیا',continue:'آخری بار پڑھا',themeOverview:'موضوع کا تعارف',coming:'مکمل باب جلد آ رہا ہے',available:'اس موضوع میں دستیاب تعارف',knownFor:'پہچان',life:'زندگی اور مقام',profileGroup:'گروپ',chooseGroup:'کوئی گروپ کھولیں اور ان کے تعارف پڑھیں۔',sahabaDoorDesc:'نبی کریم ﷺ کے ساتھ کھڑے مرد: سپہ سالار، علماء، راوی اور اذان کی پہلی آواز۔',sahabiyatDoorDesc:'وہ خواتین جو سب سے پہلے ایمان لائیں، جنہوں نے تعلیم دی، زخمیوں کا علاج کیا اور دین پر ڈٹی رہیں۔',profilesCount:'{n} تعارف',themesCount:'{n} موضوعات',andMore:'اور {n} مزید',open:'کھولیں',allSections:'تمام حصے',chaptersDesc:'مکمل ابواب جو ابھی پڑھے جا سکتے ہیں۔',savedHeading:'محفوظ تعارف',savedDesc:'آپ کی مطالعے کی فہرست، اسی ڈیوائس پر۔'},
+  ROM:{home:'Home',biography:'Seerat',seerahLibrary:'Seerat ki kitabein',companions:'Sahaba',browseThemes:'Mauzuaat dekhein',heroKicker:'Nabi Kareem ﷺ ke saathi',sahabaTitle:'Sahaba aur',sahabiyatTitle:'Sahabiyat.',heroDescription:'Imaan, himmat aur ilm se bhari zindagiyan. Nabi Muhammad ﷺ ke saath khare un mardon aur aurton ko janiye jin ki misaal aaj bhi Ummah ko roshni deti hai.',exploreProfiles:'Taaruf parhein',heroNote:'Apni raftaar se parhein. Pasandeeda taaruf save karein.',sahabaProfiles:'Sahaba ke taaruf',sahabiyatProfiles:'Sahabiyat ke taaruf',readingChapters:'Parhne ke chapters',studyThemes:'Mutale ke mauzuaat',beginHere:'Yahan se shuru karein',chapterHeading:'Roshan zindagiyan. Yaadgaar misaalein.',allProfiles:'Sab taaruf',fourCaliphs:'Chaar Khulafa · Chapter parhein',tenCompanions:'Das Sahaba · Chapter parhein',earlyBelievers:'Ibtidai Musalman · Chapter parhein',profileKicker:'Ummah ko sanwarne wale log',profilesHeading:'Sahaba aur Sahabiyat ko janiye',profilesDescription:'Unki zindagi, khidmaat aur pehchaan ke bare mein parhein.',all:'Sab',sahaba:'Sahaba',sahabiyat:'Sahabiyat',saved:'Saved',sortLabel:'Tarteeb',featured:'Chuninda',alphabetical:'Naam A–Z',reset:'Filters hataein',themesKicker:'Mazeed janiye',themesHeading:'Mauzu ke mutabiq parhein',themesDescription:'Ulama, hadees ke raaviyon aur Ummah ko sanwarne wali aurton ke bare mein.',allThemes:'Sab mauzuaat',historyTitle:'Tareekhi marahil',backHome:'Home par wapas',searchPlaceholder:'Naam, laqab ya khidmat talash karein…',result:'{n} taaruf dikhaye ja rahe hain',emptyTitle:'Koi taaruf nahi mila',emptyDescription:'Doosra naam talash karein ya group badlein.',emptySavedTitle:'Apni parhne ki list banaein',emptySavedDescription:'Baad mein parhne ke liye profile ka bookmark dabayein.',translationNote:'Filhaal profile summaries English mein dastiyab hain.',read:'Taaruf parhein',shortProfile:'Mukhtasar taaruf',save:'Taaruf save karein',remove:'Saved se hataein',savedToast:'Taaruf save ho gaya',removedToast:'Taaruf list se hata diya gaya',sessionToast:'Is visit ke liye save ho gaya',continue:'Aakhri baar parha',themeOverview:'Mauzu ka taaruf',coming:'Poora chapter jald aayega',available:'Is mauzu mein dastiyab taaruf',knownFor:'Pehchaan',life:'Zindagi aur jagah',profileGroup:'Group',chooseGroup:'Koi group kholein aur unke taaruf parhein.',sahabaDoorDesc:'Nabi ﷺ ke saath khare mard: sipah salar, ulama, hadees ke raavi aur azaan ki pehli awaaz.',sahabiyatDoorDesc:'Woh khawateen jo sab se pehle imaan laein, jinhon ne taleem di, zakhmiyon ka ilaaj kiya aur deen par dati rahein.',profilesCount:'{n} taaruf',themesCount:'{n} mauzuaat',andMore:'aur {n} mazeed',open:'Kholein',allSections:'Sab hisse',chaptersDesc:'Mukammal chapters jo abhi parhe ja sakte hain.',savedHeading:'Saved taaruf',savedDesc:'Aap ki parhne ki list, isi device par.'}
  };
  const t=key=>TEXT[language][key]??TEXT.EN[key]??key;
+ const tn=(key,n)=>t(key).replace('{n}',n);
  const langCode=()=>({EN:'en',HI:'hi',UR:'ur',ROM:'ur-Latn'}[language]);
- function uiNode(el,key){el.textContent=t(key);el.lang=langCode();el.dir=language==='UR'?'rtl':'ltr';}
+ const uiDir=()=>language==='UR'?'rtl':'ltr';
+ function uiNode(el,key,n){el.textContent=n==null?t(key):tn(key,n);el.lang=langCode();el.dir=uiDir();}
  function notify(message){clearTimeout(toastTimer);$('#toast').textContent=message;$('#toast').hidden=false;toastTimer=setTimeout(()=>{$('#toast').hidden=true},2400);}
  function normalize(value){return String(value).normalize('NFD').replace(/[\u0300-\u036f\u064B-\u065F\u0670]/g,'').toLowerCase().replace(/[أإآ]/g,'ا').replace(/ى/g,'ي').replace(/[‘’'`]/g,'').replace(/[^\p{L}\p{N}\s]/gu,' ').replace(/\s+/g,' ').trim();}
+ const groupList=group=>DATA.profiles.filter(p=>p.group===group).sort((a,b)=>a.order-b.order);
+
+ /* ── Hub doors and counts ── */
+ function renderDoors(){
+  ['sahaba','sahabiyat'].forEach(group=>{
+   const list=groupList(group);
+   uiNode($(`[data-door-count="${group}"]`),'profilesCount',list.length);
+   const names=$(`[data-door-names="${group}"]`),rest=list.length-3;
+   names.innerHTML=`<span lang="en" dir="ltr">${list.slice(0,3).map(p=>escape(p.name)).join(', ')}</span>${rest>0?` <span class="door-more" lang="${langCode()}" dir="${uiDir()}">${escape(tn('andMore',rest))}</span>`:''}`;
+  });
+  uiNode($('[data-door-count="themes"]'),'themesCount',THEMES.length);
+  updateCounts();
+ }
+ function updateCounts(){
+  const counts={sahaba:groupList('sahaba').length,sahabiyat:groupList('sahabiyat').length,themes:THEMES.length,saved:saved.size};
+  $$('[data-count]').forEach(el=>{el.textContent=String(counts[el.dataset.count]??'')});
+ }
+
+ /* ── Profile grid ── */
+ function renderPanelHead(){
+  if(!PROFILE_VIEWS.includes(view))return;
+  const isSaved=view==='saved',ar=$('#panel-ar');
+  ar.hidden=isSaved;ar.textContent=ARABIC[view]||'';
+  uiNode($('#panel-profiles-title'),isSaved?'savedHeading':view);
+  uiNode($('#panel-profiles-desc'),isSaved?'savedDesc':view+'DoorDesc');
+  $('#panel-profiles').dataset.group=view;
+ }
  function render(){
   const words=normalize(query).split(' ').filter(Boolean);
   visible=DATA.profiles.filter(p=>(filter==='all'||p.group===filter||(filter==='saved'&&saved.has(p.id)))&&words.every(word=>normalize([p.name,p.arabic,p.tag,p.title,p.summary,p.dates].join(' ')).includes(word)));
@@ -853,16 +992,16 @@ button{touch-action:manipulation}
   const ids=new Set(visible.map(p=>p.id));
   $$('.profile-card').forEach(card=>{card.hidden=!ids.has(card.dataset.profile);});
   visible.forEach(p=>$('#profile-grid').appendChild($(`[data-profile="${p.id}"]`)));
-  $$('.filter-tab').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.filter===filter)));
-  $('#saved-count').textContent=String(saved.size);
-  uiNode($('#results-count'),'result');$('#results-count').textContent=t('result').replace('{n}',visible.length);
+  uiNode($('#results-count'),'result',visible.length);
   $('#empty-state').hidden=visible.length!==0;
-  uiNode($('#empty-title'),filter==='saved'&&!query?'emptySavedTitle':'emptyTitle');
-  uiNode($('#empty-description'),filter==='saved'&&!query?'emptySavedDescription':'emptyDescription');
+  const savedEmpty=filter==='saved'&&!query;
+  uiNode($('#empty-title'),savedEmpty?'emptySavedTitle':'emptyTitle');
+  uiNode($('#empty-description'),savedEmpty?'emptySavedDescription':'emptyDescription');
+  $('#reset-filters').hidden=savedEmpty;
   $('#search-clear').hidden=!query;
   $$('.read-text').forEach(el=>uiNode(el,'read'));
   $$('.save-btn').forEach(button=>updateSaveButton(button,button.dataset.save));
-  updateContinue();
+  updateCounts();updateContinue();
  }
  function updateSaveButton(button,id){const isSaved=saved.has(id),p=DATA.profiles.find(p=>p.id===id);button.setAttribute('aria-pressed',String(isSaved));button.setAttribute('aria-label',t(isSaved?'remove':'save')+': '+p.name);button.title=t(isSaved?'remove':'save');}
  function saveProfile(id){
@@ -870,10 +1009,53 @@ button{touch-action:manipulation}
   const persistent=storage.set('seerah-companion-bookmarks',JSON.stringify([...saved]));
   render();if(currentProfile)updateReaderSave();notify(removing?t('removedToast'):t(persistent?'savedToast':'sessionToast'));
  }
- function updateContinue(){const id=storage.get('seerah-companion-last'),p=DATA.profiles.find(p=>p.id===id);$('#continue-reading').hidden=!p;if(p){$('#continue-reading').dataset.openProfile=p.id;$('#continue-reading').innerHTML=icon('book')+`<span>${escape(t('continue'))}: ${escape(p.name)}</span>`;}}
+ function updateContinue(){const id=storage.get('seerah-companion-last'),p=DATA.profiles.find(p=>p.id===id),button=$('#continue-reading');button.hidden=!p;if(p){button.dataset.openProfile=p.id;button.innerHTML=icon('book')+`<span>${escape(t('continue'))}: ${escape(p.name)}</span>`;}}
+
+ /* ── View switching: hub ⇄ one open section ── */
+ function scrollToExplore(instant){
+  const header=$('.site-header')?.offsetHeight||64;
+  const top=Math.max(0,$('#explore').getBoundingClientRect().top+window.scrollY-header+8);
+  if(Math.abs(window.scrollY-top)<4)return;
+  window.scrollTo({top,behavior:instant||reduceMotion()?'auto':'smooth'});
+ }
+ function enter(el){el.classList.remove('is-entering');void el.offsetWidth;el.classList.add('is-entering');}
+ function setView(next,{push=true,scroll=true,focus=false,instant=false}={}){
+  if(!VIEWS.includes(next))next='hub';
+  const changed=next!==view;view=next;
+  const isProfiles=PROFILE_VIEWS.includes(next);
+  $('#hub').hidden=next!=='hub';
+  $('#explore-head').hidden=next!=='hub';
+  $('#panel-bar').hidden=next==='hub';
+  $('#panel-profiles').classList.toggle('is-open',isProfiles);
+  $('#panel-themes').classList.toggle('is-open',next==='themes');
+  $$('.panel-tab').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===next)));
+  const activeTab=$(`.panel-tab[data-view="${next}"]`);if(activeTab){const tabs=$('.panel-tabs'),left=activeTab.offsetLeft-tabs.offsetLeft,right=left+activeTab.offsetWidth;if(left<tabs.scrollLeft)tabs.scrollLeft=left-8;else if(right>tabs.scrollLeft+tabs.clientWidth)tabs.scrollLeft=right-tabs.clientWidth+8;}
+  if(isProfiles){
+   if(changed){query='';$('#profile-search').value='';}
+   filter=next;renderPanelHead();render();
+  }
+  if(changed)enter(next==='hub'?$('#hub'):isProfiles?$('#panel-profiles'):$('#panel-themes'));
+  if(push){const hash=next==='hub'?'#explore':'#'+next;if(location.hash!==hash)history.pushState(null,'',hash);}
+  if(scroll)scrollToExplore(instant);
+  if(focus){const heading=next==='hub'?$('#explore-title'):isProfiles?$('#panel-profiles-title'):$('#themes-title');heading.focus({preventScroll:true});}
+ }
+ /* Hash routes: #sahaba #sahabiyat #themes #saved #explore #chapters #profile-<id> (old #profiles still works) */
+ function route(initial){
+  const hash=decodeURIComponent(location.hash.slice(1));
+  if(hash.startsWith('profile-')){
+   const p=DATA.profiles.find(p=>p.id===hash.slice(8));
+   if(p){setView(p.group,{push:false,scroll:true,instant:initial});openProfile(p.id);return}
+  }
+  if(VIEWS.includes(hash)){setView(hash,{push:false,scroll:true,instant:initial});return}
+  setView('hub',{push:false,scroll:false});
+  if(hash==='explore'||hash==='profiles')scrollToExplore(initial);
+  else if(hash==='chapters')$('#chapters').scrollIntoView({behavior:initial||reduceMotion()?'auto':'smooth',block:'start'});
+ }
+
+ /* ── Reader dialog ── */
  function openDialog(){if(!$('#reader').open){opener=document.activeElement;$('#reader').showModal();document.body.style.overflow='hidden';}$('#reader-close').focus();}
  function closeDialog(){if($('#reader').open)$('#reader').close();}
- $('#reader').addEventListener('close',()=>{document.body.style.overflow='';currentProfile=null;currentTheme=null;if(opener?.isConnected&&!opener.closest('[hidden]'))opener.focus();else $('#profile-search').focus({preventScroll:true});});
+ $('#reader').addEventListener('close',()=>{document.body.style.overflow='';currentProfile=null;currentTheme=null;if(opener?.isConnected&&opener.offsetParent!==null)opener.focus();});
  $('#reader-close').addEventListener('click',closeDialog);
  $('#reader').addEventListener('click',event=>{if(event.target!==$('#reader'))return;const rect=$('#reader').getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)closeDialog();});
  function updateReaderSave(){const button=$('#reader-save');if(!button||!currentProfile)return;const isSaved=saved.has(currentProfile.id);button.innerHTML=icon('bookmark')+`<span>${escape(t(isSaved?'remove':'save'))}</span>`;button.setAttribute('aria-pressed',String(isSaved));const index=visible.findIndex(p=>p.id===currentProfile.id);const previous=$('[data-reader-step="-1"]');const next=$('[data-reader-step="1"]');if(previous)previous.disabled=index<=0;if(next)next.disabled=index<0||index>=visible.length-1;}
@@ -893,6 +1075,7 @@ button{touch-action:manipulation}
   $('#reader-body').innerHTML=`<div class="reader-ar" lang="ar" dir="rtl">${escape(c.arabic)}</div><h2 id="reader-name" lang="en" dir="ltr">${escape(c.name)}</h2><p class="reader-content" lang="en" dir="ltr">${escape(c.summary)}</p><div class="reader-chips" lang="en">${c.chips.map(chip=>`<span>${escape(chip)}</span>`).join('')}</div><p class="reader-notice">${escape(t('coming'))}</p>${matches.length?`<div class="reader-matches"><p>${escape(t('available'))}</p>${matches.map(p=>`<button type="button" data-open-profile="${p.id}">${escape(p.name)} ${icon('arrow')}</button>`).join('')}</div>`:''}`;
   $('#reader-footer').innerHTML='';openDialog();$('#reader').scrollTop=0;
  }
+
  /* Called by the site shell (header language menu). code = interface language for this page,
     siteCode/siteName = what the reader picked in the header (may have no translation here yet). */
  function setLanguage(code,siteCode=code,siteName=''){
@@ -900,33 +1083,43 @@ button{touch-action:manipulation}
   $$('[data-ui]').forEach(el=>uiNode(el,el.dataset.ui));
   document.documentElement.lang=langCode();
   $('#profile-search').placeholder=t('searchPlaceholder');$('#profile-search').setAttribute('aria-label',t('searchPlaceholder'));
+  $('.panel-back').setAttribute('aria-label',t('allSections'));
   $('#translation-note').hidden=language==='EN';uiNode($('#translation-note'),'translationNote');
   if(siteCode!==language){const note=$('#translation-note');note.hidden=false;note.lang='en';note.dir='ltr';note.textContent=`This page is shown in English. The ${siteName||siteCode} translation is coming soon.`;}
-  $('#profile-search').lang=langCode();$('#profile-search').dir=language==='UR'?'rtl':'ltr';
-  render();if(currentProfile)openProfile(currentProfile.id);else if(currentTheme)openTheme(currentTheme.id);
+  $('#profile-search').lang=langCode();$('#profile-search').dir=uiDir();
+  renderDoors();renderPanelHead();render();
+  if(currentProfile)openProfile(currentProfile.id);else if(currentTheme)openTheme(currentTheme.id);
  }
+
+ /* ── Events ── */
+ // With JS the doors use real hashes, so they also work in a new tab.
+ $$('a[data-view]').forEach(a=>{a.href=a.dataset.view==='hub'?'#explore':'#'+a.dataset.view;});
  document.addEventListener('click',event=>{
+  const viewLink=event.target.closest('[data-view]');
+  if(viewLink){
+   if(viewLink.tagName==='A'&&(event.metaKey||event.ctrlKey||event.shiftKey||event.button!==0))return;
+   event.preventDefault();setView(viewLink.dataset.view,{focus:true});return;
+  }
   const save=event.target.closest('[data-save]');if(save){saveProfile(save.dataset.save);return}
   const profile=event.target.closest('[data-open-profile]');if(profile){openProfile(profile.dataset.openProfile);return}
   const theme=event.target.closest('[data-open-theme]');if(theme){openTheme(theme.dataset.openTheme);return}
  });
- document.addEventListener('keydown',event=>{if(event.key==='/'&&!$('#reader').open&&!['INPUT','TEXTAREA','SELECT'].includes(event.target.tagName)){event.preventDefault();$('#profile-search').focus()}});
- $$('.filter-tab').forEach(button=>button.addEventListener('click',()=>{filter=button.dataset.filter;render()}));
+ document.addEventListener('keydown',event=>{if(event.key==='/'&&PROFILE_VIEWS.includes(view)&&!$('#reader').open&&!['INPUT','TEXTAREA','SELECT'].includes(event.target.tagName)){event.preventDefault();$('#profile-search').focus()}});
  $('#profile-search').addEventListener('input',event=>{query=event.target.value;render()});
  $('#search-clear').addEventListener('click',()=>{query='';$('#profile-search').value='';render();$('#profile-search').focus()});
  $('#profile-sort').addEventListener('change',event=>{sort=event.target.value;render()});
- $('#reset-filters').addEventListener('click',()=>{filter='all';query='';$('#profile-search').value='';render();$('.filter-tab').focus()});
+ $('#reset-filters').addEventListener('click',()=>{query='';$('#profile-search').value='';render();$('#profile-search').focus()});
  $$('.theme-tab').forEach(button=>button.addEventListener('click',()=>{themeFilter=button.dataset.themeFilter;$$('.theme-tab').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.themeFilter===themeFilter)));$$('.theme-card').forEach(card=>card.hidden=themeFilter!=='all'&&card.dataset.group!==themeFilter)}));
  $('#reader-footer').addEventListener('click',event=>{const button=event.target.closest('[data-reader-step]');if(!button||button.disabled||!currentProfile)return;const index=visible.findIndex(p=>p.id===currentProfile.id),next=visible[index+Number(button.dataset.readerStep)];if(next)openProfile(next.id)});
  let frame=0;window.addEventListener('scroll',()=>{if(frame)return;frame=requestAnimationFrame(()=>{$('#back-top').hidden=window.scrollY<600;frame=0})},{passive:true});
- $('#back-top').addEventListener('click',()=>window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));
+ $('#back-top').addEventListener('click',()=>window.scrollTo({top:0,behavior:reduceMotion()?'auto':'smooth'}));
  window.addEventListener('storage',event=>{if(event.key==='seerah-companion-bookmarks'){try{const list=JSON.parse(event.newValue||'[]');if(Array.isArray(list)){saved=new Set(list.filter(id=>DATA.profiles.some(p=>p.id===id)));render();updateReaderSave()}}catch{}}});
+ window.addEventListener('hashchange',()=>route(false));
  window.setPageLanguage=setLanguage;window.pageNotify=notify;
- // Hash links can open a short profile when this file is used on the website.
- function hashProfile(){const id=location.hash.replace(/^#profile-/,'');if(location.hash.startsWith('#profile-'))openProfile(id)}
- window.addEventListener('hashchange',hashProfile);hashProfile();
+ renderDoors();route(true);
 })();
 </script>
+
 <script id="site-shell">
 /* ═══════════════════════════════════════════════
    SITE SHELL — header, language, progress, footer (same behaviour as index.html)
