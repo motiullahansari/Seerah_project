@@ -911,6 +911,34 @@ body.integrated-reading>.site-header,body.integrated-reading>.site-footer,body.i
 }
 </style>
 
+
+<style id="desktop-cover-size-fix-2026-10">
+/* Larger book cover on desktop so the artwork has the same visual weight as the title panel. */
+@media (min-width:1024px){
+  .bh-grid{
+    grid-template-columns:320px minmax(0,1fr);
+    gap:56px;
+    align-items:center;
+  }
+  .bh-cover{
+    width:300px;
+    justify-self:center;
+    align-self:center;
+    min-height:0;
+    container-type:normal;
+  }
+  .messenger-cover{
+    position:relative;
+    top:auto;
+    left:auto;
+    width:300px;
+    max-width:100%;
+    height:auto;
+    transform:none;
+  }
+  .bh-cover:hover .messenger-cover{transform:translateY(-4px)}
+}
+</style>
 </head>
 <body>
 <!-- Icon sprite (used via <use href="#i-…">) -->
