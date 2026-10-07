@@ -785,6 +785,132 @@ body.integrated-reading>.site-header,body.integrated-reading>.site-footer,body.i
 .bk-cover .book-cover-author{z-index:3;left:14%;right:6%;bottom:6.6%;text-align:center;font:500 3.75cqw/1.32 var(--font-ui);letter-spacing:.01cqw;color:var(--cover-paper)}
 .bk-cover .book-cover-by{margin-bottom:1.1cqw;font-size:2.5cqw;letter-spacing:.28cqw;color:var(--cover-gold)}
 </style>
+
+<style id="mobile-landing-fix-2026-10">
+/* Mobile landing polish: stack the cover and details so the title never competes
+   with the book artwork on phone-sized viewports. Keep tablet/desktop unchanged. */
+@media (max-width: 600px){
+  .book-hero .wrap{overflow:visible}
+  .crumbs{
+    padding-top:18px;
+    font-size:12.5px;
+    gap:4px 7px;
+    line-height:1.5;
+  }
+  .crumbs [aria-current]{overflow-wrap:normal}
+
+  .bh-grid{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:0 !important;
+    align-items:start;
+    padding-top:22px;
+  }
+  .bh-cover{
+    grid-column:1 !important;
+    grid-row:auto !important;
+    justify-self:center !important;
+    align-self:start !important;
+    width:min(58vw,190px) !important;
+    margin:0 auto 26px;
+  }
+  .messenger-cover{
+    position:relative !important;
+    inset:auto !important;
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    aspect-ratio:12/17;
+    transform:none !important;
+    box-shadow:0 15px 28px -16px rgba(28,47,73,.46) !important;
+  }
+  .bh-cover:hover .messenger-cover{transform:translateY(-2px) !important}
+
+  .bh-copy{
+    display:block !important;
+    grid-column:1 !important;
+    min-width:0;
+    width:100%;
+  }
+  .bh-heading{display:block;min-width:0}
+  .bh-copy h1{
+    margin:0;
+    font-size:clamp(29px,8.1vw,37px) !important;
+    line-height:1.13 !important;
+    letter-spacing:-.018em;
+    text-wrap:balance;
+  }
+  .bh-copy h1>span{display:inline}
+  .bh-auth{margin-top:10px;font-size:13.5px;line-height:1.55}
+  .bh-lede{
+    grid-column:auto !important;
+    margin-top:18px !important;
+    font-size:16px;
+    line-height:1.68;
+  }
+  .bh-language{
+    grid-column:auto !important;
+    width:max-content;
+    max-width:100%;
+    margin-top:16px;
+  }
+
+  .fb-stats{
+    grid-column:auto !important;
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    width:100%;
+    margin-top:22px;
+  }
+  .fb-stats:has(#chapter-stat:not([hidden])){
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  }
+  .fb-stats>div{padding:0 16px !important}
+  .fb-stats>div:first-child{padding-inline-start:0 !important}
+  .fb-stats dd,.fb-stats dd.text-stat{font-size:28px;line-height:1.12}
+  .fb-stats dt{font-size:11.5px;line-height:1.4;margin-top:5px}
+
+  .bh-actions{
+    grid-column:auto !important;
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr);
+    gap:10px;
+    margin-top:24px;
+  }
+  .bh-actions .btn{
+    width:100%;
+    min-width:0;
+    min-height:48px;
+    white-space:normal;
+    text-align:center;
+  }
+  .bh-note,.bh-progress{grid-column:auto !important}
+  .book-hero{padding-bottom:34px}
+}
+
+@media (max-width: 420px){
+  :root{--gutter:14px}
+  .site-header>nav{padding-inline:10px;gap:6px}
+  .nav-logo{gap:6px}
+  .seerah-nav-logo{width:36px;height:36px}
+  .logo-name{font-size:14px;letter-spacing:.045em}
+  .nav-right{gap:5px}
+  .lang-select{flex:1 1 auto;min-width:0;max-width:none}
+  .lang-btn{height:38px;padding-inline:7px}
+  .theme-toggle,.hamburger{width:38px;height:38px}
+  .bh-cover{width:min(64vw,184px) !important;margin-bottom:24px}
+  .bh-copy h1{font-size:clamp(28px,8.8vw,35px) !important}
+  .bh-lede{font-size:15.5px}
+}
+
+@media (max-width: 350px){
+  .nav-logo>span{display:none}
+  .bh-cover{width:min(68vw,176px) !important}
+  .fb-stats>div{padding-inline:11px !important}
+  .fb-stats dd,.fb-stats dd.text-stat{font-size:25px}
+}
+</style>
+
 </head>
 <body>
 <!-- Icon sprite (used via <use href="#i-…">) -->
