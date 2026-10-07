@@ -251,7 +251,8 @@ body.header-hidden .progress-bar{top:0}
 .bh-cover{display:block;justify-self:center;border-radius:10px}
 .bh-cover .fb-cover{width:210px}
 .bh-cover:hover .fb-cover{transform:rotate(.6deg) translateY(-4px)}
-.bh-copy h1{font:700 clamp(36px,4.4vw,54px)/1.04 var(--font-display);letter-spacing:-.015em;color:var(--ink)}
+.bh-copy{min-width:0}
+.bh-copy h1{font:700 clamp(36px,4.4vw,54px)/1.04 var(--font-display);letter-spacing:-.015em;color:var(--ink);overflow-wrap:break-word}
 .bh-auth{margin-top:12px;font-size:15.5px;color:var(--ink-2)}
 .bh-auth strong{font-weight:600;color:var(--ink)}
 .bh-auth em{font:italic 400 16px var(--font-read)}
@@ -315,7 +316,7 @@ body.header-hidden .progress-bar{top:0}
 [dir="rtl"] .era-action .i{rotate:180deg}
 [dir="rtl"] .era:hover .era-action .i{transform:translateX(-3px)}
 
-.toc-wrap{margin-top:56px}
+.toc-wrap{margin-top:56px;scroll-margin-top:8px}
 .find{display:flex;align-items:center;gap:10px;height:46px;min-width:min(300px,100%);padding:0 14px;background:var(--surface);border:1px solid var(--line-2);border-radius:14px;box-shadow:var(--shadow-sm);transition:border-color .2s,box-shadow .2s}
 .find:focus-within{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-ring)}
 .find .i{color:var(--ink-3)}
@@ -449,15 +450,17 @@ body.header-hidden .read-tools{top:0}
 @media (max-width:640px){
   .book-hero{padding-bottom:40px}
   /* Phones: small cover beside the title, so "Continue reading" stays near the top */
-  .bh-grid{grid-template-columns:auto minmax(0,1fr);gap:0 18px;align-items:end;padding-top:22px}
+  .bh-grid{grid-template-columns:105px minmax(0,1fr);gap:0 16px;align-items:start;padding-top:22px}
   .bh-copy{display:contents}
   .bh-cover{grid-row:1/3;align-self:start}
   .bh-cover .fb-cover{zoom:.5}
-  .bh-copy h1{font-size:clamp(28px,8.4vw,34px)}
-  .bh-auth{align-self:start;margin-top:8px;font-size:14px}
-  .bh-lede,.bh-note,.fb-stats,.bh-actions,.bh-progress{grid-column:1/-1}
+  .bh-copy h1{min-width:0;font-size:clamp(26px,7.5vw,32px);line-height:1.12}
+  .bh-auth{min-width:0;align-self:start;margin-top:8px;font-size:14px;overflow-wrap:break-word}
+  /* Every item after the cover/title spans both columns; language text must not widen the cover column. */
+  .bh-lede,.bh-language,.bh-note,.fb-stats,.bh-actions,.bh-progress,.bh-saved-hint,.chapter-jump{grid-column:1/-1;min-width:0}
   .bh-lede{margin-top:20px;font-size:16px}
-  .fb-stats>div{padding:0 18px}
+  .fb-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%}
+  .fb-stats>div{min-width:0;padding:0 14px}
   .fb-stats dd{font-size:28px}
   .bh-actions .btn{flex:1 1 200px}
   .book-body{padding:44px 0 64px}
@@ -542,6 +545,16 @@ body.header-hidden .read-tools{top:0}
   .seerah-nav-logo{width:34px;height:34px}
   .lang-btn .i{display:none}
   .contributor-login{padding:0 8px}
+}
+@media (max-width:360px){
+  .site-header>nav{padding-inline:10px;gap:6px}
+  .nav-right{gap:4px}
+  .nav-logo{gap:6px}
+  .logo-name{font-size:14px;letter-spacing:.03em}
+  .seerah-nav-logo{width:32px;height:32px}
+  .theme-toggle,.hamburger{width:32px}
+  .lang-btn{padding-inline:7px}
+  .contributor-login{padding-inline:7px;font-size:12px}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -1156,7 +1169,7 @@ function renderLibrary(slug, scrollToList) {
           const sc = stageChapters(s), sl = totalLessons(sc), sr = readIn(sc);
           const p = sl ? (sr / sl * 100).toFixed(1) : 0;
           const range = sc.length ? `Chapters ${sc[0].chapter_id}–${sc[sc.length - 1].chapter_id}<br>${plural(sl, 'lesson')}${sr ? `, <b>${sr} read</b>` : ''}` : 'No chapters';
-          return `<button class="era" type="button" data-stage="${s.slug}" style="--w:${s.w}" aria-pressed="${s.slug === state.stage}" aria-controls="chapter-list">
+          return `<button class="era" type="button" data-stage="${s.slug}" style="--w:${s.w}" aria-label="View ${s.name} chapters" aria-pressed="${s.slug === state.stage}" aria-controls="chapters">
             <span class="era-top" aria-hidden="true"><span class="era-index">${pad(s.id)}</span><span class="era-selected"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8 3 3 7-7"/></svg>Selected</span></span>
             <span class="era-body"><span class="era-years" data-years="${s.slug}">${eraYears(s)}, ${s.age}</span><strong>${s.name}</strong><span class="era-meta">${range}</span></span>
             <span class="era-timeline" aria-hidden="true"><span class="era-bar"><span class="era-fill" style="--p:${p}%"></span></span></span>
@@ -1165,13 +1178,13 @@ function renderLibrary(slug, scrollToList) {
         }).join('')}
       </div>
 
-      <div class="toc-wrap">
+      <section class="toc-wrap" id="chapters" aria-labelledby="list-title">
         <div class="bk-head">
-          <div><h2 id="list-title"></h2><p id="list-sub"></p></div>
+          <div><h2 id="list-title" tabindex="-1"></h2><p id="list-sub"></p></div>
           <label class="find">${icon('search')}<span class="visually-hidden">Find a chapter</span><input type="search" id="find" placeholder="Find a chapter" autocomplete="off" value="${esc(state.query)}"></label>
         </div>
         <div id="chapter-list"></div>
-      </div>
+      </section>
     </div>
   </section>
   ${bookLanguageHTML()}`;
@@ -1186,16 +1199,25 @@ function renderLibrary(slug, scrollToList) {
   });
   $('find').oninput = e => { state.query = e.target.value; renderChapterList(); };
   renderChapterList();
-  if (scrollToList) requestAnimationFrame(() => $('periods').scrollIntoView({ behavior: 'instant', block: 'start' }));
+  if (scrollToList) requestAnimationFrame(() => showChapterList('instant'));
   else window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
+function showChapterList(behavior = REDUCED_MOTION ? 'auto' : 'smooth') {
+  const section = $('chapters');
+  if (!section) return;
+  $('list-title')?.focus({ preventScroll: true });
+  section.scrollIntoView({ behavior, block: 'start' });
+}
+
 function selectStage(slug) {
+  if (!STAGES.some(s => s.slug === slug)) return;
   state.stage = slug; state.query = '';
   const f = $('find'); if (f) f.value = '';
   $$('[data-stage]', main).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.stage === slug)));
   history.replaceState(null, '', stageHref(slug));
   renderChapterList();
+  showChapterList();
 }
 function setDates(mode) {
   prefs.dates = mode; store.set('dates', mode);
@@ -1396,7 +1418,7 @@ async function route() {
   const p = new URLSearchParams(isRouteHash(location.hash) ? location.hash.slice(1) : '');
   const chapter = state.chapters.find(c => c.chapter_id === Number(p.get('read') || p.get('chapter')));
   if (!chapter) {
-    renderLibrary(p.get('stage'), p.has('stage') && state.navigated);
+    renderLibrary(p.get('stage'), p.has('stage'));
     /* A plain anchor (e.g. #about) on first load: scroll to it once the page is drawn. */
     if (!isRouteHash(location.hash)) document.getElementById(location.hash.slice(1))?.scrollIntoView();
     return;
