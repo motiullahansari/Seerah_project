@@ -1634,7 +1634,10 @@ function languageLabel(l){
 const chapterBlockCache=new Map();
 let readerEntry=null;
 function bookLanguageHTML(){
-  const cards=[['website','Available through API','Select a language above to load its translation.'],['app','Available in Mobile App','These editions are available in the mobile app.'],['soon','Coming Soon','These editions are being prepared.']];
+  const cards=[
+    ['website','Available on Website','All active translations are being shifted here. Select a language above to load its translation.'],
+    ['soon','Coming Soon','These editions are being prepared.']
+  ];
   return`<section class="book-languages" id="book-languages" aria-labelledby="book-languages-title"><div class="wrap"><h2 id="book-languages-title">Book languages</h2>${cards.map(([group,title,note])=>`<div class="book-language-card ${group}"><h3>${title}</h3><p>${note}</p><div class="language-chips">${LANGUAGE_STATUS[group].map(l=>`<span lang="${l.c}" dir="ltr">${languageLabel(l)}</span>`).join('')}</div></div>`).join('')}</div></section>`;
 }
 function readerBookDefinition(){
@@ -1689,7 +1692,7 @@ function openIntegratedReader(chapter,params){
   frame.className='integrated-reader';frame.title='Ar-Raheeq Al-Makhtum — English book reader';
   main.replaceChildren(frame);
   const coverStyle=document.getElementById('book-cover-styles').textContent;
-  const readerCoverStyle='.bookcard .book-cover{--cover-width:58px;flex:0 0 auto}.prep .book-cover{--cover-width:120px;margin:0 auto 26px}';
+  const readerCoverStyle='.bookcard .book-cover{--cover-width:66px;flex:0 0 auto;border-radius:10px;overflow:hidden}.bookcard .fb-cover .book-cover-series,.bookcard .fb-cover .book-cover-logo,.bookcard .fb-cover .book-cover-subtitle,.bookcard .fb-cover .book-cover-author,.bookcard .fb-cover .book-cover-divider.last{display:none!important}.bookcard .fb-cover .book-cover-divider.first{top:24%;left:14%;right:8%}.bookcard .fb-cover .book-cover-arabic{top:30%;left:12%;right:8%;font-size:12cqw;line-height:1.08}.bookcard .fb-cover .book-cover-title{top:54%;left:12%;right:8%;font-size:6.8cqw;line-height:1.1;letter-spacing:.08cqw}.prep .book-cover{--cover-width:120px;margin:0 auto 26px}';
   frame.srcdoc=JSON.parse(document.getElementById('embedded-reader-source').textContent).replace('</head>','<style>'+coverStyle+readerCoverStyle+'</style></head>');
   window.scrollTo({top:0,behavior:'instant'});
 }
