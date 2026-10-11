@@ -2,89 +2,316 @@
 <html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
-<!-- People of the Seerah — landing page v1 (sample data) · 2026-10-11 -->
+<!-- Build: Timeline — embedded timeline data, reader-facing copy, linked from index & Q&A — 2026-10-01 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>People of the Seerah — Seerah</title>
 <meta name="description" content="An index of the people mentioned in the Seerah of Prophet Muhammad ﷺ — his family, Companions, rulers, opponents and others — and where they appear across the library.">
+<meta name="robots" content="index, follow">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#FAFAF7">
-<script>
-(function(){var m='auto';try{var s=localStorage.getItem('seerah-theme-mode');if(['auto','light','dark'].indexOf(s)>-1)m=s}catch(e){}
-var d=window.matchMedia('(prefers-color-scheme: dark)').matches;var t=m==='auto'?(d?'dark':'light'):m;document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t;window.__themeMode=m})();
+<meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1710" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Seerah">
+<meta property="og:title" content="Seerah Timeline — The Life of Prophet Muhammad ﷺ">
+<meta property="og:description" content="A chronological guide to the major stages in the life of Prophet Muhammad ﷺ.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Seerah Timeline — The Life of Prophet Muhammad ﷺ">
+<meta name="twitter:description" content="A chronological guide to the major stages in the life of Prophet Muhammad ﷺ.">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAaH0lEQVR42q2beZRcV33nP/fe9169qupN3ZJasjbbWI4lYmOb8TiYsDgsgcM2QFgyDAkMJDDJeAiZwGTOkIGEBLIAYefMBA54Ehi2hDXYhmAbbGzZxrItW8iyFmtvqbfqrvUtd5k/Xi2vlpYNmTqnTle9rnffvb/7W76/7+93hbXWMfBybugSANba7O0cOAe4zg3k7xBDd4r2mA4hwDnR/6P2zUJ0P+b+Legfvf07B6JzgxDt6xKpJEpK1noJ0T87kRfAqIU7a9HGYoxGYJHSIYVDtJ8rhMhkgehODgRiUAqutyrnXHsiriO/ET/M3TBCpJ3fOudwLvu1taAtCKHwPA+lVHc+awmhK4DBxTtr0daSpinSGXzPoZRAdAdzeeFnu8qgIFz/XnZ2HztS4Nn/XfcZrjvZ/Niuq1FC2EwTAITsCkRrR6IB4REEPlJKhBD9C+9ojbXW5SfinMNaizaaNE4IAij4YsROPZlXb5d7l1z3z+BwwoGQCucsw+KDTDRu+D4GTEdkk23FFm0lQVDA87w+IXT+ykEbN8aQpilJnFAqOEK/vXKXn4br2xPRvjb4P3LXGPEW+bezCCWJWys4q0Ew4j47IA4G5tF+ZtvflIqSgmeJogitNYMbDSA7HzJbcmhtiJOYUsHheT3nBRaB7ZuU6E5qcKGd39oBwbhsl9vy7DzTWQvSQydNzh39CUIF4EzbzOzQ88R5hNp7g7OOQkFS9B2tZgutNdbaPiHIwd2P45gwcPj+2tEgv7u/8KsjeGtBCIRX4th9N6JUiPCKOGu7gabr6NxA2Fhj4f2+LBOC7zlaUYwxGmNM9/8yH97iOEEKQ+gLrHG/wJrcEwitX6jOaqRXQKiAE/d8guW5x5jdeT0urY7wH2ss0A1/z8+j87kUCpxJiOMUa23Xz8jOj7TWaJ1SLIjuoHl3Mzhg/vNQBBl5vffdGg2AKkwQ1ed4/Cd/w/GHbuLi696OF/hYYxmOo8NjuxwWGfw+OGcpBMVAkqYpzlk60d/reP0k1UhhCTw/AzodfzJiwJFhc42dz1+31iCEQAVlTNpg8dD3WD58E4tzx9hx3TtYv+1yTFRFSK8tsLaza4e4tfCAexLhyTpHEAiasUFrg5QS5yRex/aN1pQKYkjzMqDjfm5TyMdc5xw4g/JCAKpz97N6/Dbq5/azWk/Y8Yw/ZMvu6zGtKkiVLdVZhPCQfgGTttpzcmsiuifzUkrgeY4kTfF9H+dcpgHGWJwz+J73cy92bSHYzMKcQUiF9MtEq8dYOXYbUeUg1YUzxHKGS3/tPzG9ZTe6tdLeecAahBdgdcT8Y7dTnLqQsemLsNb8Kycl8DxB0jJYaxFCdEzAgMuQ3rBTcb+Ic2+/DMoPsbpF5ci/EC/uI26ssDB3kuKmf8sVz/wdCsUxdGu1t3jnEMpHx1VO3PtpJjZfQ3nmEoyJkW206cQvuH4cnpRYm0UCpVTPB3S84v+Hvc+wgQMVlGhWDlF7/GZIV6lVFllaWmX703+XC3a/AJvUMXEDIVXfCFL5zO3/Gs6krN/5AqxJchD8/Ob2hGbQNukOHmibgPlXC6CnKQ6cQPoh1ZN3UD95K55f4OzJIyRimstf8gHK09vRrUq2cCH71Ecoj6SxyMrcfsozl2QuyRqEUDiRmZZA/eKm2h7DmMwMvG5IyXK4EUj755W2QPo+y4e+RevsvXiFCY49updw41Vc9fw/QgqBblYQylsjXZUYHZEmEdWFQ6RxDT+cQMcNhJB4hTHSuIHsy/LcE2SNgyG0FwZlTyyjYuxauXT/g/O7L1XA4sFvUDt1J3hFju6/m/Etz+CKF7+f2vxhzh6+AxWURu+gEFiT4pdmcLJMdf44h+78HHHUwCtOosJ1nD74E+aO3IP0i924/2RCcP910c08vc56xJrAdpR03YC3B5xFBWMsH76J+ok7CMbWc+zAPUxtexa7nv9uMA2k9FCej1A+6Gjkjjln8IIxNu1+BQ/f8kGqD32buSN7KK/fycrCCWRQ5lmv/2ucSdbOODv6LBj4n2jjCtF+kwlADNAQeY8+TCi4AY8vcM6g/BK1cw+xfOQWwvI6Th16EK+8g13PexcmrqGCIlFzlahWWRPlZZNTmKTB5suei3OCQ/f8X6qLx6hW7mZ257O5+sV/SBiWMTrqAqSOZvZMVOZ4CjeCEOnN36NPBWz7m2iHmt7NfU5uUHOlh0lqzB/4Jp4fUFmYo7pa5dp//zdIpdBag3M06qsEhQkw8RDAElIihNdOhSUmbnLBrucyu/MZxPUlvEKZoDSDTevoNEK2aS83xB6RQ5HnNwchRMcHdHJrMRRu1rKjDlPjnEV5IUuP305am0Nbyemj+9lx1WuZ2Lgbk9SR0seaFEyKEgar0/bu9Rav4xbNlTNI1QZjQqKjOlhDcXwDnh+iWys4k8HYNh+XS4AGF++GGKruzndNRPSSIefACTHSkfbtlBjgaKRH2qpQOXYXQhVYOnscEUyy4+pX49Ja5mcFCAUn585x8PHTmXa53lhKBcT1RSqn9yNUoTv5Dj6wOs1CoVQgRB+X0L/7nWt2RLo80opzjFA3+X4CLNWXCVqUV6A2f4C4Po9BUjl7nE2XXk9hfBNGxzgcwvOZP/Eonm2ybqxIbekEQuWoLwGpSYiaKyPDsFuLa845sw5B++RSc9Fdi+zz8CKbTHeHnBtgX0ZMzQmqZ/djbUoSNdGpZfOlzwaX9tTPOaSQTJQLrBsvIITq+hprDUJ6BLaJaM4hRKGbLufnNpjqPnH6vfbS81oj+4Xi+n/oQDiBcJmtiPwDnAMkxsTUKyexThA1awQTG5jceAkujRGyN/nS+DTSCwlL05TG1uEcGGsIwhLWWL5585e46a7vcOzxvQTlWRw9eN7Z5cGk4+chYIbl5wZJUdcXnpwAJwVWgBWu39Kc6zoSq2PiVg2tHTqNKE1swi9OYK3OOSBBYuCnBx7ntnv30owTHIagNMHBk6d4w/vfwf+8dS//63iRt33y/Xzltq+jvBKeF+Q4PNEPwIYkIs5bCBEChBzWZdlfvck9Soyww8HQ1SmMGIs1Bq01YWkSKb1MQL3CEQsnHmHdxBgb1o1TXzqJ8sf57k9+yGve+3buPfgAG6YmmCwWiEzCh7/2ad75mfexUK3hF8I+IrPLQzs3wBG6J6Tp8uvrF4CAbkQc6TmzW+yIcpfyQ6QXksQtrLYZBeBse1DRrQCFvuBpF8/ytEsvZHZmhpv23MrvfeQ9aKtZNz6JMQZtNNbBuvEp9hz4KTd84n+wsLqC8oORRZTeHOWTTNaGUa3M58oiFyV7sdQNMTHdGO4swisQTm0liSKsk8SNFUwaIaUCsqRDKI/Un+Kunx3n/sdOcWwl4X2f/xhKeigUURRjnSPVhiRNabYixkuTHDx1hA/+wydBenn7a89Htucxqnwm+gxmbXjfEUBnUPHkpNnJ2jpCmNl+DdoYjIPq8mmaq2cQyu8JUShOzq/wz3v2cut9j/Cpr3+Z4+dOo5RHI45ItCGKUtLUEkcJURxTbdQph2V+uPdO7tu/Fy8oYZ3tbs7oREisgVbFWjAgjwPWsiIx4IBEnrnAJE3W77ia8vqdpHGTqFnlxM9uR6iwDa2ze62zKCkJPMXRuRNoq0nShDTVxGlKlKRESUKqDVGcVabiOKURNfnhA3eD8LIawgAmGU546Kb3bsTGi65+9PkAkS+q/Vzkj7UG5QVcet2bSeIE5RU5uveb1JdPoPxiWwiWiWLA7m2z7H7KhawbL+EcSKlQUiKlQIV+d2eVJ7PcQAp83+fE4hmsTbvF8idS7X60OiJXyCV4MufiO0FrDdVxAyrmupR1GtXYdMm1/NJ1b6JZr5A0l3nw+x8FGaD8gNbqAmHrNK99wfW89FlX8wcvexklAiqVVWrVJvVqk9WFVaordSqVGksLVVZXaizOr2C04NY9d3Hg6GMExVKbEcomLnMwvje/UdYv8rTHKCjsRiGFgaxKnIf9hbRZYfdz3sRlv/ofSZOEE4/cwsO3fQbpT4GUOGdptuo0m3Wq9SpJmlAIAgqlAl7Bx5cefqlAsVxESIEKfKQQKKeo1uo8evxoNwxbZzHOYp0dgOjuPJs3YNRi0AfI3s72L9oNxFT6anpeUMYPynh+CXTClS+8gWte/ieE5fU8ePOHefgHH6Y4vpmJ6c14foF107Pcsf9nzJ86zfJihcpKleVzS0RoKmcWidOU5coqtVqTs8vLLFSrLFRX+esv/R3GOKQfIv0iflBG+aU+9DoY8zv5ynBRx3a/i0aj4RqNJkZHbJgudj38sERdrwnCGYTysTqhtnAws2W/iB+O4wVjeKXN1Csneej7H+fxvV/joqtfwrZdv04ct5iemOTBM2e578CjXLx1O2PlMuWwSKFYRAkFwqGTmMRoGvUqtVbE2ZUV6rHmN1/479g6M0WzuohJGkivwNSmXRidnrcNJn/dGMf8UpNieYxSsZgTgIkzAbgnYH2dRSqFk4qDt3+Myql78PwAKT28oERYnqE4uY3JrVcyMXsli2cO89D3P0xj6SiXP+etXHTli2icPczqwnHCsRmCsMTK4hxbLrmKx/b9mF1XP4/D+37Ehbt+hZWFM5THiujWAq3V0yycO0LcXCFqrWKNwRrNhde8kR1XvhYdrQx0o8ihLqOOABYqEWFYolQq9jjBnis4H/PrcFJiEBy5/SPEc/czu3E7nh8iVZD1DrkUW32MykMPMi8LjF9wLc987Qc5d+xhHvnhJ4ibq1z4tBezcvIIJS+h5JWI8WkkGi09YgJMYZJz5w5TO3M/S9E5hIlRXsC4X2Jsch1mbBKtU3TS4Mz9XwAh2Hb5q7BxLUeSuD76axBGdq4PmUCHBxxsXBIiS139QpHFA9/jxPH9LPtbOF2NWI1TUm3xlGKiVGRDucDsuM96PyZonkJHFYpbryOcvZYHbvooE+s2cNWLbiBt1RDSayeiFq84ReX0g6wcuRmVVgjGL6DlbWBZF1hspFSaCc0kxTrwlGAqkGwMHWPRSXZe9QqKG3+ZNG21UWjPiefbYjINiCkWixT7TEBHbJguDXjVXMOTs6hwmmPH9/Gxr36OPUfOcPLcaeKkhXMah0UgUdKjEIRMlMfZuvECLr/oKVz3lC1cVq4xXZJMXfpK9t3xFcYmptn1rN/GNJeQXgHtHAv7v0GycoRasI1HViQ/PXaaA8ePMbc0T71ZpRVHaJN2W+OU8hgrTXDp1u286Jd/ibf9xtvxikV01Mj5sf6M0BjH/HJMsZiZgGg0Gq7ZbKLTQQ3o8cQOh5Ah37n7Nv7y7z+NHxS49IKtbN+4memJSXw/QBtNtVFncXWFhZUlzi4tMLc0z8LqMs557L54N6/+lafzil2z7Nj1fB6485/Yetm1bNh6Ba3GMtUjt3BypcF3D1e56af3cnzuCIEUzExOsXFqho3TG1g3NsV4eZxSUACg3mqyVF3m1OI8x+fmuGz7RXzgbe9m59YtmDQZ0RnWEUDUFkAp8wH5NNEh+hhg58DzAx4/c4bFyjL/+91/wVN3XIQXhBnRN6IumCYxzWaDk4sLHD59gn2H9nP73j287x9u5GsXXcJH3rKOp//qb3D0sfuZ2hiRLv6M7xxc4m9v+gFRc4mrdj6V1z3nrTz1oku5ePN2ZqemKBVLeH7QfmbOaVmDThOqjSo/fvgh9j76MNs3zhIo2a0Arw3vB3zAxpnSALvqugjROodfHAOnMXGEzZWX8uMKIAiLbXjtkzHvKa1GnT0HHuFT//T33HPgQb76Zx/nmksvR5kaf/p/PsuNt97CG5//El7zay9l946LUH6YJeAmxRqNtab9vB4WyRC8QEqJVArhl8CmJHGEaoOvYQ2A+eWIUqlEGIbDArDtdKvH2/eqLMaYNs2V0ed5rNDtu/MKHDx+mEIQkugUTwp2bN6CsBYvLAEeX/7+N/n412/kex+5ke/ddSs3/vM/8rF3vpfLLtwJNkInEcZYECCF7KPhs3nZboIlck0c1lmkkN2awZo4oNKiGJYpFnMC0GnM7EwR2+b+HIMdGcPgqCN5Zy1aa6SQJCiufssr2TSzgeWVCrPr1nPLRz9PGlXR2qCkoFCe5a59d3Hz3behvID/+ptvYaxUpFVfzUrWnt/NS6zLSu2y3UDpnEO1GWUvCMFqjDYj+onF2k6wElEMSxSLHRyQW+6oRudRLaZSCuqtmHNLS0yNjzMzOYm1Fl8oPvuuP8PhiBPN+skJrE6yVHh8EnREVD/LdVdcg7OWp1ywjbEwIGnWKBaK4Bexcb3dp+QIimOAQEd1/EIIMkBHNbwgZP/RI0yUSmzdOIvRyUjOQ4ziDl2P/pO96ozr4eQ+6qiffbXWIqVkqVrjW7fdyg/23MXhE6e598B+mnGE58ODhx/jzR98D//tU3/F2eUllOdhLHzhO1/locOHKIRjRPVlnvm0K5mdmiSJWig/YK5S4dNfu5HleiNTZa/AbffdzVe//12EKvHw0UP86Wc/hpCKew7s59rfeQ0PP34I4YUYa4e6QfI1Q9cuH/UaL+kvjwsnhtt6BaN5Qqmo1KpEaUro+9z50H3sO/gopdIk3/rxbfznD72X//DCl3PZxTt55R//PnML8+w5sJ83v+cdLNRWEF6RwPdxWiMkeEqh/HV84htf5g8++ZdYPGTgE6Upb/zzd/OV229B+SU+9KXP8eGvfB4VlDg1f5ZGs04pLGbdo90iyROwBa5/bV5HnVNHm7URIyoxw+mk1ikzk+uorFbYtmkzY8UiyityxyMPsH3Ldt77lj/i7NIpvnjLt3js5DG0NchykflKhWazRhQ12v7D4ZwhSCXzlWUmyxMsr1aYmRpjYXkJjaAQBFhnSbRmsjxGkiQYmwEWbczatZ9BIhWRRRLXE5ZoNpuu1WrRqNfZMFMk8GWu9Z2+4kSnHuD7PqfmF/nW7f/Cts0XYK3g3MI5futlr2TPgX0874bf5hXPfSEnzs1x4uxpDn/5B9y3/wFe+t9/n8ALCIMCtm1aphOrnaUVRyilKHg+6ybXUW3UiOIEpSQbpqaZW5pHW8v2DZuYX6kwUSpx12e+xAUz05hU80TNK1IKGs2U1ZpmYmKcQhj2NMAJQZxoCkGhm/d3pNRXC0Bkzk4pXnX98xgrlzHGsbSygnCa66+6hi/8yV/xyX/8IuvHp/i7d72PyfENfO++nyCE4N2vfzONpJWBFCRjxRJCgk5Tdl14CeNj43z7zh+StpsZX/3sF7BUrfCNW2/mhle/gads3sYXf/Btxoplfu+Vr2frhlnSuJlrphxNh3YcfCtuV6Y7kSGKIhfHEfV6E+ESNm0Yxzo3MivsHGZw2Ow0Bh20lZW4jdZdwOR0ivAm+NEDP+K//O2fs++x/dzwujfx8Xd+AOh47ID3f+5D7Nh0AZV6jXIx5K0v/y0gn993KkxerjO947sT0lazL/UdjffogrnT8w0KYZFyuUwQBHgdnt/zFPW6phWnhAW/6zkFvZJ5TxsEWhugZ39O91QwblRxOArKY2F5iR3rZ/njN/wur3ver5O0FnpjIPnpoQMsVFeZX1lmenwMoxskUS3L6JztngTp1AIRPU5XnA/00F9KkEpSq7UwDnw/d4okSRKXJAlRFFGr1fGVZfPsBCPOUvXlyaIDjoTsQ2kIgdVJ+xxAhCcDRDgNNIhrK+0+4QicJQgncDpGFsIuY2l02vY7Dik9jNUZ3FVB9rwOf9kOac7ZoZZxMVDHFEJgnePk3CpBIdv9QqGA7/uZBkgpUUoRhgVq1RrVaoupyRJaW2QuOg561TRuYHSEsQlOJ1kvvk4Ym9pCWF7PsX03Mza9g+ktV3D4vi+xftuVTG/ezbG9X2f9jn9DEI7z+EPfxC9Ns/3yl3P28I9Iogrbr3gV80duJ2ksMTG7i/H1F1NdOIJOGnheAaE8pFdAeQU8v4RSXtun9ICPy1WQlSeZn69jXBZR8meIpBAiaxn1PDzPIyyGnFtq0GzGeO3W2Y5E5aB0pUIqD6UCpApQXoDnhyAkDotfGKO1ehYpBUK4NqtrcVZnNFUb7UnpY3RMVF8kaa1i4tUs0dNJ1jTtyDrM/BDlBSgVoKSHFKpdxnd9O26t7S7e8xTLK01WajHFMEQqhWq/hRAIY4wz7cpukiTEcUyj2SSNY7ZsGqdcCjHawqjumbb6Z35CtrU46/UDSxo1kFLhFUokrWoGbcNJkmgVgcQvlHHWdA9D0e07yjpDhcj6erPzgD5Cyp66t5OfvAnkGWEpBMqTLK02mF9sUir1VD8IApRSmSYYY1ynXTZNU5IkIYljGs0WcZxliNOTZQQC0z7G0h8c3IhrbZAhs0TJWdPtDHXWIJXX3iG7dtnSDcPxfFHHDbX00y2VqTYXML9Up1KNKZezxCe/+D4NyJ8Z0mlKFMekSUIriomiiGJBMrOuTLlYyDBD5yDFEH/oRvUrAgOZWduuOic/3Vot52LtcxL9AqBbhjfGUmtELFaapEZQLmXcn+/7BEGA7/vdxfedG+zYTt4ckiQhTRNaUYJOUwqBpFz0KYYBvqfa/brDBfZBMrWPXxyIKCKfiwrRJ6zBjk3hwIkeSdPB9tY5klTTjFKarZREWwI/oFgMCYKg++6dJl3j5GhHCLZ9YrQjCGN0VsWNk/aZm/6qbBd39yUjmS0PlaZz5jLYnC3ytFK+Yp0naPI2IPKsf3Zm2A98At/H8zx8389CXftz38635+oN5/m9ENGxFa01nqcJgqxnxxrbdkBtsCTbZInrb7ay1vXaaLpHZxhwqCJ3jxhqZe2z/z7OX7QZo95cO+G8s9NKqe7CO+sa8uODp8fzfYDZQQrX7a3v/B08OTbqXFEHIp+3T8O5kaRFfrzRi2f4CKyUfe/Oojvvwd7C7jh5AXQzvhGnwzqmMer43Oi8e/jg1GBT8/nacM/X/jYosM4C87s8asdHacD/A4gu8DzH4qFkAAAAAElFTkSuQmCC">
+
+<script id="theme-system">
+/* Theme: auto → light → dark. Runs before paint so there is no flash. */
+(function(){
+  const system=window.matchMedia('(prefers-color-scheme: dark)');
+  let mode='auto';
+  try{const saved=localStorage.getItem('seerah-theme-mode');if(['auto','light','dark'].includes(saved))mode=saved;}catch{}
+  const icons={
+    auto:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17Z" fill="currentColor" opacity=".26"/><path d="M12 3.5v17" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>',
+    light:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>',
+    dark:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.2 15.2A7.8 7.8 0 0 1 8.8 4.8 8.2 8.2 0 1 0 19.2 15.2Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>'
+  };
+  function apply(){
+    const effective=mode==='auto'?(system.matches?'dark':'light'):mode;
+    document.documentElement.dataset.theme=effective;
+    document.documentElement.style.colorScheme=effective;
+    document.querySelectorAll('meta[name="theme-color"]').forEach(m=>m.setAttribute('content',effective==='dark'?'#0D1710':'#FAFAF7'));
+    const button=document.querySelector('.theme-toggle');
+    const icon=document.getElementById('theme-icon');
+    const next=mode==='auto'?'light':mode==='light'?'dark':'auto';
+    if(icon)icon.innerHTML=icons[mode];
+    if(button){
+      const label='Theme: '+mode+'. Switch to '+next;
+      button.title=label;button.setAttribute('aria-label',label);button.dataset.mode=mode;
+    }
+  }
+  window.toggleTheme=function(){
+    mode=mode==='auto'?'light':mode==='light'?'dark':'auto';
+    try{localStorage.setItem('seerah-theme-mode',mode);}catch{}
+    apply();
+  };
+  if(system.addEventListener)system.addEventListener('change',apply);else system.addListener(apply);
+  window.addEventListener('storage',e=>{
+    if(e.key==='seerah-theme-mode'||e.key===null){mode=['light','dark'].includes(e.newValue)?e.newValue:'auto';apply();}
+  });
+  apply();document.addEventListener('DOMContentLoaded',apply);
+})();
 </script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;600;700&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;family=Noto+Nastaliq+Urdu:wght@400;600&amp;family=Playfair+Display:wght@400;600;700;800&amp;family=Spectral:ital,wght@0,400;0,500;1,400&amp;family=Tiro+Devanagari+Hindi&amp;family=Noto+Sans+Devanagari:wght@400;600;700&amp;family=Noto+Sans+Bengali:wght@400;600;700&amp;family=Noto+Sans+Tamil:wght@400;600;700&amp;family=Noto+Naskh+Arabic:wght@400;600;700&amp;display=swap" rel="stylesheet">
+
 <style>
+/* Shared shell (tokens, base, header, buttons, footer) — same as index.html so every page stays identical */
+/* ══════════════════════════════════════════════
+   1. TOKENS
+   ══════════════════════════════════════════════ */
 :root{
-  --font-display:"Playfair Display",Georgia,serif;
+  --green:#1B6B4A;--green-2:#228B5E;--green-3:#2EAF77;
+  --gold-3:#D4A017;
+  --font-display:"Playfair Display",Georgia,"Times New Roman",serif;
   --font-ui:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  --font-ar:"Amiri","Noto Naskh Arabic",serif;
-  --header-h:64px;--wrap:1180px;--gutter:24px;
+  --font-read:"Spectral",Georgia,serif;
+  --font-ar:"Amiri","Noto Naskh Arabic","Geeza Pro","Traditional Arabic",serif;
+  --font-ur:"Noto Nastaliq Urdu","Amiri","Noto Naskh Arabic",serif;
+  --font-hi:"Tiro Devanagari Hindi","Noto Serif Devanagari",serif;
+  --header-h:64px;--wrap:1120px;--gutter:24px;
   --r-lg:22px;--r:16px;--r-sm:12px;
   --ease:cubic-bezier(.2,.7,.2,1);
+  /* Original 8-point-star lattice (licence-free, replaces the stock JPEG patterns) */
+  --lattice-green:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%231B6B4A' stroke-width='1'%3E%3Cpath d='M21 21h30v30H21z'/%3E%3Cpath d='M36 14.8 57.2 36 36 57.2 14.8 36z'/%3E%3Cpath d='M0 36h14.8M57.2 36H72M36 0v14.8M36 57.2V72'/%3E%3Cpath d='M0 8 8 0M64 0l8 8M72 64l-8 8M8 72 0 64'/%3E%3Ccircle cx='36' cy='36' r='5'/%3E%3C/g%3E%3C/svg%3E");
+  --lattice-gold:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23E7C35A' stroke-width='1'%3E%3Cpath d='M21 21h30v30H21z'/%3E%3Cpath d='M36 14.8 57.2 36 36 57.2 14.8 36z'/%3E%3Cpath d='M0 36h14.8M57.2 36H72M36 0v14.8M36 57.2V72'/%3E%3Cpath d='M0 8 8 0M64 0l8 8M72 64l-8 8M8 72 0 64'/%3E%3Ccircle cx='36' cy='36' r='5'/%3E%3C/g%3E%3C/svg%3E");
 }
 [data-theme="light"]{
   --bg:#FAFAF7;--bg-2:#F1F3EC;--surface:#FFFFFF;--surface-2:#F7F8F4;
   --line:#E3E6DD;--line-2:#D3D8CC;
   --ink:#1A2318;--ink-2:#46513F;--ink-3:#65715F;
-  --accent:#1B6B4A;--accent-ink:#1B6B4A;--accent-soft:#E8F3EC;--accent-line:rgba(27,107,74,.32);
+  --accent:#1B6B4A;--accent-ink:#1B6B4A;--accent-soft:#E8F3EC;--accent-line:rgba(27,107,74,.32);--accent-ring:rgba(34,139,94,.18);
   --gold-ink:#8A6508;--gold-soft:#FBF4E0;--gold-line:rgba(138,101,8,.28);
-  --btn:#1B6B4A;--btn-hover:#145439;--nav-bg:rgba(250,250,247,.88);
+  --btn:#1B6B4A;--btn-hover:#145439;
+  --nav-bg:rgba(250,250,247,.88);
+  --hero-glow-1:rgba(46,175,119,.13);--hero-glow-2:rgba(212,160,23,.11);
+  --lattice:var(--lattice-green);--lattice-o:.07;
   --shadow-sm:0 1px 2px rgba(26,35,24,.04),0 6px 18px rgba(26,35,24,.05);
   --shadow:0 2px 6px rgba(26,35,24,.05),0 18px 40px rgba(26,35,24,.08);
   --shadow-lg:0 4px 10px rgba(26,35,24,.06),0 24px 56px rgba(26,35,24,.14);
-  --focus:#B8860B;--scrim:rgba(16,30,22,.45);
+  --focus:#B8860B;
 }
 [data-theme="dark"]{
   --bg:#0D1710;--bg-2:#111D14;--surface:#172519;--surface-2:#1C2D20;
   --line:#26392A;--line-2:#324A37;
   --ink:#EEF2EC;--ink-2:#AEC0AA;--ink-3:#849880;
-  --accent:#2EAF77;--accent-ink:#6FD3A3;--accent-soft:rgba(46,175,119,.13);--accent-line:rgba(111,211,163,.35);
+  --accent:#2EAF77;--accent-ink:#6FD3A3;--accent-soft:rgba(46,175,119,.13);--accent-line:rgba(111,211,163,.35);--accent-ring:rgba(46,175,119,.28);
   --gold-ink:#DDB65A;--gold-soft:rgba(212,160,23,.12);--gold-line:rgba(221,182,90,.3);
-  --btn:#1F7A53;--btn-hover:#259163;--nav-bg:rgba(13,23,16,.86);
-  --shadow-sm:0 1px 2px rgba(0,0,0,.25);--shadow:0 18px 40px rgba(0,0,0,.32);--shadow-lg:0 24px 56px rgba(0,0,0,.5);
-  --focus:#E7C35A;--scrim:rgba(0,0,0,.6);
+  --btn:#1F7A53;--btn-hover:#259163;
+  --nav-bg:rgba(13,23,16,.86);
+  --hero-glow-1:rgba(46,175,119,.12);--hero-glow-2:rgba(212,160,23,.06);
+  --lattice:var(--lattice-gold);--lattice-o:.05;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.25);
+  --shadow:0 18px 40px rgba(0,0,0,.32);
+  --shadow-lg:0 24px 56px rgba(0,0,0,.5);
+  --focus:#E7C35A;
 }
+
+/* ══════════════════════════════════════════════
+   2. BASE
+   ══════════════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
-body{font:400 16px/1.6 var(--font-ui);background:var(--bg);color:var(--ink);padding-top:var(--header-h);-webkit-font-smoothing:antialiased;transition:background-color .3s,color .3s}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 20px);-webkit-text-size-adjust:100%;overflow-x:clip}
+body{font:400 16px/1.6 var(--font-ui);font-variant-numeric:lining-nums;background:var(--bg);color:var(--ink);padding-top:var(--header-h);transition:background-color .3s,color .3s;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-button,input,select{font:inherit;color:inherit}
+button,input{font:inherit;color:inherit}
 button{background:none;border:0;cursor:pointer}
 ul,ol{list-style:none}
-svg{display:block}
-:where(a,button,input,select,[tabindex]):focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:8px}
+h1,h2,h3{font-weight:700;text-wrap:balance}
+p{text-wrap:pretty}
+:where(a,button,input,[tabindex]):focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:8px}
+main:focus{outline:none}
 .wrap{width:min(var(--wrap),100% - 2*var(--gutter));margin-inline:auto}
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.skip-link{position:fixed;left:1rem;top:1rem;z-index:5000;padding:.7rem 1rem;border-radius:10px;background:var(--surface);color:var(--ink);border:2px solid var(--focus);box-shadow:var(--shadow-lg);transform:translateY(-200%);transition:transform .18s}
+.skip-link:focus{transform:none}
+.i{width:18px;height:18px;flex:0 0 auto}
+
+/* ══════════════════════════════════════════════
+   3. HEADER  (class names match the sub-pages)
+   ══════════════════════════════════════════════ */
+.site-header{position:fixed;inset:0 0 auto;z-index:1000}
+.site-header>nav{height:var(--header-h);display:flex;align-items:center;gap:16px;padding:0 24px;background:var(--nav-bg);backdrop-filter:saturate(1.4) blur(16px);-webkit-backdrop-filter:saturate(1.4) blur(16px);border-bottom:1px solid var(--line);transition:background-color .3s,border-color .3s}
+.nav-logo{display:inline-flex;align-items:center;gap:10px;min-width:0;flex-shrink:0;border-radius:12px}
+.seerah-nav-logo{width:44px;height:44px;border-radius:12px;border:1px solid rgba(196,145,18,.28);box-shadow:0 3px 10px rgba(0,0,0,.1);object-fit:cover}
+.logo-name{display:block;font:800 19px/1.05 var(--font-display);letter-spacing:.07em;color:var(--ink)}
+.logo-tagline{display:block;margin-top:3px;font-size:10.5px;line-height:1.25;color:var(--ink-3);white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:2px;margin-left:auto}
+.nav-links>li{position:relative}
+.nav-links>li>a{display:flex;align-items:center;gap:5px;padding:8px 12px;border-radius:9px;font-size:14px;font-weight:500;color:var(--ink-2);white-space:nowrap;transition:color .2s,background-color .2s}
+.nav-links>li>a:hover,.has-dropdown:focus-within>a{color:var(--accent-ink);background:var(--accent-soft)}
+.caret{width:12px;height:12px;transition:transform .2s}
+.has-dropdown:hover .caret,.has-dropdown:focus-within .caret{transform:rotate(180deg)}
+.dropdown{position:absolute;top:calc(100% + 8px);left:0;min-width:236px;padding:6px;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .18s,transform .18s,visibility .18s;z-index:100}
+.dropdown::before{content:"";position:absolute;left:0;right:0;top:-10px;height:10px}
+.has-dropdown:hover .dropdown,.has-dropdown:focus-within .dropdown{opacity:1;visibility:visible;transform:none}
+.dropdown a{display:block;padding:9px 12px;border-radius:9px;font-size:13.5px;color:var(--ink-2);transition:background-color .15s,color .15s}
+.dropdown a:hover{background:var(--bg-2);color:var(--accent-ink)}
+.dropdown hr{border:0;border-top:1px solid var(--line);margin:5px 6px}
+.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0;margin-left:12px}
+.lang-btn,.theme-toggle,.contributor-login,.hamburger{height:38px;border:1px solid var(--line);background:var(--surface-2);border-radius:10px;color:var(--ink-2);transition:border-color .2s,color .2s,background-color .2s}
+.lang-btn:hover,.theme-toggle:hover,.contributor-login:hover,.hamburger:hover,.lang-select.is-open .lang-btn{border-color:var(--accent-line);color:var(--accent-ink)}
+.lang-select{position:relative}
+.lang-btn{display:flex;align-items:center;gap:6px;padding:0 10px;font-size:13px;font-weight:600}
+.lang-btn .i{width:16px;height:16px}
+.lang-btn .caret{width:11px;height:11px}
+.lang-select.is-open .lang-btn .caret{transform:rotate(180deg)}
+.lang-dropdown{position:absolute;top:calc(100% + 8px);right:0;min-width:176px;max-height:min(70vh,440px);overflow:auto;padding:6px;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .18s,transform .18s,visibility .18s;z-index:200}
+.lang-select.is-open .lang-dropdown{opacity:1;visibility:visible;transform:none}
+.lang-option{display:flex;align-items:center;gap:10px;width:100%;padding:8px 10px;border-radius:9px;font-size:14px;color:var(--ink-2);text-align:left}
+.lang-option:hover{background:var(--bg-2);color:var(--accent-ink)}
+.lang-option.active{background:var(--accent-soft);color:var(--accent-ink);font-weight:600}
+.lang-flag{font-size:16px;line-height:1}
+.theme-toggle{width:38px;display:grid;place-items:center}
+.theme-toggle .ui-icon{width:18px;height:18px;display:block}
+.theme-toggle .ui-icon svg{width:100%;height:100%}
+.contributor-login{display:inline-flex;align-items:center;padding:0 14px;font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap}
+.contributor-login-mobile{display:none}
+.hamburger{display:none;width:38px;place-items:center}
+.hamburger-box{position:relative;width:18px;height:12px}
+.hamburger-box span{position:absolute;left:0;width:100%;height:2px;border-radius:2px;background:currentColor;transition:transform .25s var(--ease),opacity .2s,top .25s var(--ease)}
+.hamburger-box span:nth-child(1){top:0}.hamburger-box span:nth-child(2){top:5px}.hamburger-box span:nth-child(3){top:10px}
+.hamburger[aria-expanded="true"] .hamburger-box span:nth-child(1){top:5px;transform:rotate(45deg)}
+.hamburger[aria-expanded="true"] .hamburger-box span:nth-child(2){opacity:0}
+.hamburger[aria-expanded="true"] .hamburger-box span:nth-child(3){top:5px;transform:rotate(-45deg)}
+.mobile-nav{position:fixed;top:var(--header-h);left:0;right:0;bottom:0;z-index:999;overflow-y:auto;overscroll-behavior:contain;padding:14px 18px 40px;background:var(--surface);transform:translateX(100%);visibility:hidden;transition:transform .3s var(--ease),visibility 0s linear .3s}
+.mobile-nav.open{transform:none;visibility:visible;transition:transform .3s var(--ease),visibility 0s}
+.mobile-nav-group+.mobile-nav-group{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.mobile-nav-label{display:block;padding:4px 12px 6px;font-size:12.5px;font-weight:600;color:var(--ink-3)}
+.mobile-nav a{display:block;padding:11px 12px;border-radius:10px;font-size:15.5px;font-weight:500;color:var(--ink-2)}
+.mobile-nav a:hover{background:var(--bg-2);color:var(--accent-ink)}
+body.menu-open{overflow:hidden}
+.progress-bar{position:fixed;top:var(--header-h);left:0;z-index:1001;width:100%;height:2px;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,var(--gold-3),var(--green-3));pointer-events:none}
+
+/* ══════════════════════════════════════════════
+   4. BUTTONS
+   ══════════════════════════════════════════════ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 22px;border-radius:14px;border:1px solid transparent;font-size:15px;font-weight:600;line-height:1.2;white-space:nowrap;cursor:pointer;transition:background-color .2s,border-color .2s,color .2s,box-shadow .2s,transform .2s var(--ease)}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:none}
+.btn-primary{background:var(--btn);color:#fff;box-shadow:0 8px 20px -8px rgba(27,107,74,.6)}
+.btn-primary:hover{background:var(--btn-hover)}
+.btn-secondary{background:var(--surface);color:var(--ink);border-color:var(--line-2)}
+.btn-secondary:hover{border-color:var(--accent-line);color:var(--accent-ink)}
+.btn-light{background:#fff;color:#15553a}
+.btn-light:hover{background:#F1F8F3}
+.btn-outline-light{color:#fff;border-color:rgba(255,255,255,.45)}
+.btn-outline-light:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+
+/* ══════════════════════════════════════════════
+   5. SUB-PAGE SHARED — current page in menus
+   ══════════════════════════════════════════════ */
+.nav-links>li.is-current>a{color:var(--accent-ink)}
+.dropdown a[aria-current],.mobile-nav a[aria-current]{background:var(--accent-soft);color:var(--accent-ink);font-weight:600}
+
+/* ══════════════════════════════════════════════
+   6. FOOTER  (class names match the sub-pages)
+   ══════════════════════════════════════════════ */
+.site-footer{margin-top:0;background:var(--bg-2);border-top:1px solid var(--line);transition:background-color .3s}
+.footer-inner{padding:44px 0 26px}
+.footer-main{display:flex;align-items:center;justify-content:space-between;gap:40px}
+.footer-brand{display:flex;align-items:center;gap:16px;max-width:420px}
+.footer-seerah-home{flex:0 0 auto;border-radius:12px}
+.footer-logo-img{width:56px;height:56px;border-radius:13px}
+.footer-brand-text strong{display:block;font:700 19px/1.2 var(--font-display);color:var(--ink)}
+.footer-brand-text span{display:block;margin-top:2px;font-size:13.5px;color:var(--ink-2)}
+.footer-brand-text p{margin-top:6px;font-size:13.5px;line-height:1.55;color:var(--ink-3)}
+.footer-quote{text-align:center}
+.footer-ayah{font:400 clamp(22px,2.4vw,28px)/1.8 var(--font-ar);color:var(--accent-ink)}
+.footer-quote figcaption{margin-top:2px}
+.footer-ayah-meaning{display:block;font:italic 400 15px/1.5 var(--font-read);color:var(--ink-2)}
+.footer-ayah-ref{display:block;margin-top:4px;font-size:12px;letter-spacing:.04em;color:var(--ink-3)}
+.footer-bottom{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 20px;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);font-size:13.5px;color:var(--ink-3)}
+.footer-powered-brand{display:inline-flex;align-items:center;gap:8px}
+.ummahtechs-powered{display:inline-flex;align-items:center;gap:7px;font-weight:600;color:var(--accent-ink);border-radius:6px}
+.ummahtechs-powered:hover{text-decoration:underline;text-underline-offset:3px}
+.ummahtechs-logo-img{width:22px;height:22px;border-radius:5px}
+
+/* Toast (Start Reading notice) */
+.seerah-toast{position:fixed;left:50%;bottom:24px;z-index:6000;max-width:calc(100vw - 32px);padding:12px 18px;border-radius:12px;background:var(--ink);color:var(--bg);font-size:14px;font-weight:500;box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transform:translate(-50%,16px);transition:opacity .25s,transform .25s}
+.seerah-toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ══════════════════════════════════════════════
+   7. RESPONSIVE — shared header/footer (same values as index.html)
+   ══════════════════════════════════════════════ */
+@media (max-width:1100px){
+  .nav-links{display:none}
+  .nav-right{margin-left:auto}
+  .hamburger{display:grid}
+}
+@media (max-width:960px){
+  .footer-main{flex-direction:column;text-align:center;gap:26px}
+  .footer-brand{flex-direction:column;gap:10px}
+}
+@media (max-width:840px){
+  .logo-tagline{display:none}
+  .contributor-login-desktop{display:none}
+  .contributor-login-mobile{display:inline}
+}
+@media (max-width:720px){
+  :root{--gutter:16px}
+  .site-header>nav{padding:0 12px;gap:8px}
+  .nav-right{gap:6px}
+  .seerah-nav-logo{width:38px;height:38px;border-radius:10px}
+  .logo-name{font-size:16px}
+  .lang-btn,.theme-toggle,.contributor-login,.hamburger{height:36px}
+  .theme-toggle,.hamburger{width:36px}
+  .lang-btn{padding:0 8px;gap:4px}
+  .contributor-login{padding:0 10px;font-size:12.5px}
+}
+@media (max-width:400px){
+  .logo-name{font-size:15px;letter-spacing:.05em}
+  .nav-logo{gap:7px}
+  .seerah-nav-logo{width:34px;height:34px}
+  .lang-btn .i{display:none}
+  .contributor-login{padding:0 8px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+</style>
+
+<style id="timeline-page-style">
+
+/* ═════════════ PEOPLE PAGE ═════════════ */
+:root{--scrim:rgba(16,30,22,.45)}[data-theme="dark"]{--scrim:rgba(0,0,0,.6)}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.ar{font-family:var(--font-ar);direction:rtl}
+.people-hero{position:relative;overflow:hidden;isolation:isolate;padding:62px 0 38px;border-bottom:1px solid var(--line);background:linear-gradient(145deg,var(--surface),var(--bg-2))}
+.people-hero::after{content:"";position:absolute;right:-90px;top:-120px;width:330px;height:330px;border-radius:50%;background:radial-gradient(circle,var(--accent-soft),transparent 68%);pointer-events:none;z-index:-1}
+.people-hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:var(--lattice);opacity:var(--lattice-o);background-size:72px 72px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 45%);mask-image:linear-gradient(90deg,transparent,#000 45%)}
+html[dir="rtl"] .people-hero::before{-webkit-mask-image:linear-gradient(270deg,transparent,#000 45%);mask-image:linear-gradient(270deg,transparent,#000 45%)}
+html[dir="rtl"] .people-hero::after{right:auto;left:-90px}
+.people-hero .wrap{position:relative;z-index:1}
+.page-breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:20px;font-size:13px;color:var(--ink-3)}
+.page-breadcrumb a{color:var(--accent-ink);font-weight:650}
+.page-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--gold-ink);letter-spacing:.02em}
+.people-hero h1{max-width:900px;margin-top:8px;font:700 clamp(42px,7vw,72px)/1.04 var(--font-display);letter-spacing:-.035em;color:var(--ink)}
+.people-hero h1 .ar{display:inline-block;font-size:.5em;font-weight:400;letter-spacing:0;color:var(--gold-ink);margin-inline-start:14px;vertical-align:middle}
+.people-hero .lead{max-width:800px;margin-top:18px;font-size:17px;line-height:1.75;color:var(--ink-2)}
+.stats{gap:10px}
+.stats div{padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);box-shadow:var(--shadow-sm)}
+.stats b{font-size:17px}.stats span{font-size:12.5px;font-weight:700;color:var(--ink-2)}
+html[lang="ar"] .people-hero h1 .ar{display:none}
+html[lang="ur"] .people-hero h1,html[lang="ur"] .people-hero .lead{font-family:"Noto Nastaliq Urdu","Noto Naskh Arabic",serif;line-height:2;letter-spacing:0}
+html[lang="ar"] .people-hero h1{font-family:"Amiri",serif;letter-spacing:0}
+html:not([lang="en"]) .page-eyebrow{letter-spacing:0}
+@media(max-width:760px){.people-hero{padding:38px 0 28px}.people-hero h1{font-size:clamp(36px,11vw,52px)}.people-hero h1 .ar{display:block;margin:6px 0 0}.people-hero .lead{font-size:15px}}
 .vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 .i{width:18px;height:18px;flex:0 0 auto}
 .ar{font-family:var(--font-ar);direction:rtl}
-.skip{position:fixed;left:1rem;top:1rem;z-index:500;padding:.6rem 1rem;border-radius:10px;background:var(--surface);border:2px solid var(--focus);transform:translateY(-200%)}
-.skip:focus{transform:none}
 
 /* Header */
-.top{position:fixed;inset:0 0 auto;height:var(--header-h);z-index:50;background:var(--nav-bg);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--line)}
-.top .wrap{height:100%;display:flex;align-items:center;gap:16px}
-.logo{display:flex;align-items:center;gap:10px;font:700 19px var(--font-display);letter-spacing:.06em}
-.logo-mark{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent-ink);font:22px var(--font-ar)}
-.top-links{display:flex;gap:4px;margin-inline-start:18px}
-.top-links a{padding:8px 12px;border-radius:10px;font-size:14px;font-weight:600;color:var(--ink-2)}
-.top-links a:hover{background:var(--accent-soft);color:var(--accent-ink)}
-.top-links a[aria-current]{color:var(--accent-ink)}
-.top-right{margin-inline-start:auto;display:flex;gap:8px}
-.icon-btn{width:40px;height:40px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;background:var(--surface);color:var(--ink-2)}
-.icon-btn:hover{border-color:var(--accent-line);color:var(--accent-ink)}
-.back{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);font-size:14px;font-weight:600;color:var(--ink-2)}
-.back:hover{border-color:var(--accent-line);color:var(--accent-ink)}
 
 /* Hero */
-.hero{padding:44px 0 30px;border-bottom:1px solid var(--line);background:radial-gradient(900px 300px at 85% -10%,var(--accent-soft),transparent 70%),radial-gradient(600px 240px at 0% 0%,var(--gold-soft),transparent 70%)}
-.crumbs{display:flex;gap:8px;font-size:13px;color:var(--ink-3);margin-bottom:18px}
-.crumbs a:hover{color:var(--accent-ink)}
-.kicker{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-ink)}
-.hero h1{font:700 clamp(34px,5vw,54px)/1.08 var(--font-display);margin:10px 0 6px;letter-spacing:-.01em}
-.hero h1 .ar{display:inline-block;font-size:.62em;font-weight:400;color:var(--ink-3);margin-inline-start:12px;vertical-align:middle}
-.hero p{max-width:640px;color:var(--ink-2);font-size:17px}
 .stats{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:22px}
 .stats div{display:flex;align-items:baseline;gap:8px}
 .stats b{font:700 24px var(--font-display);color:var(--accent-ink)}
@@ -120,7 +347,7 @@ svg{display:block}
 .count{margin-inline-start:auto;font-size:13.5px;color:var(--ink-3);white-space:nowrap}
 
 /* Grid */
-main{padding:26px 0 70px}
+.people-results{padding:26px 0 70px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
 .card{position:relative;display:flex;flex-direction:column;gap:6px;min-height:170px;padding:18px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);text-align:start;box-shadow:var(--shadow-sm);transition:border-color .2s,box-shadow .2s,transform .2s var(--ease)}
 .card:hover{border-color:var(--accent-line);box-shadow:var(--shadow);transform:translateY(-2px)}
@@ -142,9 +369,9 @@ mark{background:var(--gold-soft);color:inherit;border-radius:3px;padding:0 1px}
 .empty button{margin-top:14px;padding:9px 16px;border-radius:10px;background:var(--btn);color:#fff;font-weight:600;font-size:14px}
 
 /* Profile drawer */
-.scrim{position:fixed;inset:0;z-index:60;background:var(--scrim);opacity:0;pointer-events:none;transition:opacity .25s}
+.scrim{position:fixed;inset:0;z-index:3000;background:var(--scrim);opacity:0;pointer-events:none;transition:opacity .25s}
 .scrim.on{opacity:1;pointer-events:auto}
-.drawer{position:fixed;z-index:61;top:0;bottom:0;inset-inline-end:0;width:min(480px,100%);background:var(--surface);box-shadow:var(--shadow-lg);display:flex;flex-direction:column;transform:translateX(105%);transition:transform .3s var(--ease);visibility:hidden}
+.drawer{position:fixed;z-index:3001;top:0;bottom:0;inset-inline-end:0;width:min(480px,100%);background:var(--surface);box-shadow:var(--shadow-lg);display:flex;flex-direction:column;transform:translateX(105%);transition:transform .3s var(--ease);visibility:hidden}
 .drawer.on{transform:none;visibility:visible}
 .d-head{position:relative;padding:22px 24px 22px;background:linear-gradient(140deg,#15523a,#0f3a2a);color:#fff;overflow:hidden}
 .d-head::after{content:"۞";position:absolute;inset-inline-end:-10px;top:-50px;font:170px var(--font-ar);color:rgba(255,255,255,.06);pointer-events:none}
@@ -188,15 +415,10 @@ mark{background:var(--gold-soft);color:inherit;border-radius:3px;padding:0 1px}
 .go:hover{background:color-mix(in srgb,var(--accent-soft) 70%,var(--accent) 12%)}
 .go+.go{margin-top:8px}
 
-footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-3);font-size:13.5px}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
-footer a{color:var(--accent-ink);font-weight:600}
 .toast{position:fixed;left:50%;bottom:24px;z-index:80;transform:translate(-50%,20px);opacity:0;padding:10px 16px;border-radius:10px;background:var(--ink);color:var(--bg);font-size:14px;font-weight:600;transition:.25s;pointer-events:none}
 .toast.on{opacity:1;transform:translate(-50%,0)}
 
 
-.lang-pick select{height:40px;padding:0 30px 0 12px;border:1px solid var(--line);border-radius:12px;background:var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2365715F' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center;appearance:none;-webkit-appearance:none;font-size:14px;font-weight:600;color:var(--ink-2);cursor:pointer;max-width:150px}
-.lang-pick select:hover{border-color:var(--accent-line)}
 .data-note{display:none}
 html[lang="ar"] .hero h1 .ar{display:none}
 html:not([lang="en"]) .data-note{display:inline}
@@ -218,14 +440,12 @@ html[dir="rtl"] :is(.card h3,.d-head h2,.d-bio,.aka span:not(.ar),.rel,.book-h b
 .lang-notice button[data-act="en"]{padding:6px 12px;border-radius:9px;background:var(--accent-soft);color:var(--accent-ink);font-weight:600;white-space:nowrap}
 .lang-notice button[data-act="x"]{width:30px;height:30px;border-radius:8px;font-size:18px;color:var(--ink-3)}
 @media (max-width:640px){.lang-pick select{max-width:96px;padding-inline-end:26px}html[dir="rtl"] .drawer{transform:translateY(105%)}html[dir="rtl"] .drawer.on{transform:none}}
-@media (max-width:860px){.top-links{display:none}}
 @media (max-width:640px){
   :root{--gutter:16px;--header-h:58px}
   .hero{padding:28px 0 22px}
   .hero h1 .ar{display:block;margin:4px 0 0}
   .hero p{font-size:15.5px}
   .search{height:52px}.search kbd{display:none}
-  .back span{display:none}.back{padding:0 11px}
   .grid{grid-template-columns:1fr 1fr;gap:10px}
   .card{padding:14px;min-height:150px}
   .card h3{font-size:15.5px}.card .ar{font-size:16px}
@@ -238,46 +458,386 @@ html[dir="rtl"] :is(.card h3,.d-head h2,.d-bio,.aka span:not(.ar),.rel,.book-h b
 }
 @media (max-width:370px){.grid{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+</style>
+
+<style id="timeline-page-style">
+/* ═════════════ TIMELINE PAGE ═════════════ */
+.confidence-dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.confidence-dot.established{background:var(--accent)}
+.confidence-dot.approximate{background:var(--gold-3)}
+.confidence-dot.disputed{background:#a56a43}
+
+.timeline-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;border-bottom:1px solid var(--line);background:var(--surface)}
+.timeline-filters{min-width:0;max-width:100%;display:flex;gap:8px;overflow:auto;padding:2px;scrollbar-width:none}
+.timeline-filters::-webkit-scrollbar{display:none}
+.timeline-filter{white-space:nowrap;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface-2);color:var(--ink-2);font-size:12.5px;font-weight:700;cursor:pointer}
+.timeline-filter.active{border-color:var(--accent-line);background:var(--accent-soft);color:var(--accent-ink)}
+.timeline-count{white-space:nowrap;font-size:12px;color:var(--ink-3)}
+.timeline-browser{min-height:0;display:grid;grid-template-columns:minmax(320px,410px) minmax(0,1fr)}
+.timeline-events{min-height:0;overflow:auto;padding:14px;border-right:1px solid var(--line);background:var(--surface-2)}
+.timeline-phase{margin:14px 8px 8px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--gold-ink)}
+.timeline-phase:first-child{margin-top:4px}
+.timeline-event{position:relative;width:100%;display:grid;grid-template-columns:62px minmax(0,1fr) auto;gap:12px;align-items:start;padding:13px 12px 13px 16px;border:1px solid transparent;border-radius:14px;background:transparent;text-align:left;color:inherit;cursor:pointer}
+.timeline-event::before{content:"";position:absolute;left:7px;top:17px;bottom:-17px;width:1px;background:var(--line-2)}
+.timeline-event:last-of-type::before{bottom:17px}
+.timeline-event:hover{background:var(--surface);border-color:var(--line)}
+.timeline-event.active{background:var(--surface);border-color:var(--accent-line);box-shadow:var(--shadow-sm)}
+.timeline-event-date{font-size:11.5px;font-weight:800;color:var(--gold-ink);line-height:1.35}
+.timeline-event-date small{display:block;margin-top:2px;font-size:10px;font-weight:600;color:var(--ink-3)}
+.timeline-event-title{display:block;font:650 15.5px/1.28 var(--font-display);color:var(--ink)}
+.timeline-event-sub{display:block;margin-top:3px;font-size:11.5px;line-height:1.35;color:var(--ink-3)}
+.timeline-confidence{align-self:center;width:9px;height:9px;border-radius:50%;background:var(--gold-3)}
+.timeline-confidence.established{background:var(--accent)}
+.timeline-confidence.disputed{background:#a56a43}
+.timeline-detail{min-height:0;overflow:auto;padding:30px clamp(22px,4vw,46px) 44px;background:var(--surface)}
+.timeline-detail-empty{min-height:100%;display:grid;place-items:center;align-content:center;text-align:center;color:var(--ink-3)}
+.timeline-detail-empty h3{margin-top:14px;font:700 24px/1.2 var(--font-display);color:var(--ink)}
+.timeline-detail-empty p{max-width:460px;margin-top:8px;line-height:1.6}
+.timeline-detail-top{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
+.timeline-detail-kicker{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-ink)}
+.timeline-detail h3{margin-top:5px;font:700 clamp(30px,5vw,46px)/1.08 var(--font-display);color:var(--ink)}
+.timeline-detail-sub{margin-top:8px;font-size:16px;line-height:1.55;color:var(--ink-2)}
+.date-badge{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;padding:7px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface-2);font-size:11.5px;font-weight:800;color:var(--ink-2)}
+.date-badge.established{border-color:var(--accent-line);background:var(--accent-soft);color:var(--accent-ink)}
+.date-badge.disputed{border-color:color-mix(in srgb,#a56a43 38%,var(--line));background:color-mix(in srgb,#a56a43 8%,var(--surface));color:#8d5634}
+.timeline-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:24px 0}
+.timeline-meta div{padding:12px 14px;border:1px solid var(--line);border-radius:13px;background:var(--surface-2)}
+.timeline-meta dt{font-size:10.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
+.timeline-meta dd{margin-top:4px;font-size:13.5px;font-weight:700;color:var(--ink)}
+.timeline-copy{font-size:15px;line-height:1.75;color:var(--ink-2)}
+.timeline-detail-section{margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
+.timeline-detail-section h4{font:700 18px/1.25 var(--font-display);color:var(--ink)}
+.timeline-detail-section p{margin-top:8px;font-size:14px;line-height:1.7;color:var(--ink-2)}
+.timeline-date-note{padding:15px 16px;border:1px solid var(--line);border-left:3px solid var(--gold-3);border-radius:12px;background:var(--surface-2)}
+.timeline-date-note.disputed{border-left-color:#a56a43}
+.timeline-ref-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.timeline-ref{padding:6px 9px;border:1px solid var(--line);border-radius:8px;background:var(--surface-2);font-size:11.5px;font-weight:650;color:var(--ink-2)}
+.timeline-research-note{margin-top:18px;padding:11px 13px;border-radius:10px;background:var(--accent-soft);color:var(--accent-ink);font-size:12px;line-height:1.55}
+
+@media(max-width:980px){
+  .timeline-browser{grid-template-columns:minmax(270px,340px) minmax(0,1fr)}
+  .timeline-meta{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .timeline-toolbar{min-width:0;max-width:100%;align-items:flex-start;flex-direction:column;padding:10px 12px;overflow:hidden}
+  .timeline-filters{width:100%}
+  .timeline-count{padding-left:4px}
+  .timeline-browser{display:block;overflow:auto}
+  .timeline-events{overflow:visible;border-right:0;border-bottom:1px solid var(--line);padding:10px}
+  .timeline-detail{overflow:visible;padding:26px 18px 40px}
+  .timeline-detail-empty{min-height:260px}
+  .timeline-detail-top{display:block}
+  .date-badge{margin-top:14px}
+  .timeline-meta{grid-template-columns:1fr 1fr}
+}
+@media(max-width:430px){.timeline-meta{grid-template-columns:1fr}}
+
+/* Page layout */
+/* body already offsets the fixed header (padding-top:var(--header-h)); a second offset left a blank band */
+.timeline-page-main{min-height:100vh;background:var(--bg)}
+.timeline-page-hero{position:relative;overflow:hidden;padding:62px 0 38px;border-bottom:1px solid var(--line);background:linear-gradient(145deg,var(--surface),var(--bg-2))}
+.timeline-page-hero::after{content:"";position:absolute;right:-90px;top:-120px;width:330px;height:330px;border-radius:50%;background:radial-gradient(circle,var(--accent-soft),transparent 68%);pointer-events:none}
+.timeline-breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:20px;font-size:13px;color:var(--ink-3)}
+.timeline-breadcrumb a{color:var(--accent-ink);font-weight:650}
+.timeline-page-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--gold-ink);letter-spacing:.02em}
+.timeline-page-hero h1{max-width:850px;margin-top:8px;font:700 clamp(42px,7vw,72px)/1.02 var(--font-display);letter-spacing:-.035em;color:var(--ink)}
+.timeline-page-lead{max-width:800px;margin-top:18px;font-size:17px;line-height:1.75;color:var(--ink-2)}
+.timeline-page-stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.timeline-page-stat{padding:9px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:12.5px;font-weight:700;color:var(--ink-2);box-shadow:var(--shadow-sm)}
+.timeline-page-section{padding:34px 0 78px}
+.timeline-page-card{overflow:hidden;border:1px solid var(--line);border-radius:24px;background:var(--surface);box-shadow:var(--shadow-md)}
+.timeline-page-card .timeline-toolbar{position:sticky;top:var(--header-h);z-index:12}
+.timeline-page-card .timeline-browser{height:min(760px,calc(100dvh - var(--header-h) - 110px));min-height:560px}
+.timeline-page-card .timeline-events{background:var(--surface-2)}
+.timeline-page-intro{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 24px;border-bottom:1px solid var(--line);background:linear-gradient(135deg,var(--surface),var(--surface-2))}
+.timeline-page-intro h2{font:700 26px/1.2 var(--font-display);color:var(--ink)}
+.timeline-page-intro p{max-width:720px;margin-top:5px;font-size:13.5px;line-height:1.65;color:var(--ink-3)}
+.timeline-back-home{display:inline-flex;align-items:center;gap:8px;flex:0 0 auto}
+.timeline-deep-note{margin-top:18px;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:var(--surface-2);font-size:13px;line-height:1.65;color:var(--ink-2)}
+.timeline-deep-note strong{color:var(--ink)}
+.timeline-event{scroll-margin-top:150px}
+.timeline-detail{scroll-margin-top:150px}
+@media(max-width:760px){
+ .timeline-page-hero{padding:38px 0 28px}
+ .timeline-page-hero h1{font-size:clamp(38px,12vw,54px)}
+ .timeline-page-lead{font-size:15px}
+ .timeline-page-section{padding:20px 0 54px}
+ .timeline-page-card{border-radius:18px}
+ .timeline-page-intro{display:block;padding:18px}
+ .timeline-back-home{margin-top:14px}
+ .timeline-page-card .timeline-toolbar{top:var(--header-h)}
+ .timeline-page-card .timeline-browser{height:auto;min-height:0;overflow:visible}
+ .timeline-page-card .timeline-events{max-height:none;overflow:visible}
+ .timeline-page-card .timeline-detail{overflow:visible}
+}
+
+/* Reader polish adapted from the Anbiya page. Header/footer now come from the shared shell above. */
+:root{--timeline-reader-size:17px}
+
+/* Hero: subtle geometric texture like the Anbiya page */
+.timeline-page-hero{isolation:isolate}
+.timeline-page-hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%231B6B4A' stroke-width='0.5' opacity='0.08'%3E%3Cpolygon points='40,5 75,25 75,55 40,75 5,55 5,25'/%3E%3Cpolygon points='40,15 65,28 65,52 40,65 15,52 15,28'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:80px 80px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,rgba(0,0,0,.85) 40%,#000);
+  mask-image:linear-gradient(90deg,transparent,rgba(0,0,0,.85) 40%,#000);
+}
+[data-theme="dark"] .timeline-page-hero::before{opacity:.45}
+.timeline-page-hero .wrap{position:relative;z-index:1}
+
+/* Intro actions / reading controls */
+.timeline-page-actions{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-wrap:wrap}
+.timeline-reader-controls{
+  display:flex;align-items:center;height:40px;
+  border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface);
+  box-shadow:var(--shadow-sm)
+}
+.timeline-reader-control{
+  min-width:39px;height:38px;padding:0 11px;border:0;border-right:1px solid var(--line);
+  display:inline-flex;align-items:center;justify-content:center;
+  background:transparent;color:var(--ink-2);font-size:12px;font-weight:800;cursor:pointer
+}
+.timeline-reader-control:last-child{border-right:0}
+.timeline-reader-control:hover,.timeline-reader-control:focus-visible{background:var(--accent-soft);color:var(--accent-ink)}
+.timeline-reader-control[data-reader-focus]{gap:7px;min-width:auto;font-weight:700}
+.timeline-reader-control svg{width:16px;height:16px}
+.timeline-reader-control.is-active{background:var(--accent-soft);color:var(--accent-ink)}
+
+/* The right pane now reads like the Anbiya story reader */
+.timeline-detail{
+  background:
+    radial-gradient(circle at 100% 0, color-mix(in srgb,var(--accent-soft) 55%,transparent), transparent 24rem),
+    var(--surface);
+}
+.timeline-reading-column{max-width:760px;margin:0 auto}
+.timeline-detail-top{padding-bottom:4px}
+.timeline-detail h3{max-width:18ch}
+.timeline-detail-sub{max-width:54ch;font-family:var(--font-read);font-style:italic}
+.timeline-meta{margin:26px 0 32px}
+.timeline-copy{
+  max-width:68ch;
+  font-family:var(--font-read);
+  font-size:var(--timeline-reader-size);
+  line-height:1.9;
+  color:var(--ink);
+  font-weight:400;
+}
+.timeline-detail-section{margin-top:34px;padding-top:0;border-top:0}
+.timeline-detail-section h4{
+  margin:0 0 13px;padding:11px 14px 10px 16px;
+  border-left:4px solid var(--gold-3);
+  border-radius:0 12px 12px 0;
+  background:linear-gradient(90deg,var(--accent-soft),transparent 86%);
+  font-size:20px;font-weight:800;
+}
+.timeline-detail-section p{
+  font-family:var(--font-read);
+  font-size:calc(var(--timeline-reader-size) - 1px);
+  line-height:1.82;
+  color:var(--ink-2)
+}
+.timeline-date-note{
+  padding:17px 18px;border-radius:14px;border-left-width:4px;
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--line) 65%,transparent)
+}
+.timeline-ref-list{gap:9px}
+.timeline-ref{padding:7px 10px;border-radius:999px;font-size:12px;background:var(--bg-2)}
+.timeline-research-note{
+  margin-top:28px;padding:15px 16px;border:1px solid var(--accent-line);border-radius:14px;
+  font-size:13px;line-height:1.65
+}
+.timeline-event-nav{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;
+  margin-top:34px;padding-top:24px;border-top:1px solid var(--line)
+}
+.timeline-event-nav button{
+  min-width:0;padding:14px 15px;border:1px solid var(--line);border-radius:14px;
+  background:var(--surface-2);text-align:left;color:var(--ink);cursor:pointer
+}
+.timeline-event-nav button:last-child{text-align:right}
+.timeline-event-nav button:hover{border-color:var(--accent-line);background:var(--accent-soft)}
+.timeline-event-nav small{display:block;margin-bottom:3px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:800}
+.timeline-event-nav strong{display:block;font:700 14px/1.35 var(--font-display);overflow-wrap:anywhere}
+.timeline-event-nav button:disabled{opacity:.42;cursor:default}
+.timeline-reader-mobile-back{
+  display:none;margin:0 0 20px;padding:8px 11px;border:1px solid var(--line);border-radius:9px;
+  background:var(--surface-2);font-size:12px;font-weight:750;color:var(--ink-2)
+}
+
+/* Focus reading hides the event rail, like opening a dedicated reader */
+.timeline-page-card.is-reading-focus .timeline-browser{grid-template-columns:minmax(0,1fr)}
+.timeline-page-card.is-reading-focus .timeline-events{display:none}
+.timeline-page-card.is-reading-focus .timeline-detail{padding-inline:clamp(24px,7vw,88px)}
+.timeline-page-card.is-reading-focus .timeline-reading-column{max-width:720px}
+
+/* Slightly calmer cards and scrollbar */
+.timeline-events{scrollbar-width:thin;scrollbar-color:var(--line-2) transparent}
+.timeline-detail{scrollbar-width:thin;scrollbar-color:var(--line-2) transparent}
+.timeline-event.active{box-shadow:0 7px 20px rgba(24,72,51,.07)}
+.timeline-event-title{font-weight:700}
+
+@media(max-width:760px){
+  .timeline-page-actions{justify-content:flex-start;margin-top:14px}
+  .timeline-page-actions .timeline-back-home{order:2}
+  .timeline-reader-controls{order:1}
+  .timeline-page-intro{padding-bottom:14px}
+  .timeline-detail{padding:22px 18px 46px}
+  .timeline-reading-column{max-width:100%}
+  .timeline-reader-mobile-back{display:inline-flex;align-items:center;gap:6px}
+  .timeline-copy{font-size:var(--timeline-reader-size);line-height:1.82}
+  .timeline-detail-section{margin-top:28px}
+  .timeline-event-nav{grid-template-columns:1fr}
+  .timeline-event-nav button:last-child{text-align:left}
+  .timeline-page-card.is-reading-focus .timeline-detail{padding-inline:18px}
+}
+@media(max-width:430px){
+  .timeline-reader-control[data-reader-focus] span{display:none}
+  .timeline-reader-control[data-reader-focus]{min-width:39px;padding:0}
+}
+.lang-notice{position:fixed;left:50%;bottom:20px;z-index:4000;display:flex;align-items:center;gap:10px;max-width:calc(100% - 32px);padding:10px 10px 10px 16px;border-radius:14px;background:var(--surface);color:var(--ink);border:1px solid var(--line-2);box-shadow:var(--shadow-lg);font-size:14px;transform:translate(-50%,16px);opacity:0;transition:opacity .25s,transform .25s}
+.lang-notice.on{opacity:1;transform:translate(-50%,0)}
+.lang-notice button[data-act="en"]{padding:6px 12px;border-radius:9px;background:var(--accent-soft);color:var(--accent-ink);font-weight:600;white-space:nowrap}
+.lang-notice button[data-act="x"]{width:30px;height:30px;border-radius:8px;font-size:18px;color:var(--ink-3)}
+html[lang="hi"] body,html[lang="ne"] body{font-family:"DM Sans","Noto Sans Devanagari",system-ui,sans-serif}
+html[lang="bn"] body{font-family:"DM Sans","Noto Sans Bengali",system-ui,sans-serif}
+html[lang="ta"] body{font-family:"DM Sans","Noto Sans Tamil",system-ui,sans-serif}
+html[lang="ar"] body,html[lang="ur"] body{font-family:"DM Sans","Noto Naskh Arabic",system-ui,sans-serif}
+html[lang="ar"] *,html[lang="ur"] *{letter-spacing:0!important}
+html[dir="rtl"] .lang-option{text-align:right}
+html[dir="rtl"] :is(.timeline-event *,.timeline-copy,.timeline-date-note *,.timeline-ref,.timeline-detail-top h3,.timeline-detail-sub,.timeline-meta dd,.timeline-event-nav strong,.timeline-research-note){unicode-bidi:plaintext}
 </style>
 </head>
 <body>
-<a class="skip" href="#results">Skip to people</a>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
-  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
-  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
-  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
-  <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
-  <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></symbol>
-  <symbol id="i-theme" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17Z" fill="currentColor" opacity=".3"/></symbol>
-</svg>
+<!-- Icon sprite (used via <use href="#i-…">) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.8 12h16.4M12 3.5c2.2 2.3 3.4 5.1 3.4 8.5s-1.2 6.2-3.4 8.5M12 3.5C9.8 5.8 8.6 8.6 8.6 12s1.2 6.2 3.4 8.5"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12a7.5 7.5 0 1 1-2.2-5.3"/><path d="M19.5 4.5v4.2h-4.2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M8.5 7H17v8.5"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5c3.3-1 5.8-.4 8 1.6v12c-2.2-2-4.7-2.6-8-1.6z"/><path d="M20 5.5c-3.3-1-5.8-.4-8 1.6v12c2.2-2 4.7-2.6 8-1.6z"/></symbol>
+    <symbol id="i-scroll" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10a2.5 2.5 0 0 1 2.5 2.5V17a3 3 0 0 1-3 3H7.5A2.5 2.5 0 0 1 5 17.5V6a2 2 0 0 1 2-2Z"/><path d="M9 9h6.5M9 12.5h6.5M9 16h4"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+    <symbol id="i-lineage" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.8" r="2.2"/><circle cx="12" cy="19.2" r="2.2"/><path d="M12 7v10"/><path d="M8 12h8"/></symbol>
+    <symbol id="i-house" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.2 12 4l9 7.2"/><path d="M5.5 10.5V20h13v-9.5"/><circle cx="9" cy="13" r="1.7"/><circle cx="15" cy="13" r="1.7"/><path d="M6.7 18c.2-2 1.1-3 2.3-3s2.1 1 2.3 3M12.7 18c.2-2 1.1-3 2.3-3s2.1 1 2.3 3"/></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3.5 20c0-3.6 2.3-6 5.5-6s5.5 2.4 5.5 6"/><path d="M14.5 15.5c.7-.5 1.5-.8 2.5-.8 2.4 0 4 1.8 4 4.5"/></symbol>
+    <symbol id="i-question" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.4 2.4 0 1 1 3.8 1.95c-.95.65-1.6 1.15-1.6 2.3"/><path d="M12 16.8h.01"/></symbol>
+    <symbol id="i-translate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h12M10 3v2M6 5c0 6 4 10 9 12M14 5c-1 5-5 10-10 12M14 21l4-10 4 10M16 17h4"/></symbol>
+    <symbol id="i-review" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9zM14 3v6h6M8 14l2 2 5-5"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5m8-10 5 5-5 5M14 4l-4 16"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5 14.14 6.83 19.42 4.58 17.17 9.86 22.5 12 17.17 14.14 19.42 19.42 14.14 17.17 12 22.5 9.86 17.17 4.58 19.42 6.83 14.14 1.5 12 6.83 9.86 4.58 4.58 9.86 6.83Z"/></symbol>
+  </defs>
+<symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol><symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol><symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></symbol><symbol id="i-theme" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17Z" fill="currentColor" opacity=".3"/></symbol></svg>
 
-<header class="top">
-  <div class="wrap">
-    <a class="logo" href="index.html" aria-label="Seerah home"><span class="logo-mark" aria-hidden="true">س</span>SEERAH</a>
-    <nav class="top-links" aria-label="Explore">
-      <a href="timeline.html">Timeline</a>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div class="progress-bar" id="progress-bar" aria-hidden="true"></div>
+
+<!-- ═════════════ HEADER (same as index.html) ═════════════ -->
+<header class="site-header">
+  <nav aria-label="Primary navigation">
+    <a href="index.html" class="nav-logo" aria-label="Seerah — home">
+      <img src="data:image/webp;base64,UklGRgwNAABXRUJQVlA4IAANAAAwNwCdASp/AIAAPjEWiUMiISEUCoWUIAMEoAzYIxXh6cZxeLv3pFofUc7eST/c+0LzAP1Y6VP7XeoX9cv2v93D0f+gB/gP9p1mXoO+W5+6Xwf/tt+2XtBXkX9+7in0P9y/K7blfQv+Q/cX8P+XH5PfKPg/wC/xr+af3v8n/yk5Nix/+68ob6H/mfzV8zTU774/6j3AP5b+yf5YczDQA/mP9V/8fp0f8n+Y8+P5x/hf+l/mfgI/lf9Q/2H5x/4f///Wp7M/269lv9hv/+YPmYWaDWENfRjigRASRf0N5F3WVIOQ/HAhSOVe0gKyA3c4YwtO3Rv9MhKnh8L9Uz4FhWjKZk2OJcr+22QH4sEiuPJrnvxF7R5oKewW7ND/4P7SwloCTCQYuJGOgCmj9BpLLPvdUVLAbevBvGbn861oTm2fR6V1g37NRRse7Sb1LLBC5XoNMTcuBTLq4jRLoljDXCIVNPn81h8mUG9vshdzI24ne1xVwMOyFl2qguiYZ+kS7SGFtCw3suKNQXsubiRMRIJVe+sFPAXwFZJLyjz8HKfFLw7yfFFZxNygEW9RQkkLpZnJgRg738TzL+3uXDOvda/EKAAA/v/+JqfBlOwUs2680JAATSalAekY++LnyBOrTA63+VLFQmh3iSnJjQq93JRRQI7RIfKctHkHu25TczXTyx2YEUGEBLPoxhIS0DxsHs6IRYzKnsVnQ/iI8ZLc8HQM0IrVva/zFOZhkWv0HEdmh22JQB3/iMjDrsO8ebxJQtp/w6evQlmLbMVRm4AiTwXKpUSBaGMleOW/oJC9Lyfm0NmVaqAAqiC/rvwOGvAHq9Ty9SyTnvPrWKcCkFC21ohY8IGk0gYNdkiLz6mQExlhRDz/ZeZZayJ8I9t/QL4zHyo9lGHMCKdMPSvcPvdiQXMWOf6BcDlsTbnH85XOjhW5RlDYG4qGI89ctmcKVKZboeAlpwAFShzsYRCu3nFotfCrtR8R/j7XXms2PBEDlNVnd+E0MQ6/r0WQR34TBM6yRHAIaOyRLdOs15ja6pLGRMhDwLYkTpYsc6pDhyf/zlwHU6eisCKUGurWG4n/4HTio/CpTNerLowe+QEVv4lGXcAM1lDA3m3/DlyyoeF3SyLZnnxeuQZGR2LtnGHj8BW26oehNjfZA+4Gizlobs2nb02f10BkwNdBzxNLd10Fs5pTKE67JPlXtGsLXbjjc/R87Zcjp2G6IKgy7s0UYOSFAr3k3PQz/GiO7g68aP8//heCaoUb/0ztf7mqpfJKgDQeK9oTEHmqPb8lxTFOurZP5ldVGPALy8oIQHHfA8AhGujjqYa/71W48IAgHbXH5QdGLmAVu298Hn8rwclUb0DAdx61pxvZGRnSSzqWA11Tq40gNqUdHO+1bcmCXtgoSYWSm67HrdVptrbp43cVB6M0fjminoYNHuTFg2CI/TTmdqKpf65IydXAt9Yiyd3s/SDF6qoPgUQ8YggHu96q/9XX+qxr8P1vTWeyBFWslldPt29Ko9oGodfPqXpPnE366a4/l7E1qJOxiT8ZRkMe7qOWZoQfnQOkwDOFGYXRc2I0IbwL8WVdUL0CjAqI+D6P/c8AeLFosXSqIuCrMySTqEiM9Vn2/Osfb7Cj5wMDk+4i40jL0rR/vAl76PxjX9K8rAEWPz/zp23znacrdiqpXVEeatU2+urtMsfTucYPsT7C08E7+rTFJiQPE3m2J9or/VuMSctjIrYh+3/6Law0saGupaSP2SVIcDVclzRFnjhY+vXzsfcVuAqqIqeUYPFu3eHFp/StsqiD6EhitoHLuD3gR4gHvbofMQ9rI4wD6Yjv4wKXuHHWGPgUpXl3r+dekg+psfk6Qf4KwfFKfIUWrECth9jwJhby5/J2cODehtxsZnGv+wdDVFliR+U2MImOSLB6X6sNZGTYkt5CWAyX+a8D1KSJfarvYX92WPMs5pMYBk/JEo7MfDeAwutemVxIAKk5KWVlY+PYuQFnuUf63noSuTIGgHIOdT8yglOPVDMtkhJ2BXiOKuhDhKpzrdmZYwpDhlIYyP4FTpnm2vb3eqYFzdyazW+Z7zWZn6zEudvfCknWoXawThq8jL7YCGS02J2IJ5QU/t41gBgcCldWze7TakDn5/pwff5cSs7tWS1khxPXWu90Xok6vUtSMrRRyYbVJUQpVn8x4pmYSTpxqlq2tU/GIR0Ew92pahNtW8zHEmmNzVRfuHTZYdYI+uA2EAMchxmS1nrA5RzAHNOtajk6Q89/lhBXZj7xIQadH4vxV3pMaOp4G3i4z00I9iRr3svsez6ucVSFJPZYx4ZK5tiFadiooVoy0fQscrx9gIcenapw8jCzRoKc+PR17769YE724AG7SqwG2qGuAPwKevt8ch82hbg1TyS2xqJtEwOijIf0d7W7Dmh1xUdP+g3ajaDWqsf2lV+jVMMo9nRXPE5QqGa0hDzWTzSCWI3SRepR+4Ydmd89ItM97YUaJPshgu3WaiSuoofjzMAwIl2XiflxyTHUxCnR3/zlh2iIfvI63fcMEY9Ob015U6AGWohfFY2TN9xnO4iwI3MoJU/hUo2A4sV03oROnDv35Ll/oPWqFaY1zxDg4Q28RD78vlW16fL0OxxZMfcABB/VP2RmIzmHbgANsZxSmPICHS2StRiVooqNVZHbCWUbNSDYMD93fc6CaOeU6dwV8ldaVGjkOnSMxf6PUl9UzUZDj4XNUmGwcXbFftVq/fo0UIm6KH0rtId/gzTyPyixaWZNw8sEtf8WX1vZvASGhSSlakZ0pEwP4dP9ePQIoIhsGBYuIk9xXlizpV0CZ8MJV0Zfn+qSv/+H1eR42+Pfpr9ywa6WjkWZSc8lAnEdlNKznVsCN4QdEBj+RJUs2gxoNtVMycbCj/8d3/jpPqopE9FvqJvdiNsfcRi73A9CkjSq36z9wZtA6PXyKjl1d7k8dNhiHs6HXoXHbMxYyGbZxLSIDeF0HmwE/PCc2tdxC6Ab+im+fMzvlp1TFiJ6TyLZY0XuzLBZMYmqtWCmsGuJ+Ak6F0x+wKeFYsoNZvg/YDhvLYP3Ice081LS48wn5ZubRVQk7yKoSUIVwBzWmXsfQRLzhQVAn1uksUpqt6e4mAm+UzcRe8ZA0FJ1b1HpuQ0S6YtFkqvb2RItJbHK8diwtpen1oqXcZd/dkXqVnOXT2Wm0+1V54dc/dTlUUZcFdm/Vh/r+qUnX5WJtTsjRmYV3SLVohtRpOF0AguVqaJdcROn/uz3wXCNa4JwvxOvHM5mgPA2uyO0Rms7qSuklWIPNuML/PW7YdtH0mxBUgaO295YA/b5nIaIPRxQaY4/p+EsXmOaNLZneoDi6AC9GTOFW68KjTlOlR/jx5EbjbmftuRB7IRhP8y78UcE9Hg7I+r55p/xlwwxAYVNSDpOHuji0H1PMCAndpqFyzBfA1wjeUBWMXbbhGXaiLzUuPL7FkbAR4pYdLE+LevAMM5Zb+EeAtho4pLRVfHLRcjiDwgwS5g9XErn9XuRdFx/c9mnamWiMPHhOhI2krWWIX/exI6rsXi/uCLBNlVTjSFZ2ACSCubNi0/ja2fPvYwheTcjy7Q4IM1hGE9QAU3/gFE6B0T+/hjVPH8BBL2VcOutNFcnetle+ucGLYWg3UTqOHyTmho0KSXTl+kHOTPQuyLosPR/Tbtffhbi9sXW7f/u1z4KjfAlV3lZNlJ71y9TJ71XsBnP3ePFf8KJW92NaruRrREGW/D4CJ3EaT/mAb0UKMWYVaEEv/8/EC5fx+C/NGEmjndASmZfQ1Lbwjlmnp2LZmyynBcHjO+LsBtXeqwiOF3LCEj/dTcCi7IamoWysEm5Ss8reFqpxsQ9QXjsHOvUcHHU1J0RtVlHoDjKjvBKBnWlBZc+NfXstx7/lx+Ya5gMUlU9advV4UWAxLIz8qiHhp9ILJ5CxuHDmKhhmxrUUI3e5NaQe3jRRSaDe1r1+JYGU+jSlpmksz0cEYcHHpEw3My3RobL3GLbZsuJ1X/fLeLHHPjvEZfj+TCX7sq4OXA/uE8O1fJN/mANsDSkIA+jqU4nvKgUugXCa1RWBrgFQ3TbViNrif+DHn/gjl5aURo/z05e/5etAfXR6oDDWT//laU4twnGJopj2vE7g8jzVC5afEEz/ydaUPdqf7qu0YMoVy65bL14tylM3xSl/s2bufAnwgs7ujpQ7Z7b7BPsIUUGz2wLLL5QNSYyzEibZjzvqpIjrFWNOH67Bge/DzVzHyk00DhU6Ssfj2V5blAV8ufnqYn0WMfIv01s3r1EyqHmgJaJ2woyCsw0jS+H01+2UIX6pL8wPZ0y0sADWaj/G+ItfroQ7mElNswfGZebdAZtTq3VuPWIulCIgZLBMredwSkLBehtqL7MZtDGH7Kwg+NzAAqlj0i3mYf7UXeqJ8c6f/DS8XfZoqw9SSQkrSAA" alt="" class="seerah-nav-logo" width="44" height="44">
+      <span>
+        <span class="logo-name">SEERAH</span>
+        <span class="logo-tagline">The Life of Prophet Muhammad ﷺ</span>
+      </span>
+    </a>
+
+    <ul class="nav-links">
+      <li class="has-dropdown">
+        <a href="index.html#books">Library <svg class="caret" aria-hidden="true"><use href="#i-caret"/></svg></a>
+        <div class="dropdown">
+          <a href="index.html#featured">Featured book</a>
+          <a href="index.html#cat-all">All books</a>
+          <hr>
+          <a href="index.html#cat-general">General</a>
+          <a href="index.html#cat-kids">For children</a>
+          <a href="index.html#cat-students">For students</a>
+          <a href="index.html#cat-research">Advanced &amp; research</a>
+        </div>
+      </li>
+      <li class="has-dropdown is-current">
+        <a href="index.html#explore">Explore <svg class="caret" aria-hidden="true"><use href="#i-caret"/></svg></a>
+        <div class="dropdown">
+          <a href="timeline.html">Seerah Timeline</a>
+          <a href="lineage.html">Lineage</a>
+          <a href="ahle-bayt.html">Ahle Bayt</a>
+          <a href="sahaba-sahabiya.html">Sahaba &amp; Sahabiyat</a>
+          <a href="people-of-the-seerah.html" aria-current="page">People of the Seerah</a>
+          <a href="anbiya.html">Anbiya-e-Kiram</a>
+          <a href="questions.html">Questions &amp; Answers</a>
+        </div>
+      </li>
+      <li><a href="#about">About</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="lang-select">
+        <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="language-menu" aria-label="Choose language">
+          <svg class="i" aria-hidden="true"><use href="#i-globe"/></svg><span id="lang-label">EN</span><svg class="caret" aria-hidden="true"><use href="#i-caret"/></svg>
+        </button>
+        <div class="lang-dropdown" id="language-menu">
+          <button type="button" class="lang-option active" data-lang-code="EN" aria-pressed="true"><span class="lang-flag" aria-hidden="true">🇬🇧</span> English</button>
+          <button type="button" class="lang-option" data-lang-code="HI" aria-pressed="false" lang="hi"><span class="lang-flag" aria-hidden="true">🇮🇳</span> हिन्दी</button>
+          <button type="button" class="lang-option" data-lang-code="UR" aria-pressed="false" lang="ur"><span class="lang-flag" aria-hidden="true">🇵🇰</span> اردو</button>
+          <button type="button" class="lang-option" data-lang-code="NP" aria-pressed="false" lang="ne"><span class="lang-flag" aria-hidden="true">🇳🇵</span> नेपाली</button>
+          <button type="button" class="lang-option" data-lang-code="BN" aria-pressed="false" lang="bn"><span class="lang-flag" aria-hidden="true">🇧🇩</span> বাংলা</button>
+          <button type="button" class="lang-option" data-lang-code="TA" aria-pressed="false" lang="ta"><span class="lang-flag" aria-hidden="true">🇮🇳</span> தமிழ்</button>
+          <button type="button" class="lang-option" data-lang-code="AR" aria-pressed="false" lang="ar"><span class="lang-flag" aria-hidden="true">🇸🇦</span> العربية</button>
+          <button type="button" class="lang-option" data-lang-code="ID" aria-pressed="false" lang="id"><span class="lang-flag" aria-hidden="true">🇮🇩</span> Bahasa Indonesia</button>
+          <button type="button" class="lang-option" data-lang-code="TR" aria-pressed="false" lang="tr"><span class="lang-flag" aria-hidden="true">🇹🇷</span> Türkçe</button>
+          <button type="button" class="lang-option" data-lang-code="ROM" aria-pressed="false" lang="ur-Latn"><span class="lang-flag" aria-hidden="true">🇵🇰</span> Roman Urdu</button>
+        </div>
+      </div>
+      <button class="theme-toggle" type="button" title="Toggle theme" aria-label="Toggle theme"><span id="theme-icon" class="ui-icon" aria-hidden="true"></span></button>
+      <a class="contributor-login" href="https://www.ummahtechs.com/contribute/participatelogin"><span class="contributor-login-desktop">Contributor Login</span><span class="contributor-login-mobile">Login</span></a>
+      <button class="hamburger" type="button" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false"><span class="hamburger-box" aria-hidden="true"><span></span><span></span><span></span></span></button>
+    </div>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true" inert>
+    <div class="mobile-nav-group">
+      <a href="index.html">Home</a>
+    </div>
+    <div class="mobile-nav-group">
+      <span class="mobile-nav-label">Library</span>
+      <a href="index.html#featured">Featured book</a>
+      <a href="index.html#cat-all">All books</a>
+      <a href="index.html#cat-general">General</a>
+      <a href="index.html#cat-kids">For children</a>
+      <a href="index.html#cat-students">For students</a>
+      <a href="index.html#cat-research">Advanced &amp; research</a>
+    </div>
+    <div class="mobile-nav-group">
+      <span class="mobile-nav-label">Explore</span>
+      <a href="timeline.html">Seerah Timeline</a>
       <a href="lineage.html">Lineage</a>
       <a href="ahle-bayt.html">Ahle Bayt</a>
-      <a href="sahaba-sahabiya.html">Sahaba</a>
-      <a href="people-of-the-seerah.html" aria-current="page">People</a>
-    </nav>
-    <div class="top-right">
-      <label class="lang-pick"><span class="vh">Language</span><select id="langSel" aria-label="Language">
-        <option value="EN">English</option><option value="HI" lang="hi">हिन्दी</option><option value="UR" lang="ur">اردو</option><option value="NP" lang="ne">नेपाली</option><option value="BN" lang="bn">বাংলা</option><option value="TA" lang="ta">தமிழ்</option><option value="AR" lang="ar">العربية</option><option value="ID" lang="id">Bahasa Indonesia</option><option value="TR" lang="tr">Türkçe</option><option value="ROM" lang="ur-Latn">Roman Urdu</option>
-      </select></label>
-      <button class="icon-btn" id="themeBtn" type="button" aria-label="Change theme"><svg class="i"><use href="#i-theme"/></svg></button>
-      <a class="back" href="index.html#explore"><svg class="i"><use href="#i-back"/></svg><span>Home</span></a>
+      <a href="sahaba-sahabiya.html">Sahaba &amp; Sahabiyat</a>
+      <a href="people-of-the-seerah.html" aria-current="page">People of the Seerah</a>
+      <a href="anbiya.html">Anbiya-e-Kiram</a>
+      <a href="questions.html">Questions &amp; Answers</a>
+    </div>
+    <div class="mobile-nav-group">
+      <a href="index.html#contribute">Contribute</a>
+      <a href="index.html#support">Support the mission</a>
+      <a href="#about">About</a>
     </div>
   </div>
 </header>
 
-<section class="hero" aria-labelledby="h1">
+<main id="main-content" tabindex="-1">
+<section class="people-hero" aria-labelledby="h1">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><a href="index.html#explore">Explore</a><span>/</span><span aria-current="page">People of the Seerah</span></nav>
-    <span class="kicker">Who’s who in the Seerah</span>
+    <nav class="page-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="index.html#explore">Explore</a><span aria-hidden="true">/</span><span aria-current="page">People of the Seerah</span></nav>
+    <span class="page-eyebrow">Who’s who in the Seerah</span>
     <h1 id="h1">People of the Seerah <span class="ar" lang="ar">أعلام السيرة</span></h1>
-    <p>Everyone mentioned in the life of Prophet Muhammad ﷺ — his family, his Companions, the rulers he wrote to, those who opposed him, and others — with where they appear across the library.</p>
+    <p class="lead">Everyone mentioned in the life of Prophet Muhammad ﷺ — his family, his Companions, the rulers he wrote to, those who opposed him, and others — with where they appear across the library.</p>
     <div class="stats" id="stats"></div>
     <label class="search" id="searchBox">
       <svg class="i" aria-hidden="true"><use href="#i-search"/></svg>
@@ -306,20 +866,48 @@ html[dir="rtl"] :is(.card h3,.d-head h2,.d-bio,.aka span:not(.ar),.rel,.book-h b
   </div>
 </div>
 
-<main id="results" tabindex="-1">
+<div id="results" tabindex="-1" class="people-results">
   <div class="wrap"><div class="grid" id="grid"></div></div>
-</main>
+</div>
 
-<footer>
-  <div class="wrap">
-    <span>People of the Seerah · a companion to the books, not a replacement for them.</span>
-    <span><span>Found a mistake?</span> <a href="index.html#contribute">Help review the index</a></span>
-  </div>
-</footer>
+</main>
 
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dName" aria-hidden="true"></aside>
 <div class="toast" id="toast" role="status"></div>
+
+<footer class="site-footer" id="about">
+  <div class="wrap footer-inner">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-seerah-home" aria-label="Seerah — home"><img src="data:image/webp;base64,UklGRgwNAABXRUJQVlA4IAANAAAwNwCdASp/AIAAPjEWiUMiISEUCoWUIAMEoAzYIxXh6cZxeLv3pFofUc7eST/c+0LzAP1Y6VP7XeoX9cv2v93D0f+gB/gP9p1mXoO+W5+6Xwf/tt+2XtBXkX9+7in0P9y/K7blfQv+Q/cX8P+XH5PfKPg/wC/xr+af3v8n/yk5Nix/+68ob6H/mfzV8zTU774/6j3AP5b+yf5YczDQA/mP9V/8fp0f8n+Y8+P5x/hf+l/mfgI/lf9Q/2H5x/4f///Wp7M/269lv9hv/+YPmYWaDWENfRjigRASRf0N5F3WVIOQ/HAhSOVe0gKyA3c4YwtO3Rv9MhKnh8L9Uz4FhWjKZk2OJcr+22QH4sEiuPJrnvxF7R5oKewW7ND/4P7SwloCTCQYuJGOgCmj9BpLLPvdUVLAbevBvGbn861oTm2fR6V1g37NRRse7Sb1LLBC5XoNMTcuBTLq4jRLoljDXCIVNPn81h8mUG9vshdzI24ne1xVwMOyFl2qguiYZ+kS7SGFtCw3suKNQXsubiRMRIJVe+sFPAXwFZJLyjz8HKfFLw7yfFFZxNygEW9RQkkLpZnJgRg738TzL+3uXDOvda/EKAAA/v/+JqfBlOwUs2680JAATSalAekY++LnyBOrTA63+VLFQmh3iSnJjQq93JRRQI7RIfKctHkHu25TczXTyx2YEUGEBLPoxhIS0DxsHs6IRYzKnsVnQ/iI8ZLc8HQM0IrVva/zFOZhkWv0HEdmh22JQB3/iMjDrsO8ebxJQtp/w6evQlmLbMVRm4AiTwXKpUSBaGMleOW/oJC9Lyfm0NmVaqAAqiC/rvwOGvAHq9Ty9SyTnvPrWKcCkFC21ohY8IGk0gYNdkiLz6mQExlhRDz/ZeZZayJ8I9t/QL4zHyo9lGHMCKdMPSvcPvdiQXMWOf6BcDlsTbnH85XOjhW5RlDYG4qGI89ctmcKVKZboeAlpwAFShzsYRCu3nFotfCrtR8R/j7XXms2PBEDlNVnd+E0MQ6/r0WQR34TBM6yRHAIaOyRLdOs15ja6pLGRMhDwLYkTpYsc6pDhyf/zlwHU6eisCKUGurWG4n/4HTio/CpTNerLowe+QEVv4lGXcAM1lDA3m3/DlyyoeF3SyLZnnxeuQZGR2LtnGHj8BW26oehNjfZA+4Gizlobs2nb02f10BkwNdBzxNLd10Fs5pTKE67JPlXtGsLXbjjc/R87Zcjp2G6IKgy7s0UYOSFAr3k3PQz/GiO7g68aP8//heCaoUb/0ztf7mqpfJKgDQeK9oTEHmqPb8lxTFOurZP5ldVGPALy8oIQHHfA8AhGujjqYa/71W48IAgHbXH5QdGLmAVu298Hn8rwclUb0DAdx61pxvZGRnSSzqWA11Tq40gNqUdHO+1bcmCXtgoSYWSm67HrdVptrbp43cVB6M0fjminoYNHuTFg2CI/TTmdqKpf65IydXAt9Yiyd3s/SDF6qoPgUQ8YggHu96q/9XX+qxr8P1vTWeyBFWslldPt29Ko9oGodfPqXpPnE366a4/l7E1qJOxiT8ZRkMe7qOWZoQfnQOkwDOFGYXRc2I0IbwL8WVdUL0CjAqI+D6P/c8AeLFosXSqIuCrMySTqEiM9Vn2/Osfb7Cj5wMDk+4i40jL0rR/vAl76PxjX9K8rAEWPz/zp23znacrdiqpXVEeatU2+urtMsfTucYPsT7C08E7+rTFJiQPE3m2J9or/VuMSctjIrYh+3/6Law0saGupaSP2SVIcDVclzRFnjhY+vXzsfcVuAqqIqeUYPFu3eHFp/StsqiD6EhitoHLuD3gR4gHvbofMQ9rI4wD6Yjv4wKXuHHWGPgUpXl3r+dekg+psfk6Qf4KwfFKfIUWrECth9jwJhby5/J2cODehtxsZnGv+wdDVFliR+U2MImOSLB6X6sNZGTYkt5CWAyX+a8D1KSJfarvYX92WPMs5pMYBk/JEo7MfDeAwutemVxIAKk5KWVlY+PYuQFnuUf63noSuTIGgHIOdT8yglOPVDMtkhJ2BXiOKuhDhKpzrdmZYwpDhlIYyP4FTpnm2vb3eqYFzdyazW+Z7zWZn6zEudvfCknWoXawThq8jL7YCGS02J2IJ5QU/t41gBgcCldWze7TakDn5/pwff5cSs7tWS1khxPXWu90Xok6vUtSMrRRyYbVJUQpVn8x4pmYSTpxqlq2tU/GIR0Ew92pahNtW8zHEmmNzVRfuHTZYdYI+uA2EAMchxmS1nrA5RzAHNOtajk6Q89/lhBXZj7xIQadH4vxV3pMaOp4G3i4z00I9iRr3svsez6ucVSFJPZYx4ZK5tiFadiooVoy0fQscrx9gIcenapw8jCzRoKc+PR17769YE724AG7SqwG2qGuAPwKevt8ch82hbg1TyS2xqJtEwOijIf0d7W7Dmh1xUdP+g3ajaDWqsf2lV+jVMMo9nRXPE5QqGa0hDzWTzSCWI3SRepR+4Ydmd89ItM97YUaJPshgu3WaiSuoofjzMAwIl2XiflxyTHUxCnR3/zlh2iIfvI63fcMEY9Ob015U6AGWohfFY2TN9xnO4iwI3MoJU/hUo2A4sV03oROnDv35Ll/oPWqFaY1zxDg4Q28RD78vlW16fL0OxxZMfcABB/VP2RmIzmHbgANsZxSmPICHS2StRiVooqNVZHbCWUbNSDYMD93fc6CaOeU6dwV8ldaVGjkOnSMxf6PUl9UzUZDj4XNUmGwcXbFftVq/fo0UIm6KH0rtId/gzTyPyixaWZNw8sEtf8WX1vZvASGhSSlakZ0pEwP4dP9ePQIoIhsGBYuIk9xXlizpV0CZ8MJV0Zfn+qSv/+H1eR42+Pfpr9ywa6WjkWZSc8lAnEdlNKznVsCN4QdEBj+RJUs2gxoNtVMycbCj/8d3/jpPqopE9FvqJvdiNsfcRi73A9CkjSq36z9wZtA6PXyKjl1d7k8dNhiHs6HXoXHbMxYyGbZxLSIDeF0HmwE/PCc2tdxC6Ab+im+fMzvlp1TFiJ6TyLZY0XuzLBZMYmqtWCmsGuJ+Ak6F0x+wKeFYsoNZvg/YDhvLYP3Ice081LS48wn5ZubRVQk7yKoSUIVwBzWmXsfQRLzhQVAn1uksUpqt6e4mAm+UzcRe8ZA0FJ1b1HpuQ0S6YtFkqvb2RItJbHK8diwtpen1oqXcZd/dkXqVnOXT2Wm0+1V54dc/dTlUUZcFdm/Vh/r+qUnX5WJtTsjRmYV3SLVohtRpOF0AguVqaJdcROn/uz3wXCNa4JwvxOvHM5mgPA2uyO0Rms7qSuklWIPNuML/PW7YdtH0mxBUgaO295YA/b5nIaIPRxQaY4/p+EsXmOaNLZneoDi6AC9GTOFW68KjTlOlR/jx5EbjbmftuRB7IRhP8y78UcE9Hg7I+r55p/xlwwxAYVNSDpOHuji0H1PMCAndpqFyzBfA1wjeUBWMXbbhGXaiLzUuPL7FkbAR4pYdLE+LevAMM5Zb+EeAtho4pLRVfHLRcjiDwgwS5g9XErn9XuRdFx/c9mnamWiMPHhOhI2krWWIX/exI6rsXi/uCLBNlVTjSFZ2ACSCubNi0/ja2fPvYwheTcjy7Q4IM1hGE9QAU3/gFE6B0T+/hjVPH8BBL2VcOutNFcnetle+ucGLYWg3UTqOHyTmho0KSXTl+kHOTPQuyLosPR/Tbtffhbi9sXW7f/u1z4KjfAlV3lZNlJ71y9TJ71XsBnP3ePFf8KJW92NaruRrREGW/D4CJ3EaT/mAb0UKMWYVaEEv/8/EC5fx+C/NGEmjndASmZfQ1Lbwjlmnp2LZmyynBcHjO+LsBtXeqwiOF3LCEj/dTcCi7IamoWysEm5Ss8reFqpxsQ9QXjsHOvUcHHU1J0RtVlHoDjKjvBKBnWlBZc+NfXstx7/lx+Ya5gMUlU9advV4UWAxLIz8qiHhp9ILJ5CxuHDmKhhmxrUUI3e5NaQe3jRRSaDe1r1+JYGU+jSlpmksz0cEYcHHpEw3My3RobL3GLbZsuJ1X/fLeLHHPjvEZfj+TCX7sq4OXA/uE8O1fJN/mANsDSkIA+jqU4nvKgUugXCa1RWBrgFQ3TbViNrif+DHn/gjl5aURo/z05e/5etAfXR6oDDWT//laU4twnGJopj2vE7g8jzVC5afEEz/ydaUPdqf7qu0YMoVy65bL14tylM3xSl/s2bufAnwgs7ujpQ7Z7b7BPsIUUGz2wLLL5QNSYyzEibZjzvqpIjrFWNOH67Bge/DzVzHyk00DhU6Ssfj2V5blAV8ufnqYn0WMfIv01s3r1EyqHmgJaJ2woyCsw0jS+H01+2UIX6pL8wPZ0y0sADWaj/G+ItfroQ7mElNswfGZebdAZtTq3VuPWIulCIgZLBMredwSkLBehtqL7MZtDGH7Kwg+NzAAqlj0i3mYf7UXeqJ8c6f/DS8XfZoqw9SSQkrSAA" alt="" class="footer-logo-img" width="56" height="56" loading="lazy" decoding="async"></a>
+        <div class="footer-brand-text">
+          <strong>Seerah</strong>
+          <span>The Life of the Prophet ﷺ</span>
+          <p>A multilingual library of authentic Seerah books, built by UmmahTech.</p>
+        </div>
+      </div>
+      <figure class="footer-quote">
+        <blockquote class="footer-ayah" lang="ar" dir="rtl">لَقَدْ كَانَ لَكُمْ فِي رَسُولِ اللَّهِ أُسْوَةٌ حَسَنَةٌ</blockquote>
+        <figcaption>
+          <span class="footer-ayah-meaning">“Indeed, in the Messenger of Allah you have an excellent example.”</span>
+          <span class="footer-ayah-ref">Surah Al-Ahzab · 33:21</span>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="footer-year">2026</span> Seerah</span>
+      <span class="footer-powered-brand">
+        <span class="powered-label">Powered by</span>
+        <a href="https://ummahtechs.com" target="_blank" rel="noopener noreferrer" class="ummahtechs-powered">
+          <img src="data:image/webp;base64,UklGRs4DAABXRUJQVlA4IMIDAACQFgCdASpAAEAAPikSh0KhoQmGqxIMAUJYwDTEO4BnomPJ3OA20XmA+zP2Ruhg6wD0E/2j9Mj2Nv3F9G+5S9DJ5V9m/2jy9b4D8hvyj1GH9V/KfhJ8lf3L8u9SF/LHXq/470xP7TzQ/Nn/L/uHwBfx7+b/5r81v8FyB36yHQ9UBtiAeqVhxJvVqsFHoxtp9iARXRSEneHSa7tQSbUM7lkgPByJIOVm/ObwR+l21YSsd8zcxLnGFjPkGHmllgAA/v811TtU3Kmicd4UR3A9uB20+LjQtBv7FuMkp/PE0CO+lF03+EMyWgTmVe1dkYADrMjVeHcXr1pPUah7ZZDABVf2nJlg6s+iX3WF+6zcifSnD6/ut929YEs3c7EX4prbnoVLL67TxJcMp+LGRdoOUVQgS9xih9GqR/pEs8dm1C30wQQkDR+CdStFpBVq/CinghivzcjWO6u3Zi//yAC8QGRmU3MI74U1UTfi15qJTJO8k4yS67Qk1UAusADVE3+jxXz/4k5PMkLtO6DVTfXsGY5asfQ3I/hFa+1GpPz05d2/9WT3PrzYv+ibcIVWnA7e4zokkN3q5wbLTN92GcTCGvzvqdCifk4ltzXeUZUjc52izX7+hFTKm08xNGIxwscZP/NwgNaQAvFd2BAY/isTYgIri4UCbnAvzfsP1rRrQVQ/fiZH9f9vvrdburi7QTt/manwspmfkCkEIeBPDwlU1q/Xxo97Bg2ZJoHLR1bu79f+qM97zh9uHrQTEnpU9DEXE+wKPw+4crlc7+7lWG5gwEA65ChhwoGu1PEWk3aQEwfaY31BkCPdwAG06C2RYkynpnK5utiA5Czjf0/nOVP61oX2/FZrYQepAXJfJwe+HerDlNwQ8xTmJHnLI9l13r3I2V1l0Sg172/FTcA8ZdLvTeB8B14x4A45Q1WJ0Dc8TN//B5I6ijSpX/cMdnbrYttAWTZYkK1nXm75+fwa+NmwK9qU/BwI1LSrML8PfuLM/l+G4rc/daexN+Pc/GDipmK1BH1WFsp1Pb2Y9u9e3yxUer088UAMqc/PM2Vdip+UsA6E4jN+QZRCZ74/5kliJezNsoOFUfUpNO06sNdHL8qIAxs8xjNCWZhpoIHSDnEf6xUG3lD1U39DfUP0H/nxIH2PEhDugCd3fisONQTEBd8IOruLw0YF7m3NTk+KvgbM0f1IqFolfQb316Tu0K2Rj5/UYbVX/uKzE9+sHZdWMNEfrDOYrfGQmTvNEKuo+AQIKlx5gXC6zp5RH/gSUyEdqUM/znAAAA==" alt="" class="ummahtechs-logo-img" width="22" height="22" loading="lazy" decoding="async">UmmahTechs
+        </a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<div class="seerah-toast" id="seerah-toast" role="status" aria-live="polite"></div>
 
 <script>
 /* ══════════════════════════════════════════════════════════════
@@ -550,14 +1138,13 @@ window.addEventListener('hashchange',readHash);
 
 /* theme — shares the homepage setting (auto → light → dark) */
 let mode=window.__themeMode||'auto';
-function applyTheme(){const d=matchMedia('(prefers-color-scheme: dark)').matches;const t=mode==='auto'?(d?'dark':'light'):mode;document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t;$('#themeBtn').title='Theme: '+mode}
-$('#themeBtn').onclick=()=>{mode=mode==='auto'?'light':mode==='light'?'dark':'auto';try{localStorage.setItem('seerah-theme-mode',mode)}catch(e){}applyTheme();toast('Theme: '+mode)};
+function applyTheme(){const d=matchMedia('(prefers-color-scheme: dark)').matches;const t=mode==='auto'?(d?'dark':'light'):mode;document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t;}
+if($('#themeBtn'))$('#themeBtn').onclick=()=>{mode=mode==='auto'?'light':mode==='light'?'dark':'auto';try{localStorage.setItem('seerah-theme-mode',mode)}catch(e){}applyTheme();toast('Theme: '+mode)};
 applyTheme();
 
 renderStats();readHash();
 })();
 </script>
-
 <script id="ui-i18n">
 /* ═══════════════════════════════════════════════
    UI LANGUAGE — translates the interface (menus, headings, cards, buttons)
@@ -570,7 +1157,7 @@ renderStats();readHash();
    ═══════════════════════════════════════════════ */
 (function(){
   const ORDER=["HI", "UR", "NP", "BN", "TA", "AR", "ID", "TR", "ROM"];
-  const DICT={"Home": ["होम", "ہوم", "गृहपृष्ठ", "হোম", "முகப்பு", "الرئيسية", "Beranda", "Ana sayfa", "Home"], "Explore": ["देखें", "دریافت کریں", "हेर्नुहोस्", "দেখুন", "ஆராயுங்கள்", "استكشف", "Jelajahi", "Keşfet", "Dekhein"], "Ahle Bayt": ["अहले बैत", "اہلِ بیت", "अहले बैत", "আহলে বাইত", "அஹ்லுல் பைத்", "آل البيت", "Ahlul Bait", "Ehl-i Beyt", "Ahle Bait"], "Sahaba": ["सहाबा", "صحابہ", "सहाबा", "সাহাবা", "ஸஹாபாக்கள்", "الصحابة", "Sahabat", "Sahâbe", "Sahaba"], "Sahabiyat": ["सहाबियात", "صحابیات", "सहाबियात", "সাহাবিয়াত", "ஸஹாபியாக்கள்", "الصحابيات", "Shahabiyah", "Sahâbiyyeler", "Sahabiyat"], "Rulers": ["शासक", "حکمران", "शासक", "শাসক", "ஆட்சியாளர்கள்", "الحكام", "Penguasa", "Hükümdarlar", "Hukmaran"], "Opponents": ["विरोधी", "مخالفین", "विरोधी", "বিরোধী", "எதிரிகள்", "المعارضون", "Penentang", "Muhalifler", "Mukhalifeen"], "Others": ["अन्य", "دیگر", "अन्य", "অন্যান্য", "மற்றவர்கள்", "آخرون", "Lainnya", "Diğerleri", "Deegar"], "Clear search": ["खोज साफ़ करें", "تلاش صاف کریں", "खोज हटाउनुहोस्", "খোঁজ মুছুন", "தேடலை அழி", "مسح البحث", "Hapus pencarian", "Aramayı temizle", "Talash saaf karein"], "Close": ["बंद करें", "بند کریں", "बन्द गर्नुहोस्", "বন্ধ করুন", "மூடு", "إغلاق", "Tutup", "Kapat", "Band karein"], "Who’s who in the Seerah": ["सीरत में कौन कौन", "سیرت میں کون کون", "सीरतमा को को", "সীরাতে কে কে", "சீரத்தில் யார் யார்", "من هم أعلام السيرة", "Siapa saja dalam Sirah", "Siyerde kim kimdir", "Seerat mein kaun kaun"], "People of the Seerah": ["सीरत की शख़्सियतें", "شخصیاتِ سیرت", "सीरतका व्यक्तित्वहरू", "সীরাতের ব্যক্তিত্ব", "சீரத்தின் ஆளுமைகள்", "أعلام السيرة", "Tokoh-Tokoh Sirah", "Siyerin Şahsiyetleri", "Shakhsiyat-e-Seerat"], "Language set from your device settings.": ["भाषा आपके डिवाइस की सेटिंग से चुनी गई।", "زبان آپ کے آلے کی سیٹنگ کے مطابق منتخب کی گئی۔", "भाषा तपाईंको उपकरणको सेटिङअनुसार छानियो।", "আপনার ডিভাইসের সেটিং অনুযায়ী ভাষা নির্বাচিত হয়েছে।", "உங்கள் சாதன அமைப்பின்படி மொழி தேர்ந்தெடுக்கப்பட்டது.", "تم اختيار اللغة حسب إعدادات جهازك.", "Bahasa dipilih dari pengaturan perangkat Anda.", "Dil, cihaz ayarlarınıza göre seçildi.", "Zaban aap ki device ki setting se chuni gayi."], "Language set from your region.": ["भाषा आपके क्षेत्र के अनुसार चुनी गई।", "زبان آپ کے علاقے کے مطابق منتخب کی گئی۔", "भाषा तपाईंको क्षेत्रअनुसार छानियो।", "আপনার অঞ্চল অনুযায়ী ভাষা নির্বাচিত হয়েছে।", "உங்கள் பகுதியின்படி மொழி தேர்ந்தெடுக்கப்பட்டது.", "تم اختيار اللغة حسب منطقتك.", "Bahasa dipilih berdasarkan wilayah Anda.", "Dil, bölgenize göre seçildi.", "Zaban aap ke ilaqe ke mutabiq chuni gayi."], "Use English": ["English रखें", "English رکھیں", "English राख्नुहोस्", "English রাখুন", "English பயன்படுத்து", "استخدم English", "Pakai English", "English kullan", "English rakhein"], "Sahaba & Sahabiyat": ["सहाबा और सहाबियात", "صحابہ و صحابیات", "सहाबा र सहाबियात", "সাহাবা ও সাহাবিয়াত", "ஸஹாபாக்களும் ஸஹாபியாக்களும்", "الصحابة والصحابيات", "Sahabat & Shahabiyah", "Sahâbe ve Sahâbiyyeler", "Sahaba aur Sahabiyat"], "Everyone mentioned in the life of Prophet Muhammad ﷺ — his family, his Companions, the rulers he wrote to, those who opposed him, and others — with where they appear across the library.": ["नबी मुहम्मद ﷺ के जीवन में ज़िक्र किया गया हर व्यक्ति — आपका परिवार, सहाबा, वे शासक जिन्हें आपने ख़त लिखे, विरोधी और अन्य — और लाइब्रेरी में वे कहाँ-कहाँ आते हैं।", "نبی محمد ﷺ کی زندگی میں مذکور ہر شخصیت — آپ کا خاندان، صحابہ، وہ حکمران جنہیں آپ نے خطوط لکھے، مخالفین اور دیگر — اور کتب خانے میں ان کا ذکر کہاں کہاں ہے۔", "नबी मुहम्मद ﷺ को जीवनमा उल्लेख भएका हरेक व्यक्ति — उहाँको परिवार, सहाबा, उहाँले पत्र लेख्नुभएका शासक, विरोधी र अन्य — र पुस्तकालयमा उनीहरू कहाँ-कहाँ आउँछन्।", "নবী মুহাম্মাদ ﷺ-এর জীবনে উল্লিখিত প্রত্যেকে — তাঁর পরিবার, সাহাবি, যে শাসকদের তিনি চিঠি লিখেছিলেন, বিরোধী ও অন্যান্যরা — এবং লাইব্রেরির কোথায় তাঁদের উল্লেখ আছে।", "நபி முஹம்மது ﷺ அவர்களின் வாழ்வில் குறிப்பிடப்படும் ஒவ்வொருவரும் — அவர்களின் குடும்பம், தோழர்கள், அவர்கள் கடிதம் எழுதிய ஆட்சியாளர்கள், எதிர்த்தவர்கள், பிறர் — நூலகத்தில் அவர்கள் எங்கே வருகிறார்கள் என்பதும்.", "كل من ورد ذكره في حياة النبي محمد ﷺ — أهله وصحابته والملوك الذين كاتبهم ومن عارضه وغيرهم — ومواضع ذكرهم في المكتبة.", "Setiap tokoh dalam kehidupan Nabi Muhammad ﷺ — keluarga, para Sahabat, raja-raja yang beliau surati, para penentang, dan lainnya — serta di mana mereka muncul dalam perpustakaan.", "Hz. Muhammed’in ﷺ hayatında adı geçen herkes — ailesi, ashabı, mektup gönderdiği hükümdarlar, ona karşı çıkanlar ve diğerleri — ve kütüphanede nerelerde geçtikleri.", "Nabi Muhammad ﷺ ki zindagi mein mazkoor har shakhsiyat — aap ka khandan, Sahaba, woh hukmaran jinhein aap ne khutoot likhe, mukhalifeen aur deegar — aur library mein un ka zikr kahan kahan hai."], "Search a name, title or Arabic name — e.g. Siddiq, Najashi, حمزة": ["नाम, लक़ब या अरबी नाम खोजें — जैसे सिद्दीक़, नजाशी, حمزة", "نام، لقب یا عربی نام تلاش کریں — مثلاً صدیق، نجاشی، حمزة", "नाम, उपाधि वा अरबी नाम खोज्नुहोस् — जस्तै सिद्दीक, नजाशी, حمزة", "নাম, উপাধি বা আরবি নাম খুঁজুন — যেমন সিদ্দীক, নাজাশি, حمزة", "பெயர், பட்டம் அல்லது அரபுப் பெயரைத் தேடுங்கள் — எ.கா. Siddiq, Najashi, حمزة", "ابحث بالاسم أو اللقب أو الاسم العربي — مثل: الصديق، النجاشي، حمزة", "Cari nama, gelar, atau nama Arab — mis. Siddiq, Najasyi, حمزة", "İsim, lakap veya Arapça ad arayın — ör. Sıddîk, Necâşî, حمزة", "Naam, laqab ya Arabi naam talash karein — maslan Siddiq, Najashi, حمزة"], "Sample preview.": ["नमूना झलक।", "نمونہ جھلک۔", "नमुना झलक।", "নমুনা প্রিভিউ।", "மாதிரி முன்னோட்டம்.", "معاينة تجريبية.", "Pratinjau contoh.", "Örnek önizleme.", "Namuna jhalak."], "These entries and book references are a sample to show how the index will work. Names will be verified book by book before the full index is published.": ["ये प्रविष्टियाँ और किताबों के हवाले सिर्फ़ यह दिखाने के लिए नमूना हैं कि इंडेक्स कैसे काम करेगा। पूरा इंडेक्स प्रकाशित करने से पहले हर किताब के नाम जाँचे जाएँगे।", "یہ اندراجات اور کتابوں کے حوالے صرف نمونہ ہیں کہ فہرست کیسے کام کرے گی۔ مکمل فہرست شائع کرنے سے پہلے ہر کتاب کے نام کی تصدیق کی جائے گی۔", "यी प्रविष्टि र पुस्तक सन्दर्भहरू सूचकांक कसरी चल्छ भनेर देखाउने नमुना मात्र हुन्। पूरा सूचकांक प्रकाशित गर्नुअघि हरेक पुस्तकका नाम जाँचिनेछन्।", "এই এন্ট্রি ও বইয়ের রেফারেন্সগুলো সূচিটি কীভাবে কাজ করবে তা দেখানোর নমুনা মাত্র। পূর্ণ সূচি প্রকাশের আগে প্রতিটি বইয়ের নাম যাচাই করা হবে।", "இந்தப் பதிவுகளும் நூல் குறிப்புகளும் அட்டவணை எப்படி இயங்கும் என்பதைக் காட்டும் மாதிரிகள் மட்டுமே. முழு அட்டவணை வெளியிடும் முன் ஒவ்வொரு நூலின் பெயர்களும் சரிபார்க்கப்படும்.", "هذه المداخل والإحالات نماذج لبيان طريقة عمل الفهرس، وستُراجع الأسماء كتابًا كتابًا قبل نشر الفهرس كاملًا.", "Entri dan rujukan buku ini hanya contoh untuk menunjukkan cara kerja indeks. Nama-nama akan diverifikasi per buku sebelum indeks lengkap diterbitkan.", "Bu kayıtlar ve kitap atıfları dizinin nasıl çalışacağını gösteren örneklerdir. Tam dizin yayımlanmadan önce isimler kitap kitap doğrulanacaktır.", "Yeh indiraaj aur kitabon ke hawale sirf namuna hain ke fehrist kaise kaam karegi. Mukammal fehrist shaya karne se pehle har kitab ke naam ki tasdeeq ki jayegi."], "All people": ["सभी", "تمام", "सबै", "সবাই", "அனைவரும்", "الجميع", "Semua", "Tümü", "Tamam"], "All periods": ["सभी दौर", "تمام ادوار", "सबै कालखण्ड", "সব যুগ", "அனைத்து காலங்கள்", "كل المراحل", "Semua periode", "Tüm dönemler", "Tamam adwaar"], "Before Prophethood": ["नुबुव्वत से पहले", "قبل از نبوت", "नुबुव्वतअघि", "নবুওয়াতের আগে", "நபித்துவத்திற்கு முன்", "قبل البعثة", "Sebelum kenabian", "Peygamberlikten önce", "Nabuwwat se pehle"], "Makkan period": ["मक्की दौर", "مکی دور", "मक्की काल", "মাক্কী যুগ", "மக்கா காலம்", "العهد المكي", "Periode Makkah", "Mekke dönemi", "Makki daur"], "Madinan period": ["मदनी दौर", "مدنی دور", "मदनी काल", "মাদানী যুগ", "மதீனா காலம்", "العهد المدني", "Periode Madinah", "Medine dönemi", "Madani daur"], "Featured order": ["विशेष क्रम", "منتخب ترتیب", "विशेष क्रम", "বিশেষ ক্রম", "சிறப்பு வரிசை", "الترتيب المقترح", "Urutan pilihan", "Önerilen sıra", "Khaas tarteeb"], "A – Z": ["A – Z", "A – Z", "A – Z", "A – Z", "A – Z", "A – Z", "A – Z", "A – Z", "A – Z"], "Most references": ["सबसे ज़्यादा हवाले", "سب سے زیادہ حوالے", "धेरै सन्दर्भ", "সর্বাধিক রেফারেন্স", "அதிக குறிப்புகள்", "الأكثر إحالة", "Rujukan terbanyak", "En çok atıf", "Sab se zyada hawale"], "All": ["सभी", "تمام", "सबै", "সব", "அனைத்தும்", "الكل", "Semua", "Tümü", "Tamam"], "No one found": ["कोई नहीं मिला", "کوئی نہیں ملا", "कोही भेटिएन", "কাউকে পাওয়া যায়নি", "யாரும் கிடைக்கவில்லை", "لا توجد نتائج", "Tidak ditemukan", "Kimse bulunamadı", "Koi nahin mila"], "Try another spelling — the index also searches Arabic names and titles.": ["दूसरी स्पेलिंग आज़माएँ — इंडेक्स अरबी नाम और लक़ब भी खोजता है।", "دوسرا املا آزمائیں — فہرست عربی نام اور القاب بھی تلاش کرتی ہے۔", "अर्को हिज्जे प्रयास गर्नुहोस् — सूचकांकले अरबी नाम र उपाधि पनि खोज्छ।", "অন্য বানানে চেষ্টা করুন — সূচিটি আরবি নাম ও উপাধিও খোঁজে।", "வேறு எழுத்துக்கூட்டலை முயலுங்கள் — அரபுப் பெயர்கள், பட்டங்களையும் தேடும்.", "جرّب كتابة أخرى — يبحث الفهرس في الأسماء العربية والألقاب أيضًا.", "Coba ejaan lain — indeks juga mencari nama Arab dan gelar.", "Başka bir yazım deneyin — dizin Arapça adlarda ve lakaplarda da arar.", "Doosra spelling aazmayein — fehrist Arabi naam aur alqaab bhi talash karti hai."], "Clear filters": ["फ़िल्टर हटाएँ", "فلٹر ہٹائیں", "फिल्टर हटाउनुहोस्", "ফিল্টার মুছুন", "வடிகட்டிகளை அழி", "مسح عوامل التصفية", "Hapus filter", "Filtreleri temizle", "Filter hatayein"], "Person of the Seerah": ["सीरत की शख़्सियत", "شخصیتِ سیرت", "सीरतको व्यक्तित्व", "সীরাতের ব্যক্তিত্ব", "சீரத்தின் ஆளுமை", "من أعلام السيرة", "Tokoh Sirah", "Siyer şahsiyeti", "Shakhsiyat-e-Seerat"], "Relation to the Prophet ﷺ": ["नबी ﷺ से रिश्ता", "نبی ﷺ سے تعلق", "नबी ﷺ सँगको सम्बन्ध", "নবী ﷺ-এর সঙ্গে সম্পর্ক", "நபி ﷺ உடனான உறவு", "صلته بالنبي ﷺ", "Hubungan dengan Nabi ﷺ", "Peygamber ﷺ ile yakınlığı", "Nabi ﷺ se taalluq"], "Period": ["दौर", "دور", "कालखण्ड", "যুগ", "காலம்", "المرحلة", "Periode", "Dönem", "Daur"], "Also known as": ["दूसरे नाम", "دیگر نام", "अन्य नाम", "অন্য নাম", "வேறு பெயர்கள்", "يُعرف أيضًا بـ", "Dikenal juga sebagai", "Diğer adları", "Doosre naam"], "In the library": ["लाइब्रेरी में", "کتب خانے میں", "पुस्तकालयमा", "লাইব্রেরিতে", "நூலகத்தில்", "في المكتبة", "Di perpustakaan", "Kütüphanede", "Library mein"], "Related people": ["जुड़ी हुई शख़्सियतें", "متعلقہ شخصیات", "सम्बन्धित व्यक्तित्व", "সম্পর্কিত ব্যক্তি", "தொடர்புடையவர்கள்", "شخصيات ذات صلة", "Tokoh terkait", "İlgili şahsiyetler", "Mutalliqa shakhsiyat"], "Read more in Ahle Bayt": ["अहले बैत में और पढ़ें", "اہلِ بیت میں مزید پڑھیں", "अहले बैतमा थप पढ्नुहोस्", "আহলে বাইতে আরও পড়ুন", "அஹ்லுல் பைத்தில் மேலும் வாசிக்க", "اقرأ المزيد في آل البيت", "Baca selengkapnya di Ahlul Bait", "Ehl-i Beyt’te devamını oku", "Ahle Bait mein mazeed parhein"], "Read more in Sahaba & Sahabiyat": ["सहाबा और सहाबियात में और पढ़ें", "صحابہ و صحابیات میں مزید پڑھیں", "सहाबा र सहाबियातमा थप पढ्नुहोस्", "সাহাবা ও সাহাবিয়াতে আরও পড়ুন", "ஸஹாபாக்கள் பகுதியில் மேலும் வாசிக்க", "اقرأ المزيد في الصحابة والصحابيات", "Baca selengkapnya di Sahabat & Shahabiyah", "Sahâbe ve Sahâbiyyeler’de devamını oku", "Sahaba aur Sahabiyat mein mazeed parhein"], "Sample": ["नमूना", "نمونہ", "नमुना", "নমুনা", "மாதிரி", "نموذج", "Contoh", "Örnek", "Namuna"], "Verified": ["सत्यापित", "تصدیق شدہ", "प्रमाणित", "যাচাইকৃত", "சரிபார்க்கப்பட்டது", "موثَّق", "Terverifikasi", "Doğrulandı", "Tasdeeq shuda"], "More books will be added here as each one is verified — Seerah Ibn Hisham, Zad al-Ma‘ad and others.": ["हर किताब की जाँच के बाद यहाँ और किताबें जुड़ेंगी — सीरत इब्ने हिशाम, ज़ादुल-मआद और अन्य।", "ہر کتاب کی تصدیق کے بعد یہاں مزید کتابیں شامل ہوں گی — سیرت ابن ہشام، زاد المعاد اور دیگر۔", "हरेक पुस्तक प्रमाणित भएपछि यहाँ थप पुस्तक थपिनेछन् — सीरत इब्न हिशाम, जादुल मआद र अन्य।", "প্রতিটি বই যাচাইয়ের পর এখানে আরও বই যুক্ত হবে — সীরাতে ইবনে হিশাম, যাদুল মাআদ ও অন্যান্য।", "ஒவ்வொரு நூலும் சரிபார்க்கப்பட்ட பின் மேலும் நூல்கள் இங்கு சேர்க்கப்படும் — ஸீரத் இப்னு ஹிஷாம், ஸாதுல் மஆத் மற்றும் பிற.", "ستُضاف كتب أخرى هنا بعد مراجعة كل منها — سيرة ابن هشام وزاد المعاد وغيرهما.", "Buku lain akan ditambahkan setelah diverifikasi — Sirah Ibnu Hisyam, Zad al-Ma’ad, dan lainnya.", "Her biri doğrulandıkça buraya başka kitaplar da eklenecek — İbn Hişâm’ın Siyeri, Zâdü’l-Meâd ve diğerleri.", "Har kitab ki tasdeeq ke baad yahan mazeed kitabein shamil hongi — Seerat Ibn Hisham, Zad-ul-Ma’ad aur deegar."], "People of the Seerah · a companion to the books, not a replacement for them.": ["सीरत की शख़्सियतें · किताबों का साथी, उनका विकल्प नहीं।", "شخصیاتِ سیرت · کتابوں کا معاون، ان کا متبادل نہیں۔", "सीरतका व्यक्तित्वहरू · पुस्तकको सहायक, विकल्प होइन।", "সীরাতের ব্যক্তিত্ব · বইয়ের সহায়ক, বিকল্প নয়।", "சீரத்தின் ஆளுமைகள் · நூல்களுக்குத் துணை, மாற்று அல்ல.", "أعلام السيرة · رفيق للكتب لا بديل عنها.", "Tokoh-Tokoh Sirah · pendamping buku, bukan penggantinya.", "Siyerin Şahsiyetleri · kitapların yardımcısıdır, yerini tutmaz.", "Shakhsiyat-e-Seerat · kitabon ka moawin, un ka mutabadil nahin."], "Found a mistake?": ["कोई ग़लती मिली?", "کوئی غلطی ملی؟", "कुनै गल्ती भेटियो?", "কোনো ভুল পেয়েছেন?", "தவறு கண்டீர்களா?", "وجدت خطأً؟", "Menemukan kesalahan?", "Bir hata mı buldunuz?", "Koi ghalti mili?"], "Help review the index": ["इंडेक्स की जाँच में मदद करें", "فہرست کی جانچ میں مدد کریں", "सूचकांक जाँच्न सहयोग गर्नुहोस्", "সূচি যাচাইয়ে সাহায্য করুন", "அட்டவணையைச் சரிபார்க்க உதவுங்கள்", "ساعد في مراجعة الفهرس", "Bantu meninjau indeks", "Dizinin kontrolüne yardım edin", "Fehrist ki jaanch mein madad karein"], "Timeline": ["समयरेखा", "ٹائم لائن", "समयरेखा", "সময়রেখা", "காலவரிசை", "الخط الزمني", "Linimasa", "Zaman çizelgesi", "Timeline"], "Lineage": ["नसब", "نسب", "वंशावली", "বংশধারা", "வம்சாவளி", "النسب", "Nasab", "Nesep", "Nasab"], "People": ["शख़्सियतें", "شخصیات", "व्यक्तित्व", "ব্যক্তিত্ব", "ஆளுமைகள்", "الأعلام", "Tokoh", "Şahsiyetler", "Shakhsiyat"], "Link copied": ["लिंक कॉपी हो गया", "لنک کاپی ہو گیا", "लिंक कपी भयो", "লিংক কপি হয়েছে", "இணைப்பு நகலெடுக்கப்பட்டது", "تم نسخ الرابط", "Tautan disalin", "Bağlantı kopyalandı", "Link copy ho gaya"], "Skip to people": ["शख़्सियतों पर जाएँ", "شخصیات پر جائیں", "व्यक्तित्वमा जानुहोस्", "ব্যক্তিত্বে যান", "ஆளுமைகளுக்குச் செல்", "انتقل إلى الأعلام", "Langsung ke tokoh", "Şahsiyetlere geç", "Shakhsiyat par jayen"], "Search people": ["शख़्सियतें खोजें", "شخصیات تلاش کریں", "व्यक्तित्व खोज्नुहोस्", "ব্যক্তিত্ব খুঁজুন", "ஆளுமைகளைத் தேடுக", "ابحث عن الأعلام", "Cari tokoh", "Şahsiyet ara", "Shakhsiyat talash karein"], "Copy link to this person": ["इस शख़्सियत का लिंक कॉपी करें", "اس شخصیت کا لنک کاپی کریں", "यो व्यक्तित्वको लिंक कपी गर्नुहोस्", "এই ব্যক্তির লিংক কপি করুন", "இவரது இணைப்பை நகலெடு", "انسخ رابط هذه الشخصية", "Salin tautan tokoh ini", "Bu şahsiyetin bağlantısını kopyala", "Is shakhsiyat ka link copy karein"], "Filter by group": ["समूह के अनुसार", "گروہ کے لحاظ سے", "समूहअनुसार", "দল অনুযায়ী", "குழு வாரியாக", "تصفية حسب الفئة", "Saring per kelompok", "Gruba göre filtrele", "Group ke lihaaz se"], "Filter by period": ["दौर के अनुसार", "دور کے لحاظ سے", "कालखण्डअनुसार", "যুগ অনুযায়ী", "காலம் வாரியாக", "تصفية حسب المرحلة", "Saring per periode", "Döneme göre filtrele", "Daur ke lihaaz se"], "Sort": ["क्रम", "ترتیب", "क्रम", "সাজান", "வரிசைப்படுத்து", "ترتيب", "Urutkan", "Sırala", "Tarteeb"], "Jump to letter": ["अक्षर पर जाएँ", "حرف پر جائیں", "अक्षरमा जानुहोस्", "অক্ষরে যান", "எழுத்துக்குச் செல்", "انتقل إلى حرف", "Lompat ke huruf", "Harfe git", "Harf par jayen"], "Change theme": ["थीम बदलें", "تھیم تبدیل کریں", "थिम बदल्नुहोस्", "থিম বদলান", "தீம் மாற்று", "تغيير المظهر", "Ganti tema", "Temayı değiştir", "Theme badlein"], "Seerah home": ["सीरत होम", "سیرت ہوم", "सीरत गृहपृष्ठ", "সীরাত হোম", "சீரத் முகப்பு", "الصفحة الرئيسية للسيرة", "Beranda Sirah", "Siyer ana sayfa", "Seerat home"], "Breadcrumb": ["पथ", "راستہ", "मार्ग", "পথনির্দেশ", "வழித்தடம்", "مسار التنقل", "Jejak navigasi", "Gezinti yolu", "Raasta"], "Names, relations and short bios below are still in English; translations will come with the verified database.": ["नीचे नाम, रिश्ते और संक्षिप्त परिचय अभी अंग्रेज़ी में हैं; अनुवाद सत्यापित डेटाबेस के साथ आएँगे।", "نیچے نام، رشتے اور مختصر تعارف ابھی انگریزی میں ہیں؛ تراجم تصدیق شدہ ڈیٹا بیس کے ساتھ آئیں گے۔", "तलका नाम, सम्बन्ध र छोटो परिचय अझै अङ्ग्रेजीमा छन्; अनुवाद प्रमाणित डाटाबेससँगै आउनेछ।", "নিচের নাম, সম্পর্ক ও সংক্ষিপ্ত পরিচিতি এখনো ইংরেজিতে; অনুবাদ যাচাইকৃত ডেটাবেসের সঙ্গে আসবে।", "கீழே உள்ள பெயர்கள், உறவுகள், சுருக்க அறிமுகங்கள் இன்னும் ஆங்கிலத்தில் உள்ளன; மொழிபெயர்ப்புகள் சரிபார்க்கப்பட்ட தரவுத்தளத்துடன் வரும்.", "الأسماء والصلات والنبذ أدناه ما تزال بالإنجليزية؛ وستأتي الترجمات مع قاعدة البيانات الموثّقة.", "Nama, hubungan, dan biografi singkat di bawah masih berbahasa Inggris; terjemahan akan hadir bersama basis data terverifikasi.", "Aşağıdaki isimler, yakınlıklar ve kısa biyografiler şimdilik İngilizce; çeviriler doğrulanmış veritabanıyla gelecek.", "Neeche naam, rishte aur mukhtasar taaruf abhi English mein hain; tarajim tasdeeq shuda database ke saath aayenge."], "people": ["शख़्सियतें", "شخصیات", "व्यक्तित्व", "ব্যক্তিত্ব", "ஆளுமைகள்", "شخصية", "tokoh", "şahsiyet", "shakhsiyat"], "book indexed": ["किताब शामिल", "کتاب شامل", "पुस्तक समावेश", "বই অন্তর্ভুক্ত", "நூல் சேர்க்கப்பட்டது", "كتاب مفهرس", "buku terindeks", "kitap dizinlendi", "kitab shamil"], "books indexed": ["किताबें शामिल", "کتابیں شامل", "पुस्तक समावेश", "বই অন্তর্ভুক্ত", "நூல்கள் சேர்க்கப்பட்டன", "كتب مفهرسة", "buku terindeks", "kitap dizinlendi", "kitabein shamil"], "book references": ["किताबों के हवाले", "کتابی حوالے", "पुस्तक सन्दर्भ", "বইয়ের রেফারেন্স", "நூல் குறிப்புகள்", "إحالة إلى الكتب", "rujukan buku", "kitap atfı", "kitabi hawale"], "Language": ["भाषा", "زبان", "भाषा", "ভাষা", "மொழி", "اللغة", "Bahasa", "Dil", "Zaban"], "SEERAH": ["सीरत", "سیرت", "सीरत", "সীরাত", "சீரத்", "السيرة", "SIRAH", "SİYER", "SEERAT"], "About this person": ["परिचय", "تعارف", "परिचय", "পরিচিতি", "அறிமுகம்", "نبذة", "Profil singkat", "Kısaca", "Taaruf"]};
+  const DICT={"Home": ["होम", "ہوم", "गृहपृष्ठ", "হোম", "முகப்பு", "الرئيسية", "Beranda", "Ana sayfa", "Home"], "Explore": ["देखें", "دریافت کریں", "हेर्नुहोस्", "দেখুন", "ஆராயுங்கள்", "استكشف", "Jelajahi", "Keşfet", "Dekhein"], "Ahle Bayt": ["अहले बैत", "اہلِ بیت", "अहले बैत", "আহলে বাইত", "அஹ்லுல் பைத்", "آل البيت", "Ahlul Bait", "Ehl-i Beyt", "Ahle Bait"], "Sahaba": ["सहाबा", "صحابہ", "सहाबा", "সাহাবা", "ஸஹாபாக்கள்", "الصحابة", "Sahabat", "Sahâbe", "Sahaba"], "Sahabiyat": ["सहाबियात", "صحابیات", "सहाबियात", "সাহাবিয়াত", "ஸஹாபியாக்கள்", "الصحابيات", "Shahabiyah", "Sahâbiyyeler", "Sahabiyat"], "Rulers": ["शासक", "حکمران", "शासक", "শাসক", "ஆட்சியாளர்கள்", "الحكام", "Penguasa", "Hükümdarlar", "Hukmaran"], "Opponents": ["विरोधी", "مخالفین", "विरोधी", "বিরোধী", "எதிரிகள்", "المعارضون", "Penentang", "Muhalifler", "Mukhalifeen"], "Others": ["अन्य", "دیگر", "अन्य", "অন্যান্য", "மற்றவர்கள்", "آخرون", "Lainnya", "Diğerleri", "Deegar"], "Clear search": ["खोज साफ़ करें", "تلاش صاف کریں", "खोज हटाउनुहोस्", "খোঁজ মুছুন", "தேடலை அழி", "مسح البحث", "Hapus pencarian", "Aramayı temizle", "Talash saaf karein"], "Close": ["बंद करें", "بند کریں", "बन्द गर्नुहोस्", "বন্ধ করুন", "மூடு", "إغلاق", "Tutup", "Kapat", "Band karein"], "Who’s who in the Seerah": ["सीरत में कौन कौन", "سیرت میں کون کون", "सीरतमा को को", "সীরাতে কে কে", "சீரத்தில் யார் யார்", "من هم أعلام السيرة", "Siapa saja dalam Sirah", "Siyerde kim kimdir", "Seerat mein kaun kaun"], "People of the Seerah": ["सीरत की शख़्सियतें", "شخصیاتِ سیرت", "सीरतका व्यक्तित्वहरू", "সীরাতের ব্যক্তিত্ব", "சீரத்தின் ஆளுமைகள்", "أعلام السيرة", "Tokoh-Tokoh Sirah", "Siyerin Şahsiyetleri", "Shakhsiyat-e-Seerat"], "Language set from your device settings.": ["भाषा आपके डिवाइस की सेटिंग से चुनी गई।", "زبان آپ کے آلے کی سیٹنگ کے مطابق منتخب کی گئی۔", "भाषा तपाईंको उपकरणको सेटिङअनुसार छानियो।", "আপনার ডিভাইসের সেটিং অনুযায়ী ভাষা নির্বাচিত হয়েছে।", "உங்கள் சாதன அமைப்பின்படி மொழி தேர்ந்தெடுக்கப்பட்டது.", "تم اختيار اللغة حسب إعدادات جهازك.", "Bahasa dipilih dari pengaturan perangkat Anda.", "Dil, cihaz ayarlarınıza göre seçildi.", "Zaban aap ki device ki setting se chuni gayi."], "Language set from your region.": ["भाषा आपके क्षेत्र के अनुसार चुनी गई।", "زبان آپ کے علاقے کے مطابق منتخب کی گئی۔", "भाषा तपाईंको क्षेत्रअनुसार छानियो।", "আপনার অঞ্চল অনুযায়ী ভাষা নির্বাচিত হয়েছে।", "உங்கள் பகுதியின்படி மொழி தேர்ந்தெடுக்கப்பட்டது.", "تم اختيار اللغة حسب منطقتك.", "Bahasa dipilih berdasarkan wilayah Anda.", "Dil, bölgenize göre seçildi.", "Zaban aap ke ilaqe ke mutabiq chuni gayi."], "Use English": ["English रखें", "English رکھیں", "English राख्नुहोस्", "English রাখুন", "English பயன்படுத்து", "استخدم English", "Pakai English", "English kullan", "English rakhein"], "Sahaba & Sahabiyat": ["सहाबा और सहाबियात", "صحابہ و صحابیات", "सहाबा र सहाबियात", "সাহাবা ও সাহাবিয়াত", "ஸஹாபாக்களும் ஸஹாபியாக்களும்", "الصحابة والصحابيات", "Sahabat & Shahabiyah", "Sahâbe ve Sahâbiyyeler", "Sahaba aur Sahabiyat"], "Everyone mentioned in the life of Prophet Muhammad ﷺ — his family, his Companions, the rulers he wrote to, those who opposed him, and others — with where they appear across the library.": ["नबी मुहम्मद ﷺ के जीवन में ज़िक्र किया गया हर व्यक्ति — आपका परिवार, सहाबा, वे शासक जिन्हें आपने ख़त लिखे, विरोधी और अन्य — और लाइब्रेरी में वे कहाँ-कहाँ आते हैं।", "نبی محمد ﷺ کی زندگی میں مذکور ہر شخصیت — آپ کا خاندان، صحابہ، وہ حکمران جنہیں آپ نے خطوط لکھے، مخالفین اور دیگر — اور کتب خانے میں ان کا ذکر کہاں کہاں ہے۔", "नबी मुहम्मद ﷺ को जीवनमा उल्लेख भएका हरेक व्यक्ति — उहाँको परिवार, सहाबा, उहाँले पत्र लेख्नुभएका शासक, विरोधी र अन्य — र पुस्तकालयमा उनीहरू कहाँ-कहाँ आउँछन्।", "নবী মুহাম্মাদ ﷺ-এর জীবনে উল্লিখিত প্রত্যেকে — তাঁর পরিবার, সাহাবি, যে শাসকদের তিনি চিঠি লিখেছিলেন, বিরোধী ও অন্যান্যরা — এবং লাইব্রেরির কোথায় তাঁদের উল্লেখ আছে।", "நபி முஹம்மது ﷺ அவர்களின் வாழ்வில் குறிப்பிடப்படும் ஒவ்வொருவரும் — அவர்களின் குடும்பம், தோழர்கள், அவர்கள் கடிதம் எழுதிய ஆட்சியாளர்கள், எதிர்த்தவர்கள், பிறர் — நூலகத்தில் அவர்கள் எங்கே வருகிறார்கள் என்பதும்.", "كل من ورد ذكره في حياة النبي محمد ﷺ — أهله وصحابته والملوك الذين كاتبهم ومن عارضه وغيرهم — ومواضع ذكرهم في المكتبة.", "Setiap tokoh dalam kehidupan Nabi Muhammad ﷺ — keluarga, para Sahabat, raja-raja yang beliau surati, para penentang, dan lainnya — serta di mana mereka muncul dalam perpustakaan.", "Hz. Muhammed’in ﷺ hayatında adı geçen herkes — ailesi, ashabı, mektup gönderdiği hükümdarlar, ona karşı çıkanlar ve diğerleri — ve kütüphanede nerelerde geçtikleri.", "Nabi Muhammad ﷺ ki zindagi mein mazkoor har shakhsiyat — aap ka khandan, Sahaba, woh hukmaran jinhein aap ne khutoot likhe, mukhalifeen aur deegar — aur library mein un ka zikr kahan kahan hai."], "Search a name, title or Arabic name — e.g. Siddiq, Najashi, حمزة": ["नाम, लक़ब या अरबी नाम खोजें — जैसे सिद्दीक़, नजाशी, حمزة", "نام، لقب یا عربی نام تلاش کریں — مثلاً صدیق، نجاشی، حمزة", "नाम, उपाधि वा अरबी नाम खोज्नुहोस् — जस्तै सिद्दीक, नजाशी, حمزة", "নাম, উপাধি বা আরবি নাম খুঁজুন — যেমন সিদ্দীক, নাজাশি, حمزة", "பெயர், பட்டம் அல்லது அரபுப் பெயரைத் தேடுங்கள் — எ.கா. Siddiq, Najashi, حمزة", "ابحث بالاسم أو اللقب أو الاسم العربي — مثل: الصديق، النجاشي، حمزة", "Cari nama, gelar, atau nama Arab — mis. Siddiq, Najasyi, حمزة", "İsim, lakap veya Arapça ad arayın — ör. Sıddîk, Necâşî, حمزة", "Naam, laqab ya Arabi naam talash karein — maslan Siddiq, Najashi, حمزة"], "Sample preview.": ["नमूना झलक।", "نمونہ جھلک۔", "नमुना झलक।", "নমুনা প্রিভিউ।", "மாதிரி முன்னோட்டம்.", "معاينة تجريبية.", "Pratinjau contoh.", "Örnek önizleme.", "Namuna jhalak."], "These entries and book references are a sample to show how the index will work. Names will be verified book by book before the full index is published.": ["ये प्रविष्टियाँ और किताबों के हवाले सिर्फ़ यह दिखाने के लिए नमूना हैं कि इंडेक्स कैसे काम करेगा। पूरा इंडेक्स प्रकाशित करने से पहले हर किताब के नाम जाँचे जाएँगे।", "یہ اندراجات اور کتابوں کے حوالے صرف نمونہ ہیں کہ فہرست کیسے کام کرے گی۔ مکمل فہرست شائع کرنے سے پہلے ہر کتاب کے نام کی تصدیق کی جائے گی۔", "यी प्रविष्टि र पुस्तक सन्दर्भहरू सूचकांक कसरी चल्छ भनेर देखाउने नमुना मात्र हुन्। पूरा सूचकांक प्रकाशित गर्नुअघि हरेक पुस्तकका नाम जाँचिनेछन्।", "এই এন্ট্রি ও বইয়ের রেফারেন্সগুলো সূচিটি কীভাবে কাজ করবে তা দেখানোর নমুনা মাত্র। পূর্ণ সূচি প্রকাশের আগে প্রতিটি বইয়ের নাম যাচাই করা হবে।", "இந்தப் பதிவுகளும் நூல் குறிப்புகளும் அட்டவணை எப்படி இயங்கும் என்பதைக் காட்டும் மாதிரிகள் மட்டுமே. முழு அட்டவணை வெளியிடும் முன் ஒவ்வொரு நூலின் பெயர்களும் சரிபார்க்கப்படும்.", "هذه المداخل والإحالات نماذج لبيان طريقة عمل الفهرس، وستُراجع الأسماء كتابًا كتابًا قبل نشر الفهرس كاملًا.", "Entri dan rujukan buku ini hanya contoh untuk menunjukkan cara kerja indeks. Nama-nama akan diverifikasi per buku sebelum indeks lengkap diterbitkan.", "Bu kayıtlar ve kitap atıfları dizinin nasıl çalışacağını gösteren örneklerdir. Tam dizin yayımlanmadan önce isimler kitap kitap doğrulanacaktır.", "Yeh indiraaj aur kitabon ke hawale sirf namuna hain ke fehrist kaise kaam karegi. Mukammal fehrist shaya karne se pehle har kitab ke naam ki tasdeeq ki jayegi."], "All people": ["सभी", "تمام", "सबै", "সবাই", "அனைவரும்", "الجميع", "Semua", "Tümü", "Tamam"], "All periods": ["सभी दौर", "تمام ادوار", "सबै कालखण्ड", "সব যুগ", "அனைத்து காலங்கள்", "كل المراحل", "Semua periode", "Tüm dönemler", "Tamam adwaar"], "Before Prophethood": ["नुबुव्वत से पहले", "قبل از نبوت", "नुबुव्वतअघि", "নবুওয়াতের আগে", "நபித்துவத்திற்கு முன்", "قبل البعثة", "Sebelum kenabian", "Peygamberlikten önce", "Nabuwwat se pehle"], "Makkan period": ["मक्की दौर", "مکی دور", "मक्की काल", "মাক্কী যুগ", "மக்கா காலம்", "العهد المكي", "Periode Makkah", "Mekke dönemi", "Makki daur"], "Madinan period": ["मदनी दौर", "مدنی دور", "मदनी काल", "মাদানী যুগ", "மதீனா காலம்", "العهد المدني", "Periode Madinah", "Medine dönemi", "Madani daur"], "Featured order": ["विशेष क्रम", "منتخب ترتیب", "विशेष क्रम", "বিশেষ ক্রম", "சிறப்பு வரிசை", "الترتيب المقترح", "Urutan pilihan", "Önerilen sıra", "Khaas tarteeb"], "A – Z": ["A – Z", "A – Z", "A – Z", "A – Z", "A – Z", "A – Z", "A – Z", "A – Z", "A – Z"], "Most references": ["सबसे ज़्यादा हवाले", "سب سے زیادہ حوالے", "धेरै सन्दर्भ", "সর্বাধিক রেফারেন্স", "அதிக குறிப்புகள்", "الأكثر إحالة", "Rujukan terbanyak", "En çok atıf", "Sab se zyada hawale"], "All": ["सभी", "تمام", "सबै", "সব", "அனைத்தும்", "الكل", "Semua", "Tümü", "Tamam"], "No one found": ["कोई नहीं मिला", "کوئی نہیں ملا", "कोही भेटिएन", "কাউকে পাওয়া যায়নি", "யாரும் கிடைக்கவில்லை", "لا توجد نتائج", "Tidak ditemukan", "Kimse bulunamadı", "Koi nahin mila"], "Try another spelling — the index also searches Arabic names and titles.": ["दूसरी स्पेलिंग आज़माएँ — इंडेक्स अरबी नाम और लक़ब भी खोजता है।", "دوسرا املا آزمائیں — فہرست عربی نام اور القاب بھی تلاش کرتی ہے۔", "अर्को हिज्जे प्रयास गर्नुहोस् — सूचकांकले अरबी नाम र उपाधि पनि खोज्छ।", "অন্য বানানে চেষ্টা করুন — সূচিটি আরবি নাম ও উপাধিও খোঁজে।", "வேறு எழுத்துக்கூட்டலை முயலுங்கள் — அரபுப் பெயர்கள், பட்டங்களையும் தேடும்.", "جرّب كتابة أخرى — يبحث الفهرس في الأسماء العربية والألقاب أيضًا.", "Coba ejaan lain — indeks juga mencari nama Arab dan gelar.", "Başka bir yazım deneyin — dizin Arapça adlarda ve lakaplarda da arar.", "Doosra spelling aazmayein — fehrist Arabi naam aur alqaab bhi talash karti hai."], "Clear filters": ["फ़िल्टर हटाएँ", "فلٹر ہٹائیں", "फिल्टर हटाउनुहोस्", "ফিল্টার মুছুন", "வடிகட்டிகளை அழி", "مسح عوامل التصفية", "Hapus filter", "Filtreleri temizle", "Filter hatayein"], "Person of the Seerah": ["सीरत की शख़्सियत", "شخصیتِ سیرت", "सीरतको व्यक्तित्व", "সীরাতের ব্যক্তিত্ব", "சீரத்தின் ஆளுமை", "من أعلام السيرة", "Tokoh Sirah", "Siyer şahsiyeti", "Shakhsiyat-e-Seerat"], "Relation to the Prophet ﷺ": ["नबी ﷺ से रिश्ता", "نبی ﷺ سے تعلق", "नबी ﷺ सँगको सम्बन्ध", "নবী ﷺ-এর সঙ্গে সম্পর্ক", "நபி ﷺ உடனான உறவு", "صلته بالنبي ﷺ", "Hubungan dengan Nabi ﷺ", "Peygamber ﷺ ile yakınlığı", "Nabi ﷺ se taalluq"], "Period": ["दौर", "دور", "कालखण्ड", "যুগ", "காலம்", "المرحلة", "Periode", "Dönem", "Daur"], "Also known as": ["दूसरे नाम", "دیگر نام", "अन्य नाम", "অন্য নাম", "வேறு பெயர்கள்", "يُعرف أيضًا بـ", "Dikenal juga sebagai", "Diğer adları", "Doosre naam"], "In the library": ["लाइब्रेरी में", "کتب خانے میں", "पुस्तकालयमा", "লাইব্রেরিতে", "நூலகத்தில்", "في المكتبة", "Di perpustakaan", "Kütüphanede", "Library mein"], "Related people": ["जुड़ी हुई शख़्सियतें", "متعلقہ شخصیات", "सम्बन्धित व्यक्तित्व", "সম্পর্কিত ব্যক্তি", "தொடர்புடையவர்கள்", "شخصيات ذات صلة", "Tokoh terkait", "İlgili şahsiyetler", "Mutalliqa shakhsiyat"], "Read more in Ahle Bayt": ["अहले बैत में और पढ़ें", "اہلِ بیت میں مزید پڑھیں", "अहले बैतमा थप पढ्नुहोस्", "আহলে বাইতে আরও পড়ুন", "அஹ்லுல் பைத்தில் மேலும் வாசிக்க", "اقرأ المزيد في آل البيت", "Baca selengkapnya di Ahlul Bait", "Ehl-i Beyt’te devamını oku", "Ahle Bait mein mazeed parhein"], "Read more in Sahaba & Sahabiyat": ["सहाबा और सहाबियात में और पढ़ें", "صحابہ و صحابیات میں مزید پڑھیں", "सहाबा र सहाबियातमा थप पढ्नुहोस्", "সাহাবা ও সাহাবিয়াতে আরও পড়ুন", "ஸஹாபாக்கள் பகுதியில் மேலும் வாசிக்க", "اقرأ المزيد في الصحابة والصحابيات", "Baca selengkapnya di Sahabat & Shahabiyah", "Sahâbe ve Sahâbiyyeler’de devamını oku", "Sahaba aur Sahabiyat mein mazeed parhein"], "Sample": ["नमूना", "نمونہ", "नमुना", "নমুনা", "மாதிரி", "نموذج", "Contoh", "Örnek", "Namuna"], "Verified": ["सत्यापित", "تصدیق شدہ", "प्रमाणित", "যাচাইকৃত", "சரிபார்க்கப்பட்டது", "موثَّق", "Terverifikasi", "Doğrulandı", "Tasdeeq shuda"], "More books will be added here as each one is verified — Seerah Ibn Hisham, Zad al-Ma‘ad and others.": ["हर किताब की जाँच के बाद यहाँ और किताबें जुड़ेंगी — सीरत इब्ने हिशाम, ज़ादुल-मआद और अन्य।", "ہر کتاب کی تصدیق کے بعد یہاں مزید کتابیں شامل ہوں گی — سیرت ابن ہشام، زاد المعاد اور دیگر۔", "हरेक पुस्तक प्रमाणित भएपछि यहाँ थप पुस्तक थपिनेछन् — सीरत इब्न हिशाम, जादुल मआद र अन्य।", "প্রতিটি বই যাচাইয়ের পর এখানে আরও বই যুক্ত হবে — সীরাতে ইবনে হিশাম, যাদুল মাআদ ও অন্যান্য।", "ஒவ்வொரு நூலும் சரிபார்க்கப்பட்ட பின் மேலும் நூல்கள் இங்கு சேர்க்கப்படும் — ஸீரத் இப்னு ஹிஷாம், ஸாதுல் மஆத் மற்றும் பிற.", "ستُضاف كتب أخرى هنا بعد مراجعة كل منها — سيرة ابن هشام وزاد المعاد وغيرهما.", "Buku lain akan ditambahkan setelah diverifikasi — Sirah Ibnu Hisyam, Zad al-Ma’ad, dan lainnya.", "Her biri doğrulandıkça buraya başka kitaplar da eklenecek — İbn Hişâm’ın Siyeri, Zâdü’l-Meâd ve diğerleri.", "Har kitab ki tasdeeq ke baad yahan mazeed kitabein shamil hongi — Seerat Ibn Hisham, Zad-ul-Ma’ad aur deegar."], "People of the Seerah · a companion to the books, not a replacement for them.": ["सीरत की शख़्सियतें · किताबों का साथी, उनका विकल्प नहीं।", "شخصیاتِ سیرت · کتابوں کا معاون، ان کا متبادل نہیں۔", "सीरतका व्यक्तित्वहरू · पुस्तकको सहायक, विकल्प होइन।", "সীরাতের ব্যক্তিত্ব · বইয়ের সহায়ক, বিকল্প নয়।", "சீரத்தின் ஆளுமைகள் · நூல்களுக்குத் துணை, மாற்று அல்ல.", "أعلام السيرة · رفيق للكتب لا بديل عنها.", "Tokoh-Tokoh Sirah · pendamping buku, bukan penggantinya.", "Siyerin Şahsiyetleri · kitapların yardımcısıdır, yerini tutmaz.", "Shakhsiyat-e-Seerat · kitabon ka moawin, un ka mutabadil nahin."], "Found a mistake?": ["कोई ग़लती मिली?", "کوئی غلطی ملی؟", "कुनै गल्ती भेटियो?", "কোনো ভুল পেয়েছেন?", "தவறு கண்டீர்களா?", "وجدت خطأً؟", "Menemukan kesalahan?", "Bir hata mı buldunuz?", "Koi ghalti mili?"], "Help review the index": ["इंडेक्स की जाँच में मदद करें", "فہرست کی جانچ میں مدد کریں", "सूचकांक जाँच्न सहयोग गर्नुहोस्", "সূচি যাচাইয়ে সাহায্য করুন", "அட்டவணையைச் சரிபார்க்க உதவுங்கள்", "ساعد في مراجعة الفهرس", "Bantu meninjau indeks", "Dizinin kontrolüne yardım edin", "Fehrist ki jaanch mein madad karein"], "Timeline": ["समयरेखा", "ٹائم لائن", "समयरेखा", "সময়রেখা", "காலவரிசை", "الخط الزمني", "Linimasa", "Zaman çizelgesi", "Timeline"], "Lineage": ["नसब", "نسب", "वंशावली", "বংশধারা", "வம்சாவளி", "النسب", "Nasab", "Nesep", "Nasab"], "People": ["शख़्सियतें", "شخصیات", "व्यक्तित्व", "ব্যক্তিত্ব", "ஆளுமைகள்", "الأعلام", "Tokoh", "Şahsiyetler", "Shakhsiyat"], "Link copied": ["लिंक कॉपी हो गया", "لنک کاپی ہو گیا", "लिंक कपी भयो", "লিংক কপি হয়েছে", "இணைப்பு நகலெடுக்கப்பட்டது", "تم نسخ الرابط", "Tautan disalin", "Bağlantı kopyalandı", "Link copy ho gaya"], "Skip to people": ["शख़्सियतों पर जाएँ", "شخصیات پر جائیں", "व्यक्तित्वमा जानुहोस्", "ব্যক্তিত্বে যান", "ஆளுமைகளுக்குச் செல்", "انتقل إلى الأعلام", "Langsung ke tokoh", "Şahsiyetlere geç", "Shakhsiyat par jayen"], "Search people": ["शख़्सियतें खोजें", "شخصیات تلاش کریں", "व्यक्तित्व खोज्नुहोस्", "ব্যক্তিত্ব খুঁজুন", "ஆளுமைகளைத் தேடுக", "ابحث عن الأعلام", "Cari tokoh", "Şahsiyet ara", "Shakhsiyat talash karein"], "Copy link to this person": ["इस शख़्सियत का लिंक कॉपी करें", "اس شخصیت کا لنک کاپی کریں", "यो व्यक्तित्वको लिंक कपी गर्नुहोस्", "এই ব্যক্তির লিংক কপি করুন", "இவரது இணைப்பை நகலெடு", "انسخ رابط هذه الشخصية", "Salin tautan tokoh ini", "Bu şahsiyetin bağlantısını kopyala", "Is shakhsiyat ka link copy karein"], "Filter by group": ["समूह के अनुसार", "گروہ کے لحاظ سے", "समूहअनुसार", "দল অনুযায়ী", "குழு வாரியாக", "تصفية حسب الفئة", "Saring per kelompok", "Gruba göre filtrele", "Group ke lihaaz se"], "Filter by period": ["दौर के अनुसार", "دور کے لحاظ سے", "कालखण्डअनुसार", "যুগ অনুযায়ী", "காலம் வாரியாக", "تصفية حسب المرحلة", "Saring per periode", "Döneme göre filtrele", "Daur ke lihaaz se"], "Sort": ["क्रम", "ترتیب", "क्रम", "সাজান", "வரிசைப்படுத்து", "ترتيب", "Urutkan", "Sırala", "Tarteeb"], "Jump to letter": ["अक्षर पर जाएँ", "حرف پر جائیں", "अक्षरमा जानुहोस्", "অক্ষরে যান", "எழுத்துக்குச் செல்", "انتقل إلى حرف", "Lompat ke huruf", "Harfe git", "Harf par jayen"], "Change theme": ["थीम बदलें", "تھیم تبدیل کریں", "थिम बदल्नुहोस्", "থিম বদলান", "தீம் மாற்று", "تغيير المظهر", "Ganti tema", "Temayı değiştir", "Theme badlein"], "Seerah home": ["सीरत होम", "سیرت ہوم", "सीरत गृहपृष्ठ", "সীরাত হোম", "சீரத் முகப்பு", "الصفحة الرئيسية للسيرة", "Beranda Sirah", "Siyer ana sayfa", "Seerat home"], "Breadcrumb": ["पथ", "راستہ", "मार्ग", "পথনির্দেশ", "வழித்தடம்", "مسار التنقل", "Jejak navigasi", "Gezinti yolu", "Raasta"], "Names, relations and short bios below are still in English; translations will come with the verified database.": ["नीचे नाम, रिश्ते और संक्षिप्त परिचय अभी अंग्रेज़ी में हैं; अनुवाद सत्यापित डेटाबेस के साथ आएँगे।", "نیچے نام، رشتے اور مختصر تعارف ابھی انگریزی میں ہیں؛ تراجم تصدیق شدہ ڈیٹا بیس کے ساتھ آئیں گے۔", "तलका नाम, सम्बन्ध र छोटो परिचय अझै अङ्ग्रेजीमा छन्; अनुवाद प्रमाणित डाटाबेससँगै आउनेछ।", "নিচের নাম, সম্পর্ক ও সংক্ষিপ্ত পরিচিতি এখনো ইংরেজিতে; অনুবাদ যাচাইকৃত ডেটাবেসের সঙ্গে আসবে।", "கீழே உள்ள பெயர்கள், உறவுகள், சுருக்க அறிமுகங்கள் இன்னும் ஆங்கிலத்தில் உள்ளன; மொழிபெயர்ப்புகள் சரிபார்க்கப்பட்ட தரவுத்தளத்துடன் வரும்.", "الأسماء والصلات والنبذ أدناه ما تزال بالإنجليزية؛ وستأتي الترجمات مع قاعدة البيانات الموثّقة.", "Nama, hubungan, dan biografi singkat di bawah masih berbahasa Inggris; terjemahan akan hadir bersama basis data terverifikasi.", "Aşağıdaki isimler, yakınlıklar ve kısa biyografiler şimdilik İngilizce; çeviriler doğrulanmış veritabanıyla gelecek.", "Neeche naam, rishte aur mukhtasar taaruf abhi English mein hain; tarajim tasdeeq shuda database ke saath aayenge."], "people": ["शख़्सियतें", "شخصیات", "व्यक्तित्व", "ব্যক্তিত্ব", "ஆளுமைகள்", "شخصية", "tokoh", "şahsiyet", "shakhsiyat"], "book indexed": ["किताब शामिल", "کتاب شامل", "पुस्तक समावेश", "বই অন্তর্ভুক্ত", "நூல் சேர்க்கப்பட்டது", "كتاب مفهرس", "buku terindeks", "kitap dizinlendi", "kitab shamil"], "books indexed": ["किताबें शामिल", "کتابیں شامل", "पुस्तक समावेश", "বই অন্তর্ভুক্ত", "நூல்கள் சேர்க்கப்பட்டன", "كتب مفهرسة", "buku terindeks", "kitap dizinlendi", "kitabein shamil"], "book references": ["किताबों के हवाले", "کتابی حوالے", "पुस्तक सन्दर्भ", "বইয়ের রেফারেন্স", "நூல் குறிப்புகள்", "إحالة إلى الكتب", "rujukan buku", "kitap atfı", "kitabi hawale"], "Language": ["भाषा", "زبان", "भाषा", "ভাষা", "மொழி", "اللغة", "Bahasa", "Dil", "Zaban"], "SEERAH": ["सीरत", "سیرت", "सीरत", "সীরাত", "சீரத்", "السيرة", "SIRAH", "SİYER", "SEERAT"], "About this person": ["परिचय", "تعارف", "परिचय", "পরিচিতি", "அறிமுகம்", "نبذة", "Profil singkat", "Kısaca", "Taaruf"], "Skip to main content": ["मुख्य सामग्री पर जाएँ", "مرکزی مواد پر جائیں", "मुख्य सामग्रीमा जानुहोस्", "মূল বিষয়বস্তুতে যান", "முதன்மை உள்ளடக்கத்திற்குச் செல்", "انتقل إلى المحتوى الرئيسي", "Langsung ke konten utama", "Ana içeriğe geç", "Asal mawad par jayen"], "Hijri": ["हिजरी", "ہجری", "हिजरी", "হিজরি", "ஹிஜ்ரி", "هجري", "Hijriah", "Hicrî", "Hijri"], "The Life of Prophet Muhammad ﷺ": ["नबी मुहम्मद ﷺ का जीवन", "نبی محمد ﷺ کی حیاتِ طیبہ", "नबी मुहम्मद ﷺ को जीवन", "নবী মুহাম্মাদ ﷺ-এর জীবন", "நபி முஹம்மது ﷺ அவர்களின் வாழ்க்கை", "حياة النبي محمد ﷺ", "Kehidupan Nabi Muhammad ﷺ", "Peygamber Efendimiz Hz. Muhammed’in ﷺ Hayatı", "Nabi Muhammad ﷺ ki zindagi"], "Library": ["लाइब्रेरी", "کتب خانہ", "पुस्तकालय", "লাইব্রেরি", "நூலகம்", "المكتبة", "Perpustakaan", "Kütüphane", "Library"], "Featured book": ["विशेष किताब", "منتخب کتاب", "विशेष पुस्तक", "বিশেষ বই", "சிறப்பு நூல்", "الكتاب المميز", "Buku pilihan", "Öne çıkan kitap", "Khaas kitab"], "All books": ["सभी किताबें", "تمام کتابیں", "सबै पुस्तकहरू", "সব বই", "அனைத்து நூல்கள்", "جميع الكتب", "Semua buku", "Tüm kitaplar", "Tamam kitabein"], "General": ["सामान्य", "عام", "सामान्य", "সাধারণ", "பொது", "عام", "Umum", "Genel", "Aam"], "For children": ["बच्चों के लिए", "بچوں کے لیے", "बालबालिकाका लागि", "শিশুদের জন্য", "குழந்தைகளுக்கு", "للأطفال", "Untuk anak-anak", "Çocuklar için", "Bachon ke liye"], "For students": ["छात्रों के लिए", "طلبہ کے لیے", "विद्यार्थीका लागि", "শিক্ষার্থীদের জন্য", "மாணவர்களுக்கு", "للطلاب", "Untuk pelajar", "Öğrenciler için", "Talaba ke liye"], "Advanced & research": ["उच्च अध्ययन और शोध", "اعلیٰ مطالعہ و تحقیق", "उच्च अध्ययन र अनुसन्धान", "উচ্চতর ও গবেষণা", "மேம்பட்ட & ஆய்வு", "متقدم وبحثي", "Lanjutan & riset", "İleri düzey ve araştırma", "Advanced aur tahqeeq"], "Seerah Timeline": ["सीरत की समयरेखा", "سیرت کی ٹائم لائن", "सीरतको समयरेखा", "সীরাতের সময়রেখা", "சீரத் காலவரிசை", "الخط الزمني للسيرة", "Linimasa Sirah", "Siyer Zaman Çizelgesi", "Seerat ki Timeline"], "Prophetic Lineage": ["नबवी नसब", "نسبِ نبوی", "नबीको वंशावली", "নবীজির বংশধারা", "நபி ﷺ அவர்களின் வம்சாவளி", "النسب النبوي", "Nasab Nabi", "Nebevî Nesep", "Nasab-e-Nabawi"], "Anbiya-e-Kiram": ["अंबिया-ए-किराम", "انبیائے کرام", "अम्बिया-ए-किराम", "আম্বিয়ায়ে কেরাম", "நபிமார்கள்", "الأنبياء الكرام", "Para Nabi", "Peygamberler", "Anbiya-e-Kiram"], "Questions & Answers": ["सवाल और जवाब", "سوالات و جوابات", "प्रश्न र उत्तर", "প্রশ্ন ও উত্তর", "கேள்விகளும் பதில்களும்", "أسئلة وأجوبة", "Tanya Jawab", "Sorular ve Cevaplar", "Sawal o Jawab"], "About": ["परिचय", "تعارف", "परिचय", "পরিচিতি", "எங்களைப் பற்றி", "من نحن", "Tentang", "Hakkında", "Taaruf"], "Contributor Login": ["योगदानकर्ता लॉगिन", "معاون لاگ اِن", "योगदानकर्ता लगइन", "অবদানকারী লগইন", "பங்களிப்பாளர் உள்நுழைவு", "دخول المساهمين", "Masuk kontributor", "Katkıcı girişi", "Contributor Login"], "Login": ["लॉगिन", "لاگ اِن", "लगइन", "লগইন", "உள்நுழை", "دخول", "Masuk", "Giriş", "Login"], "Contribute": ["योगदान दें", "تعاون کریں", "योगदान गर्नुहोस्", "অবদান রাখুন", "பங்களியுங்கள்", "ساهم معنا", "Berkontribusi", "Katkıda bulun", "Taawun karein"], "Support the mission": ["इस मिशन का साथ दें", "اس مشن کا ساتھ دیں", "यो अभियानलाई साथ दिनुहोस्", "মিশনে সহায়তা করুন", "இந்தப் பணிக்கு ஆதரவளியுங்கள்", "ادعم الرسالة", "Dukung misi ini", "Misyona destek ol", "Is mission ka saath dein"], "The Life of the Prophet": ["नबी का जीवन", "نبی کی حیاتِ طیبہ", "नबीको जीवन", "নবীজির জীবন", "நபியின் வாழ்க்கை", "حياة النبي", "Kehidupan Nabi", "Peygamberin Hayatı", "Nabi ki zindagi"], "Explore the lives of the Prophets, the Seerah of Prophet Muhammad ﷺ, and the legacy of his noble Companions through authentic, carefully selected books — in your own language.": ["नबियों का जीवन, नबी मुहम्मद ﷺ की सीरत और आपके मुबारक सहाबा की विरासत — प्रामाणिक और सावधानी से चुनी गई किताबों के ज़रिए, आपकी अपनी भाषा में।", "انبیاء کی زندگیاں، نبی محمد ﷺ کی سیرت اور آپ کے جلیل القدر صحابہ کی میراث — مستند اور احتیاط سے منتخب کتابوں کے ذریعے، آپ کی اپنی زبان میں۔", "नबीहरूको जीवन, नबी मुहम्मद ﷺ को सीरत र उहाँका सम्मानित सहाबाहरूको विरासत — प्रामाणिक र सावधानीपूर्वक छानिएका पुस्तकहरूमार्फत, तपाईंकै भाषामा।", "নবীদের জীবন, নবী মুহাম্মাদ ﷺ-এর সীরাত এবং তাঁর মহান সাহাবিদের উত্তরাধিকার — নির্ভরযোগ্য ও যত্নে বাছাই করা বইয়ের মাধ্যমে, আপনার নিজের ভাষায়।", "நபிமார்களின் வாழ்க்கை, நபி முஹம்மது ﷺ அவர்களின் சீரத், அவர்களின் சிறந்த தோழர்களின் மரபு — நம்பகமான, கவனமாகத் தேர்ந்தெடுக்கப்பட்ட நூல்கள் வழியாக, உங்கள் சொந்த மொழியில்.", "تعرّف على حياة الأنبياء، وسيرة النبي محمد ﷺ، وإرث صحابته الكرام، من خلال كتب موثوقة مختارة بعناية — بلغتك.", "Jelajahi kehidupan para Nabi, Sirah Nabi Muhammad ﷺ, dan warisan para Sahabatnya yang mulia melalui buku-buku autentik yang dipilih dengan cermat — dalam bahasa Anda sendiri.", "Peygamberlerin hayatlarını, Hz. Muhammed’in ﷺ siyerini ve değerli ashabının mirasını; güvenilir, özenle seçilmiş kitaplarla, kendi dilinizde keşfedin.", "Anbiya ki zindagiyan, Nabi Muhammad ﷺ ki Seerat aur aap ke azeem Sahaba ki meeras — mustanad aur ehtiyat se chuni gayi kitabon ke zariye, aap ki apni zaban mein."], "Search books, topics, and questions": ["किताबें, विषय और सवाल खोजें", "کتابیں، موضوعات اور سوالات تلاش کریں", "पुस्तक, विषय र प्रश्न खोज्नुहोस्", "বই, বিষয় ও প্রশ্ন খুঁজুন", "நூல்கள், தலைப்புகள், கேள்விகளைத் தேடுங்கள்", "ابحث في الكتب والموضوعات والأسئلة", "Cari buku, topik, dan pertanyaan", "Kitap, konu ve soru ara", "Kitabein, mauzuaat aur sawalat talash karein"], "Search books, topics, questions…": ["किताबें, विषय, सवाल खोजें…", "کتابیں، موضوعات، سوالات تلاش کریں…", "पुस्तक, विषय, प्रश्न खोज्नुहोस्…", "বই, বিষয়, প্রশ্ন খুঁজুন…", "நூல்கள், தலைப்புகள், கேள்விகள் தேடுக…", "ابحث في الكتب والموضوعات والأسئلة…", "Cari buku, topik, pertanyaan…", "Kitap, konu, soru ara…", "Kitabein, mauzuaat, sawalat talash karein…"], "Browse the library": ["लाइब्रेरी देखें", "کتب خانہ دیکھیں", "पुस्तकालय हेर्नुहोस्", "লাইব্রেরি দেখুন", "நூலகத்தைப் பாருங்கள்", "تصفح المكتبة", "Telusuri perpustakaan", "Kütüphaneye göz at", "Library dekhein"], "Guidance from the Qur’an": ["क़ुरआन से हिदायत", "قرآن سے ہدایت", "कुरआनबाट मार्गदर्शन", "কুরআন থেকে হিদায়াত", "குர்ஆனிலிருந்து வழிகாட்டல்", "هداية من القرآن", "Petunjuk dari Al-Qur’an", "Kur’an’dan Rehberlik", "Quran se hidayat"], "A Prophetic Reminder": ["एक नबवी नसीहत", "ایک نبوی نصیحت", "एक नबवी सम्झना", "একটি নববী উপদেশ", "ஒரு நபிமொழி நினைவூட்டல்", "تذكير نبوي", "Pengingat dari Nabi ﷺ", "Nebevî Bir Hatırlatma", "Ek Nabawi naseehat"], "Featured question · Seerah": ["विशेष सवाल · सीरत", "منتخب سوال · سیرت", "विशेष प्रश्न · सीरत", "বিশেষ প্রশ্ন · সীরাত", "சிறப்புக் கேள்வி · சீரத்", "سؤال مميز · السيرة", "Pertanyaan pilihan · Sirah", "Öne çıkan soru · Siyer", "Khaas sawal · Seerat"], "Featured · Award-winning": ["विशेष · पुरस्कार विजेता", "منتخب · انعام یافتہ", "विशेष · पुरस्कृत", "বিশেষ · পুরস্কারপ্রাপ্ত", "சிறப்பு · விருது பெற்றது", "مميز · فائز بجائزة", "Pilihan · Pemenang penghargaan", "Öne çıkan · Ödüllü", "Khaas · Inaam yafta"], "Sheikh Safiur Rahman Mubarakpuri": ["शैख़ सफ़ीउर्रहमान मुबारकपुरी", "شیخ صفی الرحمن مبارکپوری", "शेख सफीउर्रहमान मुबारकपुरी", "শাইখ সফিউর রহমান মুবারকপুরী", "ஷைக் ஸஃபியுர் ரஹ்மான் முபாரக்பூரி", "الشيخ صفي الرحمن المباركفوري", "Syekh Shafiyurrahman al-Mubarakfuri", "Şeyh Safiyyurrahman el-Mübârekfûrî", "Sheikh Safi-ur-Rahman Mubarakpuri"], "The Sealed Nectar": ["मुहर बंद अमृत (द सील्ड नेक्टर)", "مہر بند شہد (دی سیلڈ نیکٹر)", "द सिल्ड नेक्टर", "মোহরাঙ্কিত সুধা", "முத்திரையிடப்பட்ட அமுதம்", "الرحيق المختوم", "Sirah Nabawiyah", "Mühürlü Nektar", "The Sealed Nectar"], "Eras": ["दौर", "ادوار", "कालखण्ड", "যুগ", "காலகட்டங்கள்", "مراحل", "Periode", "Dönem", "Adwaar"], "Chapters": ["अध्याय", "ابواب", "अध्याय", "অধ্যায়", "அத்தியாயங்கள்", "فصول", "Bab", "Bölüm", "Abwaab"], "Languages": ["भाषाएँ", "زبانیں", "भाषाहरू", "ভাষা", "மொழிகள்", "لغات", "Bahasa", "Dil", "Zabanein"], "Coming soon:": ["जल्द आ रही हैं:", "جلد آرہی ہیں:", "चाँडै आउँदैछ:", "শীঘ্রই আসছে:", "விரைவில்:", "قريبًا:", "Segera hadir:", "Yakında:", "Jald aa rahi hain:"], "Bosnian, Albanian": ["बोस्नियाई, अल्बानियाई", "بوسنیائی، البانوی", "बोस्नियाली, अल्बानियाली", "বসনিয়ান, আলবেনীয়", "போஸ்னிய, அல்பேனிய", "البوسنية، الألبانية", "Bosnia, Albania", "Boşnakça, Arnavutça", "Bosnian, Albanian"], "Start reading": ["पढ़ना शुरू करें", "مطالعہ شروع کریں", "पढ्न सुरु गर्नुहोस्", "পড়া শুরু করুন", "வாசிக்கத் தொடங்குங்கள்", "ابدأ القراءة", "Mulai membaca", "Okumaya başla", "Parhna shuru karein"], "Continue reading": ["पढ़ना जारी रखें", "مطالعہ جاری رکھیں", "पढ्न जारी राख्नुहोस्", "পড়া চালিয়ে যান", "வாசிப்பைத் தொடருங்கள்", "تابع القراءة", "Lanjutkan membaca", "Okumaya devam et", "Parhna jaari rakhein"], "Get it on Google Play": ["Google Play पर पाएँ", "Google Play پر حاصل کریں", "Google Play मा पाउनुहोस्", "Google Play-তে পান", "Google Play-இல் பெறுங்கள்", "احصل عليه من Google Play", "Dapatkan di Google Play", "Google Play’den edinin", "Google Play par hasil karein"], "By": ["लेखक", "مصنف", "लेखक", "লেখক", "ஆசிரியர்", "تأليف", "Oleh", "Yazar", "Musannif"], "Library directory": ["लाइब्रेरी सूची", "فہرستِ کتب خانہ", "पुस्तकालय सूची", "লাইব্রেরি তালিকা", "நூலக அடைவு", "دليل المكتبة", "Direktori perpustakaan", "Kütüphane rehberi", "Library ki fehrist"], "Browse the Seerah library": ["सीरत लाइब्रेरी देखें", "سیرت کا کتب خانہ دیکھیں", "सीरत पुस्तकालय हेर्नुहोस्", "সীরাত লাইব্রেরি দেখুন", "சீரத் நூலகத்தைப் பாருங்கள்", "تصفح مكتبة السيرة", "Telusuri perpustakaan Sirah", "Siyer kütüphanesine göz at", "Seerat library dekhein"], "Choose a category to explore. The directory stays compact until you open a section.": ["देखने के लिए कोई श्रेणी चुनें। सूची तब तक छोटी रहती है जब तक आप कोई हिस्सा नहीं खोलते।", "دیکھنے کے لیے کوئی زمرہ منتخب کریں۔ کوئی حصہ کھولنے تک فہرست مختصر رہتی ہے۔", "हेर्न कुनै वर्ग छान्नुहोस्। तपाईंले खण्ड नखोलेसम्म सूची छोटो रहन्छ।", "দেখতে একটি বিভাগ বেছে নিন। কোনো অংশ না খোলা পর্যন্ত তালিকাটি সংক্ষিপ্ত থাকে।", "ஆராய ஒரு வகையைத் தேர்ந்தெடுங்கள். ஒரு பகுதியைத் திறக்கும் வரை அடைவு சுருக்கமாக இருக்கும்.", "اختر فئة لاستكشافها. يبقى الدليل مختصرًا حتى تفتح قسمًا.", "Pilih kategori untuk dijelajahi. Direktori tetap ringkas sampai Anda membuka satu bagian.", "Keşfetmek için bir kategori seçin. Bir bölüm açana kadar rehber kısa kalır.", "Dekhne ke liye koi category chunein. Koi hissa kholne tak fehrist mukhtasar rehti hai."], "For Everyone": ["सबके लिए", "سب کے لیے", "सबैका लागि", "সবার জন্য", "அனைவருக்கும்", "للجميع", "Untuk semua", "Herkes için", "Sab ke liye"], "Accessible Seerah books for everyday readers and those beginning their study.": ["आम पाठकों और अध्ययन शुरू करने वालों के लिए आसान सीरत किताबें।", "عام قارئین اور مطالعہ شروع کرنے والوں کے لیے آسان سیرت کی کتابیں۔", "सामान्य पाठक र अध्ययन सुरु गर्नेहरूका लागि सजिला सीरत पुस्तकहरू।", "সাধারণ পাঠক ও নতুন শিক্ষার্থীদের জন্য সহজবোধ্য সীরাত গ্রন্থ।", "அன்றாட வாசகர்களுக்கும் படிப்பைத் தொடங்குபவர்களுக்கும் எளிய சீரத் நூல்கள்.", "كتب سيرة ميسّرة للقارئ العام ولمن يبدأ دراسته.", "Buku Sirah yang mudah dipahami untuk pembaca umum dan pemula.", "Genel okuyucular ve yeni başlayanlar için anlaşılır siyer kitapları.", "Aam qareen aur parhai shuru karne walon ke liye aasan Seerat kitabein."], "Children": ["बच्चे", "بچے", "बालबालिका", "শিশু", "குழந்தைகள்", "الأطفال", "Anak-anak", "Çocuklar", "Bachay"], "For Young Readers": ["छोटे पाठकों के लिए", "کم عمر قارئین کے لیے", "साना पाठकका लागि", "ছোট পাঠকদের জন্য", "இளம் வாசகர்களுக்கு", "للقرّاء الصغار", "Untuk pembaca cilik", "Küçük okurlar için", "Chhote qareen ke liye"], "Simple and engaging books that introduce children to the life of the Prophet Muhammad ﷺ.": ["आसान और दिलचस्प किताबें जो बच्चों को नबी मुहम्मद ﷺ के जीवन से परिचित कराती हैं।", "آسان اور دلچسپ کتابیں جو بچوں کو نبی محمد ﷺ کی زندگی سے متعارف کراتی ہیں۔", "बालबालिकालाई नबी मुहम्मद ﷺ को जीवनसँग परिचित गराउने सरल र रोचक पुस्तकहरू।", "সহজ ও আকর্ষণীয় বই, যা শিশুদের নবী মুহাম্মাদ ﷺ-এর জীবনের সঙ্গে পরিচয় করায়।", "குழந்தைகளுக்கு நபி முஹம்மது ﷺ அவர்களின் வாழ்க்கையை அறிமுகப்படுத்தும் எளிய, சுவையான நூல்கள்.", "كتب بسيطة وممتعة تعرّف الأطفال بحياة النبي محمد ﷺ.", "Buku sederhana dan menarik yang mengenalkan anak-anak pada kehidupan Nabi Muhammad ﷺ.", "Çocuklara Hz. Muhammed’in ﷺ hayatını tanıtan sade ve ilgi çekici kitaplar.", "Aasan aur dilchasp kitabein jo bachon ko Nabi Muhammad ﷺ ki zindagi se mutaarif karati hain."], "Students": ["छात्र", "طلبہ", "विद्यार्थी", "শিক্ষার্থী", "மாணவர்கள்", "الطلاب", "Pelajar", "Öğrenciler", "Talaba"], "For Students": ["छात्रों के लिए", "طلبہ کے لیے", "विद्यार्थीका लागि", "শিক্ষার্থীদের জন্য", "மாணவர்களுக்கு", "للطلاب", "Untuk pelajar", "Öğrenciler için", "Talaba ke liye"], "Structured reading for school, madrasa, and students of Islamic studies.": ["स्कूल, मदरसा और इस्लामी अध्ययन के छात्रों के लिए क्रमबद्ध अध्ययन।", "اسکول، مدرسہ اور اسلامی علوم کے طلبہ کے لیے منظم مطالعہ۔", "विद्यालय, मदरसा र इस्लामी अध्ययनका विद्यार्थीका लागि व्यवस्थित अध्ययन।", "স্কুল, মাদরাসা ও ইসলামি শিক্ষার শিক্ষার্থীদের জন্য সুবিন্যস্ত পাঠ।", "பள்ளி, மதரஸா, இஸ்லாமியக் கல்வி மாணவர்களுக்கான ஒழுங்கான வாசிப்பு.", "قراءة منهجية لطلاب المدارس والمدارس الدينية والدراسات الإسلامية.", "Bacaan terstruktur untuk sekolah, madrasah, dan pelajar studi Islam.", "Okul, medrese ve İslami ilimler öğrencileri için düzenli okuma.", "School, madrasa aur Islami uloom ke talaba ke liye munazzam mutala."], "Advanced & Research": ["उच्च अध्ययन और शोध", "اعلیٰ مطالعہ و تحقیق", "उच्च अध्ययन र अनुसन्धान", "উচ্চতর ও গবেষণা", "மேம்பட்ட & ஆய்வு", "متقدم وبحثي", "Lanjutan & Riset", "İleri Düzey ve Araştırma", "Advanced aur Tahqeeq"], "For Deeper Study": ["गहरे अध्ययन के लिए", "گہرے مطالعے کے لیے", "गहिरो अध्ययनका लागि", "গভীর অধ্যয়নের জন্য", "ஆழ்ந்த படிப்புக்கு", "للدراسة المعمّقة", "Untuk kajian mendalam", "Derin okuma için", "Gehre mutale ke liye"], "Detailed and source-based works for teachers, scholars, and serious students.": ["शिक्षकों, उलमा और गंभीर छात्रों के लिए विस्तृत और स्रोत-आधारित किताबें।", "اساتذہ، علماء اور سنجیدہ طلبہ کے لیے تفصیلی اور مستند حوالوں پر مبنی کتابیں۔", "शिक्षक, विद्वान र गम्भीर विद्यार्थीका लागि विस्तृत र स्रोतमा आधारित कृतिहरू।", "শিক্ষক, আলেম ও মনোযোগী শিক্ষার্থীদের জন্য বিস্তারিত ও সূত্রনির্ভর গ্রন্থ।", "ஆசிரியர்கள், அறிஞர்கள், தீவிர மாணவர்களுக்கான விரிவான, ஆதார அடிப்படையிலான நூல்கள்.", "مؤلفات مفصّلة موثّقة المصادر للمعلمين والعلماء وطلاب العلم الجادّين.", "Karya terperinci dan berbasis sumber untuk guru, ulama, dan pelajar serius.", "Öğretmenler, âlimler ve ciddi öğrenciler için ayrıntılı, kaynağa dayalı eserler.", "Asatiza, ulama aur sanjeeda talaba ke liye tafseeli aur hawalon par mabni kitabein."], "Explore →": ["देखें →", "دیکھیں ←", "हेर्नुहोस् →", "দেখুন →", "ஆராயுங்கள் →", "استكشف ←", "Jelajahi →", "Keşfet →", "Dekhein →"], "Explore All Seerah Books": ["सीरत की सभी किताबें देखें", "سیرت کی تمام کتابیں دیکھیں", "सीरतका सबै पुस्तक हेर्नुहोस्", "সীরাতের সব বই দেখুন", "அனைத்து சீரத் நூல்களையும் பாருங்கள்", "استكشف جميع كتب السيرة", "Jelajahi Semua Buku Sirah", "Tüm Siyer Kitaplarını Keşfet", "Seerat ki tamam kitabein dekhein"], "Browse the complete collection and discover books by language, reader level, and depth of study.": ["पूरा संग्रह देखें और भाषा, पाठक स्तर और अध्ययन की गहराई के अनुसार किताबें खोजें।", "مکمل ذخیرہ دیکھیں اور زبان، قاری کی سطح اور مطالعے کی گہرائی کے مطابق کتابیں تلاش کریں۔", "पूरा संग्रह हेर्नुहोस् र भाषा, पाठक स्तर र अध्ययनको गहिराइअनुसार पुस्तक पत्ता लगाउनुहोस्।", "পুরো সংগ্রহ দেখুন এবং ভাষা, পাঠকের স্তর ও অধ্যয়নের গভীরতা অনুযায়ী বই খুঁজুন।", "முழுத் தொகுப்பையும் பார்த்து, மொழி, வாசகர் நிலை, படிப்பின் ஆழம் அடிப்படையில் நூல்களைக் கண்டறியுங்கள்.", "تصفّح المجموعة كاملة واكتشف الكتب حسب اللغة ومستوى القارئ وعمق الدراسة.", "Telusuri seluruh koleksi dan temukan buku berdasarkan bahasa, tingkat pembaca, dan kedalaman kajian.", "Tüm koleksiyona göz atın; kitapları dile, okur seviyesine ve derinliğe göre keşfedin.", "Poora zakheera dekhein aur zaban, qari ki satah aur mutale ki gehrai ke mutabiq kitabein talash karein."], "Explore the Seerah": ["सीरत को जानें", "سیرت کو جانیں", "सीरत जान्नुहोस्", "সীরাত জানুন", "சீரத்தை ஆராயுங்கள்", "استكشف السيرة", "Jelajahi Sirah", "Siyeri Keşfet", "Seerat ko janein"], "The moments, family, and people around the Prophet ﷺ — and the Prophets who came before him.": ["नबी ﷺ के जीवन के अहम पल, आपका परिवार और आपके आसपास के लोग — और आपसे पहले आए नबी।", "نبی ﷺ کی زندگی کے اہم لمحات، آپ کا خاندان اور آپ کے اردگرد کے لوگ — اور آپ سے پہلے آنے والے انبیاء۔", "नबी ﷺ का जीवनका महत्त्वपूर्ण क्षण, परिवार र वरपरका मानिसहरू — र उहाँभन्दा अघि आएका नबीहरू।", "নবী ﷺ-এর জীবনের মুহূর্ত, তাঁর পরিবার ও চারপাশের মানুষ — এবং তাঁর পূর্ববর্তী নবীগণ।", "நபி ﷺ அவர்களின் வாழ்வின் தருணங்கள், குடும்பம், சுற்றியிருந்தவர்கள் — மேலும் அவர்களுக்கு முன் வந்த நபிமார்கள்.", "محطات حياة النبي ﷺ وأهله ومن حوله — والأنبياء الذين سبقوه.", "Momen, keluarga, dan orang-orang di sekitar Nabi ﷺ — serta para Nabi sebelum beliau.", "Peygamber’in ﷺ hayatından anlar, ailesi ve çevresindekiler — ve ondan önce gelen peygamberler.", "Nabi ﷺ ki zindagi ke lamhaat, aap ka khandan aur aas paas ke log — aur aap se pehle aane wale Anbiya."], "Life in sequence": ["क्रम से जीवन", "زندگی ترتیب وار", "क्रमअनुसार जीवन", "ধারাবাহিক জীবন", "வரிசையில் வாழ்க்கை", "الحياة بالترتيب", "Kehidupan secara berurutan", "Sırasıyla hayatı", "Zindagi tarteeb se"], "A chronological guide to the major stages in the life of Prophet Muhammad ﷺ.": ["नबी मुहम्मद ﷺ के जीवन के बड़े पड़ावों की कालक्रम से जानकारी।", "نبی محمد ﷺ کی زندگی کے اہم مراحل کی زمانی ترتیب سے رہنمائی۔", "नबी मुहम्मद ﷺ को जीवनका मुख्य चरणहरूको कालक्रमिक मार्गदर्शन।", "নবী মুহাম্মাদ ﷺ-এর জীবনের প্রধান পর্যায়গুলোর কালানুক্রমিক নির্দেশিকা।", "நபி முஹம்மது ﷺ அவர்களின் வாழ்வின் முக்கிய கட்டங்களுக்கான காலவரிசை வழிகாட்டி.", "دليل زمني لأهم مراحل حياة النبي محمد ﷺ.", "Panduan kronologis tahap-tahap utama kehidupan Nabi Muhammad ﷺ.", "Hz. Muhammed’in ﷺ hayatındaki başlıca dönemlere kronolojik bir rehber.", "Nabi Muhammad ﷺ ki zindagi ke ahem marahil ki tarteeb-war rehnumai."], "Birth in Makkah": ["मक्का में जन्म", "مکہ میں ولادت", "मक्कामा जन्म", "মক্কায় জন্ম", "மக்காவில் பிறப்பு", "المولد في مكة", "Kelahiran di Makkah", "Mekke’de doğum", "Makkah mein wiladat"], "Early life": ["प्रारंभिक जीवन", "ابتدائی زندگی", "प्रारम्भिक जीवन", "প্রাথমিক জীবন", "ஆரம்ப வாழ்க்கை", "النشأة", "Masa awal", "İlk yıllar", "Ibtidai zindagi"], "First Revelation": ["पहली वह्य", "پہلی وحی", "पहिलो वह्य", "প্রথম ওহি", "முதல் வஹீ", "بدء الوحي", "Wahyu pertama", "İlk vahiy", "Pehli wahi"], "Beginning of prophethood": ["नुबुव्वत की शुरुआत", "نبوت کا آغاز", "नुबुव्वतको सुरुवात", "নবুওয়াতের সূচনা", "நபித்துவத்தின் தொடக்கம்", "بداية النبوة", "Awal kenabian", "Peygamberliğin başlangıcı", "Nabuwwat ka aaghaz"], "Hijrah to Madinah": ["मदीना की ओर हिजरत", "مدینہ کی طرف ہجرت", "मदीनातर्फ हिजरत", "মদিনায় হিজরত", "மதீனாவுக்கு ஹிஜ்ரத்", "الهجرة إلى المدينة", "Hijrah ke Madinah", "Medine’ye hicret", "Madinah ki taraf Hijrat"], "A new chapter": ["एक नया अध्याय", "ایک نیا باب", "नयाँ अध्याय", "এক নতুন অধ্যায়", "ஒரு புதிய அத்தியாயம்", "مرحلة جديدة", "Babak baru", "Yeni bir dönem", "Ek naya baab"], "Farewell Pilgrimage": ["हज्जतुल-विदा", "حجۃ الوداع", "हज्जतुल विदा", "বিদায় হজ", "விடைபெறும் ஹஜ்", "حجة الوداع", "Haji Wada’", "Veda Haccı", "Hajjatul Wida"], "Final years": ["आख़िरी साल", "آخری سال", "अन्तिम वर्षहरू", "শেষ বছরগুলো", "இறுதி ஆண்டுகள்", "السنوات الأخيرة", "Tahun-tahun terakhir", "Son yıllar", "Aakhri saal"], "Explore all 43 milestones": ["सभी 43 पड़ाव देखें", "تمام 43 مراحل دیکھیں", "सबै 43 चरण हेर्नुहोस्", "সব 43টি পর্যায় দেখুন", "அனைத்து 43 மைல்கற்களையும் பாருங்கள்", "استكشف المحطات الـ43 كلها", "Jelajahi ke-43 tonggak", "43 dönüm noktasının tümünü keşfet", "Tamam 43 marahil dekhein"], "Family lineage": ["ख़ानदानी नसब", "خاندانی نسب", "पारिवारिक वंश", "পারিবারিক বংশ", "குடும்ப வம்சம்", "النسب العائلي", "Silsilah keluarga", "Aile soyu", "Khandani nasab"], "Abdullah": ["अब्दुल्लाह", "عبداللہ", "अब्दुल्लाह", "আবদুল্লাহ", "அப்துல்லாஹ்", "عبد الله", "Abdullah", "Abdullah", "Abdullah"], "Father": ["पिता", "والد", "बुबा", "পিতা", "தந்தை", "الأب", "Ayah", "Babası", "Walid"], "Prophet Muhammad ﷺ": ["नबी मुहम्मद ﷺ", "نبی محمد ﷺ", "नबी मुहम्मद ﷺ", "নবী মুহাম্মাদ ﷺ", "நபி முஹம்மது ﷺ", "النبي محمد ﷺ", "Nabi Muhammad ﷺ", "Hz. Muhammed ﷺ", "Nabi Muhammad ﷺ"], "Fatima": ["फ़ातिमा", "فاطمہ", "फातिमा", "ফাতিমা", "ஃபாத்திமா", "فاطمة", "Fatimah", "Fâtıma", "Fatima"], "Daughter": ["बेटी", "صاحبزادی", "छोरी", "কন্যা", "மகள்", "الابنة", "Putri", "Kızı", "Sahibzadi"], "View family & lineage": ["परिवार और नसब देखें", "خاندان اور نسب دیکھیں", "परिवार र वंश हेर्नुहोस्", "পরিবার ও বংশ দেখুন", "குடும்பம் & வம்சத்தைப் பாருங்கள்", "عرض الأسرة والنسب", "Lihat keluarga & nasab", "Aile ve soyu gör", "Khandan aur nasab dekhein"], "Family of the Prophet ﷺ": ["नबी ﷺ का परिवार", "نبی ﷺ کا خاندان", "नबी ﷺ को परिवार", "নবী ﷺ-এর পরিবার", "நபி ﷺ அவர்களின் குடும்பம்", "آل النبي ﷺ", "Keluarga Nabi ﷺ", "Peygamber’in ﷺ ailesi", "Nabi ﷺ ka khandan"], "The blessed household of Prophet Muhammad ﷺ — his wives, children, close family, and Banu Hashim.": ["नबी मुहम्मद ﷺ का मुबारक घराना — आपकी पत्नियाँ, संतान, क़रीबी परिवार और बनू हाशिम।", "نبی محمد ﷺ کا بابرکت گھرانہ — ازواجِ مطہرات، اولاد، قریبی خاندان اور بنو ہاشم۔", "नबी मुहम्मद ﷺ को पवित्र घराना — उहाँका पत्नीहरू, सन्तान, नजिकका परिवार र बनू हाशिम।", "নবী মুহাম্মাদ ﷺ-এর বরকতময় পরিবার — তাঁর স্ত্রীগণ, সন্তান, নিকটাত্মীয় ও বনু হাশিম।", "நபி முஹம்மது ﷺ அவர்களின் அருள்மிகு குடும்பம் — அவர்களின் மனைவியர், பிள்ளைகள், நெருங்கிய உறவினர், பனூ ஹாஷிம்.", "بيت النبي محمد ﷺ المبارك — أزواجه وأولاده وأقاربه وبنو هاشم.", "Keluarga Nabi Muhammad ﷺ yang diberkahi — istri-istri, anak-anak, kerabat dekat, dan Bani Hasyim.", "Hz. Muhammed’in ﷺ mübarek ailesi — hanımları, çocukları, yakın akrabaları ve Hâşimoğulları.", "Nabi Muhammad ﷺ ka babarkat gharana — azwaj-e-mutahharat, aulad, qareebi khandan aur Banu Hashim."], "People around the Prophet ﷺ": ["नबी ﷺ के आसपास के लोग", "نبی ﷺ کے ساتھی", "नबी ﷺ वरपरका मानिसहरू", "নবী ﷺ-এর চারপাশের মানুষ", "நபி ﷺ அவர்களைச் சுற்றியிருந்தவர்கள்", "من حول النبي ﷺ", "Orang-orang di sekitar Nabi ﷺ", "Peygamber’in ﷺ etrafındakiler", "Nabi ﷺ ke saathi"], "Organized profiles of the Companions, their relationships, and their contributions.": ["सहाबा की व्यवस्थित प्रोफ़ाइलें, उनके रिश्ते और उनकी ख़िदमात।", "صحابہ کے منظم تعارف، ان کے رشتے اور ان کی خدمات۔", "सहाबाहरूको व्यवस्थित परिचय, उनीहरूको सम्बन्ध र योगदान।", "সাহাবিদের সুবিন্যস্ত পরিচিতি, তাঁদের সম্পর্ক ও অবদান।", "தோழர்களின் ஒழுங்கான சுயவிவரங்கள், அவர்களின் உறவுகள், பங்களிப்புகள்.", "تراجم منظمة للصحابة وصلاتهم وإسهاماتهم.", "Profil para Sahabat yang tertata, hubungan, dan jasa-jasa mereka.", "Sahâbenin düzenli biyografileri, ilişkileri ve katkıları.", "Sahaba ke munazzam taaruf, un ke rishte aur khidmaat."], "Every person mentioned in the Seerah — the Prophet’s ﷺ family, his Companions, rulers, opponents and others — and where they appear across the library.": ["सीरत में ज़िक्र किए गए हर व्यक्ति — नबी ﷺ का परिवार, सहाबा, शासक, विरोधी और अन्य — और लाइब्रेरी में वे कहाँ-कहाँ आते हैं।", "سیرت میں مذکور ہر شخصیت — نبی ﷺ کا خاندان، صحابہ، حکمران، مخالفین اور دیگر — اور کتب خانے میں ان کا ذکر کہاں کہاں ہے۔", "सीरतमा उल्लेख भएका हरेक व्यक्ति — नबी ﷺ को परिवार, सहाबा, शासक, विरोधी र अन्य — र पुस्तकालयमा उनीहरू कहाँ-कहाँ आउँछन्।", "সীরাতে উল্লিখিত প্রত্যেক ব্যক্তি — নবী ﷺ-এর পরিবার, সাহাবি, শাসক, বিরোধী ও অন্যান্য — এবং লাইব্রেরির কোথায় তাঁদের উল্লেখ আছে।", "சீரத்தில் குறிப்பிடப்படும் ஒவ்வொருவரும் — நபி ﷺ அவர்களின் குடும்பம், தோழர்கள், ஆட்சியாளர்கள், எதிரிகள், பிறர் — நூலகத்தில் அவர்கள் எங்கெங்கு வருகிறார்கள் என்பதும்.", "كل من ورد ذكره في السيرة — آل النبي ﷺ وصحابته والحكام والمعارضون وغيرهم — ومواضع ذكرهم في المكتبة.", "Setiap tokoh yang disebut dalam Sirah — keluarga Nabi ﷺ, para Sahabat, penguasa, penentang, dan lainnya — serta di mana mereka muncul dalam perpustakaan.", "Siyerde adı geçen herkes — Peygamber’in ﷺ ailesi, ashabı, hükümdarlar, muhalifler ve diğerleri — ve kütüphanede nerelerde geçtikleri.", "Seerat mein mazkoor har shakhsiyat — Nabi ﷺ ka khandan, Sahaba, hukmaran, mukhalifeen aur deegar — aur library mein un ka zikr kahan kahan hai."], "Explore all people": ["सभी शख़्सियतें देखें", "تمام شخصیات دیکھیں", "सबै व्यक्तित्व हेर्नुहोस्", "সব ব্যক্তিত্ব দেখুন", "அனைவரையும் பாருங்கள்", "استكشف جميع الأعلام", "Jelajahi semua tokoh", "Tüm şahsiyetleri keşfet", "Tamam shakhsiyat dekhein"], "Stories of the Prophets": ["नबियों के क़िस्से", "قصص الانبیاء", "नबीहरूका कथाहरू", "নবীদের কাহিনি", "நபிமார்களின் வரலாறு", "قصص الأنبياء", "Kisah para Nabi", "Peygamber kıssaları", "Qasas-ul-Anbiya"], "The 25 Prophets named in the Qur’an, presented through an original source-based series.": ["क़ुरआन में नाम से आए 25 नबी, एक मूल स्रोत-आधारित शृंखला के रूप में।", "قرآن میں نام سے مذکور 25 انبیاء، مستند حوالوں پر مبنی ایک سلسلے کی صورت میں۔", "कुरआनमा नाम लिइएका 25 नबीहरू, स्रोतमा आधारित मौलिक शृङ्खलामार्फत।", "কুরআনে নাম উল্লেখিত ২৫ জন নবী, সূত্রনির্ভর একটি মৌলিক ধারাবাহিকে।", "குர்ஆனில் பெயர் குறிப்பிடப்பட்ட 25 நபிமார்கள், ஆதார அடிப்படையிலான தொடராக.", "الأنبياء الخمسة والعشرون المذكورون في القرآن، في سلسلة أصيلة موثّقة.", "25 Nabi yang disebut namanya dalam Al-Qur’an, disajikan dalam seri orisinal berbasis sumber.", "Kur’an’da adı geçen 25 peygamber, kaynağa dayalı özgün bir seride.", "Quran mein naam se mazkoor 25 Anbiya, mustanad hawalon par mabni ek silsile mein."], "Questions about the Seerah": ["सीरत से जुड़े सवाल", "سیرت سے متعلق سوالات", "सीरतसम्बन्धी प्रश्न", "সীরাত বিষয়ে প্রশ্ন", "சீரத் பற்றிய கேள்விகள்", "أسئلة حول السيرة", "Pertanyaan seputar Sirah", "Siyerle ilgili sorular", "Seerat ke mutalliq sawalat"], "Clear, respectful, and source-based answers to common questions about the Seerah.": ["सीरत के आम सवालों के साफ़, सम्मानजनक और स्रोत-आधारित जवाब।", "سیرت کے عام سوالات کے واضح، باادب اور حوالوں پر مبنی جوابات۔", "सीरतका सामान्य प्रश्नहरूको स्पष्ट, सम्मानजनक र स्रोतमा आधारित उत्तर।", "সীরাত বিষয়ে সাধারণ প্রশ্নের স্পষ্ট, শ্রদ্ধাশীল ও সূত্রনির্ভর উত্তর।", "சீரத் பற்றிய பொதுவான கேள்விகளுக்குத் தெளிவான, மரியாதையான, ஆதார அடிப்படையிலான பதில்கள்.", "إجابات واضحة ومحترمة وموثّقة عن الأسئلة الشائعة حول السيرة.", "Jawaban yang jelas, santun, dan berbasis sumber atas pertanyaan umum seputar Sirah.", "Siyerle ilgili sık sorulan sorulara açık, saygılı ve kaynağa dayalı cevaplar.", "Seerat ke aam sawalat ke wazeh, ba-adab aur hawalon par mabni jawabat."], "Help bring the Seerah to more people": ["सीरत को ज़्यादा लोगों तक पहुँचाने में मदद करें", "سیرت کو زیادہ لوگوں تک پہنچانے میں مدد کریں", "सीरतलाई धेरै मानिससम्म पुर्‍याउन सहयोग गर्नुहोस्", "সীরাতকে আরও মানুষের কাছে পৌঁছাতে সাহায্য করুন", "சீரத்தை அதிகமானோரிடம் கொண்டு சேர்க்க உதவுங்கள்", "ساعد في إيصال السيرة إلى مزيد من الناس", "Bantu Sirah menjangkau lebih banyak orang", "Siyerin daha çok insana ulaşmasına yardım edin", "Seerat ko zyada logon tak pohanchane mein madad karein"], "Share your time, knowledge, and skills to help make Islamic learning more accessible.": ["इस्लामी शिक्षा को आसान बनाने के लिए अपना समय, इल्म और हुनर दें।", "اسلامی تعلیم کو آسان بنانے کے لیے اپنا وقت، علم اور مہارت دیں۔", "इस्लामी शिक्षालाई सजिलो बनाउन आफ्नो समय, ज्ञान र सीप दिनुहोस्।", "ইসলামি শিক্ষাকে সহজলভ্য করতে আপনার সময়, জ্ঞান ও দক্ষতা দিন।", "இஸ்லாமியக் கல்வியை எளிதாக்க உங்கள் நேரம், அறிவு, திறன்களைப் பகிருங்கள்.", "شارك بوقتك وعلمك ومهاراتك لتيسير تعلّم الإسلام.", "Bagikan waktu, ilmu, dan keterampilan Anda agar belajar Islam lebih mudah diakses.", "İslami öğrenmeyi daha ulaşılabilir kılmak için zamanınızı, bilginizi ve becerilerinizi paylaşın.", "Islami taleem ko aasan banane ke liye apna waqt, ilm aur hunar dein."], "Translation": ["अनुवाद", "ترجمہ", "अनुवाद", "অনুবাদ", "மொழிபெயர்ப்பு", "الترجمة", "Penerjemahan", "Çeviri", "Tarjuma"], "Make the Seerah accessible across languages through translation and proofreading.": ["अनुवाद और प्रूफ़रीडिंग के ज़रिए सीरत को हर भाषा में पहुँचाएँ।", "ترجمہ اور پروف ریڈنگ کے ذریعے سیرت کو مختلف زبانوں میں عام کریں۔", "अनुवाद र प्रुफरिडिङमार्फत सीरतलाई विभिन्न भाषामा पुर्‍याउनुहोस्।", "অনুবাদ ও প্রুফরিডিংয়ের মাধ্যমে সীরাতকে নানা ভাষায় পৌঁছে দিন।", "மொழிபெயர்ப்பு, திருத்தம் மூலம் சீரத்தைப் பல மொழிகளில் கொண்டு சேருங்கள்.", "أوصل السيرة إلى لغات متعددة بالترجمة والتدقيق.", "Hadirkan Sirah dalam berbagai bahasa melalui penerjemahan dan penyuntingan.", "Çeviri ve redaksiyonla siyeri farklı dillerde ulaşılabilir kılın.", "Tarjume aur proofreading ke zariye Seerat ko mukhtalif zabanon mein aam karein."], "Content review": ["सामग्री की जाँच", "مواد کی جانچ", "सामग्री समीक्षा", "বিষয়বস্তু যাচাই", "உள்ளடக்க மதிப்பாய்வு", "مراجعة المحتوى", "Peninjauan konten", "İçerik kontrolü", "Mawad ki jaanch"], "Check source references, review text, and improve accuracy.": ["स्रोतों के हवाले जाँचें, पाठ की समीक्षा करें और सटीकता बढ़ाएँ।", "حوالہ جات جانچیں، متن کا جائزہ لیں اور درستگی بہتر بنائیں۔", "स्रोत सन्दर्भ जाँच्नुहोस्, पाठ समीक्षा गर्नुहोस् र शुद्धता सुधार्नुहोस्।", "সূত্র যাচাই করুন, লেখা পর্যালোচনা করুন ও নির্ভুলতা বাড়ান।", "ஆதாரக் குறிப்புகளைச் சரிபார்த்து, உரையை மதிப்பாய்வு செய்து, துல்லியத்தை மேம்படுத்துங்கள்.", "تحقق من المصادر وراجع النصوص وحسّن الدقة.", "Periksa rujukan sumber, tinjau teks, dan tingkatkan akurasi.", "Kaynakları kontrol edin, metni gözden geçirin ve doğruluğu artırın.", "Hawalajaat jaanchein, matan ka jaiza lein aur durusti behtar banayein."], "Design & development": ["डिज़ाइन और डेवलपमेंट", "ڈیزائن اور ڈیولپمنٹ", "डिजाइन र विकास", "ডিজাইন ও ডেভেলপমেন্ট", "வடிவமைப்பு & மேம்பாடு", "التصميم والتطوير", "Desain & pengembangan", "Tasarım ve geliştirme", "Design aur development"], "Improve the website, its accessibility, and the reading experience.": ["वेबसाइट, उसकी सुलभता और पढ़ने के अनुभव को बेहतर बनाएँ।", "ویب سائٹ، اس کی رسائی اور مطالعے کے تجربے کو بہتر بنائیں۔", "वेबसाइट, यसको पहुँच र पढ्ने अनुभव सुधार्नुहोस्।", "ওয়েবসাইট, এর প্রবেশযোগ্যতা ও পড়ার অভিজ্ঞতা উন্নত করুন।", "இணையதளம், அதன் அணுகல்தன்மை, வாசிப்பு அனுபவத்தை மேம்படுத்துங்கள்.", "حسّن الموقع وإتاحته وتجربة القراءة.", "Tingkatkan situs web, aksesibilitasnya, dan pengalaman membaca.", "Web sitesini, erişilebilirliğini ve okuma deneyimini geliştirin.", "Website, us ki rasai aur parhne ka tajurba behtar banayein."], "Become a contributor": ["योगदानकर्ता बनें", "معاون بنیں", "योगदानकर्ता बन्नुहोस्", "অবদানকারী হোন", "பங்களிப்பாளர் ஆகுங்கள்", "كن مساهمًا", "Jadi kontributor", "Katkıcı ol", "Contributor banein"], "(opens in a new tab)": ["(नए टैब में खुलेगा)", "(نئے ٹیب میں کھلے گا)", "(नयाँ ट्याबमा खुल्छ)", "(নতুন ট্যাবে খুলবে)", "(புதிய தாவலில் திறக்கும்)", "(يفتح في علامة تبويب جديدة)", "(terbuka di tab baru)", "(yeni sekmede açılır)", "(naye tab mein khulega)"], "See the contribution program and apply on UmmahTechs.": ["UmmahTechs पर योगदान कार्यक्रम देखें और आवेदन करें।", "UmmahTechs پر تعاون کا پروگرام دیکھیں اور درخواست دیں۔", "UmmahTechs मा योगदान कार्यक्रम हेर्नुहोस् र आवेदन दिनुहोस्।", "UmmahTechs-এ অবদান কর্মসূচি দেখুন ও আবেদন করুন।", "UmmahTechs-இல் பங்களிப்புத் திட்டத்தைப் பார்த்து விண்ணப்பியுங்கள்.", "اطّلع على برنامج المساهمة وقدّم طلبك عبر UmmahTechs.", "Lihat program kontribusi dan daftar di UmmahTechs.", "Katkı programını inceleyin ve UmmahTechs’te başvurun.", "UmmahTechs par taawun ka program dekhein aur darkhwast dein."], "SUPPORT THE MISSION": ["इस मिशन का साथ दें", "اس مشن کا ساتھ دیں", "यो अभियानलाई साथ दिनुहोस्", "মিশনে সহায়তা করুন", "இந்தப் பணிக்கு ஆதரவு", "ادعم الرسالة", "DUKUNG MISI INI", "MİSYONA DESTEK OL", "IS MISSION KA SAATH DEIN"], "Help Us Bring": ["हर मुसलमान तक", "ہر مسلمان تک", "हरेक मुस्लिमसम्म", "প্রত্যেক মুসলমানের কাছে", "ஒவ்வொரு முஸ்லிமிடமும்", "ساعدنا في إيصال", "Bantu Kami Membawa", "Her Müslümana", "Har Musalman tak"], "Islamic Knowledge": ["इस्लामी इल्म", "اسلامی علم", "इस्लामी ज्ञान", "ইসলামি জ্ঞান", "இஸ்லாமிய அறிவை", "العلم الشرعي", "Ilmu Islam", "İslami İlmi", "Islami ilm"], "to Every Muslim": ["पहुँचाने में हमारी मदद करें", "پہنچانے میں ہماری مدد کریں", "पुर्‍याउन हामीलाई सहयोग गर्नुहोस्", "পৌঁছে দিতে আমাদের সাহায্য করুন", "கொண்டு சேர்க்க எங்களுக்கு உதவுங்கள்", "إلى كل مسلم", "kepada Setiap Muslim", "Ulaştırmamıza Yardım Edin", "pohanchane mein hamari madad karein"], "We are building a free, source-based Islamic learning library in multiple languages. Your support helps us keep the library accessible, improve translations, and continue publishing carefully reviewed content.": ["हम कई भाषाओं में एक मुफ़्त, स्रोत-आधारित इस्लामी लाइब्रेरी बना रहे हैं। आपका सहयोग लाइब्रेरी को सबके लिए खुला रखने, अनुवाद बेहतर करने और सावधानी से जाँची गई सामग्री प्रकाशित करते रहने में मदद करता है।", "ہم کئی زبانوں میں ایک مفت، مستند حوالوں پر مبنی اسلامی کتب خانہ بنا رہے ہیں۔ آپ کا تعاون کتب خانے کو سب کے لیے کھلا رکھنے، تراجم بہتر بنانے اور احتیاط سے جانچا گیا مواد شائع کرتے رہنے میں مدد دیتا ہے۔", "हामी धेरै भाषामा निःशुल्क, स्रोतमा आधारित इस्लामी पुस्तकालय बनाउँदैछौं। तपाईंको सहयोगले पुस्तकालयलाई सबैका लागि खुला राख्न, अनुवाद सुधार्न र सावधानीपूर्वक जाँचिएको सामग्री प्रकाशित गरिरहन मद्दत गर्छ।", "আমরা একাধিক ভাষায় একটি বিনামূল্যের, সূত্রনির্ভর ইসলামি লাইব্রেরি গড়ছি। আপনার সহায়তা লাইব্রেরিকে সবার জন্য উন্মুক্ত রাখতে, অনুবাদ উন্নত করতে এবং যত্নে যাচাই করা বিষয়বস্তু প্রকাশ চালিয়ে যেতে সাহায্য করে।", "பல மொழிகளில் இலவசமான, ஆதார அடிப்படையிலான இஸ்லாமிய நூலகத்தை உருவாக்கி வருகிறோம். உங்கள் ஆதரவு நூலகத்தை அனைவருக்கும் திறந்ததாக வைக்கவும், மொழிபெயர்ப்புகளை மேம்படுத்தவும், கவனமாகச் சரிபார்க்கப்பட்ட உள்ளடக்கத்தைத் தொடர்ந்து வெளியிடவும் உதவுகிறது.", "نبني مكتبة إسلامية مجانية موثّقة المصادر بلغات متعددة. دعمك يساعدنا على إبقاء المكتبة متاحة للجميع، وتحسين الترجمات، ومواصلة نشر محتوى مراجَع بعناية.", "Kami membangun perpustakaan belajar Islam yang gratis dan berbasis sumber dalam berbagai bahasa. Dukungan Anda membantu perpustakaan tetap terbuka, terjemahan makin baik, dan konten yang ditinjau cermat terus terbit.", "Birçok dilde ücretsiz, kaynağa dayalı bir İslami öğrenme kütüphanesi kuruyoruz. Desteğiniz kütüphanenin herkese açık kalmasına, çevirilerin gelişmesine ve özenle incelenmiş içeriğin yayımlanmaya devam etmesine yardımcı olur.", "Hum kai zabanon mein ek muft, hawalon par mabni Islami library bana rahe hain. Aap ka taawun library ko sab ke liye khula rakhne, tarajim behtar karne aur ehtiyat se jaanchi gayi mawad shaya karte rehne mein madad karta hai."], "Free access": ["मुफ़्त पहुँच", "مفت رسائی", "निःशुल्क पहुँच", "বিনামূল্যে প্রবেশ", "இலவச அணுகல்", "وصول مجاني", "Akses gratis", "Ücretsiz erişim", "Muft rasai"], "No paywall": ["कोई शुल्क नहीं", "کوئی فیس نہیں", "कुनै शुल्क छैन", "কোনো ফি নেই", "கட்டணம் இல்லை", "بلا اشتراك مدفوع", "Tanpa biaya", "Ücret yok", "Koi fees nahin"], "Multilingual": ["बहुभाषी", "کثیر لسانی", "बहुभाषिक", "বহুভাষিক", "பன்மொழி", "متعدد اللغات", "Multibahasa", "Çok dilli", "Kai zabanein"], "More languages": ["और भाषाएँ", "مزید زبانیں", "थप भाषाहरू", "আরও ভাষা", "மேலும் மொழிகள்", "لغات أكثر", "Lebih banyak bahasa", "Daha fazla dil", "Mazeed zabanein"], "Source-based": ["स्रोत-आधारित", "مستند حوالوں پر مبنی", "स्रोतमा आधारित", "সূত্রনির্ভর", "ஆதார அடிப்படை", "موثّق المصادر", "Berbasis sumber", "Kaynağa dayalı", "Hawalon par mabni"], "Careful review": ["सावधानी से जाँच", "محتاط جانچ", "सावधानीपूर्ण समीक्षा", "যত্নশীল যাচাই", "கவனமான மதிப்பாய்வு", "مراجعة دقيقة", "Ditinjau cermat", "Titiz inceleme", "Ehtiyat se jaanch"], "Qur’an 2:195 · “Spend in the way of Allah.”": ["क़ुरआन 2:195 · “अल्लाह की राह में ख़र्च करो।”", "قرآن 2:195 · ”اللہ کی راہ میں خرچ کرو۔“", "कुरआन 2:195 · “अल्लाहको बाटोमा खर्च गर।”", "কুরআন ২:১৯৫ · “আল্লাহর পথে ব্যয় করো।”", "குர்ஆன் 2:195 · “அல்லாஹ்வின் பாதையில் செலவு செய்யுங்கள்.”", "القرآن 2:195 · ﴿وأنفقوا في سبيل الله﴾", "Al-Qur’an 2:195 · “Berinfaklah di jalan Allah.”", "Kur’an 2:195 · “Allah yolunda harcayın.”", "Quran 2:195 · “Allah ki raah mein kharch karo.”"], "Donate now": ["अभी दान करें", "ابھی عطیہ دیں", "अहिले दान गर्नुहोस्", "এখনই দান করুন", "இப்போதே நன்கொடை அளியுங்கள்", "تبرّع الآن", "Donasi sekarang", "Şimdi bağış yap", "Abhi atiya dein"], "(opens your email app)": ["(आपका ईमेल ऐप खुलेगा)", "(آپ کی ای میل ایپ کھلے گی)", "(तपाईंको इमेल एप खुल्छ)", "(আপনার ইমেইল অ্যাপ খুলবে)", "(உங்கள் மின்னஞ்சல் செயலி திறக்கும்)", "(يفتح تطبيق البريد)", "(membuka aplikasi email Anda)", "(e-posta uygulamanızı açar)", "(aap ki email app khulegi)"], "WhatsApp us": ["WhatsApp करें", "ہمیں WhatsApp کریں", "WhatsApp गर्नुहोस्", "WhatsApp করুন", "WhatsApp-இல் தொடர்புகொள்ளுங்கள்", "راسلنا عبر WhatsApp", "Hubungi via WhatsApp", "WhatsApp’tan yazın", "Hamein WhatsApp karein"], "Support the library and help keep beneficial knowledge freely accessible.": ["लाइब्रेरी का साथ दें और फ़ायदेमंद इल्म को सबके लिए मुफ़्त रखने में मदद करें।", "کتب خانے کا ساتھ دیں اور نفع بخش علم کو سب کے لیے مفت رکھنے میں مدد کریں۔", "पुस्तकालयलाई साथ दिनुहोस् र लाभदायक ज्ञानलाई निःशुल्क राख्न सहयोग गर्नुहोस्।", "লাইব্রেরির পাশে থাকুন এবং উপকারী জ্ঞান সবার জন্য বিনামূল্যে রাখতে সাহায্য করুন।", "நூலகத்திற்கு ஆதரவளித்து, பயனுள்ள அறிவை இலவசமாக வைத்திருக்க உதவுங்கள்.", "ادعم المكتبة وساعد في إبقاء العلم النافع متاحًا مجانًا.", "Dukung perpustakaan dan bantu ilmu yang bermanfaat tetap dapat diakses gratis.", "Kütüphaneye destek olun, faydalı ilmin ücretsiz kalmasına yardım edin.", "Library ka saath dein aur nafa-bakhsh ilm ko sab ke liye muft rakhne mein madad karein."], "Seerah": ["सीरत", "سیرت", "सीरत", "সীরাত", "சீரத்", "السيرة", "Sirah", "Siyer", "Seerat"], "The Life of the Prophet ﷺ": ["नबी ﷺ का जीवन", "نبی ﷺ کی حیاتِ طیبہ", "नबी ﷺ को जीवन", "নবী ﷺ-এর জীবন", "நபி ﷺ அவர்களின் வாழ்க்கை", "حياة النبي ﷺ", "Kehidupan Nabi ﷺ", "Peygamber’in ﷺ Hayatı", "Nabi ﷺ ki zindagi"], "A multilingual library of authentic Seerah books, built by UmmahTech.": ["प्रामाणिक सीरत किताबों की एक बहुभाषी लाइब्रेरी, UmmahTech द्वारा।", "مستند سیرت کی کتابوں کا کثیر لسانی کتب خانہ، UmmahTech کی پیشکش۔", "प्रामाणिक सीरत पुस्तकहरूको बहुभाषिक पुस्तकालय, UmmahTech द्वारा।", "নির্ভরযোগ্য সীরাত গ্রন্থের একটি বহুভাষিক লাইব্রেরি, UmmahTech-এর তৈরি।", "நம்பகமான சீரத் நூல்களின் பன்மொழி நூலகம், UmmahTech உருவாக்கியது.", "مكتبة متعددة اللغات لكتب السيرة الموثوقة، من إعداد UmmahTech.", "Perpustakaan multibahasa buku-buku Sirah autentik, dibangun oleh UmmahTech.", "Güvenilir siyer kitaplarından oluşan çok dilli bir kütüphane; UmmahTech tarafından.", "Mustanad Seerat kitabon ki kai zabanon wali library, UmmahTech ki taraf se."], "“Indeed, in the Messenger of Allah you have an excellent example.”": ["“निःसंदेह तुम्हारे लिए अल्लाह के रसूल में बेहतरीन नमूना है।”", "”یقیناً تمہارے لیے اللہ کے رسول میں بہترین نمونہ ہے۔“", "“निश्चय नै तिमीहरूका लागि अल्लाहका रसूलमा उत्तम आदर्श छ।”", "“নিশ্চয়ই তোমাদের জন্য আল্লাহর রাসূলের মধ্যে রয়েছে উত্তম আদর্শ।”", "“நிச்சயமாக அல்லாஹ்வின் தூதரிடம் உங்களுக்கு அழகிய முன்மாதிரி இருக்கிறது.”", "﴿لقد كان لكم في رسول الله أسوة حسنة﴾", "“Sungguh, pada diri Rasulullah itu terdapat suri teladan yang baik bagimu.”", "“Andolsun, Allah’ın Resulünde sizin için güzel bir örnek vardır.”", "“Yaqeenan tumhare liye Allah ke Rasool mein behtareen namuna hai.”"], "Surah Al-Ahzab · 33:21": ["सूरह अल-अहज़ाब · 33:21", "سورۃ الاحزاب · 33:21", "सूरह अल-अहजाब · 33:21", "সূরা আল-আহযাব · ৩৩:২১", "சூரா அல்-அஹ்ஸாப் · 33:21", "سورة الأحزاب · 33:21", "QS. Al-Ahzab · 33:21", "Ahzâb Sûresi · 33:21", "Surah Al-Ahzab · 33:21"], "Powered by": ["संचालक", "پیشکش", "सञ्चालक", "পরিচালনায়", "வழங்குவது", "بدعم من", "Didukung oleh", "Destekleyen", "Powered by"], "Reading content will be added soon.": ["पढ़ने की सामग्री जल्द जोड़ी जाएगी।", "مطالعے کا مواد جلد شامل کیا جائے گا۔", "पढ्ने सामग्री चाँडै थपिनेछ।", "পড়ার বিষয়বস্তু শীঘ্রই যুক্ত হবে।", "வாசிப்பு உள்ளடக்கம் விரைவில் சேர்க்கப்படும்.", "سيُضاف محتوى القراءة قريبًا.", "Konten bacaan akan segera ditambahkan.", "Okuma içeriği yakında eklenecek.", "Parhne ka mawad jald shamil kiya jayega."], "Choose language": ["भाषा चुनें", "زبان منتخب کریں", "भाषा छान्नुहोस्", "ভাষা নির্বাচন করুন", "மொழியைத் தேர்ந்தெடுக்கவும்", "اختر اللغة", "Pilih bahasa", "Dil seçin", "Zaban chunein"], "Open menu": ["मेनू खोलें", "مینو کھولیں", "मेनु खोल्नुहोस्", "মেনু খুলুন", "மெனுவைத் திற", "افتح القائمة", "Buka menu", "Menüyü aç", "Menu kholein"], "Show another ayah": ["दूसरी आयत दिखाएँ", "دوسری آیت دکھائیں", "अर्को आयत देखाउनुहोस्", "আরেকটি আয়াত দেখান", "மற்றொரு வசனம் காட்டு", "اعرض آية أخرى", "Tampilkan ayat lain", "Başka bir ayet göster", "Doosri ayat dikhayein"], "Another ayah": ["दूसरी आयत", "دوسری آیت", "अर्को आयत", "আরেকটি আয়াত", "மற்றொரு வசனம்", "آية أخرى", "Ayat lain", "Başka ayet", "Doosri ayat"], "Show another hadith": ["दूसरी हदीस दिखाएँ", "دوسری حدیث دکھائیں", "अर्को हदीस देखाउनुहोस्", "আরেকটি হাদিস দেখান", "மற்றொரு ஹதீஸ் காட்டு", "اعرض حديثًا آخر", "Tampilkan hadis lain", "Başka bir hadis göster", "Doosri hadees dikhayein"], "Another hadith": ["दूसरी हदीस", "دوسری حدیث", "अर्को हदीस", "আরেকটি হাদিস", "மற்றொரு ஹதீஸ்", "حديث آخر", "Hadis lain", "Başka hadis", "Doosri hadees"], "Primary navigation": ["मुख्य नेविगेशन", "مرکزی نیویگیشن", "मुख्य नेभिगेसन", "প্রধান নেভিগেশন", "முதன்மை வழிசெலுத்தல்", "التنقل الرئيسي", "Navigasi utama", "Ana gezinme", "Asal navigation"], "Available languages": ["उपलब्ध भाषाएँ", "دستیاب زبانیں", "उपलब्ध भाषाहरू", "উপলব্ধ ভাষা", "கிடைக்கும் மொழிகள்", "اللغات المتاحة", "Bahasa yang tersedia", "Mevcut diller", "Dastiyab zabanein"], "Browse by group": ["समूह के अनुसार देखें", "گروہ کے لحاظ سے دیکھیں", "समूहअनुसार हेर्नुहोस्", "দল অনুযায়ী দেখুন", "குழு வாரியாகப் பாருங்கள்", "تصفح حسب الفئة", "Telusuri per kelompok", "Gruba göre göz at", "Group ke lihaaz se dekhein"], "Daily reading": ["आज का अध्ययन", "آج کا مطالعہ", "आजको अध्ययन", "আজকের পাঠ", "இன்றைய வாசிப்பு", "قراءة اليوم", "Bacaan hari ini", "Bugünün okuması", "Aaj ki reading"], "Historical notes": ["ऐतिहासिक जानकारी", "تاریخی معلومات", "ऐतिहासिक जानकारी", "ঐতিহাসিক তথ্য", "வரலாற்றுத் தகவல்", "ملاحظات تاريخية", "Catatan sejarah", "Tarihî notlar", "Tareekhi maloomat"], "Change": ["बदलें", "تبدیل کریں", "बदल्नुहोस्", "পরিবর্তন", "மாற்று", "تغيير", "Ubah", "Değiştir", "Badlein"], "Explore the life of Prophet Muhammad ﷺ through a clear, well-researched Seerah — from Makkah before revelation to the challenges of prophethood and the establishment of the Muslim community in Madinah. Presented in three eras, Ar-Raheeq Al-Makhtum brings the Prophet’s ﷺ journey, character, and mission into a readable and meaningful narrative.": ["एक साफ़ और गहन शोध पर आधारित सीरत के ज़रिए नबी मुहम्मद ﷺ का जीवन जानें — वह्य से पहले के मक्का से लेकर नुबुव्वत की चुनौतियों और मदीना में मुस्लिम समाज की स्थापना तक। तीन दौर में बँटी अर-रहीक़ अल-मख़्तूम नबी ﷺ के सफ़र, अख़लाक़ और मिशन को पढ़ने में आसान और असरदार अंदाज़ में पेश करती है।", "ایک واضح اور تحقیق شدہ سیرت کے ذریعے نبی محمد ﷺ کی حیاتِ طیبہ کو جانیں — وحی سے پہلے کے مکہ سے لے کر نبوت کے مراحل اور مدینہ میں مسلم معاشرے کے قیام تک۔ تین ادوار میں تقسیم الرحیق المختوم نبی ﷺ کے سفر، اخلاق اور مشن کو رواں اور بامعنی انداز میں پیش کرتی ہے۔", "स्पष्ट र राम्रो अनुसन्धानमा आधारित सीरतमार्फत नबी मुहम्मद ﷺ को जीवन जान्नुहोस् — वह्यअघिको मक्कादेखि नुबुव्वतका चुनौती र मदीनामा मुस्लिम समाजको स्थापनासम्म। तीन कालखण्डमा प्रस्तुत अर-रहीक अल-मख्तूमले नबी ﷺ को यात्रा, चरित्र र मिशनलाई पढ्न सजिलो र अर्थपूर्ण कथाका रूपमा ल्याउँछ।", "একটি স্পষ্ট ও গবেষণালব্ধ সীরাতের মাধ্যমে নবী মুহাম্মাদ ﷺ-এর জীবন জানুন — ওহির আগের মক্কা থেকে নবুওয়াতের চ্যালেঞ্জ এবং মদিনায় মুসলিম সমাজ প্রতিষ্ঠা পর্যন্ত। তিনটি যুগে বিন্যস্ত আর-রাহীকুল মাখতূম নবী ﷺ-এর পথচলা, চরিত্র ও মিশনকে সহজপাঠ্য ও অর্থবহ বর্ণনায় তুলে ধরে।", "தெளிவான, நன்கு ஆராயப்பட்ட சீரத் மூலம் நபி முஹம்மது ﷺ அவர்களின் வாழ்க்கையை அறியுங்கள் — வஹீக்கு முந்தைய மக்கா முதல் நபித்துவத்தின் சவால்கள், மதீனாவில் முஸ்லிம் சமூகம் நிறுவப்பட்டது வரை. மூன்று காலகட்டங்களாக அமைந்த அர்-ரஹீக் அல்-மக்தூம், நபி ﷺ அவர்களின் பயணம், பண்பு, பணியை எளிதாக வாசிக்கக்கூடிய, அர்த்தமுள்ள விவரணையாகத் தருகிறது.", "تعرّف على حياة النبي محمد ﷺ من خلال سيرة واضحة محكمة البحث — من مكة قبل البعثة إلى تحديات النبوة وقيام المجتمع المسلم في المدينة. يقدّم «الرحيق المختوم» في ثلاث مراحل رحلةَ النبي ﷺ وخُلقه ورسالته في سرد سلس هادف.", "Kenali kehidupan Nabi Muhammad ﷺ melalui Sirah yang jelas dan diteliti dengan baik — dari Makkah sebelum wahyu hingga tantangan kenabian dan berdirinya masyarakat Muslim di Madinah. Disajikan dalam tiga periode, Ar-Rahiq Al-Makhtum menghadirkan perjalanan, akhlak, dan misi Nabi ﷺ dalam kisah yang mudah dibaca dan bermakna.", "Hz. Muhammed’in ﷺ hayatını açık ve sağlam araştırmaya dayalı bir siyerle keşfedin — vahiyden önceki Mekke’den peygamberliğin zorluklarına ve Medine’de Müslüman toplumun kuruluşuna kadar. Üç dönemde sunulan er-Rahîku’l-Mahtûm, Peygamber’in ﷺ yolculuğunu, ahlakını ve davetini akıcı ve anlamlı bir anlatımla aktarır.", "Ek wazeh aur tahqeeq shuda Seerat ke zariye Nabi Muhammad ﷺ ki zindagi ko janein — wahi se pehle ke Makkah se le kar nabuwwat ke marahil aur Madinah mein Muslim muashre ke qiyam tak. Teen adwaar mein taqseem Ar-Raheeq Al-Makhtum Nabi ﷺ ke safar, akhlaq aur mission ko rawan aur ba-maani andaaz mein pesh karti hai."], "Close ↑": ["बंद करें ↑", "بند کریں ↑", "बन्द गर्नुहोस् ↑", "বন্ধ করুন ↑", "மூடு ↑", "إغلاق ↑", "Tutup ↑", "Kapat ↑", "Band karein ↑"], "Languages:": ["भाषाएँ:", "زبانیں:", "भाषाहरू:", "ভাষা:", "மொழிகள்:", "اللغات:", "Bahasa:", "Diller:", "Zabanein:"], "New": ["नई", "نئی", "नयाँ", "নতুন", "புதியது", "جديد", "Baru", "Yeni", "Nayi"], "Prepared by": ["तैयारकर्ता", "مرتب:", "तयारकर्ता", "প্রস্তুতকারী", "தொகுத்தவர்", "إعداد", "Disusun oleh", "Hazırlayan", "Murattib"], "Various scholars": ["विभिन्न उलमा", "مختلف علماء", "विभिन्न विद्वान", "বিভিন্ন আলেম", "பல்வேறு அறிஞர்கள்", "نخبة من العلماء", "Berbagai ulama", "Çeşitli âlimler", "Mukhtalif ulama"], "Short stories of the Sahaba for young readers.": ["छोटे पाठकों के लिए सहाबा की छोटी कहानियाँ।", "کم عمر قارئین کے لیے صحابہ کی مختصر کہانیاں۔", "साना पाठकका लागि सहाबाका छोटा कथाहरू।", "ছোট পাঠকদের জন্য সাহাবিদের ছোট গল্প।", "இளம் வாசகர்களுக்கான ஸஹாபாக்களின் சிறுகதைகள்.", "قصص قصيرة عن الصحابة للقرّاء الصغار.", "Kisah-kisah pendek para Sahabat untuk pembaca cilik.", "Küçük okurlar için sahâbe hikâyeleri.", "Chhote qareen ke liye Sahaba ki mukhtasar kahaniyan."], "A literary Urdu Seerah written in an engaging narrative style, focusing on the Prophet’s ﷺ life and character.": ["दिलचस्प कथात्मक अंदाज़ में लिखी एक साहित्यिक उर्दू सीरत, जो नबी ﷺ के जीवन और अख़लाक़ पर केंद्रित है।", "دلچسپ بیانیہ انداز میں لکھی گئی ایک ادبی اردو سیرت، جو نبی ﷺ کی زندگی اور اخلاق پر مرکوز ہے۔", "रोचक कथात्मक शैलीमा लेखिएको साहित्यिक उर्दू सीरत, जसले नबी ﷺ को जीवन र चरित्रमा ध्यान दिन्छ।", "আকর্ষণীয় বর্ণনাভঙ্গিতে লেখা একটি সাহিত্যিক উর্দু সীরাত, যা নবী ﷺ-এর জীবন ও চরিত্রে আলোকপাত করে।", "நபி ﷺ அவர்களின் வாழ்க்கை, பண்பில் கவனம் செலுத்தும், சுவையான கதை நடையில் எழுதப்பட்ட இலக்கிய உருது சீரத்.", "سيرة أدبية بالأردية بأسلوب سردي شيّق، تركّز على حياة النبي ﷺ وأخلاقه.", "Sirah sastra berbahasa Urdu dengan gaya bertutur yang memikat, berfokus pada kehidupan dan akhlak Nabi ﷺ.", "Peygamber’in ﷺ hayatına ve ahlakına odaklanan, akıcı anlatımlı edebî bir Urduca siyer.", "Dilchasp bayaniya andaaz mein likhi gayi ek adabi Urdu Seerat, jo Nabi ﷺ ki zindagi aur akhlaq par markooz hai."], "Lessons and reflections drawn from the Prophet’s ﷺ life.": ["नबी ﷺ के जीवन से मिलने वाले सबक़ और विचार।", "نبی ﷺ کی زندگی سے حاصل ہونے والے اسباق اور تأملات۔", "नबी ﷺ को जीवनबाट पाइने पाठ र चिन्तन।", "নবী ﷺ-এর জীবন থেকে নেওয়া শিক্ষা ও ভাবনা।", "நபி ﷺ அவர்களின் வாழ்விலிருந்து பெறப்படும் பாடங்களும் சிந்தனைகளும்.", "دروس وتأملات مستخلصة من حياة النبي ﷺ.", "Pelajaran dan renungan dari kehidupan Nabi ﷺ.", "Peygamber’in ﷺ hayatından çıkarılan dersler ve tefekkürler.", "Nabi ﷺ ki zindagi se hasil hone wale sabaq aur ghaur o fikr."], "Lecture-style chapters for guided classroom reading.": ["कक्षा में मार्गदर्शन के साथ पढ़ने के लिए व्याख्यान-शैली के अध्याय।", "کلاس میں رہنمائی کے ساتھ مطالعے کے لیے لیکچر طرز کے ابواب۔", "कक्षामा मार्गदर्शनसहित पढ्न व्याख्यान शैलीका अध्यायहरू।", "শ্রেণিকক্ষে নির্দেশিত পাঠের জন্য বক্তৃতা-ধাঁচের অধ্যায়।", "வகுப்பறையில் வழிகாட்டலுடன் வாசிக்க உரை நடை அத்தியாயங்கள்.", "فصول بأسلوب المحاضرات للقراءة الموجَّهة في الصف.", "Bab bergaya ceramah untuk bacaan terbimbing di kelas.", "Sınıfta rehberli okuma için ders tarzında bölümler.", "Class mein rehnumai ke saath parhne ke liye lecture style abwaab."], "A simple first introduction written for little ones.": ["नन्हे बच्चों के लिए लिखा गया एक आसान पहला परिचय।", "ننھے بچوں کے لیے لکھا گیا ایک آسان ابتدائی تعارف۔", "साना नानीहरूका लागि लेखिएको सरल पहिलो परिचय।", "ছোট্টদের জন্য লেখা একটি সহজ প্রথম পরিচিতি।", "சிறு குழந்தைகளுக்காக எழுதப்பட்ட எளிய முதல் அறிமுகம்.", "مدخل أول مبسّط كُتب للصغار.", "Pengenalan pertama yang sederhana untuk si kecil.", "Küçükler için yazılmış sade bir ilk tanıtım.", "Nanhe bachon ke liye likha gaya ek aasan pehla taaruf."], "Gentle, illustrated stories from the Prophet’s ﷺ life.": ["नबी ﷺ के जीवन से कोमल, चित्रों वाली कहानियाँ।", "نبی ﷺ کی زندگی سے نرم و دلنشیں، تصویری کہانیاں۔", "नबी ﷺ को जीवनबाट कोमल, चित्रसहितका कथाहरू।", "নবী ﷺ-এর জীবন থেকে কোমল, সচিত্র গল্প।", "நபி ﷺ அவர்களின் வாழ்விலிருந்து மென்மையான, படங்களுடன் கூடிய கதைகள்.", "قصص لطيفة مصوّرة من حياة النبي ﷺ.", "Kisah-kisah lembut bergambar dari kehidupan Nabi ﷺ.", "Peygamber’in ﷺ hayatından sıcak, resimli hikâyeler.", "Nabi ﷺ ki zindagi se narm, tasveeri kahaniyan."], "Summaries, key dates, and notes for madrasa and school.": ["मदरसा और स्कूल के लिए सारांश, अहम तारीख़ें और नोट्स।", "مدرسہ اور اسکول کے لیے خلاصے، اہم تاریخیں اور نوٹس۔", "मदरसा र विद्यालयका लागि सारांश, मुख्य मिति र टिपोटहरू।", "মাদরাসা ও স্কুলের জন্য সারসংক্ষেপ, গুরুত্বপূর্ণ তারিখ ও নোট।", "மதரஸா, பள்ளிக்கான சுருக்கங்கள், முக்கிய தேதிகள், குறிப்புகள்.", "ملخصات وتواريخ مهمة وملاحظات للمدارس الدينية والنظامية.", "Ringkasan, tanggal penting, dan catatan untuk madrasah dan sekolah.", "Medrese ve okul için özetler, önemli tarihler ve notlar.", "Madrasa aur school ke liye khulase, ahem tareekhein aur notes."], "Sourced passages and cross-references for closer study.": ["गहरे अध्ययन के लिए स्रोतों सहित अंश और परस्पर हवाले।", "گہرے مطالعے کے لیے حوالہ جاتی اقتباسات اور باہمی حوالے۔", "गहिरो अध्ययनका लागि स्रोतसहितका अंश र अन्तर-सन्दर्भहरू।", "গভীর অধ্যয়নের জন্য সূত্রসহ উদ্ধৃতি ও পারস্পরিক রেফারেন্স।", "ஆழ்ந்த படிப்புக்கான ஆதாரத்துடன் கூடிய பகுதிகளும் குறுக்குக் குறிப்புகளும்.", "نصوص موثّقة وإحالات متقاطعة للدراسة المتأنية.", "Kutipan bersumber dan rujukan silang untuk kajian lebih dekat.", "Yakından inceleme için kaynaklı metinler ve çapraz atıflar.", "Gehre mutale ke liye hawalon ke saath iqtibasaat aur baahami hawale."], "The classic multi-volume biography, in summarized form.": ["कई खंडों वाली क्लासिक सीरत, संक्षिप्त रूप में।", "کئی جلدوں پر مشتمل کلاسیکی سیرت، خلاصے کی صورت میں۔", "धेरै खण्डको क्लासिक जीवनी, संक्षिप्त रूपमा।", "বহু খণ্ডের ধ্রুপদি জীবনী, সংক্ষিপ্ত আকারে।", "பல தொகுதிகள் கொண்ட செவ்வியல் வாழ்க்கை வரலாறு, சுருக்கமாக.", "السيرة الكلاسيكية متعددة المجلدات في صورة مختصرة.", "Biografi klasik berjilid-jilid dalam bentuk ringkas.", "Çok ciltli klasik siyer, özet hâlinde.", "Kai jildon wali classic Seerat, khulase ki soorat mein."], "The earliest extant biography — a foundational primary text.": ["उपलब्ध सबसे पुरानी सीरत — एक बुनियादी मूल स्रोत।", "موجودہ سب سے قدیم سیرت — ایک بنیادی اصل ماخذ۔", "उपलब्धमध्ये सबैभन्दा पुरानो जीवनी — आधारभूत मूल स्रोत।", "বিদ্যমান প্রাচীনতম জীবনী — একটি মৌলিক প্রাথমিক উৎস।", "கிடைக்கும் மிகப் பழமையான வாழ்க்கை வரலாறு — அடிப்படை மூல நூல்.", "أقدم سيرة وصلت إلينا — نص أصيل تأسيسي.", "Biografi tertua yang masih ada — teks sumber primer yang mendasar.", "Günümüze ulaşan en eski siyer — temel bir birincil kaynak.", "Maujooda sab se qadeem Seerat — ek bunyadi asal maakhaz."], "A brief introduction to the Prophet’s ﷺ life and message.": ["नबी ﷺ के जीवन और पैग़ाम का संक्षिप्त परिचय।", "نبی ﷺ کی زندگی اور پیغام کا مختصر تعارف۔", "नबी ﷺ को जीवन र सन्देशको संक्षिप्त परिचय।", "নবী ﷺ-এর জীবন ও বার্তার সংক্ষিপ্ত পরিচিতি।", "நபி ﷺ அவர்களின் வாழ்க்கை, தூதுச் செய்தியின் சுருக்கமான அறிமுகம்.", "مدخل موجز إلى حياة النبي ﷺ ورسالته.", "Pengantar singkat tentang kehidupan dan risalah Nabi ﷺ.", "Peygamber’in ﷺ hayatına ve mesajına kısa bir giriş.", "Nabi ﷺ ki zindagi aur paigham ka mukhtasar taaruf."], "A concise Seerah for general readers.": ["आम पाठकों के लिए संक्षिप्त सीरत।", "عام قارئین کے لیے مختصر سیرت۔", "सामान्य पाठकका लागि संक्षिप्त सीरत।", "সাধারণ পাঠকদের জন্য সংক্ষিপ্ত সীরাত।", "பொது வாசகர்களுக்கான சுருக்கமான சீரத்.", "سيرة موجزة للقارئ العام.", "Sirah ringkas untuk pembaca umum.", "Genel okuyucu için özlü bir siyer.", "Aam qareen ke liye mukhtasar Seerat."], "SEERAH LIBRARY": ["सीरत लाइब्रेरी", "سیرت لائبریری", "सीरत पुस्तकालय", "সীরাত লাইব্রেরি", "சீரத் நூலகம்", "مكتبة السيرة", "PERPUSTAKAAN SIRAH", "SİYER KÜTÜPHANESİ", "SEERAT LIBRARY"], "On this page": ["इस पेज पर", "اس صفحے پر", "यस पृष्ठमा", "এই পৃষ্ঠায়", "இந்தப் பக்கத்தில்", "في هذه الصفحة", "Di halaman ini", "Bu sayfada", "Is page par"], "Seerah questions": ["सीरत के सवाल", "سیرت کے سوالات", "सीरतका प्रश्न", "সীরাতের প্রশ্ন", "சீரத் கேள்விகள்", "أسئلة السيرة", "Pertanyaan Sirah", "Siyer soruları", "Seerat ke sawalat"], "Qur’an questions": ["क़ुरआन के सवाल", "قرآن کے سوالات", "कुरआनका प्रश्न", "কুরআনের প্রশ্ন", "குர்ஆன் கேள்விகள்", "أسئلة عن القرآن", "Pertanyaan Al-Qur’an", "Kur’an soruları", "Quran ke sawalat"], "Common questions": ["आम सवाल", "عام سوالات", "सामान्य प्रश्न", "সাধারণ প্রশ্ন", "பொதுவான கேள்விகள்", "أسئلة شائعة", "Pertanyaan umum", "Sık sorulan sorular", "Aam sawalat"], "Articles": ["लेख", "مضامین", "लेखहरू", "প্রবন্ধ", "கட்டுரைகள்", "مقالات", "Artikel", "Makaleler", "Mazameen"], "“So ask the people of knowledge if you do not know.”": ["“अगर तुम नहीं जानते तो इल्म वालों से पूछ लो।”", "”اگر تم نہیں جانتے تو اہلِ علم سے پوچھ لو۔“", "“यदि तिमीलाई थाहा छैन भने ज्ञानीहरूसँग सोध।”", "“তোমরা যদি না জানো, তবে জ্ঞানীদের জিজ্ঞাসা করো।”", "“நீங்கள் அறியாதிருந்தால் அறிவுடையோரிடம் கேளுங்கள்.”", "﴿فاسألوا أهل الذكر إن كنتم لا تعلمون﴾", "“Maka bertanyalah kepada orang yang berilmu jika kamu tidak mengetahui.”", "“Bilmiyorsanız bilenlere sorun.”", "“Agar tum nahin jante to ahl-e-ilm se pooch lo.”"], "Surah An-Nahl · 16:43": ["सूरह अन-नह्ल · 16:43", "سورۃ النحل · 16:43", "सूरह अन-नहल · 16:43", "সূরা আন-নাহল · ১৬:৪৩", "சூரா அந்-நஹ்ல் · 16:43", "سورة النحل · 16:43", "QS. An-Nahl · 16:43", "Nahl Sûresi · 16:43", "Surah An-Nahl · 16:43"], "“And say, ‘My Lord, increase me in knowledge.’”": ["“और कहो: ऐ मेरे रब, मेरे इल्म में इज़ाफ़ा फ़रमा।”", "”اور کہو: اے میرے رب، میرے علم میں اضافہ فرما۔“", "“र भन: हे मेरो पालनहार, मेरो ज्ञान बढाइदेऊ।”", "“আর বলুন, হে আমার রব, আমার জ্ঞান বৃদ্ধি করুন।”", "“என் இறைவனே! எனக்கு அறிவை அதிகப்படுத்துவாயாக என்று கூறுவீராக.”", "﴿وقل رب زدني علمًا﴾", "“Dan katakanlah, ‘Ya Tuhanku, tambahkanlah ilmu kepadaku.’”", "“De ki: Rabbim, ilmimi artır.”", "“Aur kaho: Aye mere Rab, mere ilm mein izafa farma.”"], "Surah Ta-Ha · 20:114": ["सूरह ता-हा · 20:114", "سورۃ طٰہٰ · 20:114", "सूरह ता-हा · 20:114", "সূরা ত্বা-হা · ২০:১১৪", "சூரா தாஹா · 20:114", "سورة طه · 20:114", "QS. Taha · 20:114", "Tâhâ Sûresi · 20:114", "Surah Ta-Ha · 20:114"], "“Say, ‘Are those who know equal to those who do not know?’”": ["“कहो: क्या जानने वाले और न जानने वाले बराबर हो सकते हैं?”", "”کہو: کیا جاننے والے اور نہ جاننے والے برابر ہو سکتے ہیں؟“", "“भन: के जान्नेहरू र नजान्नेहरू बराबर हुन सक्छन्?”", "“বলুন, যারা জানে আর যারা জানে না, তারা কি সমান?”", "“அறிந்தோரும் அறியாதோரும் சமமாவார்களா? என்று கூறுவீராக.”", "﴿قل هل يستوي الذين يعلمون والذين لا يعلمون﴾", "“Katakanlah, ‘Apakah sama orang-orang yang mengetahui dengan orang-orang yang tidak mengetahui?’”", "“De ki: Hiç bilenlerle bilmeyenler bir olur mu?”", "“Kaho: Kya jaanne wale aur na jaanne wale barabar ho sakte hain?”"], "Surah Az-Zumar · 39:9": ["सूरह अज़-ज़ुमर · 39:9", "سورۃ الزمر · 39:9", "सूरह अज-जुमर · 39:9", "সূরা আয-যুমার · ৩৯:৯", "சூரா அஸ்-ஸுமர் · 39:9", "سورة الزمر · 39:9", "QS. Az-Zumar · 39:9", "Zümer Sûresi · 39:9", "Surah Az-Zumar · 39:9"], "Clear, respectful, and source-based answers to common questions about the Seerah, the Qur’an, and Islam.": ["सीरत, क़ुरआन और इस्लाम के बारे में आम सवालों के साफ़, सम्मानजनक और स्रोत-आधारित जवाब।", "سیرت، قرآن اور اسلام کے بارے میں عام سوالات کے واضح، باادب اور حوالوں پر مبنی جوابات۔", "सीरत, कुरआन र इस्लामबारे सामान्य प्रश्नका स्पष्ट, सम्मानजनक र स्रोतमा आधारित उत्तर।", "সীরাত, কুরআন ও ইসলাম বিষয়ে সাধারণ প্রশ্নের স্পষ্ট, শ্রদ্ধাশীল ও সূত্রনির্ভর উত্তর।", "சீரத், குர்ஆன், இஸ்லாம் பற்றிய பொதுவான கேள்விகளுக்குத் தெளிவான, மரியாதையான, ஆதார அடிப்படையிலான பதில்கள்.", "إجابات واضحة ومحترمة وموثّقة عن الأسئلة الشائعة حول السيرة والقرآن والإسلام.", "Jawaban yang jelas, santun, dan berbasis sumber atas pertanyaan umum tentang Sirah, Al-Qur’an, dan Islam.", "Siyer, Kur’an ve İslam hakkında sık sorulan sorulara açık, saygılı ve kaynağa dayalı cevaplar.", "Seerat, Quran aur Islam ke bare mein aam sawalat ke wazeh, ba-adab aur hawalon par mabni jawabat."], "Search questions and articles": ["सवाल और लेख खोजें", "سوالات اور مضامین تلاش کریں", "प्रश्न र लेख खोज्नुहोस्", "প্রশ্ন ও প্রবন্ধ খুঁজুন", "கேள்விகள், கட்டுரைகளைத் தேடுக", "ابحث في الأسئلة والمقالات", "Cari pertanyaan dan artikel", "Soru ve makalelerde ara", "Sawalat aur mazameen talash karein"], "Search, e.g. marriage or 4:34": ["खोजें, जैसे marriage या 4:34", "تلاش کریں، مثلاً marriage یا 4:34", "खोज्नुहोस्, जस्तै marriage वा 4:34", "খুঁজুন, যেমন marriage বা 4:34", "தேடுக, எ.கா. marriage அல்லது 4:34", "ابحث، مثل: marriage أو 4:34", "Cari, mis. marriage atau 4:34", "Ara, ör. marriage veya 4:34", "Talash karein, maslan marriage ya 4:34"], "Browse by topic": ["विषय के अनुसार देखें", "موضوع کے لحاظ سے دیکھیں", "विषयअनुसार हेर्नुहोस्", "বিষয় অনুযায়ী দেখুন", "தலைப்பு வாரியாகப் பாருங்கள்", "تصفح حسب الموضوع", "Telusuri per topik", "Konuya göre göz at", "Mauzu ke lihaaz se dekhein"], "Answers are being prepared. Every question already has its own page, and each answer will appear there once it is published.": ["जवाब तैयार किए जा रहे हैं। हर सवाल का अपना पेज पहले से है, और जवाब प्रकाशित होते ही वहाँ दिखेगा।", "جوابات تیار کیے جا رہے ہیں۔ ہر سوال کا اپنا صفحہ پہلے سے موجود ہے، اور جواب شائع ہوتے ہی وہاں نظر آئے گا۔", "उत्तरहरू तयार हुँदैछन्। हरेक प्रश्नको आफ्नै पृष्ठ पहिले नै छ, र उत्तर प्रकाशित भएपछि त्यहीँ देखिनेछ।", "উত্তরগুলো প্রস্তুত হচ্ছে। প্রতিটি প্রশ্নের নিজস্ব পৃষ্ঠা আগে থেকেই আছে; উত্তর প্রকাশিত হলে সেখানে দেখা যাবে।", "பதில்கள் தயாராகி வருகின்றன. ஒவ்வொரு கேள்விக்கும் ஏற்கெனவே தனிப் பக்கம் உள்ளது; பதில் வெளியானதும் அங்கே தோன்றும்.", "تُعدّ الإجابات الآن. لكل سؤال صفحته الخاصة، وستظهر الإجابة فيها حال نشرها.", "Jawaban sedang disiapkan. Setiap pertanyaan sudah memiliki halamannya sendiri, dan jawaban akan muncul di sana setelah diterbitkan.", "Cevaplar hazırlanıyor. Her sorunun zaten kendi sayfası var; cevap yayımlandığında orada görünecek.", "Jawabat tayyar kiye ja rahe hain. Har sawal ka apna page pehle se hai, aur jawab shaya hote hi wahan nazar aayega."], "Questions": ["सवाल", "سوالات", "प्रश्नहरू", "প্রশ্ন", "கேள்விகள்", "الأسئلة", "Pertanyaan", "Sorular", "Sawalat"], "Questions by topic": ["विषय के अनुसार सवाल", "موضوع وار سوالات", "विषयअनुसार प्रश्न", "বিষয়ভিত্তিক প্রশ্ন", "தலைப்பு வாரியான கேள்விகள்", "الأسئلة حسب الموضوع", "Pertanyaan per topik", "Konulara göre sorular", "Mauzu-war sawalat"], "Qur’an": ["क़ुरआन", "قرآن", "कुरआन", "কুরআন", "குர்ஆன்", "القرآن", "Al-Qur’an", "Kur’an", "Quran"], "Common": ["आम", "عام", "सामान्य", "সাধারণ", "பொது", "عامة", "Umum", "Genel", "Aam"], "Further reading": ["आगे पढ़ें", "مزید مطالعہ", "थप पढाइ", "আরও পড়ুন", "மேலும் வாசிக்க", "قراءات إضافية", "Bacaan lanjutan", "Daha fazla okuma", "Mazeed mutala"], "The life, character, and decisions of the Prophet ﷺ.": ["नबी ﷺ का जीवन, अख़लाक़ और फ़ैसले।", "نبی ﷺ کی زندگی، اخلاق اور فیصلے۔", "नबी ﷺ को जीवन, चरित्र र निर्णयहरू।", "নবী ﷺ-এর জীবন, চরিত্র ও সিদ্ধান্ত।", "நபி ﷺ அவர்களின் வாழ்க்கை, பண்பு, முடிவுகள்.", "حياة النبي ﷺ وأخلاقه وقراراته.", "Kehidupan, akhlak, dan keputusan Nabi ﷺ.", "Peygamber’in ﷺ hayatı, ahlakı ve kararları.", "Nabi ﷺ ki zindagi, akhlaq aur faisle."], "questions": ["सवाल", "سوالات", "प्रश्न", "প্রশ্ন", "கேள்விகள்", "سؤالًا", "pertanyaan", "soru", "sawalat"], "Specific verses and how scholars have understood them.": ["ख़ास आयतें और उलमा ने उन्हें कैसे समझा।", "مخصوص آیات اور علماء نے انہیں کیسے سمجھا۔", "विशेष आयतहरू र विद्वानहरूले तिनलाई कसरी बुझे।", "নির্দিষ্ট আয়াত এবং আলেমরা সেগুলো কীভাবে বুঝেছেন।", "குறிப்பிட்ட வசனங்களும் அறிஞர்கள் அவற்றைப் புரிந்துகொண்ட விதமும்.", "آيات بعينها وكيف فهمها العلماء.", "Ayat-ayat tertentu dan bagaimana para ulama memahaminya.", "Belirli âyetler ve âlimlerin onları nasıl anladığı.", "Makhsoos ayaat aur ulama ne unhein kaise samjha."], "Broader questions about faith, society, and history.": ["ईमान, समाज और इतिहास से जुड़े व्यापक सवाल।", "ایمان، معاشرے اور تاریخ سے متعلق وسیع سوالات۔", "आस्था, समाज र इतिहाससम्बन्धी व्यापक प्रश्न।", "ঈমান, সমাজ ও ইতিহাস বিষয়ে বিস্তৃত প্রশ্ন।", "நம்பிக்கை, சமூகம், வரலாறு பற்றிய பரந்த கேள்விகள்.", "أسئلة أوسع عن الإيمان والمجتمع والتاريخ.", "Pertanyaan yang lebih luas tentang iman, masyarakat, dan sejarah.", "İman, toplum ve tarih hakkında daha geniş sorular.", "Iman, muashre aur tareekh se mutalliq wasee sawalat."], "In-depth reading on key moments and themes from the Seerah.": ["सीरत के अहम पलों और विषयों पर गहराई से अध्ययन।", "سیرت کے اہم لمحات اور موضوعات پر گہرا مطالعہ۔", "सीरतका मुख्य क्षण र विषयमा गहिरो अध्ययन।", "সীরাতের গুরুত্বপূর্ণ মুহূর্ত ও বিষয় নিয়ে গভীর পাঠ।", "சீரத்தின் முக்கியத் தருணங்கள், கருப்பொருள்கள் பற்றிய ஆழ்ந்த வாசிப்பு.", "قراءات معمّقة في محطات السيرة وموضوعاتها الرئيسة.", "Bacaan mendalam tentang momen dan tema penting dalam Sirah.", "Siyerin önemli anları ve temaları üzerine derinlemesine okumalar.", "Seerat ke ahem lamhaat aur mauzuaat par gehra mutala."], "In preparation": ["तैयारी में", "زیرِ تیاری", "तयारीमा", "প্রস্তুত হচ্ছে", "தயாரிப்பில்", "قيد الإعداد", "Sedang disiapkan", "Hazırlanıyor", "Zer-e-tayyari"], "Featured article": ["विशेष लेख", "منتخب مضمون", "विशेष लेख", "বিশেষ প্রবন্ধ", "சிறப்புக் கட்டுரை", "مقال مميز", "Artikel pilihan", "Öne çıkan makale", "Khaas mazmoon"], "Nothing matches “": ["इससे कुछ नहीं मिला: “", "اس سے کچھ نہیں ملا: ”", "यसबाट केही भेटिएन: “", "কিছু মেলেনি: “", "எதுவும் பொருந்தவில்லை: “", "لا نتائج لـ «", "Tidak ada yang cocok dengan “", "Eşleşen bir şey yok: “", "Is se kuch nahin mila: “"], "Try a single word such as": ["कोई एक शब्द आज़माएँ, जैसे", "کوئی ایک لفظ آزمائیں، جیسے", "एउटा शब्द प्रयास गर्नुहोस्, जस्तै", "একটি শব্দ দিয়ে চেষ্টা করুন, যেমন", "ஒரு சொல்லை முயலுங்கள், எ.கா.", "جرّب كلمة واحدة مثل", "Coba satu kata seperti", "Tek bir kelime deneyin, örneğin", "Koi ek lafz aazmayein, jaise"], ", or a verse number such as": [", या आयत संख्या, जैसे", "، یا آیت نمبر، جیسے", ", वा आयत नम्बर, जस्तै", ", অথবা আয়াত নম্বর, যেমন", ", அல்லது வசன எண், எ.கா.", "، أو رقم آية مثل", ", atau nomor ayat seperti", ", ya da bir âyet numarası, örneğin", ", ya ayat number, jaise"], "Non-Muslim voices on the Prophet ﷺ": ["नबी ﷺ के बारे में ग़ैर-मुस्लिमों की राय", "نبی ﷺ کے بارے میں غیر مسلموں کی آراء", "नबी ﷺ बारे गैर-मुस्लिमहरूका विचार", "নবী ﷺ সম্পর্কে অমুসলিমদের মন্তব্য", "நபி ﷺ பற்றி முஸ்லிம் அல்லாதோரின் கருத்துகள்", "أقوال غير المسلمين في النبي ﷺ", "Pandangan non-Muslim tentang Nabi ﷺ", "Gayrimüslimlerin Peygamber ﷺ hakkındaki sözleri", "Nabi ﷺ ke bare mein ghair-Muslimon ki aara"]};
   const META={EN:['en','ltr'],HI:['hi','ltr'],UR:['ur','rtl'],NP:['ne','ltr'],BN:['bn','ltr'],TA:['ta','ltr'],AR:['ar','rtl'],ID:['id','ltr'],TR:['tr','ltr'],ROM:['ur-Latn','ltr']};
   const BOOKS_WORD={HI:'{n} किताबें',UR:'{n} کتابیں',NP:'{n} पुस्तक',BN:'{n}টি বই',TA:'{n} நூல்கள்',AR:'{n} كتب',ID:'{n} buku',TR:'{n} kitap',ROM:'{n} kitabein'};
   const LANGS_WORD={HI:'{n} भाषाएँ',UR:'{n} زبانیں',NP:'{n} भाषा',BN:'{n}টি ভাষা',TA:'{n} மொழிகள்',AR:'{n} لغة',ID:'{n} bahasa',TR:'{n} dil',ROM:'{n} zabanein'};
@@ -698,19 +1285,114 @@ renderStats();readHash();
 })();
 
 </script>
-<script>
-(function(){
-  const store={get(k){try{return localStorage.getItem(k)}catch{return null}},set(k,v){try{localStorage.setItem(k,v)}catch{}}};
-  const sel=document.getElementById('langSel');
-  function set(code){if(!sel.querySelector('option[value="'+code+'"]'))code='EN';sel.value=code;store.set('seerah-language',code);window.applyUiLanguage(code)}
-  let code=store.get('seerah-language-chosen')==='1'?(store.get('seerah-language')||'EN'):null,auto=null;
+<script id="site-shell-js">
+/* ═══════════════════════════════════════════════
+   0. HELPERS  (same as index.html / questions.html)
+   ═══════════════════════════════════════════════ */
+const $=(sel,root=document)=>root.querySelector(sel);
+const $$=(sel,root=document)=>[...root.querySelectorAll(sel)];
+const store={
+  get(key){try{return localStorage.getItem(key);}catch{return null;}},
+  set(key,value){try{localStorage.setItem(key,value);}catch{}}
+};
+const REDUCED_MOTION=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const icon=(id,cls='i')=>`<svg class="${cls}" aria-hidden="true"><use href="#i-${id}"/></svg>`;
+/* Shared Q&A data
+let toastTimer;
+function showToast(message){
+  const toast=$('#seerah-toast');if(!toast)return;
+  toast.textContent=message;toast.classList.add('show');
+  clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2800);
+}
+
+/* ═══════════════════════════════════════════════
+   1. HEADER — theme, mobile menu, language
+   ═══════════════════════════════════════════════ */
+$('.theme-toggle')?.addEventListener('click',()=>window.toggleTheme());
+
+const mobileNav=$('#mobileNav');
+const hamburger=$('.hamburger');
+function setMobileNav(open){
+  if(!mobileNav||!hamburger)return;
+  mobileNav.classList.toggle('open',open);
+  mobileNav.setAttribute('aria-hidden',String(!open));
+  mobileNav.inert=!open;
+  hamburger.setAttribute('aria-expanded',String(open));
+  hamburger.setAttribute('aria-label',open?'Close menu':'Open menu');
+  document.body.classList.toggle('menu-open',open);
+}
+hamburger?.addEventListener('click',()=>setMobileNav(!mobileNav.classList.contains('open')));
+$$('#mobileNav a').forEach(a=>a.addEventListener('click',()=>setMobileNav(false)));
+window.addEventListener('resize',()=>{if(window.innerWidth>1100)setMobileNav(false);});
+
+/* One language preference for the whole site (shared with index.html, questions.html and anbiya.html). */
+const SITE_LANGS=['EN','HI','UR','NP','BN','TA','AR','ID','TR','ROM'];
+const langSelect=$('.lang-select'),langButton=$('.lang-btn');
+function setLangMenu(open){
+  if(!langSelect)return;
+  langSelect.classList.toggle('is-open',open);
+  langButton?.setAttribute('aria-expanded',String(open));
+}
+langButton?.addEventListener('click',()=>{
+  const open=!langSelect.classList.contains('is-open');
+  setLangMenu(open);
+  if(open)$('.lang-option.active',langSelect)?.focus();
+});
+document.addEventListener('click',e=>{if(langSelect&&!langSelect.contains(e.target))setLangMenu(false);});
+langSelect?.addEventListener('keydown',e=>{
+  if(!['ArrowDown','ArrowUp'].includes(e.key))return;
+  const options=$$('.lang-option',langSelect);
+  const i=options.indexOf(document.activeElement);
+  if(i<0)return;
+  e.preventDefault();
+  options[(i+(e.key==='ArrowDown'?1:-1)+options.length)%options.length].focus();
+});
+document.addEventListener('keydown',e=>{
+  if(e.key!=='Escape')return;
+  if(langSelect?.classList.contains('is-open')){setLangMenu(false);langButton?.focus();}
+  if(mobileNav?.classList.contains('open')){setMobileNav(false);hamburger.focus();}
+});
+function setLang(code){
   if(code==='RU')code='ROM';
-  if(!code){auto=window.detectSiteLanguage();code=auto.code}
-  set(code);
-  if(auto&&code!=='EN')window.showLanguageNotice(auto.source,code,()=>{store.set('seerah-language-chosen','1');set('EN')});
-  sel.addEventListener('change',()=>{store.set('seerah-language-chosen','1');set(sel.value)});
-  window.addEventListener('storage',e=>{if(e.key==='seerah-language'&&e.newValue&&store.get('seerah-language-chosen')==='1')set(e.newValue)});
+  if(!SITE_LANGS.includes(code))code='EN';
+  $$('.lang-option').forEach(el=>{
+    const active=el.dataset.langCode===code;
+    el.classList.toggle('active',active);
+    el.setAttribute('aria-pressed',String(active));
+  });
+  const label=$('#lang-label');
+  if(label)label.textContent=code==='ROM'?'R. UR':code;
+  store.set('seerah-language',code);
+  store.set('seerah-hadith-language',code);
+  window.applyUiLanguage?.(code);
+}
+$$('.lang-option').forEach(el=>el.addEventListener('click',()=>{store.set('seerah-language-chosen','1');setLang(el.dataset.langCode);setLangMenu(false);langButton?.focus();}));
+(function(){
+  let saved=store.get('seerah-language-chosen')==='1'?(store.get('seerah-language')||store.get('seerah-hadith-language')||'EN'):null,auto=null;
+  if(!saved){auto=window.detectSiteLanguage?window.detectSiteLanguage():{code:'EN',source:'default'};saved=auto.code;}
+  setLang(saved);
+  if(auto&&saved!=='EN')window.showLanguageNotice?.(auto.source,saved,()=>{store.set('seerah-language-chosen','1');setLang('EN');});
 })();
+
+/* Reading progress bar */
+(function(){
+  const bar=$('#progress-bar');let ticking=false;
+  if(!bar)return;
+  window.addEventListener('scroll',()=>{
+    if(ticking)return;ticking=true;
+    requestAnimationFrame(()=>{
+      const total=document.documentElement.scrollHeight-innerHeight;
+      bar.style.transform=`scaleX(${total>0?Math.min(1,scrollY/total):0})`;
+      ticking=false;
+    });
+  },{passive:true});
+})();
+
+const yearEl=$('#footer-year');
+if(yearEl)yearEl.textContent=new Date().getFullYear();
 </script>
+
+<!-- Timeline events embedded below so this page does not need a separate data file. -->
 </body>
 </html>
