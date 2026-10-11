@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<!-- People of the Seerah — landing page v1 (sample data) · 2026-10-11 -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>People of the Seerah — Seerah</title>
+<meta name="description" content="An index of the people mentioned in the Seerah of Prophet Muhammad ﷺ — his family, Companions, rulers, opponents and others — and where they appear across the library.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FAFAF7">
+<script>
+(function(){var m='auto';try{var s=localStorage.getItem('seerah-theme-mode');if(['auto','light','dark'].indexOf(s)>-1)m=s}catch(e){}
+var d=window.matchMedia('(prefers-color-scheme: dark)').matches;var t=m==='auto'?(d?'dark':'light'):m;document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t;window.__themeMode=m})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Naskh+Arabic:wght@400;600;700&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --font-display:"Playfair Display",Georgia,serif;
+  --font-ui:"DM Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --font-ar:"Amiri","Noto Naskh Arabic",serif;
+  --header-h:64px;--wrap:1180px;--gutter:24px;
+  --r-lg:22px;--r:16px;--r-sm:12px;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+[data-theme="light"]{
+  --bg:#FAFAF7;--bg-2:#F1F3EC;--surface:#FFFFFF;--surface-2:#F7F8F4;
+  --line:#E3E6DD;--line-2:#D3D8CC;
+  --ink:#1A2318;--ink-2:#46513F;--ink-3:#65715F;
+  --accent:#1B6B4A;--accent-ink:#1B6B4A;--accent-soft:#E8F3EC;--accent-line:rgba(27,107,74,.32);
+  --gold-ink:#8A6508;--gold-soft:#FBF4E0;--gold-line:rgba(138,101,8,.28);
+  --btn:#1B6B4A;--btn-hover:#145439;--nav-bg:rgba(250,250,247,.88);
+  --shadow-sm:0 1px 2px rgba(26,35,24,.04),0 6px 18px rgba(26,35,24,.05);
+  --shadow:0 2px 6px rgba(26,35,24,.05),0 18px 40px rgba(26,35,24,.08);
+  --shadow-lg:0 4px 10px rgba(26,35,24,.06),0 24px 56px rgba(26,35,24,.14);
+  --focus:#B8860B;--scrim:rgba(16,30,22,.45);
+}
+[data-theme="dark"]{
+  --bg:#0D1710;--bg-2:#111D14;--surface:#172519;--surface-2:#1C2D20;
+  --line:#26392A;--line-2:#324A37;
+  --ink:#EEF2EC;--ink-2:#AEC0AA;--ink-3:#849880;
+  --accent:#2EAF77;--accent-ink:#6FD3A3;--accent-soft:rgba(46,175,119,.13);--accent-line:rgba(111,211,163,.35);
+  --gold-ink:#DDB65A;--gold-soft:rgba(212,160,23,.12);--gold-line:rgba(221,182,90,.3);
+  --btn:#1F7A53;--btn-hover:#259163;--nav-bg:rgba(13,23,16,.86);
+  --shadow-sm:0 1px 2px rgba(0,0,0,.25);--shadow:0 18px 40px rgba(0,0,0,.32);--shadow-lg:0 24px 56px rgba(0,0,0,.5);
+  --focus:#E7C35A;--scrim:rgba(0,0,0,.6);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+body{font:400 16px/1.6 var(--font-ui);background:var(--bg);color:var(--ink);padding-top:var(--header-h);-webkit-font-smoothing:antialiased;transition:background-color .3s,color .3s}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+ul,ol{list-style:none}
+svg{display:block}
+:where(a,button,input,select,[tabindex]):focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:8px}
+.wrap{width:min(var(--wrap),100% - 2*var(--gutter));margin-inline:auto}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.i{width:18px;height:18px;flex:0 0 auto}
+.ar{font-family:var(--font-ar);direction:rtl}
+.skip{position:fixed;left:1rem;top:1rem;z-index:500;padding:.6rem 1rem;border-radius:10px;background:var(--surface);border:2px solid var(--focus);transform:translateY(-200%)}
+.skip:focus{transform:none}
+
+/* Header */
+.top{position:fixed;inset:0 0 auto;height:var(--header-h);z-index:50;background:var(--nav-bg);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{height:100%;display:flex;align-items:center;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font:700 19px var(--font-display);letter-spacing:.06em}
+.logo-mark{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent-ink);font:22px var(--font-ar)}
+.top-links{display:flex;gap:4px;margin-inline-start:18px}
+.top-links a{padding:8px 12px;border-radius:10px;font-size:14px;font-weight:600;color:var(--ink-2)}
+.top-links a:hover{background:var(--accent-soft);color:var(--accent-ink)}
+.top-links a[aria-current]{color:var(--accent-ink)}
+.top-right{margin-inline-start:auto;display:flex;gap:8px}
+.icon-btn{width:40px;height:40px;border:1px solid var(--line);border-radius:12px;display:grid;place-items:center;background:var(--surface);color:var(--ink-2)}
+.icon-btn:hover{border-color:var(--accent-line);color:var(--accent-ink)}
+.back{display:inline-flex;align-items:center;gap:6px;height:40px;padding:0 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);font-size:14px;font-weight:600;color:var(--ink-2)}
+.back:hover{border-color:var(--accent-line);color:var(--accent-ink)}
+
+/* Hero */
+.hero{padding:44px 0 30px;border-bottom:1px solid var(--line);background:radial-gradient(900px 300px at 85% -10%,var(--accent-soft),transparent 70%),radial-gradient(600px 240px at 0% 0%,var(--gold-soft),transparent 70%)}
+.crumbs{display:flex;gap:8px;font-size:13px;color:var(--ink-3);margin-bottom:18px}
+.crumbs a:hover{color:var(--accent-ink)}
+.kicker{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-ink)}
+.hero h1{font:700 clamp(34px,5vw,54px)/1.08 var(--font-display);margin:10px 0 6px;letter-spacing:-.01em}
+.hero h1 .ar{display:inline-block;font-size:.62em;font-weight:400;color:var(--ink-3);margin-inline-start:12px;vertical-align:middle}
+.hero p{max-width:640px;color:var(--ink-2);font-size:17px}
+.stats{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:22px}
+.stats div{display:flex;align-items:baseline;gap:8px}
+.stats b{font:700 24px var(--font-display);color:var(--accent-ink)}
+.stats span{font-size:14px;color:var(--ink-3)}
+.search{margin-top:26px;display:flex;align-items:center;gap:10px;max-width:640px;height:56px;padding:0 16px;border:1px solid var(--line-2);border-radius:16px;background:var(--surface);box-shadow:var(--shadow-sm)}
+.search:focus-within{border-color:var(--accent-line);box-shadow:0 0 0 4px var(--accent-soft)}
+.search .i{color:var(--ink-3)}
+.search input{flex:1;min-width:0;border:0;outline:0;background:none;font-size:16px}
+.search input::placeholder{color:var(--ink-3)}
+.search kbd{font:600 12px var(--font-ui);padding:3px 7px;border:1px solid var(--line);border-radius:6px;color:var(--ink-3)}
+.clear-q{width:30px;height:30px;border-radius:8px;display:none;place-items:center;color:var(--ink-3)}
+.clear-q:hover{background:var(--bg-2)}
+.search.has-q .clear-q{display:grid}.search.has-q kbd{display:none}
+.notice{display:flex;gap:10px;align-items:flex-start;margin-top:18px;max-width:760px;padding:11px 14px;border:1px solid var(--gold-line);border-radius:12px;background:var(--gold-soft);color:var(--ink-2);font-size:13.5px}
+.notice b{color:var(--gold-ink)}
+
+/* Controls */
+.controls{position:sticky;top:var(--header-h);z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.groups{display:flex;gap:6px;overflow-x:auto;padding:14px 0 10px;scrollbar-width:none}
+.groups::-webkit-scrollbar{display:none}
+.group{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:14px;font-weight:600;color:var(--ink-2)}
+.group:hover{border-color:var(--accent-line);color:var(--accent-ink)}
+.group[aria-pressed="true"]{background:var(--btn);border-color:var(--btn);color:#fff}
+.group .n{font-size:12px;font-weight:700;opacity:.7}
+.row2{display:flex;align-items:center;gap:10px;padding-bottom:12px;flex-wrap:wrap}
+.sel{height:38px;padding:0 32px 0 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2365715F' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 11px center;appearance:none;-webkit-appearance:none;font-size:14px;font-weight:600;color:var(--ink-2);cursor:pointer}
+.letters{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+.letters::-webkit-scrollbar{display:none}
+.letter{min-width:28px;height:30px;border-radius:8px;font-size:13px;font-weight:700;color:var(--ink-2)}
+.letter:hover:not(:disabled){background:var(--accent-soft);color:var(--accent-ink)}
+.letter[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent-ink);box-shadow:inset 0 0 0 1px var(--accent-line)}
+.letter:disabled{color:var(--line-2);cursor:default}
+.count{margin-inline-start:auto;font-size:13.5px;color:var(--ink-3);white-space:nowrap}
+
+/* Grid */
+main{padding:26px 0 70px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.card{position:relative;display:flex;flex-direction:column;gap:6px;min-height:170px;padding:18px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);text-align:start;box-shadow:var(--shadow-sm);transition:border-color .2s,box-shadow .2s,transform .2s var(--ease)}
+.card:hover{border-color:var(--accent-line);box-shadow:var(--shadow);transform:translateY(-2px)}
+.card[aria-current="true"]{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:4px}
+.mono{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font:700 22px/1 var(--font-ar);padding-bottom:4px;color:var(--accent-ink);background:var(--accent-soft);border:1px solid var(--accent-line)}
+.mono.g-ahle-bayt{color:var(--gold-ink);background:var(--gold-soft);border-color:var(--gold-line)}
+.mono.g-rulers,.mono.g-opponents,.mono.g-others{color:var(--ink-2);background:var(--bg-2);border-color:var(--line)}
+.rel{font-size:12px;font-weight:600;color:var(--ink-3);text-align:end}
+.card h3{font:700 18px/1.3 var(--font-display)}
+.card .ar{font-size:19px;line-height:1.5;color:var(--ink-3);text-align:start}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:8px}
+.tag{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--bg-2);color:var(--ink-2)}
+.tag.gold{background:var(--gold-soft);color:var(--gold-ink)}
+.tag.green{background:var(--accent-soft);color:var(--accent-ink)}
+mark{background:var(--gold-soft);color:inherit;border-radius:3px;padding:0 1px}
+.empty{grid-column:1/-1;padding:50px 20px;text-align:center;border:1px dashed var(--line-2);border-radius:var(--r);color:var(--ink-2)}
+.empty b{display:block;font:700 20px var(--font-display);color:var(--ink);margin-bottom:6px}
+.empty button{margin-top:14px;padding:9px 16px;border-radius:10px;background:var(--btn);color:#fff;font-weight:600;font-size:14px}
+
+/* Profile drawer */
+.scrim{position:fixed;inset:0;z-index:60;background:var(--scrim);opacity:0;pointer-events:none;transition:opacity .25s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;z-index:61;top:0;bottom:0;inset-inline-end:0;width:min(480px,100%);background:var(--surface);box-shadow:var(--shadow-lg);display:flex;flex-direction:column;transform:translateX(105%);transition:transform .3s var(--ease);visibility:hidden}
+.drawer.on{transform:none;visibility:visible}
+.d-head{position:relative;padding:22px 24px 22px;background:linear-gradient(140deg,#15523a,#0f3a2a);color:#fff;overflow:hidden}
+.d-head::after{content:"۞";position:absolute;inset-inline-end:-10px;top:-50px;font:170px var(--font-ar);color:rgba(255,255,255,.06);pointer-events:none}
+.d-bar{display:flex;justify-content:space-between;align-items:center;gap:8px;position:relative;z-index:1}
+.d-kicker{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#E7C98A}
+.d-actions{display:flex;gap:6px}
+.d-btn{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.08);color:#fff}
+.d-btn:hover{background:rgba(255,255,255,.18)}
+.d-head h2{position:relative;z-index:1;font:700 28px/1.2 var(--font-display);margin-top:16px}
+.d-head .ar{position:relative;z-index:1;font-size:26px;line-height:1.6;color:#E7D3A8;text-align:start}
+.d-role{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.d-role span{font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.3);color:#DCEBE1}
+.d-body{flex:1;overflow-y:auto;padding:22px 24px 30px}
+.d-sec+.d-sec{margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+.d-label{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:10px}
+.d-bio{color:var(--ink-2);font-size:15.5px;line-height:1.75}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.facts dt{font-size:12px;color:var(--ink-3)}
+.facts dd{font-size:14.5px;font-weight:600}
+.aka{display:flex;flex-wrap:wrap;gap:6px}
+.aka span{font-size:13px;padding:4px 10px;border-radius:8px;background:var(--bg-2);color:var(--ink-2)}
+.aka span.ar{font-size:16px;padding:2px 10px}
+.related{display:flex;flex-wrap:wrap;gap:8px}
+.related button{display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 6px;border:1px solid var(--line);border-radius:999px;font-size:13.5px;font-weight:600;color:var(--ink-2);background:var(--surface)}
+.related button:hover{border-color:var(--accent-line);color:var(--accent-ink)}
+.related .mini{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent-ink);font:700 15px/1 var(--font-ar)}
+.related small{font-weight:500;color:var(--ink-3)}
+.book{border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.book+.book{margin-top:10px}
+.book-h{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--surface-2)}
+.cover{width:34px;height:46px;border-radius:4px;display:grid;place-items:center;background:#15523a;color:#E7C98A;font:11px/1.2 var(--font-ar);text-align:center;box-shadow:inset 3px 0 rgba(255,255,255,.15)}
+.book-h b{display:block;font-size:14.5px}
+.book-h small{font-size:12.5px;color:var(--ink-3)}
+.book ol li{display:flex;align-items:center;gap:10px;padding:10px 14px;border-top:1px solid var(--line);font-size:14px}
+.book ol li .t{flex:1;color:var(--ink-2)}
+.status{font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;white-space:nowrap}
+.status.sample{background:var(--gold-soft);color:var(--gold-ink)}
+.status.verified{background:var(--accent-soft);color:var(--accent-ink)}
+.soon{margin-top:10px;padding:12px 14px;border:1px dashed var(--line-2);border-radius:12px;font-size:13.5px;color:var(--ink-3)}
+.go{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 16px;border-radius:14px;background:var(--accent-soft);border:1px solid var(--accent-line);color:var(--accent-ink);font-weight:600;font-size:14.5px}
+.go:hover{background:color-mix(in srgb,var(--accent-soft) 70%,var(--accent) 12%)}
+.go+.go{margin-top:8px}
+
+footer{border-top:1px solid var(--line);padding:26px 0 40px;color:var(--ink-3);font-size:13.5px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+footer a{color:var(--accent-ink);font-weight:600}
+.toast{position:fixed;left:50%;bottom:24px;z-index:80;transform:translate(-50%,20px);opacity:0;padding:10px 16px;border-radius:10px;background:var(--ink);color:var(--bg);font-size:14px;font-weight:600;transition:.25s;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+
+.lang-pick select{height:40px;padding:0 30px 0 12px;border:1px solid var(--line);border-radius:12px;background:var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2365715F' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center;appearance:none;-webkit-appearance:none;font-size:14px;font-weight:600;color:var(--ink-2);cursor:pointer;max-width:150px}
+.lang-pick select:hover{border-color:var(--accent-line)}
+.data-note{display:none}
+html[lang="ar"] .hero h1 .ar{display:none}
+html:not([lang="en"]) .data-note{display:inline}
+html[lang="hi"] body,html[lang="ne"] body{font-family:"DM Sans","Noto Sans Devanagari",system-ui,sans-serif}
+html[lang="bn"] body{font-family:"DM Sans","Noto Sans Bengali",system-ui,sans-serif}
+html[lang="ta"] body{font-family:"DM Sans","Noto Sans Tamil",system-ui,sans-serif}
+html[lang="ar"] body,html[lang="ur"] body{font-family:"DM Sans","Noto Naskh Arabic",system-ui,sans-serif}
+html[lang="ur"] .hero h1,html[lang="ur"] .hero p,html[lang="ur"] .d-label{font-family:"Noto Nastaliq Urdu","Noto Naskh Arabic",serif;line-height:2}
+html[lang="ar"] .hero h1{font-family:"Amiri",serif}
+html:not([lang="en"]) .kicker,html:not([lang="en"]) .d-label,html:not([lang="en"]) .d-kicker{letter-spacing:0;text-transform:none}
+html[dir="rtl"] .sel,html[dir="rtl"] .lang-pick select{padding:0 12px 0 32px;background-position:left 11px center}
+html[dir="rtl"] .back .i,html[dir="rtl"] .go .i{transform:scaleX(-1)}
+html[dir="rtl"] .drawer{transform:translateX(-105%)}
+html[dir="rtl"] .drawer.on{transform:none}
+html[dir="rtl"] .related button{padding:6px 6px 6px 12px}
+html[dir="rtl"] :is(.card h3,.d-head h2,.d-bio,.aka span:not(.ar),.rel,.book-h b,.book ol .t){unicode-bidi:plaintext}
+.lang-notice{position:fixed;left:50%;bottom:20px;z-index:90;display:flex;align-items:center;gap:10px;max-width:calc(100% - 32px);padding:10px 10px 10px 16px;border-radius:14px;background:var(--surface);color:var(--ink);border:1px solid var(--line-2);box-shadow:var(--shadow-lg);font-size:14px;transform:translate(-50%,16px);opacity:0;transition:opacity .25s,transform .25s}
+.lang-notice.on{opacity:1;transform:translate(-50%,0)}
+.lang-notice button[data-act="en"]{padding:6px 12px;border-radius:9px;background:var(--accent-soft);color:var(--accent-ink);font-weight:600;white-space:nowrap}
+.lang-notice button[data-act="x"]{width:30px;height:30px;border-radius:8px;font-size:18px;color:var(--ink-3)}
+@media (max-width:640px){.lang-pick select{max-width:96px;padding-inline-end:26px}html[dir="rtl"] .drawer{transform:translateY(105%)}html[dir="rtl"] .drawer.on{transform:none}}
+@media (max-width:860px){.top-links{display:none}}
+@media (max-width:640px){
+  :root{--gutter:16px;--header-h:58px}
+  .hero{padding:28px 0 22px}
+  .hero h1 .ar{display:block;margin:4px 0 0}
+  .hero p{font-size:15.5px}
+  .search{height:52px}.search kbd{display:none}
+  .back span{display:none}.back{padding:0 11px}
+  .grid{grid-template-columns:1fr 1fr;gap:10px}
+  .card{padding:14px;min-height:150px}
+  .card h3{font-size:15.5px}.card .ar{font-size:16px}
+  .mono{width:36px;height:36px;font-size:19px}
+  .rel{display:none}
+  .count{display:none}
+  .drawer{top:auto;inset-inline:0;width:100%;height:88vh;border-radius:22px 22px 0 0;transform:translateY(105%)}
+  .d-head{border-radius:22px 22px 0 0}
+  .facts{grid-template-columns:1fr 1fr}
+}
+@media (max-width:370px){.grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#results">Skip to people</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></symbol>
+  <symbol id="i-theme" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17Z" fill="currentColor" opacity=".3"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Seerah home"><span class="logo-mark" aria-hidden="true">س</span>SEERAH</a>
+    <nav class="top-links" aria-label="Explore">
+      <a href="timeline.html">Timeline</a>
+      <a href="lineage.html">Lineage</a>
+      <a href="ahle-bayt.html">Ahle Bayt</a>
+      <a href="sahaba-sahabiya.html">Sahaba</a>
+      <a href="people-of-the-seerah.html" aria-current="page">People</a>
+    </nav>
+    <div class="top-right">
+      <label class="lang-pick"><span class="vh">Language</span><select id="langSel" aria-label="Language">
+        <option value="EN">English</option><option value="HI" lang="hi">हिन्दी</option><option value="UR" lang="ur">اردو</option><option value="NP" lang="ne">नेपाली</option><option value="BN" lang="bn">বাংলা</option><option value="TA" lang="ta">தமிழ்</option><option value="AR" lang="ar">العربية</option><option value="ID" lang="id">Bahasa Indonesia</option><option value="TR" lang="tr">Türkçe</option><option value="ROM" lang="ur-Latn">Roman Urdu</option>
+      </select></label>
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Change theme"><svg class="i"><use href="#i-theme"/></svg></button>
+      <a class="back" href="index.html#explore"><svg class="i"><use href="#i-back"/></svg><span>Home</span></a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><a href="index.html#explore">Explore</a><span>/</span><span aria-current="page">People of the Seerah</span></nav>
+    <span class="kicker">Who’s who in the Seerah</span>
+    <h1 id="h1">People of the Seerah <span class="ar" lang="ar">أعلام السيرة</span></h1>
+    <p>Everyone mentioned in the life of Prophet Muhammad ﷺ — his family, his Companions, the rulers he wrote to, those who opposed him, and others — with where they appear across the library.</p>
+    <div class="stats" id="stats"></div>
+    <label class="search" id="searchBox">
+      <svg class="i" aria-hidden="true"><use href="#i-search"/></svg>
+      <span class="vh">Search people</span>
+      <input id="q" type="search" placeholder="Search a name, title or Arabic name — e.g. Siddiq, Najashi, حمزة" autocomplete="off" spellcheck="false">
+      <kbd>/</kbd>
+      <button class="clear-q" id="clearQ" type="button" aria-label="Clear search"><svg class="i"><use href="#i-close"/></svg></button>
+    </label>
+    <div class="notice" role="note"><svg class="i" aria-hidden="true"><use href="#i-info"/></svg><span><b>Sample preview.</b> <span>These entries and book references are a sample to show how the index will work. Names will be verified book by book before the full index is published.</span> <span class="data-note">Names, relations and short bios below are still in English; translations will come with the verified database.</span></span></div>
+  </div>
+</section>
+
+<div class="controls">
+  <div class="wrap">
+    <div class="groups" id="groups" role="toolbar" aria-label="Filter by group"></div>
+    <div class="row2">
+      <select class="sel" id="period" aria-label="Filter by period"></select>
+      <select class="sel" id="sort" aria-label="Sort">
+        <option value="featured">Featured order</option>
+        <option value="az">A – Z</option>
+        <option value="refs">Most references</option>
+      </select>
+      <div class="letters" id="letters" role="toolbar" aria-label="Jump to letter"></div>
+      <span class="count" id="count" aria-live="polite"></span>
+    </div>
+  </div>
+</div>
+
+<main id="results" tabindex="-1">
+  <div class="wrap"><div class="grid" id="grid"></div></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>People of the Seerah · a companion to the books, not a replacement for them.</span>
+    <span><span>Found a mistake?</span> <a href="index.html#contribute">Help review the index</a></span>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dName" aria-hidden="true"></aside>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   DATA — shaped like the future database tables.
+   persons  : one row per person (id is the permanent key)
+   books    : one row per book in the library
+   mentions : person × book × location (status: sample | verified)
+   To go live, replace these three arrays with data loaded from the DB.
+   ══════════════════════════════════════════════════════════════ */
+const GROUPS={
+  'ahle-bayt':{label:'Ahle Bayt',page:'ahle-bayt.html'},
+  sahaba:{label:'Sahaba',page:'sahaba-sahabiya.html'},
+  sahabiyat:{label:'Sahabiyat',page:'sahaba-sahabiya.html'},
+  rulers:{label:'Rulers'},
+  opponents:{label:'Opponents'},
+  others:{label:'Others'}
+};
+const PERIODS={pre:'Before Prophethood',makki:'Makkan period',madani:'Madinan period'};
+
+const BOOKS=[
+  {id:'raheeq',title:'Ar-Raheeq Al-Makhtum',ar:'الرحيق',author:'Safiur Rahman Mubarakpuri',href:'index.html#featured'}
+];
+
+const PERSONS=[
+ {id:'khadijah',name:'Khadijah bint Khuwaylid',ar:'خديجة بنت خويلد',honor:'رضي الله عنها',groups:['ahle-bayt','sahabiyat'],periods:['pre','makki'],relation:'First wife',aka:['Khadija','Umm al-Mu’minin','خديجة الكبرى'],bio:'The first wife of the Prophet ﷺ and the first person to believe in his message. She supported him with her wealth and comfort through the first years of revelation, and passed away in Makkah before the Hijrah.',related:['abu-talib','fatimah','waraqah']},
+ {id:'abu-bakr',name:'Abu Bakr al-Siddiq',ar:'أبو بكر الصديق',honor:'رضي الله عنه',groups:['sahaba'],periods:['makki','madani'],relation:'Closest Companion',aka:['Abdullah ibn Abi Quhafah','al-Siddiq','عبد الله بن أبي قحافة'],bio:'The closest Companion of the Prophet ﷺ, among the first to accept Islam, and his companion in the cave of Thawr during the Hijrah. He became the first caliph after the Prophet’s ﷺ passing.',related:['aishah','umar','asma','bilal']},
+ {id:'ali',name:'Ali ibn Abi Talib',ar:'علي بن أبي طالب',honor:'رضي الله عنه',groups:['ahle-bayt','sahaba'],periods:['makki','madani'],relation:'Cousin & son-in-law',aka:['Abu al-Hasan','Abu Turab','أبو الحسن'],bio:'Cousin of the Prophet ﷺ, raised in his household and among the first to believe. He slept in the Prophet’s ﷺ bed on the night of the Hijrah, married Fatimah, and later became the fourth caliph.',related:['fatimah','abu-talib','hasan','husayn']},
+ {id:'fatimah',name:'Fatimah bint Muhammad',ar:'فاطمة بنت محمد',honor:'رضي الله عنها',groups:['ahle-bayt','sahabiyat'],periods:['makki','madani'],relation:'Daughter',aka:['al-Zahra','Fatima','الزهراء'],bio:'The youngest daughter of the Prophet ﷺ and Khadijah, wife of Ali ibn Abi Talib and mother of al-Hasan and al-Husayn.',related:['khadijah','ali','hasan','husayn']},
+ {id:'umar',name:'Umar ibn al-Khattab',ar:'عمر بن الخطاب',honor:'رضي الله عنه',groups:['sahaba'],periods:['makki','madani'],relation:'Companion · father-in-law',aka:['al-Faruq','Abu Hafs','الفاروق'],bio:'A leading Companion whose acceptance of Islam in Makkah gave the Muslims new strength to worship openly. Father of Hafsah, and later the second caliph.',related:['hafsah','abu-bakr','hamzah']},
+ {id:'hamzah',name:'Hamzah ibn Abd al-Muttalib',ar:'حمزة بن عبد المطلب',honor:'رضي الله عنه',groups:['ahle-bayt','sahaba'],periods:['makki','madani'],relation:'Uncle',aka:['Asad Allah','Sayyid al-Shuhada','أسد الله'],bio:'Uncle and foster-brother of the Prophet ﷺ. His acceptance of Islam in Makkah strengthened the believers; he fought at Badr and was martyred at Uhud.',related:['abu-jahl','umar','abbas']},
+ {id:'aishah',name:'Aishah bint Abi Bakr',ar:'عائشة بنت أبي بكر',honor:'رضي الله عنها',groups:['ahle-bayt','sahabiyat'],periods:['madani'],relation:'Wife',aka:['Umm al-Mu’minin','al-Siddiqah','الصديقة'],bio:'A wife of the Prophet ﷺ and daughter of Abu Bakr. She became one of the greatest scholars and narrators of hadith among the Companions.',related:['abu-bakr','asma','sawdah']},
+ {id:'bilal',name:'Bilal ibn Rabah',ar:'بلال بن رباح',honor:'رضي الله عنه',groups:['sahaba'],periods:['makki','madani'],relation:'Companion · Mu’adhdhin',aka:['Bilal al-Habashi','بلال الحبشي'],bio:'An early believer who endured severe torture in Makkah at the hands of Umayyah ibn Khalaf, freed by Abu Bakr, and later honoured as the first mu’adhdhin of Islam.',related:['abu-bakr','umayyah']},
+ {id:'abu-talib',name:'Abu Talib ibn Abd al-Muttalib',ar:'أبو طالب بن عبد المطلب',groups:['others'],periods:['pre','makki'],relation:'Uncle & guardian',aka:['Abd Manaf','عبد مناف'],bio:'Uncle of the Prophet ﷺ who raised him after Abd al-Muttalib’s death and protected him from Quraysh for years. His death, close to Khadijah’s, marked the Year of Grief.',related:['abd-al-muttalib','ali','khadijah']},
+ {id:'abd-al-muttalib',name:'Abd al-Muttalib ibn Hashim',ar:'عبد المطلب بن هاشم',groups:['others'],periods:['pre'],relation:'Grandfather',aka:['Shaybah','شيبة الحمد'],bio:'Grandfather of the Prophet ﷺ and chief of Quraysh, known for restoring the well of Zamzam and for his stand in the Year of the Elephant. He cared for the Prophet ﷺ after his mother’s death.',related:['abdullah','abu-talib','abraha']},
+ {id:'abdullah',name:'Abdullah ibn Abd al-Muttalib',ar:'عبد الله بن عبد المطلب',groups:['others'],periods:['pre'],relation:'Father',aka:[],bio:'Father of the Prophet ﷺ. He passed away in Madinah (Yathrib) before the Prophet ﷺ was born.',related:['aminah','abd-al-muttalib']},
+ {id:'aminah',name:'Aminah bint Wahb',ar:'آمنة بنت وهب',groups:['others'],periods:['pre'],relation:'Mother',aka:[],bio:'Mother of the Prophet ﷺ. She passed away at al-Abwa’ when he was about six years old, on the way back from visiting relatives in Yathrib.',related:['abdullah','halimah']},
+ {id:'halimah',name:'Halimah al-Sa‘diyyah',ar:'حليمة السعدية',groups:['others'],periods:['pre'],relation:'Foster mother',aka:['Halimah bint Abi Dhu’ayb','Haleema'],bio:'The wet-nurse from Banu Sa‘d who cared for the Prophet ﷺ in the desert during his early childhood, a time remembered for the blessings her family saw.',related:['aminah']},
+ {id:'waraqah',name:'Waraqah ibn Nawfal',ar:'ورقة بن نوفل',groups:['others'],periods:['makki'],relation:'Khadijah’s cousin',aka:[],bio:'An elderly cousin of Khadijah who knew the earlier scriptures. When told of the first revelation in the cave of Hira, he confirmed it was the same angel sent to Musa.',related:['khadijah']},
+ {id:'bahira',name:'Bahira the Monk',ar:'بحيرى الراهب',groups:['others'],periods:['pre'],relation:'Met him as a boy',aka:['Buhayra'],bio:'A Christian monk in Busra (Syria) who, according to the Seerah reports, recognised signs of prophethood in the young Muhammad ﷺ travelling with Abu Talib’s caravan.',related:['abu-talib']},
+ {id:'najashi',name:'Al-Najashi (Ashamah)',ar:'النجاشي أصحمة',groups:['rulers'],periods:['makki','madani'],relation:'King of Abyssinia',aka:['The Negus','Ashama','أصحمة'],bio:'The just Christian king of Abyssinia who gave refuge to the Muslim emigrants and refused to hand them back to Quraysh. He later accepted Islam, and the Prophet ﷺ prayed the funeral prayer for him in absentia.',related:['jafar']},
+ {id:'jafar',name:'Ja‘far ibn Abi Talib',ar:'جعفر بن أبي طالب',honor:'رضي الله عنه',groups:['ahle-bayt','sahaba'],periods:['makki','madani'],relation:'Cousin',aka:['Ja‘far al-Tayyar','جعفر الطيار'],bio:'Cousin of the Prophet ﷺ and brother of Ali. He spoke for the Muslims before al-Najashi in Abyssinia, and was martyred at the Battle of Mu’tah.',related:['najashi','ali','abu-talib']},
+ {id:'heraclius',name:'Heraclius',ar:'هرقل',groups:['rulers'],periods:['madani'],relation:'Byzantine emperor',aka:['Hiraql','Qaysar','قيصر'],bio:'The Byzantine (Roman) emperor who received the Prophet’s ﷺ letter inviting him to Islam, and questioned Abu Sufyan about the Prophet ﷺ.',related:['abu-sufyan']},
+ {id:'muqawqis',name:'Al-Muqawqis',ar:'المقوقس',groups:['rulers'],periods:['madani'],relation:'Ruler of Egypt',aka:[],bio:'The ruler of Egypt who received the Prophet’s ﷺ letter and responded courteously, sending gifts in return.',related:['heraclius']},
+ {id:'kisra',name:'Khosrow II (Kisra)',ar:'كسرى أبرويز',groups:['rulers'],periods:['madani'],relation:'King of Persia',aka:['Kisra Parviz','Chosroes'],bio:'The Sasanian king of Persia who tore up the Prophet’s ﷺ letter inviting him to Islam.',related:['heraclius']},
+ {id:'abu-jahl',name:'Abu Jahl (Amr ibn Hisham)',ar:'أبو جهل',groups:['opponents'],periods:['makki','madani'],relation:'Quraysh leader',aka:['Amr ibn Hisham','Abu al-Hakam','عمرو بن هشام'],bio:'One of the fiercest opponents of the Prophet ﷺ in Makkah, responsible for much of the persecution of the early Muslims. He was killed at the Battle of Badr.',related:['hamzah','sumayyah','abu-lahab']},
+ {id:'abu-lahab',name:'Abu Lahab',ar:'أبو لهب',groups:['opponents'],periods:['makki'],relation:'Uncle (opponent)',aka:['Abd al-Uzza ibn Abd al-Muttalib'],bio:'An uncle of the Prophet ﷺ who openly opposed and mocked his call. Surah al-Masad was revealed concerning him and his wife.',related:['abu-jahl','abu-talib']},
+ {id:'umayyah',name:'Umayyah ibn Khalaf',ar:'أمية بن خلف',groups:['opponents'],periods:['makki','madani'],relation:'Quraysh leader',aka:[],bio:'A Makkan chief who tortured his slave Bilal for refusing to give up his faith. He was killed at the Battle of Badr.',related:['bilal']},
+ {id:'abraha',name:'Abraha al-Ashram',ar:'أبرهة الأشرم',groups:['opponents'],periods:['pre'],relation:'Year of the Elephant',aka:[],bio:'The Abyssinian governor of Yemen who marched on Makkah with elephants to destroy the Ka‘bah in the year of the Prophet’s ﷺ birth, as told in Surah al-Fil.',related:['abd-al-muttalib']},
+ {id:'abu-sufyan',name:'Abu Sufyan ibn Harb',ar:'أبو سفيان بن حرب',honor:'رضي الله عنه',groups:['sahaba'],periods:['makki','madani'],relation:'Quraysh leader, later Muslim',aka:['Sakhr ibn Harb','صخر بن حرب'],bio:'A leader of Quraysh who led them against the Muslims for years, then accepted Islam at the Conquest of Makkah. Not to be confused with Abu Sufyan ibn al-Harith, the Prophet’s ﷺ cousin.',related:['heraclius','abu-jahl']},
+ {id:'sumayyah',name:'Sumayyah bint Khayyat',ar:'سمية بنت خياط',honor:'رضي الله عنها',groups:['sahabiyat'],periods:['makki'],relation:'First martyr of Islam',aka:['Umm Ammar'],bio:'Mother of Ammar ibn Yasir, she was tortured for her faith in Makkah and became the first martyr in Islam.',related:['ammar','abu-jahl']},
+ {id:'ammar',name:'Ammar ibn Yasir',ar:'عمار بن ياسر',honor:'رضي الله عنه',groups:['sahaba'],periods:['makki','madani'],relation:'Companion',aka:['Abu al-Yaqzan'],bio:'An early believer whose whole family was persecuted in Makkah; his parents Yasir and Sumayyah were martyred.',related:['sumayyah','bilal']},
+ {id:'asma',name:'Asma bint Abi Bakr',ar:'أسماء بنت أبي بكر',honor:'رضي الله عنها',groups:['sahabiyat'],periods:['makki','madani'],relation:'Companion',aka:['Dhat al-Nitaqayn','ذات النطاقين'],bio:'Daughter of Abu Bakr who carried food to the Prophet ﷺ and her father in the cave of Thawr, earning the title “She of the Two Belts”.',related:['abu-bakr','aishah']},
+ {id:'sawdah',name:'Sawdah bint Zam‘ah',ar:'سودة بنت زمعة',honor:'رضي الله عنها',groups:['ahle-bayt','sahabiyat'],periods:['makki','madani'],relation:'Wife',aka:['Umm al-Mu’minin'],bio:'A wife of the Prophet ﷺ whom he married in Makkah after the passing of Khadijah; an early Muslim who had migrated to Abyssinia.',related:['khadijah','aishah']},
+ {id:'hafsah',name:'Hafsah bint Umar',ar:'حفصة بنت عمر',honor:'رضي الله عنها',groups:['ahle-bayt','sahabiyat'],periods:['madani'],relation:'Wife',aka:['Umm al-Mu’minin'],bio:'A wife of the Prophet ﷺ and daughter of Umar ibn al-Khattab, entrusted with the written copy of the Qur’an compiled under Abu Bakr.',related:['umar','aishah']},
+ {id:'hasan',name:'Al-Hasan ibn Ali',ar:'الحسن بن علي',honor:'رضي الله عنهما',groups:['ahle-bayt','sahaba'],periods:['madani'],relation:'Grandson',aka:['Abu Muhammad'],bio:'Elder grandson of the Prophet ﷺ, son of Ali and Fatimah, whom the Prophet ﷺ loved dearly and described as a leader of the youth of Paradise.',related:['husayn','fatimah','ali']},
+ {id:'husayn',name:'Al-Husayn ibn Ali',ar:'الحسين بن علي',honor:'رضي الله عنهما',groups:['ahle-bayt','sahaba'],periods:['madani'],relation:'Grandson',aka:['Abu Abdillah'],bio:'Younger grandson of the Prophet ﷺ, son of Ali and Fatimah, and with his brother a leader of the youth of Paradise.',related:['hasan','fatimah','ali']},
+ {id:'abbas',name:'Al-Abbas ibn Abd al-Muttalib',ar:'العباس بن عبد المطلب',honor:'رضي الله عنه',groups:['ahle-bayt','sahaba'],periods:['makki','madani'],relation:'Uncle',aka:['Abu al-Fadl'],bio:'Uncle of the Prophet ﷺ who attended the second pledge of Aqabah alongside him, and later openly embraced Islam.',related:['hamzah','abu-talib']},
+ {id:'musab',name:'Mus‘ab ibn Umayr',ar:'مصعب بن عمير',honor:'رضي الله عنه',groups:['sahaba'],periods:['makki','madani'],relation:'First envoy to Madinah',aka:['Mus‘ab al-Khayr'],bio:'A young Makkan who gave up wealth for Islam and was sent to Yathrib as its first teacher of Islam before the Hijrah. He carried the banner at Uhud and was martyred there.',related:['hamzah']}
+];
+
+/* Sample book locations — illustrative only, not yet checked against the text */
+const MENTIONS=[
+ ['khadijah','raheeq','Marriage to Khadijah'],['khadijah','raheeq','The first revelation'],['khadijah','raheeq','The Year of Grief'],
+ ['abu-bakr','raheeq','The first believers'],['abu-bakr','raheeq','The Hijrah'],['abu-bakr','raheeq','The Battle of Badr'],['abu-bakr','raheeq','The Prophet’s ﷺ final illness'],
+ ['ali','raheeq','The first believers'],['ali','raheeq','The night of the Hijrah'],['ali','raheeq','The Battle of Khaybar'],
+ ['fatimah','raheeq','The Prophet’s ﷺ household'],
+ ['umar','raheeq','Islam of Hamzah and Umar'],['umar','raheeq','Treaty of Hudaybiyah'],
+ ['hamzah','raheeq','Islam of Hamzah and Umar'],['hamzah','raheeq','The Battle of Uhud'],
+ ['aishah','raheeq','The slander affair (Ifk)'],['aishah','raheeq','The Prophet’s ﷺ household'],
+ ['bilal','raheeq','Persecution of the believers'],['bilal','raheeq','Conquest of Makkah'],
+ ['abu-talib','raheeq','The Prophet’s ﷺ childhood'],['abu-talib','raheeq','The boycott of Banu Hashim'],['abu-talib','raheeq','The Year of Grief'],
+ ['abd-al-muttalib','raheeq','The Year of the Elephant'],['abd-al-muttalib','raheeq','The Prophet’s ﷺ childhood'],
+ ['abdullah','raheeq','The Prophet’s ﷺ lineage'],['aminah','raheeq','Birth of the Prophet ﷺ'],['halimah','raheeq','Among Banu Sa‘d'],
+ ['waraqah','raheeq','The first revelation'],['bahira','raheeq','Journey to Syria'],
+ ['najashi','raheeq','Migration to Abyssinia'],['najashi','raheeq','Letters to the kings'],
+ ['jafar','raheeq','Migration to Abyssinia'],['jafar','raheeq','The Battle of Mu’tah'],
+ ['heraclius','raheeq','Letters to the kings'],['muqawqis','raheeq','Letters to the kings'],['kisra','raheeq','Letters to the kings'],
+ ['abu-jahl','raheeq','Opposition in Makkah'],['abu-jahl','raheeq','The Battle of Badr'],
+ ['abu-lahab','raheeq','The open call'],['umayyah','raheeq','Persecution of the believers'],['abraha','raheeq','The Year of the Elephant'],
+ ['abu-sufyan','raheeq','The Battle of Uhud'],['abu-sufyan','raheeq','Conquest of Makkah'],
+ ['sumayyah','raheeq','Persecution of the believers'],['ammar','raheeq','Persecution of the believers'],
+ ['asma','raheeq','The Hijrah'],['sawdah','raheeq','The Prophet’s ﷺ household'],['hafsah','raheeq','The Prophet’s ﷺ household'],
+ ['hasan','raheeq','The Prophet’s ﷺ household'],['husayn','raheeq','The Prophet’s ﷺ household'],
+ ['abbas','raheeq','Second pledge of Aqabah'],['abbas','raheeq','Conquest of Makkah'],
+ ['musab','raheeq','First pledge of Aqabah'],['musab','raheeq','The Battle of Uhud']
+].map(([person,book,where],i)=>({id:i+1,person,book,where,status:'sample'}));
+
+/* ══════════════════ APP ══════════════════ */
+(function(){
+'use strict';
+const $=s=>document.querySelector(s);
+const byId=Object.fromEntries(PERSONS.map(p=>[p.id,p]));
+const refsOf=id=>MENTIONS.filter(m=>m.person===id);
+const st={group:'all',period:'all',sort:'featured',letter:'',q:''};
+
+const norm=s=>s.normalize('NFD').replace(/[̀-ًͯ-ٰٟ]/g,'').replace(/[‘’ʿʾ'`\-]/g,'').toLowerCase();
+const sortKey=p=>norm(p.name.replace(/^(al-|abu |abd |ibn )/i,'')).trim();
+const firstLetter=p=>{const n=p.name.replace(/^al-/i,'');return norm(n)[0].toUpperCase()};
+const initials=p=>{const w=p.ar.replace(/^(ال)/,'').split(/\s+/);return w[0][0]};
+const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function hi(text){if(!st.q)return esc(text);const q=st.q.trim();const i=norm(text).indexOf(norm(q));if(i<0||norm(text).length!==text.length)return esc(text);return esc(text.slice(0,i))+'<mark>'+esc(text.slice(i,i+q.length))+'</mark>'+esc(text.slice(i+q.length))}
+
+function matches(p,ignore){
+  if(ignore!=='group'&&st.group!=='all'&&!p.groups.includes(st.group))return false;
+  if(st.period!=='all'&&!p.periods.includes(st.period))return false;
+  if(ignore!=='letter'&&st.letter&&firstLetter(p)!==st.letter)return false;
+  if(st.q){const q=norm(st.q.trim());const hay=[p.name,p.ar,p.relation,...p.aka].map(norm).join(' | ');if(!hay.includes(q))return false}
+  return true;
+}
+function list(){
+  let a=PERSONS.filter(p=>matches(p));
+  if(st.sort==='az')a=[...a].sort((x,y)=>sortKey(x).localeCompare(sortKey(y)));
+  if(st.sort==='refs')a=[...a].sort((x,y)=>refsOf(y.id).length-refsOf(x.id).length);
+  return a;
+}
+
+/* controls */
+function renderGroups(){
+  const all=[['all','All people'],...Object.entries(GROUPS).map(([k,v])=>[k,v.label])];
+  $('#groups').innerHTML=all.map(([k,l])=>{const n=PERSONS.filter(p=>(k==='all'||p.groups.includes(k))&&matches(p,'group')).length;return `<button class="group" type="button" data-g="${k}" aria-pressed="${st.group===k}">${l}<span class="n">${n}</span></button>`}).join('');
+}
+function renderLetters(){
+  const have=new Set(PERSONS.filter(p=>matches(p,'letter')).map(firstLetter));
+  $('#letters').innerHTML=`<button class="letter" type="button" data-l="" aria-pressed="${!st.letter}" style="padding:0 8px">All</button>`+
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(L=>`<button class="letter" type="button" data-l="${L}" aria-pressed="${st.letter===L}" ${have.has(L)?'':'disabled'}>${L}</button>`).join('');
+}
+function renderCards(){
+  const a=list();
+  $('#count').textContent=a.length+(a.length===1?' person':' people');
+  if(!a.length){$('#grid').innerHTML=`<div class="empty"><b>No one found</b>Try another spelling — the index also searches Arabic names and titles.<br><button type="button" id="reset">Clear filters</button></div>`;$('#reset').onclick=reset;return}
+  const open=currentPerson();
+  $('#grid').innerHTML=a.map(p=>{
+    const g=p.groups[0];const r=refsOf(p.id).length;
+    return `<button class="card" type="button" data-p="${p.id}" ${open===p.id?'aria-current="true"':''}>
+      <span class="card-top"><span class="mono g-${g}" aria-hidden="true">${initials(p)}</span><span class="rel">${esc(p.relation)}</span></span>
+      <h3>${hi(p.name)}</h3>
+      <span class="ar" lang="ar">${esc(p.ar)}</span>
+      <span class="tags">${p.groups.map(x=>`<span class="tag ${x==='ahle-bayt'?'gold':(x==='sahaba'||x==='sahabiyat')?'green':''}">${GROUPS[x].label}</span>`).join('')}${r?`<span class="tag">${r} ref${r>1?'s':''}</span>`:''}</span>
+    </button>`}).join('');
+}
+function renderStats(){
+  $('#stats').innerHTML=`<div><b>${PERSONS.length}</b><span>people</span></div><div><b>${BOOKS.length}</b><span>book${BOOKS.length>1?'s':''} indexed</span></div><div><b>${MENTIONS.length}</b><span>book references</span></div>`;
+}
+function render(){renderGroups();renderLetters();renderCards();writeHash()}
+function reset(){Object.assign(st,{group:'all',period:'all',letter:'',q:''});$('#q').value='';$('#period').value='all';$('#searchBox').classList.remove('has-q');render()}
+
+/* profile drawer */
+let lastFocus=null;
+function currentPerson(){return $('#drawer').classList.contains('on')?$('#drawer').dataset.p:null}
+function openPerson(id,push=true){
+  const p=byId[id];if(!p)return;
+  if(!$('#drawer').classList.contains('on'))lastFocus=document.activeElement;
+  const refs=refsOf(id);
+  const books=BOOKS.filter(b=>refs.some(m=>m.book===b.id));
+  const pages=[...new Set(p.groups.map(g=>GROUPS[g].page).filter(Boolean))];
+  const pageLabel={'ahle-bayt.html':'Read more in Ahle Bayt','sahaba-sahabiya.html':'Read more in Sahaba & Sahabiyat'};
+  const d=$('#drawer');d.dataset.p=id;
+  d.innerHTML=`
+  <div class="d-head">
+    <div class="d-bar"><span class="d-kicker">Person of the Seerah</span>
+      <span class="d-actions"><button class="d-btn" type="button" id="dCopy" aria-label="Copy link to this person"><svg class="i"><use href="#i-link"/></svg></button><button class="d-btn" type="button" id="dClose" aria-label="Close"><svg class="i"><use href="#i-close"/></svg></button></span></div>
+    <h2 id="dName">${esc(p.name)}</h2>
+    <div class="ar" lang="ar">${esc(p.ar)}${p.honor?' <small style="font-size:.6em">'+esc(p.honor)+'</small>':''}</div>
+    <div class="d-role"><span>${esc(p.relation)}</span>${p.groups.map(g=>`<span>${GROUPS[g].label}</span>`).join('')}</div>
+  </div>
+  <div class="d-body">
+    <section class="d-sec"><div class="d-label">About this person</div><p class="d-bio">${esc(p.bio)}</p></section>
+    <section class="d-sec"><dl class="facts"><div><dt>Relation to the Prophet ﷺ</dt><dd>${esc(p.relation)}</dd></div><div><dt>Period</dt><dd>${p.periods.map(x=>'<span>'+PERIODS[x]+'</span>').join(' · ')}</dd></div></dl></section>
+    ${p.aka.length?`<section class="d-sec"><div class="d-label">Also known as</div><div class="aka">${p.aka.map(a=>/[؀-ۿ]/.test(a)?`<span class="ar" lang="ar">${esc(a)}</span>`:`<span>${esc(a)}</span>`).join('')}</div></section>`:''}
+    <section class="d-sec"><div class="d-label">In the library</div>
+      ${books.length?books.map(b=>`<div class="book"><div class="book-h"><span class="cover" aria-hidden="true">${b.ar}</span><span><b>${esc(b.title)}</b><small><span>${esc(b.author)}</span> · <span>${refs.filter(m=>m.book===b.id).length} place(s)</span></small></span></div><ol>${refs.filter(m=>m.book===b.id).map(m=>`<li><span class="t">${esc(m.where)}</span><span class="status ${m.status}">${m.status==='verified'?'Verified':'Sample'}</span></li>`).join('')}</ol></div>`).join(''):'<p class="d-bio">No book references yet.</p>'}
+      <p class="soon">More books will be added here as each one is verified — Seerah Ibn Hisham, Zad al-Ma‘ad and others.</p>
+    </section>
+    ${p.related.length?`<section class="d-sec"><div class="d-label">Related people</div><div class="related">${p.related.filter(r=>byId[r]).map(r=>`<button type="button" data-p="${r}"><span class="mini">${initials(byId[r])}</span>${esc(byId[r].name.replace(/\s*\(.*\)/,''))} <small>${esc(byId[r].relation)}</small></button>`).join('')}</div></section>`:''}
+    ${pages.length?`<section class="d-sec">${pages.map(pg=>`<a class="go" href="${pg}">${pageLabel[pg]}<svg class="i"><use href="#i-arrow"/></svg></a>`).join('')}</section>`:''}
+  </div>`;
+  d.classList.add('on');d.setAttribute('aria-hidden','false');$('#scrim').classList.add('on');document.body.style.overflow='hidden';
+  d.querySelector('.d-body').scrollTop=0;
+  $('#dClose').onclick=()=>closePerson();
+  $('#dCopy').onclick=()=>{const u=location.href.split('#')[0]+'#person='+id;(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(()=>toast('Link copied'),()=>toast(u))};
+  d.querySelectorAll('.related [data-p]').forEach(b=>b.onclick=()=>openPerson(b.dataset.p));
+  $('#dClose').focus();
+  renderCards();if(push)writeHash();
+}
+function closePerson(){
+  const d=$('#drawer');if(!d.classList.contains('on'))return;
+  d.classList.remove('on');d.setAttribute('aria-hidden','true');$('#scrim').classList.remove('on');document.body.style.overflow='';
+  delete d.dataset.p;renderCards();writeHash();
+  if(lastFocus&&document.contains(lastFocus))lastFocus.focus();else{const c=document.querySelector('.card');c&&c.focus()}
+}
+
+/* URL hash: #group=sahaba  ·  #person=abu-bakr  ·  #q=hamzah */
+function writeHash(){
+  const h=new URLSearchParams();
+  if(st.group!=='all')h.set('group',st.group);
+  if(st.period!=='all')h.set('period',st.period);
+  if(st.q)h.set('q',st.q);
+  const p=currentPerson();if(p)h.set('person',p);
+  const s=h.toString();history.replaceState(null,'',s?'#'+s:location.pathname+location.search);
+}
+function readHash(){
+  const h=new URLSearchParams(location.hash.slice(1));
+  st.group=GROUPS[h.get('group')]?h.get('group'):'all';
+  st.period=PERIODS[h.get('period')]?h.get('period'):'all';
+  st.q=h.get('q')||'';$('#q').value=st.q;$('#searchBox').classList.toggle('has-q',!!st.q);$('#period').value=st.period;
+  render();
+  if(h.get('person')&&byId[h.get('person')])openPerson(h.get('person'),false);
+}
+
+let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2200)}
+
+/* events */
+$('#period').innerHTML='<option value="all">All periods</option>'+Object.entries(PERIODS).map(([k,v])=>`<option value="${k}">${v}</option>`).join('');
+$('#groups').addEventListener('click',e=>{const b=e.target.closest('[data-g]');if(!b)return;st.group=b.dataset.g;st.letter='';render()});
+$('#letters').addEventListener('click',e=>{const b=e.target.closest('[data-l]');if(!b||b.disabled)return;st.letter=b.dataset.l;render()});
+$('#grid').addEventListener('click',e=>{const c=e.target.closest('[data-p]');if(c)openPerson(c.dataset.p)});
+$('#period').onchange=e=>{st.period=e.target.value;st.letter='';render()};
+$('#sort').onchange=e=>{st.sort=e.target.value;renderCards()};
+let qt;$('#q').addEventListener('input',e=>{clearTimeout(qt);qt=setTimeout(()=>{st.q=e.target.value;st.letter='';$('#searchBox').classList.toggle('has-q',!!st.q);render()},120)});
+$('#clearQ').onclick=()=>{$('#q').value='';st.q='';$('#searchBox').classList.remove('has-q');render();$('#q').focus()};
+$('#scrim').onclick=closePerson;
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape')closePerson();
+  if(e.key==='/'&&!/input|select|textarea/i.test(document.activeElement.tagName)){e.preventDefault();$('#q').focus()}
+  if(e.key==='Tab'&&$('#drawer').classList.contains('on')){const f=[...$('#drawer').querySelectorAll('a,button')];if(!f.length)return;const a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}}
+});
+window.addEventListener('hashchange',readHash);
+
+/* theme — shares the homepage setting (auto → light → dark) */
+let mode=window.__themeMode||'auto';
+function applyTheme(){const d=matchMedia('(prefers-color-scheme: dark)').matches;const t=mode==='auto'?(d?'dark':'light'):mode;document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t;$('#themeBtn').title='Theme: '+mode}
+$('#themeBtn').onclick=()=>{mode=mode==='auto'?'light':mode==='light'?'dark':'auto';try{localStorage.setItem('seerah-theme-mode',mode)}catch(e){}applyTheme();toast('Theme: '+mode)};
+applyTheme();
+
+renderStats();readHash();
+})();
+</script>
+
+<script id="ui-i18n">
+/* ═══════════════════════════════════════════════
+   UI LANGUAGE — translates the interface (menus, headings, cards, buttons)
+   into the 10 site languages, sets lang/dir (RTL for Urdu & Arabic),
+   and picks a first-visit language automatically:
+     1) language the visitor chose before (always wins)
+     2) device/browser language, if it is one of ours (not English)
+     3) region from the device time zone, only where one language is clear
+     4) otherwise English
+   ═══════════════════════════════════════════════ */
+(function(){
+  const ORDER=["HI", "UR", "NP", "BN", "TA", "AR", "ID", "TR", "ROM"];
+  const DICT={"Home": ["होम", "ہوم", "गृहपृष्ठ", "হোম", "முகப்பு", "الرئيسية", "Beranda", "Ana sayfa", "Home"], "Explore": ["देखें", "دریافت کریں", "हेर्नुहोस्", "দেখুন", "ஆராயுங்கள்", "استكشف", "Jelajahi", "Keşfet", "Dekhein"], "Ahle Bayt": ["अहले बैत", "اہلِ بیت", "अहले बैत", "আহলে বাইত", "அஹ்லுல் பைத்", "آل البيت", "Ahlul Bait", "Ehl-i Beyt", "Ahle Bait"], "Sahaba": ["सहाबा", "صحابہ", "सहाबा", "সাহাবা", "ஸஹாபாக்கள்", "الصحابة", "Sahabat", "Sahâbe", "Sahaba"], "Sahabiyat": ["सहाबियात", "صحابیات", "सहाबियात", "সাহাবিয়াত", "ஸஹாபியாக்கள்", "الصحابيات", "Shahabiyah", "Sahâbiyyeler", "Sahabiyat"], "Rulers": ["शासक", "حکمران", "शासक", "শাসক", "ஆட்சியாளர்கள்", "الحكام", "Penguasa", "Hükümdarlar", "Hukmaran"], "Opponents": ["विरोधी", "مخالفین", "विरोधी", "বিরোধী", "எதிரிகள்", "المعارضون", "Penentang", "Muhalifler", "Mukhalifeen"], "Others": ["अन्य", "دیگر", "अन्य", "অন্যান্য", "மற்றவர்கள்", "آخرون", "Lainnya", "Diğerleri", "Deegar"], "Clear search": ["खोज साफ़ करें", "تلاش صاف کریں", "खोज हटाउनुहोस्", "খোঁজ মুছুন", "தேடலை அழி", "مسح البحث", "Hapus pencarian", "Aramayı temizle", "Talash saaf karein"], "Close": ["बंद करें", "بند کریں", "बन्द गर्नुहोस्", "বন্ধ করুন", "மூடு", "إغلاق", "Tutup", "Kapat", "Band karein"], "Who’s who in the Seerah": ["सीरत में कौन कौन", "سیرت میں کون کون", "सीरतमा को को", "সীরাতে কে কে", "சீரத்தில் யார் யார்", "من هم أعلام السيرة", "Siapa saja dalam Sirah", "Siyerde kim kimdir", "Seerat mein kaun kaun"], "People of the Seerah": ["सीरत की शख़्सियतें", "شخصیاتِ سیرت", "सीरतका व्यक्तित्वहरू", "সীরাতের ব্যক্তিত্ব", "சீரத்தின் ஆளுமைகள்", "أعلام السيرة", "Tokoh-Tokoh Sirah", "Siyerin Şahsiyetleri", "Shakhsiyat-e-Seerat"], "Language set from your device settings.": ["भाषा आपके डिवाइस की सेटिंग से चुनी गई।", "زبان آپ کے آلے کی سیٹنگ کے مطابق منتخب کی گئی۔", "भाषा तपाईंको उपकरणको सेटिङअनुसार छानियो।", "আপনার ডিভাইসের সেটিং অনুযায়ী ভাষা নির্বাচিত হয়েছে।", "உங்கள் சாதன அமைப்பின்படி மொழி தேர்ந்தெடுக்கப்பட்டது.", "تم اختيار اللغة حسب إعدادات جهازك.", "Bahasa dipilih dari pengaturan perangkat Anda.", "Dil, cihaz ayarlarınıza göre seçildi.", "Zaban aap ki device ki setting se chuni gayi."], "Language set from your region.": ["भाषा आपके क्षेत्र के अनुसार चुनी गई।", "زبان آپ کے علاقے کے مطابق منتخب کی گئی۔", "भाषा तपाईंको क्षेत्रअनुसार छानियो।", "আপনার অঞ্চল অনুযায়ী ভাষা নির্বাচিত হয়েছে।", "உங்கள் பகுதியின்படி மொழி தேர்ந்தெடுக்கப்பட்டது.", "تم اختيار اللغة حسب منطقتك.", "Bahasa dipilih berdasarkan wilayah Anda.", "Dil, bölgenize göre seçildi.", "Zaban aap ke ilaqe ke mutabiq chuni gayi."], "Use English": ["English रखें", "English رکھیں", "English राख्नुहोस्", "English রাখুন", "English பயன்படுத்து", "استخدم English", "Pakai English", "English kullan", "English rakhein"], "Sahaba & Sahabiyat": ["सहाबा और सहाबियात", "صحابہ و صحابیات", "सहाबा र सहाबियात", "সাহাবা ও সাহাবিয়াত", "ஸஹாபாக்களும் ஸஹாபியாக்களும்", "الصحابة والصحابيات", "Sahabat & Shahabiyah", "Sahâbe ve Sahâbiyyeler", "Sahaba aur Sahabiyat"], "Everyone mentioned in the life of Prophet Muhammad ﷺ — his family, his Companions, the rulers he wrote to, those who opposed him, and others — with where they appear across the library.": ["नबी मुहम्मद ﷺ के जीवन में ज़िक्र किया गया हर व्यक्ति — आपका परिवार, सहाबा, वे शासक जिन्हें आपने ख़त लिखे, विरोधी और अन्य — और लाइब्रेरी में वे कहाँ-कहाँ आते हैं।", "نبی محمد ﷺ کی زندگی میں مذکور ہر شخصیت — آپ کا خاندان، صحابہ، وہ حکمران جنہیں آپ نے خطوط لکھے، مخالفین اور دیگر — اور کتب خانے میں ان کا ذکر کہاں کہاں ہے۔", "नबी मुहम्मद ﷺ को जीवनमा उल्लेख भएका हरेक व्यक्ति — उहाँको परिवार, सहाबा, उहाँले पत्र लेख्नुभएका शासक, विरोधी र अन्य — र पुस्तकालयमा उनीहरू कहाँ-कहाँ आउँछन्।", "নবী মুহাম্মাদ ﷺ-এর জীবনে উল্লিখিত প্রত্যেকে — তাঁর পরিবার, সাহাবি, যে শাসকদের তিনি চিঠি লিখেছিলেন, বিরোধী ও অন্যান্যরা — এবং লাইব্রেরির কোথায় তাঁদের উল্লেখ আছে।", "நபி முஹம்மது ﷺ அவர்களின் வாழ்வில் குறிப்பிடப்படும் ஒவ்வொருவரும் — அவர்களின் குடும்பம், தோழர்கள், அவர்கள் கடிதம் எழுதிய ஆட்சியாளர்கள், எதிர்த்தவர்கள், பிறர் — நூலகத்தில் அவர்கள் எங்கே வருகிறார்கள் என்பதும்.", "كل من ورد ذكره في حياة النبي محمد ﷺ — أهله وصحابته والملوك الذين كاتبهم ومن عارضه وغيرهم — ومواضع ذكرهم في المكتبة.", "Setiap tokoh dalam kehidupan Nabi Muhammad ﷺ — keluarga, para Sahabat, raja-raja yang beliau surati, para penentang, dan lainnya — serta di mana mereka muncul dalam perpustakaan.", "Hz. Muhammed’in ﷺ hayatında adı geçen herkes — ailesi, ashabı, mektup gönderdiği hükümdarlar, ona karşı çıkanlar ve diğerleri — ve kütüphanede nerelerde geçtikleri.", "Nabi Muhammad ﷺ ki zindagi mein mazkoor har shakhsiyat — aap ka khandan, Sahaba, woh hukmaran jinhein aap ne khutoot likhe, mukhalifeen aur deegar — aur library mein un ka zikr kahan kahan hai."], "Search a name, title or Arabic name — e.g. Siddiq, Najashi, حمزة": ["नाम, लक़ब या अरबी नाम खोजें — जैसे सिद्दीक़, नजाशी, حمزة", "نام، لقب یا عربی نام تلاش کریں — مثلاً صدیق، نجاشی، حمزة", "नाम, उपाधि वा अरबी नाम खोज्नुहोस् — जस्तै सिद्दीक, नजाशी, حمزة", "নাম, উপাধি বা আরবি নাম খুঁজুন — যেমন সিদ্দীক, নাজাশি, حمزة", "பெயர், பட்டம் அல்லது அரபுப் பெயரைத் தேடுங்கள் — எ.கா. Siddiq, Najashi, حمزة", "ابحث بالاسم أو اللقب أو الاسم العربي — مثل: الصديق، النجاشي، حمزة", "Cari nama, gelar, atau nama Arab — mis. Siddiq, Najasyi, حمزة", "İsim, lakap veya Arapça ad arayın — ör. Sıddîk, Necâşî, حمزة", "Naam, laqab ya Arabi naam talash karein — maslan Siddiq, Najashi, حمزة"], "Sample preview.": ["नमूना झलक।", "نمونہ جھلک۔", "नमुना झलक।", "নমুনা প্রিভিউ।", "மாதிரி முன்னோட்டம்.", "معاينة تجريبية.", "Pratinjau contoh.", "Örnek önizleme.", "Namuna jhalak."], "These entries and book references are a sample to show how the index will work. Names will be verified book by book before the full index is published.": ["ये प्रविष्टियाँ और किताबों के हवाले सिर्फ़ यह दिखाने के लिए नमूना हैं कि इंडेक्स कैसे काम करेगा। पूरा इंडेक्स प्रकाशित करने से पहले हर किताब के नाम जाँचे जाएँगे।", "یہ اندراجات اور کتابوں کے حوالے صرف نمونہ ہیں کہ فہرست کیسے کام کرے گی۔ مکمل فہرست شائع کرنے سے پہلے ہر کتاب کے نام کی تصدیق کی جائے گی۔", "यी प्रविष्टि र पुस्तक सन्दर्भहरू सूचकांक कसरी चल्छ भनेर देखाउने नमुना मात्र हुन्। पूरा सूचकांक प्रकाशित गर्नुअघि हरेक पुस्तकका नाम जाँचिनेछन्।", "এই এন্ট্রি ও বইয়ের রেফারেন্সগুলো সূচিটি কীভাবে কাজ করবে তা দেখানোর নমুনা মাত্র। পূর্ণ সূচি প্রকাশের আগে প্রতিটি বইয়ের নাম যাচাই করা হবে।", "இந்தப் பதிவுகளும் நூல் குறிப்புகளும் அட்டவணை எப்படி இயங்கும் என்பதைக் காட்டும் மாதிரிகள் மட்டுமே. முழு அட்டவணை வெளியிடும் முன் ஒவ்வொரு நூலின் பெயர்களும் சரிபார்க்கப்படும்.", "هذه المداخل والإحالات نماذج لبيان طريقة عمل الفهرس، وستُراجع الأسماء كتابًا كتابًا قبل نشر الفهرس كاملًا.", "Entri dan rujukan buku ini hanya contoh untuk menunjukkan cara kerja indeks. Nama-nama akan diverifikasi per buku sebelum indeks lengkap diterbitkan.", "Bu kayıtlar ve kitap atıfları dizinin nasıl çalışacağını gösteren örneklerdir. Tam dizin yayımlanmadan önce isimler kitap kitap doğrulanacaktır.", "Yeh indiraaj aur kitabon ke hawale sirf namuna hain ke fehrist kaise kaam karegi. Mukammal fehrist shaya karne se pehle har kitab ke naam ki tasdeeq ki jayegi."], "All people": ["सभी", "تمام", "सबै", "সবাই", "அனைவரும்", "الجميع", "Semua", "Tümü", "Tamam"], "All periods": ["सभी दौर", "تمام ادوار", "सबै कालखण्ड", "সব যুগ", "அனைத்து காலங்கள்", "كل المراحل", "Semua periode", "Tüm dönemler", "Tamam adwaar"], "Before Prophethood": ["नुबुव्वत से पहले", "قبل از نبوت", "नुबुव्वतअघि", "নবুওয়াতের আগে", "நபித்துவத்திற்கு முன்", "قبل البعثة", "Sebelum kenabian", "Peygamberlikten önce", "Nabuwwat se pehle"], "Makkan period": ["मक्की दौर", "مکی دور", "मक्की काल", "মাক্কী যুগ", "மக்கா காலம்", "العهد المكي", "Periode Makkah", "Mekke dönemi", "Makki daur"], "Madinan period": ["मदनी दौर", "مدنی دور", "मदनी काल", "মাদানী যুগ", "மதீனா காலம்", "العهد المدني", "Periode Madinah", "Medine dönemi", "Madani daur"], "Featured order": ["विशेष क्रम", "منتخب ترتیب", "विशेष क्रम", "বিশেষ ক্রম", "சிறப்பு வரிசை", "الترتيب المقترح", "Urutan pilihan", "Önerilen sıra", "Khaas tarteeb"], "A – Z": ["A – Z", "A – Z", "A – Z", "A – Z", "A – Z", "A – Z", "A – Z", "A – Z", "A – Z"], "Most references": ["सबसे ज़्यादा हवाले", "سب سے زیادہ حوالے", "धेरै सन्दर्भ", "সর্বাধিক রেফারেন্স", "அதிக குறிப்புகள்", "الأكثر إحالة", "Rujukan terbanyak", "En çok atıf", "Sab se zyada hawale"], "All": ["सभी", "تمام", "सबै", "সব", "அனைத்தும்", "الكل", "Semua", "Tümü", "Tamam"], "No one found": ["कोई नहीं मिला", "کوئی نہیں ملا", "कोही भेटिएन", "কাউকে পাওয়া যায়নি", "யாரும் கிடைக்கவில்லை", "لا توجد نتائج", "Tidak ditemukan", "Kimse bulunamadı", "Koi nahin mila"], "Try another spelling — the index also searches Arabic names and titles.": ["दूसरी स्पेलिंग आज़माएँ — इंडेक्स अरबी नाम और लक़ब भी खोजता है।", "دوسرا املا آزمائیں — فہرست عربی نام اور القاب بھی تلاش کرتی ہے۔", "अर्को हिज्जे प्रयास गर्नुहोस् — सूचकांकले अरबी नाम र उपाधि पनि खोज्छ।", "অন্য বানানে চেষ্টা করুন — সূচিটি আরবি নাম ও উপাধিও খোঁজে।", "வேறு எழுத்துக்கூட்டலை முயலுங்கள் — அரபுப் பெயர்கள், பட்டங்களையும் தேடும்.", "جرّب كتابة أخرى — يبحث الفهرس في الأسماء العربية والألقاب أيضًا.", "Coba ejaan lain — indeks juga mencari nama Arab dan gelar.", "Başka bir yazım deneyin — dizin Arapça adlarda ve lakaplarda da arar.", "Doosra spelling aazmayein — fehrist Arabi naam aur alqaab bhi talash karti hai."], "Clear filters": ["फ़िल्टर हटाएँ", "فلٹر ہٹائیں", "फिल्टर हटाउनुहोस्", "ফিল্টার মুছুন", "வடிகட்டிகளை அழி", "مسح عوامل التصفية", "Hapus filter", "Filtreleri temizle", "Filter hatayein"], "Person of the Seerah": ["सीरत की शख़्सियत", "شخصیتِ سیرت", "सीरतको व्यक्तित्व", "সীরাতের ব্যক্তিত্ব", "சீரத்தின் ஆளுமை", "من أعلام السيرة", "Tokoh Sirah", "Siyer şahsiyeti", "Shakhsiyat-e-Seerat"], "Relation to the Prophet ﷺ": ["नबी ﷺ से रिश्ता", "نبی ﷺ سے تعلق", "नबी ﷺ सँगको सम्बन्ध", "নবী ﷺ-এর সঙ্গে সম্পর্ক", "நபி ﷺ உடனான உறவு", "صلته بالنبي ﷺ", "Hubungan dengan Nabi ﷺ", "Peygamber ﷺ ile yakınlığı", "Nabi ﷺ se taalluq"], "Period": ["दौर", "دور", "कालखण्ड", "যুগ", "காலம்", "المرحلة", "Periode", "Dönem", "Daur"], "Also known as": ["दूसरे नाम", "دیگر نام", "अन्य नाम", "অন্য নাম", "வேறு பெயர்கள்", "يُعرف أيضًا بـ", "Dikenal juga sebagai", "Diğer adları", "Doosre naam"], "In the library": ["लाइब्रेरी में", "کتب خانے میں", "पुस्तकालयमा", "লাইব্রেরিতে", "நூலகத்தில்", "في المكتبة", "Di perpustakaan", "Kütüphanede", "Library mein"], "Related people": ["जुड़ी हुई शख़्सियतें", "متعلقہ شخصیات", "सम्बन्धित व्यक्तित्व", "সম্পর্কিত ব্যক্তি", "தொடர்புடையவர்கள்", "شخصيات ذات صلة", "Tokoh terkait", "İlgili şahsiyetler", "Mutalliqa shakhsiyat"], "Read more in Ahle Bayt": ["अहले बैत में और पढ़ें", "اہلِ بیت میں مزید پڑھیں", "अहले बैतमा थप पढ्नुहोस्", "আহলে বাইতে আরও পড়ুন", "அஹ்லுல் பைத்தில் மேலும் வாசிக்க", "اقرأ المزيد في آل البيت", "Baca selengkapnya di Ahlul Bait", "Ehl-i Beyt’te devamını oku", "Ahle Bait mein mazeed parhein"], "Read more in Sahaba & Sahabiyat": ["सहाबा और सहाबियात में और पढ़ें", "صحابہ و صحابیات میں مزید پڑھیں", "सहाबा र सहाबियातमा थप पढ्नुहोस्", "সাহাবা ও সাহাবিয়াতে আরও পড়ুন", "ஸஹாபாக்கள் பகுதியில் மேலும் வாசிக்க", "اقرأ المزيد في الصحابة والصحابيات", "Baca selengkapnya di Sahabat & Shahabiyah", "Sahâbe ve Sahâbiyyeler’de devamını oku", "Sahaba aur Sahabiyat mein mazeed parhein"], "Sample": ["नमूना", "نمونہ", "नमुना", "নমুনা", "மாதிரி", "نموذج", "Contoh", "Örnek", "Namuna"], "Verified": ["सत्यापित", "تصدیق شدہ", "प्रमाणित", "যাচাইকৃত", "சரிபார்க்கப்பட்டது", "موثَّق", "Terverifikasi", "Doğrulandı", "Tasdeeq shuda"], "More books will be added here as each one is verified — Seerah Ibn Hisham, Zad al-Ma‘ad and others.": ["हर किताब की जाँच के बाद यहाँ और किताबें जुड़ेंगी — सीरत इब्ने हिशाम, ज़ादुल-मआद और अन्य।", "ہر کتاب کی تصدیق کے بعد یہاں مزید کتابیں شامل ہوں گی — سیرت ابن ہشام، زاد المعاد اور دیگر۔", "हरेक पुस्तक प्रमाणित भएपछि यहाँ थप पुस्तक थपिनेछन् — सीरत इब्न हिशाम, जादुल मआद र अन्य।", "প্রতিটি বই যাচাইয়ের পর এখানে আরও বই যুক্ত হবে — সীরাতে ইবনে হিশাম, যাদুল মাআদ ও অন্যান্য।", "ஒவ்வொரு நூலும் சரிபார்க்கப்பட்ட பின் மேலும் நூல்கள் இங்கு சேர்க்கப்படும் — ஸீரத் இப்னு ஹிஷாம், ஸாதுல் மஆத் மற்றும் பிற.", "ستُضاف كتب أخرى هنا بعد مراجعة كل منها — سيرة ابن هشام وزاد المعاد وغيرهما.", "Buku lain akan ditambahkan setelah diverifikasi — Sirah Ibnu Hisyam, Zad al-Ma’ad, dan lainnya.", "Her biri doğrulandıkça buraya başka kitaplar da eklenecek — İbn Hişâm’ın Siyeri, Zâdü’l-Meâd ve diğerleri.", "Har kitab ki tasdeeq ke baad yahan mazeed kitabein shamil hongi — Seerat Ibn Hisham, Zad-ul-Ma’ad aur deegar."], "People of the Seerah · a companion to the books, not a replacement for them.": ["सीरत की शख़्सियतें · किताबों का साथी, उनका विकल्प नहीं।", "شخصیاتِ سیرت · کتابوں کا معاون، ان کا متبادل نہیں۔", "सीरतका व्यक्तित्वहरू · पुस्तकको सहायक, विकल्प होइन।", "সীরাতের ব্যক্তিত্ব · বইয়ের সহায়ক, বিকল্প নয়।", "சீரத்தின் ஆளுமைகள் · நூல்களுக்குத் துணை, மாற்று அல்ல.", "أعلام السيرة · رفيق للكتب لا بديل عنها.", "Tokoh-Tokoh Sirah · pendamping buku, bukan penggantinya.", "Siyerin Şahsiyetleri · kitapların yardımcısıdır, yerini tutmaz.", "Shakhsiyat-e-Seerat · kitabon ka moawin, un ka mutabadil nahin."], "Found a mistake?": ["कोई ग़लती मिली?", "کوئی غلطی ملی؟", "कुनै गल्ती भेटियो?", "কোনো ভুল পেয়েছেন?", "தவறு கண்டீர்களா?", "وجدت خطأً؟", "Menemukan kesalahan?", "Bir hata mı buldunuz?", "Koi ghalti mili?"], "Help review the index": ["इंडेक्स की जाँच में मदद करें", "فہرست کی جانچ میں مدد کریں", "सूचकांक जाँच्न सहयोग गर्नुहोस्", "সূচি যাচাইয়ে সাহায্য করুন", "அட்டவணையைச் சரிபார்க்க உதவுங்கள்", "ساعد في مراجعة الفهرس", "Bantu meninjau indeks", "Dizinin kontrolüne yardım edin", "Fehrist ki jaanch mein madad karein"], "Timeline": ["समयरेखा", "ٹائم لائن", "समयरेखा", "সময়রেখা", "காலவரிசை", "الخط الزمني", "Linimasa", "Zaman çizelgesi", "Timeline"], "Lineage": ["नसब", "نسب", "वंशावली", "বংশধারা", "வம்சாவளி", "النسب", "Nasab", "Nesep", "Nasab"], "People": ["शख़्सियतें", "شخصیات", "व्यक्तित्व", "ব্যক্তিত্ব", "ஆளுமைகள்", "الأعلام", "Tokoh", "Şahsiyetler", "Shakhsiyat"], "Link copied": ["लिंक कॉपी हो गया", "لنک کاپی ہو گیا", "लिंक कपी भयो", "লিংক কপি হয়েছে", "இணைப்பு நகலெடுக்கப்பட்டது", "تم نسخ الرابط", "Tautan disalin", "Bağlantı kopyalandı", "Link copy ho gaya"], "Skip to people": ["शख़्सियतों पर जाएँ", "شخصیات پر جائیں", "व्यक्तित्वमा जानुहोस्", "ব্যক্তিত্বে যান", "ஆளுமைகளுக்குச் செல்", "انتقل إلى الأعلام", "Langsung ke tokoh", "Şahsiyetlere geç", "Shakhsiyat par jayen"], "Search people": ["शख़्सियतें खोजें", "شخصیات تلاش کریں", "व्यक्तित्व खोज्नुहोस्", "ব্যক্তিত্ব খুঁজুন", "ஆளுமைகளைத் தேடுக", "ابحث عن الأعلام", "Cari tokoh", "Şahsiyet ara", "Shakhsiyat talash karein"], "Copy link to this person": ["इस शख़्सियत का लिंक कॉपी करें", "اس شخصیت کا لنک کاپی کریں", "यो व्यक्तित्वको लिंक कपी गर्नुहोस्", "এই ব্যক্তির লিংক কপি করুন", "இவரது இணைப்பை நகலெடு", "انسخ رابط هذه الشخصية", "Salin tautan tokoh ini", "Bu şahsiyetin bağlantısını kopyala", "Is shakhsiyat ka link copy karein"], "Filter by group": ["समूह के अनुसार", "گروہ کے لحاظ سے", "समूहअनुसार", "দল অনুযায়ী", "குழு வாரியாக", "تصفية حسب الفئة", "Saring per kelompok", "Gruba göre filtrele", "Group ke lihaaz se"], "Filter by period": ["दौर के अनुसार", "دور کے لحاظ سے", "कालखण्डअनुसार", "যুগ অনুযায়ী", "காலம் வாரியாக", "تصفية حسب المرحلة", "Saring per periode", "Döneme göre filtrele", "Daur ke lihaaz se"], "Sort": ["क्रम", "ترتیب", "क्रम", "সাজান", "வரிசைப்படுத்து", "ترتيب", "Urutkan", "Sırala", "Tarteeb"], "Jump to letter": ["अक्षर पर जाएँ", "حرف پر جائیں", "अक्षरमा जानुहोस्", "অক্ষরে যান", "எழுத்துக்குச் செல்", "انتقل إلى حرف", "Lompat ke huruf", "Harfe git", "Harf par jayen"], "Change theme": ["थीम बदलें", "تھیم تبدیل کریں", "थिम बदल्नुहोस्", "থিম বদলান", "தீம் மாற்று", "تغيير المظهر", "Ganti tema", "Temayı değiştir", "Theme badlein"], "Seerah home": ["सीरत होम", "سیرت ہوم", "सीरत गृहपृष्ठ", "সীরাত হোম", "சீரத் முகப்பு", "الصفحة الرئيسية للسيرة", "Beranda Sirah", "Siyer ana sayfa", "Seerat home"], "Breadcrumb": ["पथ", "راستہ", "मार्ग", "পথনির্দেশ", "வழித்தடம்", "مسار التنقل", "Jejak navigasi", "Gezinti yolu", "Raasta"], "Names, relations and short bios below are still in English; translations will come with the verified database.": ["नीचे नाम, रिश्ते और संक्षिप्त परिचय अभी अंग्रेज़ी में हैं; अनुवाद सत्यापित डेटाबेस के साथ आएँगे।", "نیچے نام، رشتے اور مختصر تعارف ابھی انگریزی میں ہیں؛ تراجم تصدیق شدہ ڈیٹا بیس کے ساتھ آئیں گے۔", "तलका नाम, सम्बन्ध र छोटो परिचय अझै अङ्ग्रेजीमा छन्; अनुवाद प्रमाणित डाटाबेससँगै आउनेछ।", "নিচের নাম, সম্পর্ক ও সংক্ষিপ্ত পরিচিতি এখনো ইংরেজিতে; অনুবাদ যাচাইকৃত ডেটাবেসের সঙ্গে আসবে।", "கீழே உள்ள பெயர்கள், உறவுகள், சுருக்க அறிமுகங்கள் இன்னும் ஆங்கிலத்தில் உள்ளன; மொழிபெயர்ப்புகள் சரிபார்க்கப்பட்ட தரவுத்தளத்துடன் வரும்.", "الأسماء والصلات والنبذ أدناه ما تزال بالإنجليزية؛ وستأتي الترجمات مع قاعدة البيانات الموثّقة.", "Nama, hubungan, dan biografi singkat di bawah masih berbahasa Inggris; terjemahan akan hadir bersama basis data terverifikasi.", "Aşağıdaki isimler, yakınlıklar ve kısa biyografiler şimdilik İngilizce; çeviriler doğrulanmış veritabanıyla gelecek.", "Neeche naam, rishte aur mukhtasar taaruf abhi English mein hain; tarajim tasdeeq shuda database ke saath aayenge."], "people": ["शख़्सियतें", "شخصیات", "व्यक्तित्व", "ব্যক্তিত্ব", "ஆளுமைகள்", "شخصية", "tokoh", "şahsiyet", "shakhsiyat"], "book indexed": ["किताब शामिल", "کتاب شامل", "पुस्तक समावेश", "বই অন্তর্ভুক্ত", "நூல் சேர்க்கப்பட்டது", "كتاب مفهرس", "buku terindeks", "kitap dizinlendi", "kitab shamil"], "books indexed": ["किताबें शामिल", "کتابیں شامل", "पुस्तक समावेश", "বই অন্তর্ভুক্ত", "நூல்கள் சேர்க்கப்பட்டன", "كتب مفهرسة", "buku terindeks", "kitap dizinlendi", "kitabein shamil"], "book references": ["किताबों के हवाले", "کتابی حوالے", "पुस्तक सन्दर्भ", "বইয়ের রেফারেন্স", "நூல் குறிப்புகள்", "إحالة إلى الكتب", "rujukan buku", "kitap atfı", "kitabi hawale"], "Language": ["भाषा", "زبان", "भाषा", "ভাষা", "மொழி", "اللغة", "Bahasa", "Dil", "Zaban"], "SEERAH": ["सीरत", "سیرت", "सीरत", "সীরাত", "சீரத்", "السيرة", "SIRAH", "SİYER", "SEERAT"], "About this person": ["परिचय", "تعارف", "परिचय", "পরিচিতি", "அறிமுகம்", "نبذة", "Profil singkat", "Kısaca", "Taaruf"]};
+  const META={EN:['en','ltr'],HI:['hi','ltr'],UR:['ur','rtl'],NP:['ne','ltr'],BN:['bn','ltr'],TA:['ta','ltr'],AR:['ar','rtl'],ID:['id','ltr'],TR:['tr','ltr'],ROM:['ur-Latn','ltr']};
+  const BOOKS_WORD={HI:'{n} किताबें',UR:'{n} کتابیں',NP:'{n} पुस्तक',BN:'{n}টি বই',TA:'{n} நூல்கள்',AR:'{n} كتب',ID:'{n} buku',TR:'{n} kitap',ROM:'{n} kitabein'};
+  const LANGS_WORD={HI:'{n} भाषाएँ',UR:'{n} زبانیں',NP:'{n} भाषा',BN:'{n}টি ভাষা',TA:'{n} மொழிகள்',AR:'{n} لغة',ID:'{n} bahasa',TR:'{n} dil',ROM:'{n} zabanein'};
+  const LANG_NAMES={
+    English:{HI:'अंग्रेज़ी',UR:'انگریزی',NP:'अङ्ग्रेजी',BN:'ইংরেজি',TA:'ஆங்கிலம்',AR:'الإنجليزية',ID:'Inggris',TR:'İngilizce',ROM:'English'},
+    Urdu:{HI:'उर्दू',UR:'اردو',NP:'उर्दू',BN:'উর্দু',TA:'உருது',AR:'الأردية',ID:'Urdu',TR:'Urduca',ROM:'Urdu'},
+    Hindi:{HI:'हिन्दी',UR:'ہندی',NP:'हिन्दी',BN:'হিন্দি',TA:'இந்தி',AR:'الهندية',ID:'Hindi',TR:'Hintçe',ROM:'Hindi'},
+    Arabic:{HI:'अरबी',UR:'عربی',NP:'अरबी',BN:'আরবি',TA:'அரபு',AR:'العربية',ID:'Arab',TR:'Arapça',ROM:'Arabi'}
+  };
+  const PATTERNS=[
+    {re:/^(\d+) (?:people|person)$/,t:{HI:'{n} शख़्सियतें',UR:'{n} شخصیات',NP:'{n} व्यक्तित्व',BN:'{n} জন',TA:'{n} பேர்',AR:'{n} شخصية',ID:'{n} tokoh',TR:'{n} kişi',ROM:'{n} shakhsiyat'}},
+    {re:/^(\d+) refs?$/,t:{HI:'{n} हवाले',UR:'{n} حوالے',NP:'{n} सन्दर्भ',BN:'{n} রেফারেন্স',TA:'{n} குறிப்புகள்',AR:'{n} إحالات',ID:'{n} rujukan',TR:'{n} atıf',ROM:'{n} hawale'}},
+    {re:/^(\d+) place\(s\)$/,t:{HI:'{n} जगह',UR:'{n} مقامات',NP:'{n} ठाउँ',BN:'{n} স্থানে',TA:'{n} இடங்கள்',AR:'{n} مواضع',ID:'{n} tempat',TR:'{n} yer',ROM:'{n} maqamaat'}}
+  ];
+  const LIST_RE=/^(English|Urdu|Hindi|Arabic)( · (English|Urdu|Hindi|Arabic))+$/;
+  const DIGITS={BN:'০১২৩৪৫৬৭৮৯'};
+  let current='EN';
+  function tr(en){
+    if(current==='EN')return null;
+    const row=DICT[en];if(row){const v=row[ORDER.indexOf(current)];return v||null}
+    const m=/^(\d+) Books?$/.exec(en);
+    if(m){let n=m[1];if(DIGITS[current])n=n.replace(/\d/g,d=>DIGITS[current][d]);return BOOKS_WORD[current].replace('{n}',n)}
+    for(const P of PATTERNS){const m2=P.re.exec(en);if(m2){let n=m2[1];if(DIGITS[current])n=n.replace(/\d/g,d=>DIGITS[current][d]);return P.t[current].replace('{n}',n)}}
+    const l=/^(\d+) languages$/.exec(en);
+    if(l){let n=l[1];if(DIGITS[current])n=n.replace(/\d/g,d=>DIGITS[current][d]);return (LANGS_WORD[current]||'{n}').replace('{n}',n)}
+    if(LIST_RE.test(en))return en.split(' · ').map(x=>(LANG_NAMES[x]||{})[current]||x).join(' · ');
+    return null;
+  }
+  const isKnown=en=>!!DICT[en]||PATTERNS.some(P=>P.re.test(en))||/^\d+ Books?$/.test(en)||/^\d+ languages$/.test(en)||LIST_RE.test(en);
+  /* Text nodes and attributes we manage: node -> {en, last} */
+  const textState=new WeakMap();const textNodes=new Set();
+  const attrState=new WeakMap();const attrEls=new Set();
+  const ATTRS=['placeholder','aria-label','title'];
+  const SKIP='script,style,svg,noscript,.lang-option,.book-cover,.bk-cover,[data-no-i18n]';
+  function core(s){return s.replace(/\s+/g,' ').trim()}
+  function trackText(n){
+    const e=n.parentElement;if(!e||e.closest(SKIP))return;
+    const en=core(n.nodeValue);if(!en||!isKnown(en))return;
+    textState.set(n,{en,last:n.nodeValue});textNodes.add(n);
+  }
+  function trackAttrs(el){
+    if(el.closest(SKIP))return;
+    let st=attrState.get(el);
+    for(const a of ATTRS){const v=el.getAttribute(a);if(!v)continue;const en=core(v);
+      if(st&&st[a]&&(st[a].last===v))continue;
+      if(isKnown(en)){st=st||{};st[a]={en,last:v};attrState.set(el,st);attrEls.add(el)}}
+  }
+  function scan(root){
+    if(root.nodeType===3){trackText(root);return}
+    if(root.nodeType!==1)return;
+    const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode())trackText(n);
+    trackAttrs(root);root.querySelectorAll('[placeholder],[aria-label],[title]').forEach(trackAttrs);
+  }
+  function setText(n){
+    const s=textState.get(n);if(!s)return;
+    if(n.nodeValue!==s.last){const en=core(n.nodeValue);if(isKnown(en))s.en=en;else{textNodes.delete(n);return}}
+    const t=tr(s.en);const raw=n.nodeValue;const lead=raw.match(/^\s*/)[0],trail=raw.match(/\s*$/)[0];
+    const val=lead+(t||s.en)+trail;if(raw!==val)n.nodeValue=val;s.last=n.nodeValue;
+  }
+  function setAttrs(el){
+    const st=attrState.get(el);if(!st)return;
+    for(const a in st){const s=st[a];const v=el.getAttribute(a);
+      if(v!==s.last){const en=core(v||'');if(isKnown(en))s.en=en;else{delete st[a];continue}}
+      const t=tr(s.en)||s.en;if(v!==t)el.setAttribute(a,t);s.last=t}
+  }
+  function applyAll(){
+    for(const n of textNodes){if(!n.isConnected){textNodes.delete(n);continue}setText(n)}
+    for(const el of attrEls){if(!el.isConnected){attrEls.delete(el);continue}setAttrs(el)}
+  }
+  window.applyUiLanguage=function(code){
+    if(!META[code])code='EN';current=code;
+    const [lang,dir]=META[code];
+    const html=document.documentElement;html.lang=lang;html.dir=dir;html.dataset.uiLang=code;
+    applyAll();
+  };
+  /* Pick up content that scripts add later (library directory, search results, dialogs) */
+  let busy=false;
+  const mo=new MutationObserver(list=>{
+    if(busy)return;busy=true;
+    for(const r of list){
+      if(r.type==='childList')r.addedNodes.forEach(n=>{scan(n);if(n.nodeType===3)setText(n);else if(n.nodeType===1){n.querySelectorAll?.('*');}});
+      else if(r.type==='attributes'&&ATTRS.includes(r.attributeName))trackAttrs(r.target);
+    }
+    if(current!=='EN')applyAll();
+    busy=false;
+  });
+  /* ── first-visit detection ── */
+  const LANG_MAP={hi:'HI',ur:'UR',ne:'NP',bn:'BN',ta:'TA',ar:'AR',id:'ID',in:'ID',tr:'TR'};
+  const TZ_MAP={
+    'Asia/Karachi':'UR','Asia/Kathmandu':'NP','Asia/Katmandu':'NP','Asia/Dhaka':'BN','Asia/Dacca':'BN',
+    'Asia/Jakarta':'ID','Asia/Pontianak':'ID','Asia/Makassar':'ID','Asia/Jayapura':'ID',
+    'Europe/Istanbul':'TR','Asia/Istanbul':'TR',
+    'Asia/Riyadh':'AR','Asia/Dubai':'AR','Asia/Qatar':'AR','Asia/Kuwait':'AR','Asia/Bahrain':'AR','Asia/Muscat':'AR',
+    'Asia/Baghdad':'AR','Asia/Amman':'AR','Asia/Damascus':'AR','Asia/Beirut':'AR','Asia/Aden':'AR','Asia/Gaza':'AR','Asia/Hebron':'AR',
+    'Africa/Cairo':'AR','Africa/Tripoli':'AR','Africa/Tunis':'AR','Africa/Algiers':'AR','Africa/Casablanca':'AR','Africa/Khartoum':'AR','Africa/Nouakchott':'AR'
+  };
+  window.detectSiteLanguage=function(){
+    const list=(navigator.languages&&navigator.languages.length?navigator.languages:[navigator.language||'']).map(l=>String(l).toLowerCase());
+    for(const l of list){
+      const base=l.split(/[-_]/)[0];
+      if(base==='en')break;                         // device prefers English before any of ours
+      if(base==='ur'&&/latn/.test(l))return {code:'ROM',source:'device'};
+      if(LANG_MAP[base])return {code:LANG_MAP[base],source:'device'};
+    }
+    let tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch{}
+    if(TZ_MAP[tz])return {code:TZ_MAP[tz],source:'region'};
+    return {code:'EN',source:'default'};
+  };
+  /* One-line notice after an automatic choice, with a one-tap way back to English */
+  window.showLanguageNotice=function(source,code,onEnglish){
+    if(code==='EN'||!source||source==='default')return;
+    const msg=source==='device'?'Language set from your device settings.':'Language set from your region.';
+    const box=document.createElement('div');box.className='lang-notice';box.setAttribute('role','status');
+    box.innerHTML='<span></span><button type="button" data-act="en"></button><button type="button" data-act="x" aria-label="Close">×</button>';
+    box.firstChild.textContent=msg;box.querySelector('[data-act="en"]').textContent='Use English';
+    document.body.appendChild(box);
+    const close=()=>{box.classList.remove('on');setTimeout(()=>box.remove(),300)};
+    box.querySelector('[data-act="en"]').onclick=()=>{onEnglish();close()};
+    box.querySelector('[data-act="x"]').onclick=close;
+    requestAnimationFrame(()=>box.classList.add('on'));
+    setTimeout(close,9000);
+  };
+  function start(){scan(document.body);mo.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:ATTRS});applyAll()}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
+})();
+
+</script>
+<script>
+(function(){
+  const store={get(k){try{return localStorage.getItem(k)}catch{return null}},set(k,v){try{localStorage.setItem(k,v)}catch{}}};
+  const sel=document.getElementById('langSel');
+  function set(code){if(!sel.querySelector('option[value="'+code+'"]'))code='EN';sel.value=code;store.set('seerah-language',code);window.applyUiLanguage(code)}
+  let code=store.get('seerah-language-chosen')==='1'?(store.get('seerah-language')||'EN'):null,auto=null;
+  if(code==='RU')code='ROM';
+  if(!code){auto=window.detectSiteLanguage();code=auto.code}
+  set(code);
+  if(auto&&code!=='EN')window.showLanguageNotice(auto.source,code,()=>{store.set('seerah-language-chosen','1');set('EN')});
+  sel.addEventListener('change',()=>{store.set('seerah-language-chosen','1');set(sel.value)});
+  window.addEventListener('storage',e=>{if(e.key==='seerah-language'&&e.newValue&&store.get('seerah-language-chosen')==='1')set(e.newValue)});
+})();
+</script>
+</body>
+</html>
