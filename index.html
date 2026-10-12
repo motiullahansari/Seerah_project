@@ -60,7 +60,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;family=Noto+Nastaliq+Urdu:wght@400;600&amp;family=Playfair+Display:wght@400;600;700;800&amp;family=Spectral:ital,wght@0,400;0,500;1,400&amp;family=Tiro+Devanagari+Hindi&amp;family=Noto+Sans+Devanagari:wght@400;500;600;700&amp;family=Noto+Sans+Bengali:wght@400;500;600;700&amp;family=Noto+Sans+Tamil:wght@400;500;600;700&amp;family=Noto+Naskh+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&amp;family=Amiri+Quran&amp;family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&amp;family=Noto+Nastaliq+Urdu:wght@400;600&amp;family=Playfair+Display:wght@400;600;700;800&amp;family=Spectral:ital,wght@0,400;0,500;1,400&amp;family=Tiro+Devanagari+Hindi&amp;family=Noto+Sans+Devanagari:wght@400;500;600;700&amp;family=Noto+Sans+Bengali:wght@400;500;600;700&amp;family=Noto+Sans+Tamil:wght@400;500;600;700&amp;family=Noto+Naskh+Arabic:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
 <style>
 /* ══════════════════════════════════════════════
@@ -266,6 +266,15 @@ body.menu-open{overflow:hidden}
 .reminder-text{flex:1 1 auto;min-height:0;overflow:hidden;display:flex;align-items:center;align-items:safe center;text-align:start;font:400 19px/1.55 var(--font-read);color:var(--ink)}
 .reminder-text.fit-overflow{overflow:auto;scrollbar-width:thin}
 .reminder-text:is([lang="ar"],[lang="ur"]){font-family:var(--font-ar);font-size:23px;line-height:1.8}
+.reminder-text[lang="ur"]{font-family:var(--font-ur);font-size:20px;line-height:2.2}
+#following-ayat-meaning[lang="ar"]{font-family:"Amiri Quran",var(--font-ar);line-height:2}
+.reminder-text[lang="bn"]{font-family:"Noto Sans Bengali",var(--font-read)}
+.reminder-text[lang="ta"]{font-family:"Noto Sans Tamil",var(--font-read);font-size:17px}
+.reminder-meta{display:flex;flex-direction:column;gap:2px;min-width:0}
+.reminder-credit{font-size:11.5px;font-weight:500;color:var(--ink-3);overflow-wrap:anywhere}
+.reminder-credit[hidden]{display:none}
+.qt-text[lang="ur"]{font-family:var(--font-ur);line-height:2.1}
+.qt-text[lang="ar"]{font-family:var(--font-ar)}
 .reminder-text:is([lang="hi"],[lang="ne"]){font-family:var(--font-hi)}
 .reminder-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
 .reminder-source{font-size:13px;font-weight:600;color:var(--gold-ink)}
@@ -724,6 +733,7 @@ a.explore-card:focus-visible{outline-offset:4px;border-radius:var(--r-lg)}
   .reminder{height:300px;padding:18px 18px 14px}
   .reminder-text{font-size:17px}
   .reminder-text:is([lang="ar"],[lang="ur"]){font-size:21px}
+  .reminder-text[lang="ur"]{font-size:18px}
   .question-ticker{grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:14px}
   .qt-icon{display:none}
   .qt-text{font-size:16px}
@@ -1394,7 +1404,7 @@ html[dir="rtl"] :is(.tl-year,.hero-ayah-en,.hero-ayah-ref,.quote-ref,[id$="-sour
         </div>
         <p class="reminder-text" id="following-ayat-meaning" lang="en" dir="ltr">Say, [O Muhammad], “If you should love Allah, then follow me, [so] Allah will love you and forgive you your sins.” And Allah is Forgiving and Merciful.</p>
         <div class="reminder-foot">
-          <span class="reminder-source" id="following-ayat-ref">Ali ‘Imran · 3:31</span>
+          <span class="reminder-meta"><span class="reminder-source" id="following-ayat-ref">Ali ‘Imran · 3:31</span><span class="reminder-credit" id="following-ayat-credit" data-no-i18n>Translation: Sahih International</span></span>
           <button class="round-btn" id="following-ayat-next" type="button" aria-label="Show another ayah" title="Another ayah"><svg class="i" aria-hidden="true"><use href="#i-refresh"/></svg></button>
         </div>
       </article>
@@ -2059,6 +2069,7 @@ function setLang(code){
   window.setQuranLanguage?.(code);
   window.setHeroQuranLanguage?.(code);
   window.setDailySeerahLanguage?.(code);
+  window.setQuestionLanguage?.(code);
 }
 $$('.lang-option').forEach(el=>el.addEventListener('click',()=>{store.set('seerah-language-chosen','1');setLang(el.dataset.langCode);setLangMenu(false);langButton?.focus();}));
 
@@ -2493,9 +2504,38 @@ $$('[data-future-route="reading"]').forEach(el=>el.addEventListener('click',()=>
   if(!questions.length)return;
   const card=$('#featured-question'),link=card,labelEl=$('#featured-question-label');
   let index=0,timer,changeTimer;
+  // site code -> [db language_code, html lang, dir]
+  const QLANGS={EN:['en','en','ltr'],HI:['hi','hi','ltr'],UR:['ur','ur','rtl'],NP:['ne','ne','ltr'],BN:['bn','bn','ltr'],TA:['ta','ta','ltr'],AR:['ar','ar','rtl'],ID:['id','id','ltr'],TR:['tr','tr','ltr'],ROM:['ur_latn','ur-Latn','ltr']};
+  let qLang=QLANGS.EN,translated=new Map(),qToken=0;
+  const qCache=new Map();
+  function getQuestionTranslations(code){
+    if(!qCache.has(code)){
+      qCache.set(code,dbAllRows('seerah_question_translations?select=question_id,question&language_code=eq.'+encodeURIComponent(code))
+        .catch(error=>{qCache.delete(code);throw error;}));
+    }
+    return qCache.get(code);
+  }
+  window.setQuestionLanguage=async code=>{
+    const token=++qToken;
+    qLang=QLANGS[code]||QLANGS.EN;
+    if(qLang[0]==='en'){translated=new Map();paint();return;}
+    try{
+      const rows=await getQuestionTranslations(qLang[0]);
+      if(token!==qToken)return;
+      translated=new Map(rows.filter(r=>r.question).map(r=>[r.question_id,r.question]));
+    }catch(error){
+      if(token!==qToken)return;
+      console.warn('Question translations unavailable — showing English.',error);
+      translated=new Map();
+    }
+    paint();
+  };
   function paint(){
     const q=questions[index];
-    questionEl.textContent=q.question;
+    // Missing translation for this question: English text, marked as English.
+    const text=translated.get(q.id);
+    questionEl.textContent=text||q.question;
+    questionEl.lang=text?qLang[1]:'en';questionEl.dir=text?qLang[2]:'ltr';
     if(labelEl)labelEl.textContent='Featured question · '+(labels[q.category]||'Seerah');
     if(link)link.href='questions.html?q='+encodeURIComponent(q.id);
     if(card)card.dataset.qaTarget='q-'+q.id;
@@ -2663,15 +2703,19 @@ $$('[data-future-route="reading"]').forEach(el=>el.addEventListener('click',()=>
     {ref:"At-Taghabun · 64:12",key:"64:12",arabic:"وَأَطِيعُواْ ٱللَّهَ وَأَطِيعُواْ ٱلرَّسُولَۚ فَإِن تَوَلَّيۡتُمۡ فَإِنَّمَا عَلَىٰ رَسُولِنَا ٱلۡبَلَٰغُ ٱلۡمُبِينُ",meaning:"And obey Allah and obey the Messenger; but if you turn away - then upon Our Messenger is only [the duty of] clear notification."}
   ];
   // site code -> [db language_code, html lang, dir]
-  const LANGS={EN:['en','en','ltr'],HI:['hi','hi','ltr'],UR:['ur','ur','rtl'],NP:['ne','ne','ltr'],BN:['bn','bn','ltr'],TA:['ta','ta','ltr'],AR:['ar','ar','rtl'],ID:['id','id','ltr'],TR:['tr','tr','ltr'],ROM:['ur-Latn','ur-Latn','ltr']};
-  const meaning=$('#following-ayat-meaning'),ref=$('#following-ayat-ref'),next=$('#following-ayat-next'),card=$('#quran-reminder');
+  const LANGS={EN:['en','en','ltr'],HI:['hi','hi','ltr'],UR:['ur','ur','rtl'],NP:['ne','ne','ltr'],BN:['bn','bn','ltr'],TA:['ta','ta','ltr'],AR:['ar','ar','rtl'],ID:['id','id','ltr'],TR:['tr','tr','ltr'],ROM:['ur_latn','ur-Latn','ltr']};
+  const meaning=$('#following-ayat-meaning'),ref=$('#following-ayat-ref'),credit=$('#following-ayat-credit'),next=$('#following-ayat-next'),card=$('#quran-reminder');
   if(!meaning||!ref||!next)return;
   let verses=[],index=0,lang=LANGS.EN,requestToken=0,ayahsRequest=null;
   const translationCache=new Map();
   let timer=null,order=[],cursor=-1;
   const isPaused=pauseWhileEngaged(card);
-  /* Roman Urdu is stored as 'ur_latn' in the hadith and hero tables — try both spellings here. */
-  const CODE_ALIASES={'ur-Latn':'ur_latn'};
+  /* Roman Urdu is 'ur_latn' everywhere (hadith, hero, ayat). Old 'ur-Latn' rows still load. */
+  const CODE_ALIASES={'ur_latn':'ur-Latn'};
+  /* "Translation:" in each site language — the translator name itself stays as stored. */
+  const CREDIT={EN:'Translation',HI:'अनुवाद',UR:'ترجمہ',NP:'अनुवाद',BN:'অনুবাদ',TA:'மொழிபெயர்ப்பு',ID:'Terjemahan',TR:'Meal',ROM:'Tarjuma'};
+  const DEFAULT_SOURCE='Sahih International';
+  let siteLang='EN';
 
   function rebuildOrder(){
     order=verses.map((_,i)=>i);
@@ -2700,7 +2744,12 @@ $$('[data-future-route="reading"]').forEach(el=>el.addEventListener('click',()=>
   }
   function getTranslations(code){
     if(!translationCache.has(code)){
-      translationCache.set(code,dbAllRows('quran_ayah_translations?select=ayah_id,translation&language_code=eq.'+encodeURIComponent(code))
+      translationCache.set(code,dbAllRows('quran_ayah_translations?select=ayah_id,translation,source&language_code=eq.'+encodeURIComponent(code))
+        .catch(error=>{
+          // Database without the new source column: retry the old query.
+          if(!/\(400\)/.test(String(error)))throw error;
+          return dbAllRows('quran_ayah_translations?select=ayah_id,translation&language_code=eq.'+encodeURIComponent(code));
+        })
         .catch(error=>{translationCache.delete(code);throw error;}));
     }
     return translationCache.get(code);
@@ -2711,6 +2760,13 @@ $$('[data-future-route="reading"]').forEach(el=>el.addEventListener('click',()=>
     meaning.lang=verse.lang;meaning.dir=verse.dir;
     meaning.textContent=smartPunct(verse.meaning,verse.lang);
     ref.textContent=verse.ref;
+    if(credit){
+      const src=verse.lang==='ar'?'':(verse.source||(verse.lang==='en'?DEFAULT_SOURCE:''));
+      const word=CREDIT[verse.lang==='en'?'EN':siteLang]||CREDIT.EN;
+      credit.textContent=src?word+': '+src:'';
+      credit.hidden=!src;
+      credit.lang=verse.lang==='en'?'en':lang[1];credit.dir=verse.lang==='en'?'ltr':lang[2];
+    }
     store.set(storageKey(),String(index));
     schedule();
   }
@@ -2721,30 +2777,41 @@ $$('[data-future-route="reading"]').forEach(el=>el.addEventListener('click',()=>
   }
   function useFallback(){
     const arabic=lang[0]==='ar';
-    verses=FALLBACK.map(v=>({key:v.key,ref:v.ref,meaning:arabic?v.arabic:v.meaning,lang:arabic?'ar':'en',dir:arabic?'rtl':'ltr'}));
+    verses=FALLBACK.map(v=>({key:v.key,ref:v.ref,meaning:arabic?v.arabic:v.meaning,lang:arabic?'ar':'en',dir:arabic?'rtl':'ltr',source:arabic?'':DEFAULT_SOURCE}));
     order=[];pickStart();show();
   }
   async function load(siteCode){
     const token=++requestToken;
-    lang=LANGS[siteCode]||LANGS.EN;
+    siteLang=LANGS[siteCode]?siteCode:'EN';
+    lang=LANGS[siteLang];
     if(!verses.length)useFallback();
     try{
       const ayahs=await getAyahs();
       if(token!==requestToken)return;
-      let rows=[],rowsLang=lang;
-      if(lang[0]!=='ar'){
-        rows=await getTranslations(lang[0]);
+      const arabic=lang[0]==='ar';
+      let native=new Map(),english=new Map();
+      if(!arabic){
+        let rows=await getTranslations(lang[0]);
         if(token!==requestToken)return;
         if(!rows.length&&CODE_ALIASES[lang[0]]){rows=await getTranslations(CODE_ALIASES[lang[0]]);if(token!==requestToken)return;}
-        if(!rows.length&&lang[0]!=='en'){rows=await getTranslations('en');rowsLang=LANGS.EN;if(token!==requestToken)return;}
+        native=new Map(rows.filter(r=>r.translation).map(r=>[r.ayah_id,r]));
+        // Per-ayah fallback: any ayah missing in this language shows its English translation.
+        if(lang[0]!=='en'&&ayahs.some(a=>!native.has(a.id))){
+          try{
+            const en=await getTranslations('en');
+            if(token!==requestToken)return;
+            english=new Map(en.filter(r=>r.translation).map(r=>[r.ayah_id,r]));
+          }catch(e){console.warn('English ayah fallback failed',e);}
+        }
       }
-      const byId=new Map(rows.map(r=>[r.ayah_id,r.translation]));
-      const live=ayahs.map(a=>({
-        key:a.surah_number+':'+a.ayah_number,
-        ref:a.surah_name+' · '+a.surah_number+':'+a.ayah_number,
-        meaning:lang[0]==='ar'?a.arabic:byId.get(a.id),
-        lang:rowsLang[1],dir:rowsLang[2]
-      })).filter(v=>v.meaning);
+      const live=ayahs.map(a=>{
+        const base={key:a.surah_number+':'+a.ayah_number,ref:a.surah_name+' · '+a.surah_number+':'+a.ayah_number};
+        if(arabic)return {...base,meaning:a.arabic,lang:'ar',dir:'rtl',source:''};
+        const own=native.get(a.id);
+        if(own)return {...base,meaning:own.translation,lang:lang[1],dir:lang[2],source:own.source||''};
+        const en=english.get(a.id);
+        return en?{...base,meaning:en.translation,lang:'en',dir:'ltr',source:en.source||''}:{...base};
+      }).filter(v=>v.meaning);
       if(!live.length)throw new Error('No Quran translations found');
       const currentKey=verses[index]?.key;
       verses=live;order=[];cursor=-1;
