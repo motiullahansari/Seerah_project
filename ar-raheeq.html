@@ -1716,21 +1716,38 @@ async function route() {
 
 async function init() {
   const edition=state.edition;
-  // The embedded real chapter outline makes the landing view available immediately.
-  state.chapters=BOOK_OUTLINE;state.demo=false;state.ready=true;state.offline=false;
-  await route();
-  try{
-    const chapters=await request('seerah_chapter_list',{select:'chapter_id,stage_id,title,lesson_count',language_code:'eq.'+edition.lang,book_slug:'eq.'+edition.slug,order:'chapter_id.asc'});
-    if(chapters.length!==edition.chapters||totalLessons(chapters)!==edition.lessons)throw new Error('Incomplete book');
+  // Never mount the reading iframe with BOOK_OUTLINE: it contains English titles.
+  // Fetch the selected language's chapter names before constructing the reader.
+  state.ready=false;
+  state.demo=false;
+  state.offline=false;
+  state.controller?.abort();
+  loading('Loading book chapters…');
+  try {
+    const chapters=await request('seerah_chapter_list',{
+      select:'chapter_id,stage_id,title,lesson_count',
+      language_code:'eq.'+edition.lang,
+      book_slug:'eq.'+edition.slug,
+      order:'chapter_id.asc'
+    });
+    if(edition!==state.edition)return; // A newer language selection is in flight.
+    if(chapters.length!==edition.chapters||totalLessons(chapters)!==edition.lessons) {
+      throw new Error('Incomplete chapter translations for '+edition.lang);
+    }
+    state.chapters=chapters;
+  } catch(err) {
     if(edition!==state.edition)return;
-    const changed=JSON.stringify(chapters)!==JSON.stringify(state.chapters);
-    state.chapters=chapters;state.offline=false;
-    if(changed&&!document.body.classList.contains('integrated-reading'))await route();
-  }catch(err){
-    if(edition!==state.edition)return;
+    console.error('Ar-Raheeq chapter loading failed:',err);
     state.offline=true;
-    if(!document.body.classList.contains('integrated-reading'))await route();
+    if(!CONFIG.previewFallback) {
+      failure(); // Never silently show an English outline for another language.
+      return;
+    }
+    state.chapters=BOOK_OUTLINE; // Local offline preview only.
   }
+  if(edition!==state.edition)return;
+  state.ready=true;
+  await route();
 }
 
 /* ═══════════════════════════════════════════════
