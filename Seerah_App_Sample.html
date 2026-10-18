@@ -280,7 +280,7 @@ h1 .s{font:400 .55em Amiri,serif;color:var(--gold);vertical-align:super}
       <div><b><span data-t="brand">SEERAH</span> <span class="saw">ﷺ</span></b><small>سيرة <span class="saw">ﷺ</span></small></div>
     </div>
     <button class="hbtn" onclick="openMenu(event,'langMenu')" aria-label="Language"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.5"/><path d="M3.8 12h16.4M12 3.5c2.2 2.3 3.4 5.1 3.4 8.5s-1.2 6.2-3.4 8.5M12 3.5C9.8 5.8 8.6 8.6 8.6 12s1.2 6.2 3.4 8.5"/></svg><span id="langLbl">EN</span></button>
-    <button class="hbtn" onclick="openMenu(event,'themeMenu')" aria-label="Theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 15A8 8 0 0 1 9 5a8 8 0 1 0 10 10z"/></svg></button>
+    <button class="hbtn" id="hTheme" onclick="cycleTheme()" aria-label="Theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M19 15A8 8 0 0 1 9 5a8 8 0 1 0 10 10z"/></svg></button>
   </header>
 
   <main class="scroll">
@@ -622,9 +622,13 @@ function closeSettings(){$('settings').classList.remove('on');['joinus','donateu
 const mq=matchMedia('(prefers-color-scheme: dark)');let themeMode='auto';
 try{themeMode=localStorage.getItem('seerah.theme')||'auto'}catch(e){}
 function applyTheme(){document.documentElement.dataset.theme=themeMode==='auto'?(mq.matches?'dark':'light'):themeMode;
- document.querySelectorAll('#themeMenu button').forEach(b=>b.classList.toggle('act',b.dataset.m===themeMode));}
+ document.querySelectorAll('#themeMenu button').forEach(b=>b.classList.toggle('act',b.dataset.m===themeMode));if(typeof syncThemeBtn==='function')syncThemeBtn();}
 function setTheme(m){themeMode=m;try{localStorage.setItem('seerah.theme',m)}catch(e){}applyTheme();closeMenus();syncSet();}
 mq.addEventListener('change',()=>{if(themeMode==='auto')applyTheme()});
+const TICO={auto:'<circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/>',light:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',dark:'<path d="M19 15A8 8 0 0 1 9 5a8 8 0 1 0 10 10z"/>'};
+const TNAME={auto:'Auto',light:'Light',dark:'Dark'};
+function cycleTheme(){setTheme({auto:'light',light:'dark',dark:'auto'}[themeMode]||'auto');}
+function syncThemeBtn(){const b=document.getElementById('hTheme');if(!b)return;b.querySelector('svg').innerHTML=TICO[themeMode];b.setAttribute('aria-label','Theme: '+TNAME[themeMode]);b.title='Theme: '+TNAME[themeMode];}
 
 /* ---------- Menus ---------- */
 function closeMenus(){document.querySelectorAll('.pop').forEach(p=>p.classList.remove('on'))}
@@ -655,7 +659,7 @@ function setLang(c,close=true){curLang=c;const m=T[c];
   $('langLbl').textContent=c;document.documentElement.dir=RTL.includes(c)?'rtl':'ltr';document.documentElement.lang=c.toLowerCase();
   document.querySelectorAll('#langMenu button').forEach(b=>b.classList.toggle('act',b.dataset.l===c));
   try{localStorage.setItem('seerah.lang',c)}catch(e){} if(close)closeMenus();typeof syncSet=='function'&&syncSet();}
-applyTheme();setLang(curLang,false);syncSet();
+applyTheme();syncThemeBtn();setLang(curLang,false);syncSet();
 
 /* ---------- Q&A page ---------- */
 function renderQ(list,mark){$('qlist').innerHTML=list.map((q,i)=>`<div class="qitem" onclick="toast('Jawab khulega')"><span class="n">${mark?mark:i+1}</span><span>${q}</span><span>›</span></div>`).join('');}
