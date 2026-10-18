@@ -149,6 +149,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 28px;background:var(--bg)
 .dctl{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 .dctl input{flex:1;min-width:200px;min-height:48px;padding:0 14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:500 14px var(--sans)}
 @media (max-width:860px){.demo .wrap{grid-template-columns:1fr}.dphone{margin-inline:auto;width:min(340px,100%);height:640px}}
+.fsov{position:fixed;inset:0;z-index:200;background:var(--bg);display:none;flex-direction:column}
+.fsov.on{display:flex}
+.fsbar{display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid var(--line);background:var(--surface)}
+.fsov iframe{flex:1;width:100%;border:0}
 </style>
 </head>
 <body>
@@ -232,7 +236,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 28px;background:var(--bg)
       <h2 class="t">Try the app right here</h2>
       <p class="lead">Download karne se pehle app ko browser mein chala kar dekhiye. Yeh wahi app hai jo hum develop kar rahe hain.</p>
       <div class="dctl">
-        <a class="btn btn-s" id="demoOpen" href="Seerah_App_Sample.html" target="_blank" rel="noopener">Open full screen</a>
+        <a class="btn btn-s" id="demoOpen" href="Seerah_App_Sample.html">Open full screen</a>
       </div>
     </div>
     <div class="dphone rv">
@@ -285,6 +289,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 28px;background:var(--bg)
   </div>
 </section>
 </main>
+<div class="fsov" id="fsov" role="dialog" aria-label="Seerah app full screen"><div class="fsbar"><button class="btn btn-s" id="fsBack" type="button" style="min-height:42px">&larr; Back</button><b>Seerah App Demo</b></div><iframe id="fsFrame" title="Seerah app full screen"></iframe></div>
 
 <!-- ═════════ FOOTER ═════════ -->
 <footer>
@@ -313,7 +318,10 @@ footer{border-top:1px solid var(--line);padding:56px 0 28px;background:var(--bg)
   mn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mn.classList.remove('on');mb.setAttribute('aria-expanded',false)})});
   var h=document.getElementById('hdr');addEventListener('scroll',function(){h.classList.toggle('sc',scrollY>8)},{passive:true});
   var s=document.getElementById('scrs');document.querySelectorAll('[data-s]').forEach(function(b){b.onclick=function(){s.scrollBy({left:+b.dataset.s*252,behavior:'smooth'})}});
-  var f=document.getElementById('demoFrame'),fb=document.getElementById('demoFall');
+  var f=document.getElementById('demoFrame'),fb=document.getElementById('demoFall'),ov=document.getElementById('fsov'),ff=document.getElementById('fsFrame');
+  document.getElementById('demoOpen').onclick=function(e){e.preventDefault();if(!ff.src)ff.src='Seerah_App_Sample.html';ov.classList.add('on');document.body.style.overflow='hidden'};
+  function cl(){ov.classList.remove('on');document.body.style.overflow=''}
+  document.getElementById('fsBack').onclick=cl;addEventListener('keydown',function(e){if(e.key==='Escape')cl()});
   f.addEventListener('load',function(){try{var d=f.contentDocument;if(d&&d.title&&/404|not found/i.test(d.title))fb.classList.add('on')}catch(e){}});
   document.getElementById('yr').textContent=new Date().getFullYear();
   if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});document.querySelectorAll('.rv').forEach(function(el){io.observe(el)})}
