@@ -801,6 +801,26 @@ html[dir="rtl"] :is(.tl-year,.hero-ayah-en,.hero-ayah-ref,.quote-ref,[id$="-sour
 .lang-notice.on{opacity:1;transform:translate(-50%,0)}
 .lang-notice button[data-act="en"]{padding:6px 12px;border-radius:9px;background:var(--accent-soft);color:var(--accent-ink);font-weight:600;white-space:nowrap}
 .lang-notice button[data-act="x"]{width:30px;height:30px;border-radius:8px;font-size:18px;color:var(--ink-3)}
+
+/* ═════════════ OUR APPS ═════════════ */
+.apps-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.app-card{font:inherit;text-align:start;width:100%;display:flex;flex-direction:column;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;text-decoration:none;color:inherit;transition:border-color .2s,transform .2s,box-shadow .2s}
+a.app-card:hover{border-color:var(--accent-line);transform:translateY(-2px);box-shadow:0 14px 30px -18px rgba(27,107,74,.45)}
+.app-top{display:flex;align-items:center;gap:14px}
+.app-icon{width:60px;height:60px;border-radius:16px;flex:none;background:#fff;border:1px solid var(--line);display:grid;place-items:center;overflow:hidden}
+.app-icon img{width:100%;height:100%;object-fit:contain}
+.app-icon.ic{background:var(--accent-soft);color:var(--accent-ink)}.app-icon.ic svg{width:28px;height:28px}
+.app-name{font:700 19px/1.2 var(--font-display);color:var(--ink)}
+.app-meta{font-size:12.5px;color:var(--ink-3);margin-top:3px}
+.app-desc{font-size:14.5px;line-height:1.6;color:var(--ink-2);flex:1}
+.app-foot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.app-status{font-size:11.5px;font-weight:700;letter-spacing:.04em;padding:4px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent-ink)}
+.app-status.soon{background:var(--bg-2);color:var(--ink-3)}
+.app-cta{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:var(--accent-ink)}
+.app-cta svg{width:16px;height:16px}
+.app-card.is-soon{opacity:.92;cursor:default}.app-card.is-soon .app-cta{color:var(--ink-3)}
+@media (max-width:900px){.apps-grid{grid-template-columns:1fr}}
+
 </style>
 
 <style id="reading-categories-from-index-1-1">
@@ -1380,6 +1400,7 @@ html[data-ui-lang="TR"] .logo-name{font-size:17px;letter-spacing:0}
           <a href="questions.html">Questions &amp; Answers</a>
         </div>
       </li>
+      <li><a href="#apps">Our Apps</a></li>
       <li><a href="#about">About</a></li>
     </ul>
 
@@ -1433,6 +1454,7 @@ html[data-ui-lang="TR"] .logo-name{font-size:17px;letter-spacing:0}
     <div class="mobile-nav-group">
       <a href="#contribute">Contribute</a>
       <a href="#support">Support the mission</a>
+      <a href="#apps">Our Apps</a>
       <a href="#about">About</a>
     </div>
   </div>
@@ -1767,6 +1789,33 @@ html[data-ui-lang="TR"] .logo-name{font-size:17px;letter-spacing:0}
         <p class="donate-note">Support the library and help keep beneficial knowledge freely accessible.</p>
       </div>
     </aside>
+  </div>
+</section>
+
+<!-- ═════════════ OUR APPS ═════════════ -->
+<section class="section section-alt" id="apps" aria-labelledby="apps-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 id="apps-title">Our Apps</h2>
+      <p>Take the Seerah with you, and explore more free Islamic apps from UmmahTechs.</p>
+    </div>
+    <div class="apps-grid">
+      <a class="app-card" href="seerah-app.html">
+        <div class="app-top"><span class="app-icon"><img src="data:image/webp;base64,UklGRh4JAABXRUJQVlA4IBIJAABwKQCdASp/AIAAPmEskUckIiGhKBILgIAMCWMnAGCDHPmRd2pbDQg1wY9un5gPOj86rfld6Cr2H8r0Y3q9QX7f/0PDfwAvXv+A4KcAX5n/WP9v4NWqPdbcfpQA/mn+R9WL+68iv5r/nv/X7hX8y/un/I4I/9qjJ1/b62Da4gmlLMZ93J8vK3HbmmYm+SNx6C5fmQgn+wGi/EXvZgKSpQF+5527dYVZnCr2YbJltTN9mwWdd+sm75sK/rOqdaOISk4wZnfM4HUimNdjOY1LjCI8UmNK5Bd4oV+OHJiATskZyy4ulDp06am//GzilkLxLjww8hrbZLsANkL4gmgpc8QMJwUB7qtrrmYY7CsKF5jizTJ4506wPeEsWZzez1hTkM5fZV3uei16FtlN7/+nghvSlicWWmm7Lp6Man8DQoB4ROrhi11AIQ6X+9WVVn/5l2D7jxAAAP7/MlOtGPXJxsfFkzWZrzkFlp0e8tR+JSajMQXvSbT+zxlETBdp11gby5A8CvyhkF5ZqILCHdl44BGthjzBdBaJ02zIRuPAWzvEDUeyJWXj9pAkdJNgUcKV3NbEeOSP6yqdXHRZcAQ3rbRLEg1dNQOTEX+R38/rqsq/YQNY1MmVz4bYJc6Kfi+qCvtNZzl0TLYhExC8Zw/gbLNBVfbOQ+AvEydFDIh7zpmShlLEM8uEcmlUK2drfbQOGzYs9isY7se+XA+vDeHmNtLR/WLWMEkSdTQXf9PO0W43eq6daJqQo4f8Yc26iYCo4MLRYXptH+v6JwwZU1GB9QVEWyg/Vch6+xc70Sa6V7FrMeFBop9Z+RJpfa1/SZ9ywmpwFc/D4cJ7Iutssqybz1wQPldVuKct0mB8y3o/8Wbx7oNX4oHtqjBii5MUAHeVuld0kn9DLd9QzifUY+5HJ0sFwDo0iXfFtC7ge/Hv4pG1vBmTK4c5AgccnioTLz4FG7Buc6Pv5yEXALFjXe0Y3gz9WjJj2SWbMlFFzvMxDP6Ek7pXX3xp2J3HjRu6/l12gQhuOy05GLZ/6BbsazubygEvxANGbP9x1MjnbuMm4QocvHHqemw3LJhYAKap2zqPn7MiQ7eEhQ80L49aFPaEn1FA4lr8f37Ssy/Mp4oeemX9XdOTOeW+KO6VTnft9AwfyaXEvootCBAIS1oi/YKlTcFbhPLmEultx8raDjgqNfep1W+M6JewnojYty9ev10aEzK77f4QKE2x44hMeOgRhfE8kA6lBk6qift2uH88oCwGs8P+BAb0yNw5aa11TSoJa4iVysg6klS/nWLuLK3xzMvqsIfa3QEuskMwl/puGUyWVIaq0BxKseLJV8pL+STJ+EKlVx6SgAQq1z+KNVmDVyRIULIbBbpv8Zik2VwYnVPRCEdKRCPGq7wAuZw0G75HDmKcKqTRVYJOmQve3JFK9lM1GMczal64EnJdAS+RC96manW7XraShKEoMUhyw/n2ffwCMbpnWZrxNYwbu4Ib9nqzh8mRZOWQnFlegXHD29Yp3lfX+dyYYw33cAaOp1DbzTJFi0MYiPEK/iAtfHtgpXpcJIapC813M0ptKG9Jz4W0yz3X9orqPXaJYvl/mH4rl+gs1vNelXO746rZkuJ6uFkQBKONPWw1c7LZjeZARgE6L2pU5OwMdTcgurRApTIHkQ6FOTeQzod6CebX5eTA3Mr/f/eDH1+HYaVg7EgRLkIaJH0rHNxiLZZr5XdlkolKBc71v6sW9EXNhFxnoPbnG/u9xSGKDi+Qr5Sj5Xz0FISBf5x4RKjy84p90GvS7HH6+SMh90D9QCJA7mbZQJjp/plj1M/cf9AFDeuCeDo/bb8EKViCNr3SQrfIKA66SZ6fY/J+aKB4lunVfmdOo4eKiGv1QmrsP9v/0xd9spNNJqcMltgMf9x5yZ/i/B4cxBDDFp7pv6xKN1fdlhF7AEtuj0nHmh5I3b1PbBl/g5sonFiv3jO0rJcB5yBtB42V9jAqVqm/XKyN4GCYKtA9UkjrH5NdoTO5uk28hzo+uDrcX0lLlx5N8xcE31WGTXT0+1fjF3bQTS+H+iYHkUnaUHs3qZ6gFHGQq+jODqdXt6F9m+kCl7stfrsqwKlvwbzcVUPH3nLdrvLmQE+LMdPzbOSxvmkaamwC7roZ03sz5GbowZsU/JOqJ94Je1MTEQufRNEskunEmX3XnzMvaIf527TfKapNgYNPxOTUONhuCE762QcL40uHH8m7m3bKUdA4gPrTu+Gh1AzwF/L2XDnfdglbo7W73cWfeS6cMbC9Tfn8VcwzoSxceyoqrimB3JxWLoQs+XD+kzBUxAuo2jA+3v9Ku48LdI+6+LkF/8beO/1+ktGMPVvH/g8YA318XzXOkeRrjBYm/cunUbMk0/qkT4jAuOP/SpAXT8/SKZRuFpRxTHmXKnHVl4fdzGllPDY6z+hTAE69HhlJWHS3YwtQekqguB78LsXwLTiQPtd/QH2P+f2pajKdVIENKzPREA5MNsati+Z/hFXap0/4hpZKjAX/xRBdSo6qz/1YBF4DN7XEzd72xl0EirssitLhQZWcY2UR19rAeKc0bpiuSsDZ2lo9kALLDz7QIDil7qoUBFoEfytluYPPmk/8dNWmlfzGPXsP4jTJ2d1Fcc5e+SKmNo1+AQwqS37tA8UwsyZF+uMcrNoYOypEOrafNm3bxnI7XRSrn/pJLo4Zs+GGeIHdLkAtn2MnbtcMZOg4T73vd/qBxHuuMWkL1JVbV8Kv+bQzuX46/TtgGHVT65R/j4AYf5kc3qZ4Xa1Jph6b83wTxCOLUYLp6t08ceZNHGs1FFFh7JXnp43rQEN07j9p8hv9618R3hIuud7X6oVDvP+hc2lNjvI5Dap88HZh3+6MDDPQMdOBJ83WSL+cOQvLHuevU0oWTBxKZvNyAfuK/1BRIzArqLXnpeFY98b0HfuLGcuTdG1/qUyc1qrFMKSvTxAbdAts7uGcao3A8DcQUJOzEDN70s7odwrEd5igBAFZzsAFkPy6292qkqgb1JfgABRqjDrir48jRASW0MurgOwaLJZ7BAZ/0389IH7/IjFqdE8trcn0y3tPCBovY+stWJPvYn/GO9RgAAA=" alt="" width="60" height="60" loading="lazy"></span><div><div class="app-name">Seerah</div><div class="app-meta">Android · Google Play</div></div></div>
+        <p class="app-desc">Read the life of the Prophet ﷺ on your phone, in many languages, with Daily Seerah reminders.</p>
+        <div class="app-foot"><span class="app-status">Available now</span><span class="app-cta">Learn more <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span></div>
+      </a>
+      <div class="app-card is-soon" aria-disabled="true">
+        <div class="app-top"><span class="app-icon ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 4 5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5zM12 6.5v13"/></svg></span><div><div class="app-name">Quran</div><div class="app-meta">Android · iOS</div></div></div>
+        <p class="app-desc">A clean, easy Qur'an reading app with translations, from the UmmahTechs team.</p>
+        <div class="app-foot"><span class="app-status soon">Coming soon</span><span class="app-cta">In development</span></div>
+      </div>
+      <a class="app-card" href="https://ummahtechs.com" target="_blank" rel="noopener noreferrer">
+        <div class="app-top"><span class="app-icon"><img src="data:image/webp;base64,UklGRngCAABXRUJQVlA4IGwCAADQCgCdASpAAEAAPmEskUakIqGhJhqsSIAMCWMAzw0USQKSbq5KyHCpv3vP60CPNvsGfq6Y7Y+AKYncoR8OJ0aiNH7tUPd85Qbd0AFY2tCeoR8/PrkZqDRPoPjNOBz0AAD+/Supg7lYH3daZBaaXHQatOq/Hgem8O1IkCFd1QdCryTBP/Ja09y4xv6NCR097d10K+VmiwHev2adzkP9iqL1SmAx3ayqfH4si9jwS5YL366jBefRMCMDp4lQiIuVOfLtkXRsL30r7V0wFGBoJYUYbfp//rg6p7sPOvnBZW6AtORxVvo3URvBLy/Y+6r11+r9O2f8WYIVd+n5v+++LxfUfky7YDgk389tRrDjhVaddhLYeg4DpijJAsN9VM2fL9zH//Q617f3/QJVtNLF96/9o/gU0FWLsntii+yl5BCj/9MO3f/Nce+MzZxLceV+mtLxZyWb9wjJBtUwV5Zbnm2HJpWKbwSq6Ic1O3ulGOyFWJeUPFSDHVAezhuImJjrpXi3XwKdBl89kodNEUtXWH3Nxa/S/IUvIqTrf+lM/Y6z8d+0CC9iX3L0qlmzVT8h7C8PVUPpTWtAHD00IKgti4aL9x4SW2XxT3SbfMBmDL8zVMXLtmrblaUx3CdRPXYwrQtz968EHp9SDn+npntr7j00ctcCDZQC/zTKJUX3kEubRDID+v5Z3C/7zlWFTjqNH4Hptc9P5NfvLRn9EVECyxIZY2sHBfU274S2MclYK4wPl6Y9o+UP3Bwxu5lZzix+9xeGZJ6V1rx5WqibKMp29hATq9TuTEaFByMFX05+RZzeTWKQ5LqtOc8FIAAAAA==" alt="" width="60" height="60" loading="lazy"></span><div><div class="app-name">More from UmmahTechs</div><div class="app-meta">ummahtechs.com</div></div></div>
+        <p class="app-desc">See all our apps and projects, and follow what we are building next.</p>
+        <div class="app-foot"><span class="app-status">Explore</span><span class="app-cta">Visit UmmahTechs <svg class="i" aria-hidden="true"><use href="#i-external"/></svg><span class="visually-hidden"> (opens in a new tab)</span></span></div>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -3402,5 +3451,6 @@ $$('[data-future-route="reading"]').forEach(el=>el.addEventListener('click',()=>
 })();
 
 </script>
+
 </body>
 </html>
