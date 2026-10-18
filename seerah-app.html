@@ -232,8 +232,6 @@ footer{border-top:1px solid var(--line);padding:56px 0 28px;background:var(--bg)
       <h2 class="t">Try the app right here</h2>
       <p class="lead">Download karne se pehle app ko browser mein chala kar dekhiye. Yeh wahi app hai jo hum develop kar rahe hain.</p>
       <div class="dctl">
-        <input id="demoUrl" type="text" value="Seerah_App_Sample.html" aria-label="Demo app file">
-        <button class="btn btn-p" id="demoLoad" type="button">Load</button>
         <a class="btn btn-s" id="demoOpen" href="Seerah_App_Sample.html" target="_blank" rel="noopener">Open full screen</a>
       </div>
     </div>
@@ -315,9 +313,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 28px;background:var(--bg)
   mn.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mn.classList.remove('on');mb.setAttribute('aria-expanded',false)})});
   var h=document.getElementById('hdr');addEventListener('scroll',function(){h.classList.toggle('sc',scrollY>8)},{passive:true});
   var s=document.getElementById('scrs');document.querySelectorAll('[data-s]').forEach(function(b){b.onclick=function(){s.scrollBy({left:+b.dataset.s*252,behavior:'smooth'})}});
-  var f=document.getElementById('demoFrame'),u=document.getElementById('demoUrl'),o=document.getElementById('demoOpen'),fb=document.getElementById('demoFall');
-  function ld(){var v=u.value.trim()||'Seerah_App_Sample.html';fb.classList.remove('on');f.src=v;o.href=v;}
-  document.getElementById('demoLoad').onclick=ld;u.addEventListener('keydown',function(e){if(e.key==='Enter')ld()});
+  var f=document.getElementById('demoFrame'),fb=document.getElementById('demoFall');
   f.addEventListener('load',function(){try{var d=f.contentDocument;if(d&&d.title&&/404|not found/i.test(d.title))fb.classList.add('on')}catch(e){}});
   document.getElementById('yr').textContent=new Date().getFullYear();
   if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});document.querySelectorAll('.rv').forEach(function(el){io.observe(el)})}
