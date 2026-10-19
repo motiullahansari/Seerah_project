@@ -361,6 +361,51 @@ nav{position:absolute;left:12px;right:12px;bottom:14px;z-index:6;background:var(
 nav button{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:13px;font-weight:600;color:var(--faint)}
 nav svg{width:26px;height:26px;stroke-width:1.6}
 nav button.on{color:var(--primary)}
+
+.mbar{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:10px 12px 6px}
+.mbar select{display:block;max-width:46%;font:inherit;font-size:13px;padding:7px 10px;border-radius:10px;border:1px solid var(--outline);background:var(--card);color:var(--on-surface)}
+.mnav{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);white-space:nowrap}
+.mnav button{width:34px;height:34px;border-radius:50%;border:1px solid var(--outline);background:var(--card);color:var(--on-surface);font-size:20px;line-height:1;cursor:pointer}
+.mpage{position:relative;margin:4px 12px 8px;background:#FFFCF3;border:1px solid #E8DDBF;border-radius:14px;overflow:hidden;touch-action:pan-y;user-select:none;cursor:grab}.mpage img{will-change:transform}.mov{pointer-events:none}.mov i{pointer-events:auto}
+.mpage img{width:100%;height:auto;display:block}
+.mpage .note{margin:20px}
+.mov{position:absolute;inset:0}.mov i{position:absolute;border-radius:4px;cursor:pointer}
+.mov i:hover{background:rgba(184,137,58,.12)}.mov i.on{background:rgba(184,137,58,.28)}.mov i.playing{background:rgba(30,120,95,.22)}
+.mhint{text-align:center;font-size:12px;color:var(--faint);padding:4px 0 120px}
+:root[data-theme=dark] .mpage{background:#17191d;border-color:#3a3426}:root[data-theme=dark] .mpage img{filter:invert(.9) hue-rotate(180deg)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .mpage{background:#17191d;border-color:#3a3426}:root:not([data-theme=light]) .mpage img{filter:invert(.9) hue-rotate(180deg)}}
+#mpop{position:absolute;inset:0;z-index:60;display:none}#mpop.show{display:block}
+#mpop .mp-bg{position:absolute;inset:0;background:rgba(0,0,0,.35)}
+#mpop .mp-card{position:absolute;left:0;right:0;bottom:0;max-height:72%;overflow:auto;background:var(--card);border-radius:22px 22px 0 0;padding:6px 0 24px;box-shadow:0 -8px 30px rgba(0,0,0,.2)}
+#mpop .mp-h{position:sticky;top:0;background:var(--card);display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--divider);color:var(--on-surface)}
+#mpop .mp-h span{display:flex;gap:6px}#mpop .mp-h button{width:34px;height:34px;border-radius:50%;border:0;background:var(--chip);color:var(--on-surface);display:grid;place-items:center;cursor:pointer}
+#mpop .mp-h svg{width:16px;height:16px;fill:currentColor}#mpop .mp-h .bm.on{color:var(--primary)}
+#mpop .mp-b{padding:6px 4px}#mpop .mp-b>div{padding-left:16px;padding-right:16px}
+#mpop .mp-open{display:block;margin:16px auto 0;padding:10px 18px;border-radius:12px;border:0;background:var(--primary);color:#fff;font:inherit;font-weight:600;cursor:pointer}
+.trans sup,.tafsir sup{color:var(--em-gold);font-size:.7em;font-weight:700;margin:0 1px}
+.tafsir .fn{display:inline-block;min-width:18px;height:18px;line-height:18px;text-align:center;border-radius:9px;background:var(--chip);color:var(--primary);font-size:11px;margin-right:4px}
+#rbTf{display:none}.phone.mushaf-on #rbTf{display:grid}.phone.mushaf-on #rbAuto{display:none}
+.phone.reading.mushaf-on .rbar{display:none}.phone.reading.mushaf-on.mbar-show .rbar{display:flex}
+.msetb{display:none!important;color:var(--primary)}.phone.mushaf-on .msetb{display:grid!important}
+.mmenu{position:absolute;top:62px;left:14px;z-index:20;min-width:190px;background:var(--card);border:1px solid var(--outline);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:6px;display:none}.mmenu.show{display:block}
+.mmenu .mm-h{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);padding:8px 10px 6px}
+.mmenu button{display:flex;width:100%;justify-content:space-between;align-items:center;padding:10px;border-radius:10px;font-size:14px;color:var(--on-surface);text-align:left}.mmenu button:hover{background:var(--high)}.mmenu button.on{color:var(--primary);font-weight:600;background:var(--primary-container)}
+.phone.mushaf-on .mpage{margin-top:12px}
+.phone.mushaf-on .mpage{margin:6px 4px 0;background:none;border:0;border-radius:0;display:flex;align-items:flex-start;justify-content:center;overflow:visible}
+.phone.mushaf-on .mpi{position:relative;background:#FFFCF3;border:1px solid #E8DDBF;border-radius:10px;overflow:hidden;line-height:0}
+.phone.mushaf-on .mpi img{width:auto;max-width:none}
+:root[data-theme=dark] .phone.mushaf-on .mpi{background:#17191d;border-color:#3a3426}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .phone.mushaf-on .mpi{background:#17191d;border-color:#3a3426}}
+.phone.mushaf-on #read{overflow:hidden}
+.rbar .info .rsel{display:flex;align-items:center;gap:2px;max-width:100%;font-size:11px;color:var(--primary);font-weight:500;padding:2px 0;border-radius:6px;white-space:nowrap;cursor:pointer;background:none;border:0;text-align:left}
+.rbar .info .rsel::after{content:"";flex-shrink:0;width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);margin-left:3px}
+.rbar .info .rsel span{overflow:hidden;text-overflow:ellipsis;min-width:0}.rbar .info .rsel:hover span{text-decoration:underline}
+.recmenu{position:absolute;left:12px;right:12px;bottom:84px;z-index:21;max-height:55%;overflow:auto;background:var(--card);border:1px solid var(--outline);border-radius:16px;box-shadow:0 12px 34px rgba(0,0,0,.2);padding:6px;display:none}.recmenu.show{display:block}
+.recmenu .mm-h{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);padding:8px 10px 6px}
+.recmenu button{display:flex;width:100%;justify-content:space-between;align-items:center;padding:11px 10px;border-radius:10px;font-size:14px;color:var(--on-surface);text-align:left}.recmenu button:hover{background:var(--high)}.recmenu button.on{color:var(--primary);font-weight:600;background:var(--primary-container)}
+.rbar #rbTf,.rbar #rbMore{width:38px;height:38px;border-radius:12px}
+.phone.mushaf-on .rbar #rbTf{display:grid;color:var(--primary);background:var(--primary-container);margin-left:2px}
+.phone.mushaf-on .rbar #rbMore{margin-left:2px}
 </style>
 </head>
 <body>
@@ -387,7 +432,7 @@ nav button.on{color:var(--primary)}
     </div>
     <label class="search" id="openSearch" tabindex="0" role="button" style="cursor:text"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="q" data-iph="searchPh" placeholder="Search surah, ayah, word..." readonly style="cursor:text"></label>
-    <div class="tabs"><button class="on" data-tab="surah" data-i="surah">Surah</button><button data-tab="juz" data-i="juz">Juz</button></div>
+    <div class="tabs"><button class="on" data-tab="surah" data-i="surah">Surah</button><button data-tab="juz" data-i="juz">Juz</button><button data-tab="page" data-i="pageT">Page</button></div>
     <div id="list"></div>
   </section>
 
@@ -409,6 +454,8 @@ nav button.on{color:var(--primary)}
   <section class="screen" id="read">
     <div class="r-head">
       <button class="ib back" data-go="home" aria-label="Back"><svg viewBox="0 0 24 24" style="stroke-width:2.4"><path d="m15 18-6-6 6-6"/></svg></button>
+      <button class="ib msetb" id="mSetBtn" aria-label="Mushaf settings"><svg viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg></button>
+      <div class="mmenu" id="mmenu"></div>
       <div class="t"><b id="rTitle">Al-Fatihah</b><span id="rSub">Meccan · 7 Verses</span></div>
       <button class="ib mbtn" id="mushafBtn" aria-label="Mushaf view" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 3 5v13c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5zM12 6.5v13"/></svg><span class="mlbl" data-i="mushafBtn">Mushaf</span></button>
     </div>
@@ -486,10 +533,12 @@ nav button.on{color:var(--primary)}
     <button class="pp" id="rbPlay" aria-label="Play"></button>
     <button class="ic" id="rbNext" aria-label="Next ayah"><svg viewBox="0 0 24 24"><path d="m6 6 9 6-9 6zM18 6v12"/></svg></button>
     <button class="ic rep" id="rbRep" aria-label="Repeat ayah" aria-pressed="false"><svg viewBox="0 0 24 24"><path d="M17 2l3 3-3 3M4 11V9a4 4 0 0 1 4-4h12M7 22l-3-3 3-3M20 13v2a4 4 0 0 1-4 4H4"/></svg><i>1</i></button>
-    <div class="info"><b id="rbTitle">Ayah 1 / 7</b><small id="rbSub">Mishary Rashid</small></div>
+    <div class="info"><b id="rbTitle">Ayah 1 / 7</b><button type="button" class="rsel" id="rbSub" aria-label="Change reciter" aria-haspopup="true">Mishary Rashid</button></div>
     <button class="ic" id="rbAuto" aria-label="Auto scroll"><svg viewBox="0 0 24 24"><path d="m7 6 5 5 5-5M7 13l5 5 5-5"/></svg></button>
+    <button class="ic" id="rbTf" aria-label="Tafsir"><svg viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 3 5v13c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5zM12 6.5v13"/></svg></button>
     <button class="ic" id="rbMore" aria-label="Reading options"><svg viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg></button>
   </div>
+  <div class="recmenu" id="recmenu" role="menu"></div>
   <div class="aspill" id="aspill" role="group" aria-label="Auto scroll">
     <button class="spd" id="asSpd" aria-label="Change speed">1x</button>
     <div class="tm" title="Time left"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M10 2h4"/></svg><span id="asTime">0:00</span></div>
@@ -500,6 +549,7 @@ nav button.on{color:var(--primary)}
   <div class="toast" id="toast" role="status"></div>
 </div>
 
+<script src="ahsanul-data.js"></script>
 <script>
 // [no, english, meaning, arabic, verses, type M=Meccan D=Medinan]
 const S=`1|Al-Fatihah|The Opening|الفاتحة|7|M
@@ -621,8 +671,9 @@ const JUZ=["Alif Lam Mim","Sayaqul","Tilkar Rusul","Lan Tanalu","Wal Muhsanat","
 const JUZ_START=[[1,1],[2,142],[2,253],[3,93],[4,24],[4,148],[5,82],[6,111],[7,88],[8,41],[9,93],[11,6],[12,53],[15,1],[17,1],[18,75],[21,1],[23,1],[25,21],[27,56],[29,46],[33,31],[36,28],[39,32],[41,47],[46,1],[51,31],[58,1],[67,1],[78,1]];
 
 // Verse data. Hindi ayah 1–2 and tafsir 1 are from the approved design; the rest are sample text — replace with Ahsanul Bayan data.
-const V={
- "1":[
+const V=(()=>{const o={},D=window.QD||{};
+ for(const s in D)o[s]=D[s].map(r=>({ar:r[0],tl_ne:r[1],ne:r[2],tf_ne:r[3],juz:r[4],pg:r[5]}));
+ const F=[
   {ar:"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",tl:"Bismillāhir-Raḥmānir-Raḥīm",hi:"परम कृपालु, अत्यन्त दयालु अल्लाह के नाम से।",en:"In the name of Allah, the Entirely Merciful, the Especially Merciful.",tf:"यह आयत हर कार्य की शुरुआत अल्लाह के नाम से करने की शिक्षा देती है। 'बिस्मिल्लाह' कहने से हर काम में बरकत आती है।"},
   {ar:"ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ",tl:"Al-ḥamdu lillāhi Rabbil-ʿālamīn",hi:"सब प्रशंसा अल्लाह के लिए है जो सारे संसारों का पालनहार है।",en:"[All] praise is [due] to Allah, Lord of the worlds."},
   {ar:"ٱلرَّحْمَٰنِ ٱلرَّحِيمِ",tl:"Ar-Raḥmānir-Raḥīm",hi:"जो अत्यन्त कृपालु, बड़ा दयालु है।",en:"The Entirely Merciful, the Especially Merciful."},
@@ -630,8 +681,9 @@ const V={
   {ar:"إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",tl:"Iyyāka naʿbudu wa iyyāka nastaʿīn",hi:"हम केवल तेरी ही इबादत करते हैं और केवल तुझ ही से मदद माँगते हैं।",en:"It is You we worship and You we ask for help."},
   {ar:"ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ",tl:"Ihdinaṣ-ṣirāṭal-mustaqīm",hi:"हमें सीधे मार्ग पर चला।",en:"Guide us to the straight path."},
   {ar:"صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ",tl:"Ṣirāṭal-ladhīna anʿamta ʿalayhim ghayril-maghḍūbi ʿalayhim wa laḍ-ḍāllīn",hi:"उन लोगों के मार्ग पर जिन पर तूने इनाम किया, न उनके जिन पर तेरा प्रकोप हुआ और न भटके हुओं के।",en:"The path of those upon whom You have bestowed favor, not of those who have earned [Your] anger or of those who are astray."}
- ]
-};
+ ];
+ if(o[1])F.forEach((f,i)=>{const x=o[1][i];x.tl=f.tl;x.hi=f.hi;x.en=f.en;if(f.tf)x.tf=f.tf});else o[1]=F;
+ return o})();
 const EXTRA={ // bookmark previews from the design
  "2:255":{ar:"ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلْحَىُّ ٱلْقَيُّومُ",hi:"अल्लाह, उसके सिवा कोई पूज्य नहीं, वह जीवन्त है, सबका संभालने वाला है।",en:"Allah — there is no deity except Him, the Ever-Living, the Sustainer of existence."},
  "36:1":{ar:"يسٓ",hi:"या-सीन।",en:"Ya, Seen."}
@@ -639,8 +691,8 @@ const EXTRA={ // bookmark previews from the design
 
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
 const store={get(k,d){try{const v=localStorage.getItem("ab-"+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem("ab-"+k,JSON.stringify(v))}catch(e){}}};
-let st={bm:store.get("bm",["2:255","1:2","36:1"]),fav:store.get("fav",[]),last:store.get("last",{s:2,a:255}),
- theme:store.get("theme",null),fs:store.get("fs",28),lang:store.get("lang","hi"),tl:store.get("tl","en"),mushaf:store.get("mushaf",false),reciter:store.get("reciter","Alafasy_128kbps"),tfl:store.get("tfl","hi")};
+let st={bm:store.get("bm",[]),fav:store.get("fav",[]),last:store.get("last",{s:1,a:1}),
+ theme:store.get("theme",null),fs:store.get("fs",28),lang:store.get("lang","ne"),tl:store.get("tl","ne"),mushaf:store.get("mushaf",false),reciter:store.get("reciter","Alafasy_128kbps"),tfl:store.get("tfl","ne")};
 if(store.get("tafsir",true)===false)st.tfl="off";
 if(st.tl==="ur")st.tl="en";
 let cur=1, tab="surah", playing=null, loading=false, playAll=false;
@@ -649,13 +701,13 @@ const ico={play:'<svg viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z"/></svg>',p
  bm:'<svg viewBox="0 0 24 24"><path d="M18 21l-6-4.5L6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/></svg>',
  more:'<svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/><circle cx="19" cy="12" r="1.3" fill="currentColor"/></svg>'};
 const chev='<svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>',tick='<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
-const tr=v=>(st.lang==="en"?v.en:v.hi)||v.hi;
+const tr=v=>(st.lang==="en"?v.en:st.lang==="hi"?v.hi:v.ne)||v.ne||v.hi||v.en;
 /* ---------- I18N ---------- */
 const I18N={
-en:{mushafBtn:"Mushaf",tafsirLang:"Tafsir",tfSrc:"Ahsanul Bayan · {0}",tfPendingShort:"Data pending — Hindi shown",tfPending:"{0} tafsir is not added yet — showing Hindi.",size:"Size",tafsirHiOnly:"Tafsir is available in Hindi only for now",hidden:"Hidden",trSource:"Translation source",fontsH:"Text & Fonts",mushafFont:"Mushaf font",translitSize:"Transliteration size",translationSize:"Translation size",tafsirSize:"Tafsir size",preview:"PREVIEW",reset:"Reset",lArabic:"Arabic",lTranslit:"Transliteration",lTrans:"Translation",lTafsir:"Tafsir",general:"GENERAL",home:"Home",read:"Read",saved:"Saved",settings:"Settings",lastRead:"LAST READ",continue:"Continue ›",searchPh:"Search surah, ayah, word...",surah:"Surah",juz:"Juz",verses:"verses",Verses:"Verses",ayah:"Ayah",meccan:"Meccan",medinan:"Medinan",bookmarks:"Bookmarks",noBm:"No Bookmarks Yet",noBmSub:"Tap the bookmark icon on any ayah to save it.",kursi:"Ayatul Kursi",pendingNote:"{0} is not in this prototype yet.<br>Once the Ahsanul Bayan data is added, all {1} ayahs will appear here.",langPending:"{0} translation is not added yet — showing Hindi.",appearance:"APPEARANCE",theme:"Theme",light:"Light",dark:"Dark",auto:"Auto",alwaysLight:"Always light",alwaysDark:"Always dark",followsSystem:"Follows system",arabicSize:"Arabic Font Size",reading:"READING",translation:"Translation",transliteration:"Transliteration",audio:"AUDIO",reciter:"Reciter",appLangH:"APP LANGUAGE",appLang:"App Language",appLangSub:"Menus, buttons and messages",about:"ABOUT",aboutUs:"About Us",initiative:"An initiative by",tafsirBy:"Tafsīr by Hafiz Salahuddin Yusuf",version:"Version",off:"Off",srcHi:"Ahsanul Bayan · Hindi",srcEn:"Sahih International · sample",srcUr:"Ahsanul Bayan · Urdu (data pending)",srcNe:"Nepali (data pending)",all:"All",allPh:"Surah, ayah or any word...",recent:"RECENT SEARCHES",clearAll:"Clear all",trySearch:"TRY SEARCHING",surahsH:"SURAHS",ayahsH:"AYAHS",noResult:"No results for <b>\"{0}\"</b>.<br>Try another language chip.",typeSearch:"Type anything to search.",searchPending:"{0} translation data is not added yet.<br>Search will work in this language once it is.",playing:"Playing",dataPending:"Data pending",repeatTag:"repeat",audioFail:"Audio didn't load — check your internet",repOn:"Repeat on — this ayah will keep playing",repOff:"Repeat off — each ayah plays once, then moves on",surahEnd:"End of surah — auto scroll stopped",tipLight:"☀ Light mode",tipDark:"☾ Dark mode",tipAuto:"◐ Auto — follows system",readingOptions:"Reading options",done:"Done",showTafsir:"Show tafsir",arabicSizeShort:"Arabic size",translationH:"TRANSLATION",translitH:"TRANSLITERATION",reciterH:"RECITER",audioSpeed:"AUDIO SPEED",copied:"Copied"},
-hi:{mushafBtn:"मुसहफ़",tafsirLang:"तफ़सीर",tfSrc:"अहसनुल बयान · {0}",tfPendingShort:"डेटा बाकी — हिन्दी दिखेगी",tfPending:"{0} तफ़सीर अभी नहीं जुड़ी — हिन्दी दिखाई जा रही है।",size:"साइज़",tafsirHiOnly:"तफ़सीर अभी सिर्फ़ हिन्दी में उपलब्ध है",hidden:"छिपा हुआ",trSource:"अनुवाद स्रोत",fontsH:"टेक्स्ट और फ़ॉन्ट",mushafFont:"मुसहफ़ फ़ॉन्ट",translitSize:"लिप्यंतरण साइज़",translationSize:"अनुवाद साइज़",tafsirSize:"तफ़सीर साइज़",preview:"प्रीव्यू",reset:"रीसेट",lArabic:"अरबी",lTranslit:"लिप्यंतरण",lTrans:"अनुवाद",lTafsir:"तफ़सीर",general:"सामान्य",home:"होम",read:"पढ़ें",saved:"सेव्ड",settings:"सेटिंग्स",lastRead:"पिछली बार पढ़ा",continue:"जारी रखें ›",searchPh:"सूरह, आयत या शब्द खोजें...",surah:"सूरह",juz:"पारा",verses:"आयतें",Verses:"आयतें",ayah:"आयत",meccan:"मक्की",medinan:"मदनी",bookmarks:"बुकमार्क",noBm:"अभी कोई बुकमार्क नहीं",noBmSub:"किसी भी आयत के बुकमार्क आइकन पर टैप करके सेव करें।",kursi:"आयतुल कुर्सी",pendingNote:"{0} अभी इस प्रोटोटाइप में नहीं है।<br>अहसनुल बयान का डेटा जुड़ते ही यहाँ सभी {1} आयतें दिखेंगी।",langPending:"{0} अनुवाद अभी नहीं जुड़ा — हिन्दी दिखाया जा रहा है।",appearance:"दिखावट",theme:"थीम",light:"लाइट",dark:"डार्क",auto:"ऑटो",alwaysLight:"हमेशा लाइट",alwaysDark:"हमेशा डार्क",followsSystem:"सिस्टम के अनुसार",arabicSize:"अरबी फ़ॉन्ट साइज़",reading:"पढ़ाई",translation:"अनुवाद",transliteration:"लिप्यंतरण",audio:"ऑडियो",reciter:"क़ारी",appLangH:"ऐप की भाषा",appLang:"ऐप की भाषा",appLangSub:"मेनू, बटन और संदेश",about:"परिचय",aboutUs:"हमारे बारे में",initiative:"एक पहल",tafsirBy:"तफ़सीर: हाफ़िज़ सलाहुद्दीन यूसुफ़",version:"वर्ज़न",off:"बंद",srcHi:"अहसनुल बयान · हिन्दी",srcEn:"सहीह इंटरनेशनल · नमूना",srcUr:"अहसनुल बयान · उर्दू (डेटा बाकी)",srcNe:"नेपाली (डेटा बाकी)",all:"सभी",allPh:"सूरह, आयत या कोई भी शब्द...",recent:"हाल की खोजें",clearAll:"सब हटाएँ",trySearch:"यह खोजकर देखें",surahsH:"सूरह",ayahsH:"आयतें",noResult:"<b>\"{0}\"</b> का कोई परिणाम नहीं मिला।<br>दूसरी भाषा चुनकर देखें।",typeSearch:"खोजने के लिए कुछ भी लिखें।",searchPending:"{0} अनुवाद का डेटा अभी नहीं जुड़ा।<br>डेटा आते ही इस भाषा में खोज चलेगी।",playing:"चल रहा",dataPending:"डेटा बाकी",repeatTag:"दोहराव",audioFail:"ऑडियो लोड नहीं हुआ — इंटरनेट जाँचें",repOn:"दोहराव चालू — यही आयत बार-बार चलेगी",repOff:"दोहराव बंद — हर आयत एक बार चलकर आगे बढ़ेगी",surahEnd:"सूरह समाप्त — ऑटो स्क्रॉल बंद",tipLight:"☀ लाइट मोड",tipDark:"☾ डार्क मोड",tipAuto:"◐ ऑटो — सिस्टम के अनुसार",readingOptions:"पढ़ने के विकल्प",done:"हो गया",showTafsir:"तफ़सीर दिखाएँ",arabicSizeShort:"अरबी साइज़",translationH:"अनुवाद",translitH:"लिप्यंतरण",reciterH:"क़ारी",audioSpeed:"ऑडियो गति",copied:"कॉपी हुआ"},
-ne:{mushafBtn:"मुसहफ",tafsirLang:"तफसीर",tfSrc:"अहसनुल बयान · {0}",tfPendingShort:"डाटा बाँकी — हिन्दी देखाइन्छ",tfPending:"{0} तफसीर अहिलेसम्म थपिएको छैन — हिन्दी देखाइँदैछ।",size:"साइज",tafsirHiOnly:"तफसीर अहिले हिन्दीमा मात्र उपलब्ध छ",hidden:"लुकाइएको",trSource:"अनुवाद स्रोत",fontsH:"पाठ र फन्ट",mushafFont:"मुसहफ फन्ट",translitSize:"लिप्यन्तरण साइज",translationSize:"अनुवाद साइज",tafsirSize:"तफसीर साइज",preview:"प्रिभ्यु",reset:"रिसेट",lArabic:"अरबी",lTranslit:"लिप्यन्तरण",lTrans:"अनुवाद",lTafsir:"तफसीर",general:"सामान्य",home:"गृह",read:"पढ्नुहोस्",saved:"सुरक्षित",settings:"सेटिङ",lastRead:"पछिल्लो पटक पढेको",continue:"जारी राख्नुहोस् ›",searchPh:"सूरह, आयत वा शब्द खोज्नुहोस्...",surah:"सूरह",juz:"पारा",verses:"आयतहरू",Verses:"आयतहरू",ayah:"आयत",meccan:"मक्की",medinan:"मदनी",bookmarks:"बुकमार्क",noBm:"अहिलेसम्म कुनै बुकमार्क छैन",noBmSub:"कुनै पनि आयतको बुकमार्क आइकनमा ट्याप गरेर सुरक्षित गर्नुहोस्।",kursi:"आयतुल कुर्सी",pendingNote:"{0} अहिले यो प्रोटोटाइपमा छैन।<br>अहसनुल बयानको डाटा थपेपछि यहाँ सबै {1} आयतहरू देखिनेछन्।",langPending:"{0} अनुवाद अहिलेसम्म थपिएको छैन — हिन्दी देखाइँदैछ।",appearance:"रूप",theme:"थिम",light:"लाइट",dark:"डार्क",auto:"अटो",alwaysLight:"सधैं लाइट",alwaysDark:"सधैं डार्क",followsSystem:"सिस्टम अनुसार",arabicSize:"अरबी फन्ट साइज",reading:"पढाइ",translation:"अनुवाद",transliteration:"लिप्यन्तरण",audio:"अडियो",reciter:"कारी",appLangH:"एपको भाषा",appLang:"एपको भाषा",appLangSub:"मेनु, बटन र सन्देशहरू",about:"परिचय",aboutUs:"हाम्रो बारेमा",initiative:"एक पहल",tafsirBy:"तफसीर: हाफिज सलाहुद्दीन यूसुफ",version:"संस्करण",off:"बन्द",srcHi:"अहसनुल बयान · हिन्दी",srcEn:"सहीह इन्टरनेशनल · नमूना",srcUr:"अहसनुल बयान · उर्दू (डाटा बाँकी)",srcNe:"नेपाली (डाटा बाँकी)",all:"सबै",allPh:"सूरह, आयत वा कुनै पनि शब्द...",recent:"हालैका खोजहरू",clearAll:"सबै हटाउनुहोस्",trySearch:"यो खोजेर हेर्नुहोस्",surahsH:"सूरहहरू",ayahsH:"आयतहरू",noResult:"<b>\"{0}\"</b> को कुनै नतिजा भेटिएन।<br>अर्को भाषा छानेर हेर्नुहोस्।",typeSearch:"खोज्न केही लेख्नुहोस्।",searchPending:"{0} अनुवादको डाटा अहिलेसम्म थपिएको छैन।<br>डाटा आएपछि यो भाषामा खोज चल्नेछ।",playing:"बज्दै",dataPending:"डाटा बाँकी",repeatTag:"दोहोर्‍याउने",audioFail:"अडियो लोड भएन — इन्टरनेट जाँच गर्नुहोस्",repOn:"दोहोर्‍याउने खुला — यही आयत बारम्बार बज्नेछ",repOff:"दोहोर्‍याउने बन्द — हरेक आयत एक पटक बजेर अगाडि बढ्नेछ",surahEnd:"सूरह सकियो — अटो स्क्रोल बन्द",tipLight:"☀ लाइट मोड",tipDark:"☾ डार्क मोड",tipAuto:"◐ अटो — सिस्टम अनुसार",readingOptions:"पढ्ने विकल्पहरू",done:"सकियो",showTafsir:"तफसीर देखाउनुहोस्",arabicSizeShort:"अरबी साइज",translationH:"अनुवाद",translitH:"लिप्यन्तरण",reciterH:"कारी",audioSpeed:"अडियो गति",copied:"कपी भयो"},
-ur:{mushafBtn:"مصحف",tafsirLang:"تفسیر",tfSrc:"احسن البیان · {0}",tfPendingShort:"ڈیٹا باقی — ہندی دکھائی جائے گی",tfPending:"{0} تفسیر ابھی شامل نہیں ہوئی — ہندی دکھائی جا رہی ہے۔",size:"سائز",tafsirHiOnly:"تفسیر ابھی صرف ہندی میں دستیاب ہے",hidden:"چھپا ہوا",trSource:"ترجمے کا ماخذ",fontsH:"متن اور فونٹ",mushafFont:"مصحف فونٹ",translitSize:"نقلِ حرفی سائز",translationSize:"ترجمہ سائز",tafsirSize:"تفسیر سائز",preview:"پیش منظر",reset:"ری سیٹ",lArabic:"عربی",lTranslit:"نقلِ حرفی",lTrans:"ترجمہ",lTafsir:"تفسیر",general:"عمومی",home:"ہوم",read:"پڑھیں",saved:"محفوظ",settings:"ترتیبات",lastRead:"آخری بار پڑھا",continue:"‹ جاری رکھیں",searchPh:"سورہ، آیت یا لفظ تلاش کریں...",surah:"سورہ",juz:"پارہ",verses:"آیات",Verses:"آیات",ayah:"آیت",meccan:"مکی",medinan:"مدنی",bookmarks:"بُک مارکس",noBm:"ابھی کوئی بُک مارک نہیں",noBmSub:"کسی بھی آیت کے بُک مارک آئیکن پر ٹیپ کر کے محفوظ کریں۔",kursi:"آیت الکرسی",pendingNote:"{0} ابھی اس پروٹوٹائپ میں نہیں ہے۔<br>احسن البیان کا ڈیٹا شامل ہوتے ہی یہاں تمام {1} آیات نظر آئیں گی۔",langPending:"{0} ترجمہ ابھی شامل نہیں ہوا — ہندی دکھایا جا رہا ہے۔",appearance:"ظاہری شکل",theme:"تھیم",light:"لائٹ",dark:"ڈارک",auto:"آٹو",alwaysLight:"ہمیشہ لائٹ",alwaysDark:"ہمیشہ ڈارک",followsSystem:"سسٹم کے مطابق",arabicSize:"عربی فونٹ سائز",reading:"مطالعہ",translation:"ترجمہ",transliteration:"نقلِ حرفی",audio:"آڈیو",reciter:"قاری",appLangH:"ایپ کی زبان",appLang:"ایپ کی زبان",appLangSub:"مینو، بٹن اور پیغامات",about:"تعارف",aboutUs:"ہمارے بارے میں",initiative:"ایک پیشکش",tafsirBy:"تفسیر: حافظ صلاح الدین یوسف",version:"ورژن",off:"بند",srcHi:"احسن البیان · ہندی",srcEn:"صحیح انٹرنیشنل · نمونہ",srcUr:"احسن البیان · اردو (ڈیٹا باقی)",srcNe:"نیپالی (ڈیٹا باقی)",all:"سب",allPh:"سورہ، آیت یا کوئی بھی لفظ...",recent:"حالیہ تلاش",clearAll:"سب ہٹائیں",trySearch:"یہ تلاش کر کے دیکھیں",surahsH:"سورتیں",ayahsH:"آیات",noResult:"<b>\"{0}\"</b> کا کوئی نتیجہ نہیں ملا۔<br>دوسری زبان منتخب کر کے دیکھیں۔",typeSearch:"تلاش کے لیے کچھ بھی لکھیں۔",searchPending:"{0} ترجمے کا ڈیٹا ابھی شامل نہیں ہوا۔<br>ڈیٹا آتے ہی اس زبان میں تلاش کام کرے گی۔",playing:"چل رہا ہے",dataPending:"ڈیٹا باقی",repeatTag:"دہرائیں",audioFail:"آڈیو لوڈ نہیں ہوا — انٹرنیٹ چیک کریں",repOn:"دہرانا آن — یہی آیت بار بار چلے گی",repOff:"دہرانا بند — ہر آیت ایک بار چل کر آگے بڑھے گی",surahEnd:"سورہ ختم — آٹو اسکرول بند",tipLight:"☀ لائٹ موڈ",tipDark:"☾ ڈارک موڈ",tipAuto:"◐ آٹو — سسٹم کے مطابق",readingOptions:"مطالعے کے اختیارات",done:"ہو گیا",showTafsir:"تفسیر دکھائیں",arabicSizeShort:"عربی سائز",translationH:"ترجمہ",translitH:"نقلِ حرفی",reciterH:"قاری",audioSpeed:"آڈیو رفتار",copied:"کاپی ہو گیا"}};
+en:{pageT:"Page",mushafBtn:"Mushaf",tafsirLang:"Tafsir",tfSrc:"Ahsanul Bayan · {0}",tfPendingShort:"Data pending — Nepali shown",tfPending:"{0} tafsir is not added yet — showing Nepali.",size:"Size",tafsirHiOnly:"Tafsir is available in Hindi only for now",hidden:"Hidden",trSource:"Translation source",fontsH:"Text & Fonts",mushafFont:"Mushaf font",translitSize:"Transliteration size",translationSize:"Translation size",tafsirSize:"Tafsir size",preview:"PREVIEW",reset:"Reset",lArabic:"Arabic",lTranslit:"Transliteration",lTrans:"Translation",lTafsir:"Tafsir",general:"GENERAL",home:"Home",read:"Read",saved:"Saved",settings:"Settings",lastRead:"LAST READ",continue:"Continue ›",searchPh:"Search surah, ayah, word...",surah:"Surah",juz:"Juz",verses:"verses",Verses:"Verses",ayah:"Ayah",meccan:"Meccan",medinan:"Medinan",bookmarks:"Bookmarks",noBm:"No Bookmarks Yet",noBmSub:"Tap the bookmark icon on any ayah to save it.",kursi:"Ayatul Kursi",pendingNote:"{0} is not in this prototype yet.<br>Once the Ahsanul Bayan data is added, all {1} ayahs will appear here.",langPending:"{0} translation is not added yet — showing Nepali.",appearance:"APPEARANCE",theme:"Theme",light:"Light",dark:"Dark",auto:"Auto",alwaysLight:"Always light",alwaysDark:"Always dark",followsSystem:"Follows system",arabicSize:"Arabic Font Size",reading:"READING",translation:"Translation",transliteration:"Transliteration",audio:"AUDIO",reciter:"Reciter",appLangH:"APP LANGUAGE",appLang:"App Language",appLangSub:"Menus, buttons and messages",about:"ABOUT",aboutUs:"About Us",initiative:"An initiative by",tafsirBy:"Tafsīr by Hafiz Salahuddin Yusuf",version:"Version",off:"Off",srcHi:"Ahsanul Bayan · Hindi",srcEn:"Sahih International · sample",srcUr:"Ahsanul Bayan · Urdu (data pending)",srcNe:"Nepali (data pending)",all:"All",allPh:"Surah, ayah or any word...",recent:"RECENT SEARCHES",clearAll:"Clear all",trySearch:"TRY SEARCHING",surahsH:"SURAHS",ayahsH:"AYAHS",noResult:"No results for <b>\"{0}\"</b>.<br>Try another language chip.",typeSearch:"Type anything to search.",searchPending:"{0} translation data is not added yet.<br>Search will work in this language once it is.",playing:"Playing",dataPending:"Data pending",repeatTag:"repeat",audioFail:"Audio didn't load — check your internet",repOn:"Repeat on — this ayah will keep playing",repOff:"Repeat off — each ayah plays once, then moves on",surahEnd:"End of surah — auto scroll stopped",tipLight:"☀ Light mode",tipDark:"☾ Dark mode",tipAuto:"◐ Auto — follows system",readingOptions:"Reading options",done:"Done",showTafsir:"Show tafsir",arabicSizeShort:"Arabic size",translationH:"TRANSLATION",translitH:"TRANSLITERATION",reciterH:"RECITER",audioSpeed:"AUDIO SPEED",copied:"Copied"},
+hi:{pageT:"पेज",mushafBtn:"मुसहफ़",tafsirLang:"तफ़सीर",tfSrc:"अहसनुल बयान · {0}",tfPendingShort:"डेटा बाकी — नेपाली दिखेगी",tfPending:"{0} तफ़सीर अभी नहीं जुड़ी — नेपाली दिखाई जा रही है।",size:"साइज़",tafsirHiOnly:"तफ़सीर अभी सिर्फ़ हिन्दी में उपलब्ध है",hidden:"छिपा हुआ",trSource:"अनुवाद स्रोत",fontsH:"टेक्स्ट और फ़ॉन्ट",mushafFont:"मुसहफ़ फ़ॉन्ट",translitSize:"लिप्यंतरण साइज़",translationSize:"अनुवाद साइज़",tafsirSize:"तफ़सीर साइज़",preview:"प्रीव्यू",reset:"रीसेट",lArabic:"अरबी",lTranslit:"लिप्यंतरण",lTrans:"अनुवाद",lTafsir:"तफ़सीर",general:"सामान्य",home:"होम",read:"पढ़ें",saved:"सेव्ड",settings:"सेटिंग्स",lastRead:"पिछली बार पढ़ा",continue:"जारी रखें ›",searchPh:"सूरह, आयत या शब्द खोजें...",surah:"सूरह",juz:"पारा",verses:"आयतें",Verses:"आयतें",ayah:"आयत",meccan:"मक्की",medinan:"मदनी",bookmarks:"बुकमार्क",noBm:"अभी कोई बुकमार्क नहीं",noBmSub:"किसी भी आयत के बुकमार्क आइकन पर टैप करके सेव करें।",kursi:"आयतुल कुर्सी",pendingNote:"{0} अभी इस प्रोटोटाइप में नहीं है।<br>अहसनुल बयान का डेटा जुड़ते ही यहाँ सभी {1} आयतें दिखेंगी।",langPending:"{0} अनुवाद अभी नहीं जुड़ा — नेपाली दिखाया जा रहा है।",appearance:"दिखावट",theme:"थीम",light:"लाइट",dark:"डार्क",auto:"ऑटो",alwaysLight:"हमेशा लाइट",alwaysDark:"हमेशा डार्क",followsSystem:"सिस्टम के अनुसार",arabicSize:"अरबी फ़ॉन्ट साइज़",reading:"पढ़ाई",translation:"अनुवाद",transliteration:"लिप्यंतरण",audio:"ऑडियो",reciter:"क़ारी",appLangH:"ऐप की भाषा",appLang:"ऐप की भाषा",appLangSub:"मेनू, बटन और संदेश",about:"परिचय",aboutUs:"हमारे बारे में",initiative:"एक पहल",tafsirBy:"तफ़सीर: हाफ़िज़ सलाहुद्दीन यूसुफ़",version:"वर्ज़न",off:"बंद",srcHi:"अहसनुल बयान · हिन्दी",srcEn:"सहीह इंटरनेशनल · नमूना",srcUr:"अहसनुल बयान · उर्दू (डेटा बाकी)",srcNe:"नेपाली (डेटा बाकी)",all:"सभी",allPh:"सूरह, आयत या कोई भी शब्द...",recent:"हाल की खोजें",clearAll:"सब हटाएँ",trySearch:"यह खोजकर देखें",surahsH:"सूरह",ayahsH:"आयतें",noResult:"<b>\"{0}\"</b> का कोई परिणाम नहीं मिला।<br>दूसरी भाषा चुनकर देखें।",typeSearch:"खोजने के लिए कुछ भी लिखें।",searchPending:"{0} अनुवाद का डेटा अभी नहीं जुड़ा।<br>डेटा आते ही इस भाषा में खोज चलेगी।",playing:"चल रहा",dataPending:"डेटा बाकी",repeatTag:"दोहराव",audioFail:"ऑडियो लोड नहीं हुआ — इंटरनेट जाँचें",repOn:"दोहराव चालू — यही आयत बार-बार चलेगी",repOff:"दोहराव बंद — हर आयत एक बार चलकर आगे बढ़ेगी",surahEnd:"सूरह समाप्त — ऑटो स्क्रॉल बंद",tipLight:"☀ लाइट मोड",tipDark:"☾ डार्क मोड",tipAuto:"◐ ऑटो — सिस्टम के अनुसार",readingOptions:"पढ़ने के विकल्प",done:"हो गया",showTafsir:"तफ़सीर दिखाएँ",arabicSizeShort:"अरबी साइज़",translationH:"अनुवाद",translitH:"लिप्यंतरण",reciterH:"क़ारी",audioSpeed:"ऑडियो गति",copied:"कॉपी हुआ"},
+ne:{pageT:"पृष्ठ",mushafBtn:"मुसहफ",tafsirLang:"तफसीर",tfSrc:"अहसनुल बयान · {0}",tfPendingShort:"डाटा बाँकी — नेपाली देखाइन्छ",tfPending:"{0} तफसीर अहिलेसम्म थपिएको छैन — नेपाली देखाइँदैछ।",size:"साइज",tafsirHiOnly:"तफसीर अहिले हिन्दीमा मात्र उपलब्ध छ",hidden:"लुकाइएको",trSource:"अनुवाद स्रोत",fontsH:"पाठ र फन्ट",mushafFont:"मुसहफ फन्ट",translitSize:"लिप्यन्तरण साइज",translationSize:"अनुवाद साइज",tafsirSize:"तफसीर साइज",preview:"प्रिभ्यु",reset:"रिसेट",lArabic:"अरबी",lTranslit:"लिप्यन्तरण",lTrans:"अनुवाद",lTafsir:"तफसीर",general:"सामान्य",home:"गृह",read:"पढ्नुहोस्",saved:"सुरक्षित",settings:"सेटिङ",lastRead:"पछिल्लो पटक पढेको",continue:"जारी राख्नुहोस् ›",searchPh:"सूरह, आयत वा शब्द खोज्नुहोस्...",surah:"सूरह",juz:"पारा",verses:"आयतहरू",Verses:"आयतहरू",ayah:"आयत",meccan:"मक्की",medinan:"मदनी",bookmarks:"बुकमार्क",noBm:"अहिलेसम्म कुनै बुकमार्क छैन",noBmSub:"कुनै पनि आयतको बुकमार्क आइकनमा ट्याप गरेर सुरक्षित गर्नुहोस्।",kursi:"आयतुल कुर्सी",pendingNote:"{0} अहिले यो प्रोटोटाइपमा छैन।<br>अहसनुल बयानको डाटा थपेपछि यहाँ सबै {1} आयतहरू देखिनेछन्।",langPending:"{0} अनुवाद अहिलेसम्म थपिएको छैन — नेपाली देखाइँदैछ।",appearance:"रूप",theme:"थिम",light:"लाइट",dark:"डार्क",auto:"अटो",alwaysLight:"सधैं लाइट",alwaysDark:"सधैं डार्क",followsSystem:"सिस्टम अनुसार",arabicSize:"अरबी फन्ट साइज",reading:"पढाइ",translation:"अनुवाद",transliteration:"लिप्यन्तरण",audio:"अडियो",reciter:"कारी",appLangH:"एपको भाषा",appLang:"एपको भाषा",appLangSub:"मेनु, बटन र सन्देशहरू",about:"परिचय",aboutUs:"हाम्रो बारेमा",initiative:"एक पहल",tafsirBy:"तफसीर: हाफिज सलाहुद्दीन यूसुफ",version:"संस्करण",off:"बन्द",srcHi:"अहसनुल बयान · हिन्दी",srcEn:"सहीह इन्टरनेशनल · नमूना",srcUr:"अहसनुल बयान · उर्दू (डाटा बाँकी)",srcNe:"नेपाली (डाटा बाँकी)",all:"सबै",allPh:"सूरह, आयत वा कुनै पनि शब्द...",recent:"हालैका खोजहरू",clearAll:"सबै हटाउनुहोस्",trySearch:"यो खोजेर हेर्नुहोस्",surahsH:"सूरहहरू",ayahsH:"आयतहरू",noResult:"<b>\"{0}\"</b> को कुनै नतिजा भेटिएन।<br>अर्को भाषा छानेर हेर्नुहोस्।",typeSearch:"खोज्न केही लेख्नुहोस्।",searchPending:"{0} अनुवादको डाटा अहिलेसम्म थपिएको छैन।<br>डाटा आएपछि यो भाषामा खोज चल्नेछ।",playing:"बज्दै",dataPending:"डाटा बाँकी",repeatTag:"दोहोर्‍याउने",audioFail:"अडियो लोड भएन — इन्टरनेट जाँच गर्नुहोस्",repOn:"दोहोर्‍याउने खुला — यही आयत बारम्बार बज्नेछ",repOff:"दोहोर्‍याउने बन्द — हरेक आयत एक पटक बजेर अगाडि बढ्नेछ",surahEnd:"सूरह सकियो — अटो स्क्रोल बन्द",tipLight:"☀ लाइट मोड",tipDark:"☾ डार्क मोड",tipAuto:"◐ अटो — सिस्टम अनुसार",readingOptions:"पढ्ने विकल्पहरू",done:"सकियो",showTafsir:"तफसीर देखाउनुहोस्",arabicSizeShort:"अरबी साइज",translationH:"अनुवाद",translitH:"लिप्यन्तरण",reciterH:"कारी",audioSpeed:"अडियो गति",copied:"कपी भयो"},
+ur:{pageT:"صفحہ",mushafBtn:"مصحف",tafsirLang:"تفسیر",tfSrc:"احسن البیان · {0}",tfPendingShort:"ڈیٹا باقی — نیپالی دکھائی جائے گی",tfPending:"{0} تفسیر ابھی شامل نہیں ہوئی — نیپالی دکھائی جا رہی ہے۔",size:"سائز",tafsirHiOnly:"تفسیر ابھی صرف ہندی میں دستیاب ہے",hidden:"چھپا ہوا",trSource:"ترجمے کا ماخذ",fontsH:"متن اور فونٹ",mushafFont:"مصحف فونٹ",translitSize:"نقلِ حرفی سائز",translationSize:"ترجمہ سائز",tafsirSize:"تفسیر سائز",preview:"پیش منظر",reset:"ری سیٹ",lArabic:"عربی",lTranslit:"نقلِ حرفی",lTrans:"ترجمہ",lTafsir:"تفسیر",general:"عمومی",home:"ہوم",read:"پڑھیں",saved:"محفوظ",settings:"ترتیبات",lastRead:"آخری بار پڑھا",continue:"‹ جاری رکھیں",searchPh:"سورہ، آیت یا لفظ تلاش کریں...",surah:"سورہ",juz:"پارہ",verses:"آیات",Verses:"آیات",ayah:"آیت",meccan:"مکی",medinan:"مدنی",bookmarks:"بُک مارکس",noBm:"ابھی کوئی بُک مارک نہیں",noBmSub:"کسی بھی آیت کے بُک مارک آئیکن پر ٹیپ کر کے محفوظ کریں۔",kursi:"آیت الکرسی",pendingNote:"{0} ابھی اس پروٹوٹائپ میں نہیں ہے۔<br>احسن البیان کا ڈیٹا شامل ہوتے ہی یہاں تمام {1} آیات نظر آئیں گی۔",langPending:"{0} ترجمہ ابھی شامل نہیں ہوا — نیپالی دکھایا جا رہا ہے۔",appearance:"ظاہری شکل",theme:"تھیم",light:"لائٹ",dark:"ڈارک",auto:"آٹو",alwaysLight:"ہمیشہ لائٹ",alwaysDark:"ہمیشہ ڈارک",followsSystem:"سسٹم کے مطابق",arabicSize:"عربی فونٹ سائز",reading:"مطالعہ",translation:"ترجمہ",transliteration:"نقلِ حرفی",audio:"آڈیو",reciter:"قاری",appLangH:"ایپ کی زبان",appLang:"ایپ کی زبان",appLangSub:"مینو، بٹن اور پیغامات",about:"تعارف",aboutUs:"ہمارے بارے میں",initiative:"ایک پیشکش",tafsirBy:"تفسیر: حافظ صلاح الدین یوسف",version:"ورژن",off:"بند",srcHi:"احسن البیان · ہندی",srcEn:"صحیح انٹرنیشنل · نمونہ",srcUr:"احسن البیان · اردو (ڈیٹا باقی)",srcNe:"نیپالی (ڈیٹا باقی)",all:"سب",allPh:"سورہ، آیت یا کوئی بھی لفظ...",recent:"حالیہ تلاش",clearAll:"سب ہٹائیں",trySearch:"یہ تلاش کر کے دیکھیں",surahsH:"سورتیں",ayahsH:"آیات",noResult:"<b>\"{0}\"</b> کا کوئی نتیجہ نہیں ملا۔<br>دوسری زبان منتخب کر کے دیکھیں۔",typeSearch:"تلاش کے لیے کچھ بھی لکھیں۔",searchPending:"{0} ترجمے کا ڈیٹا ابھی شامل نہیں ہوا۔<br>ڈیٹا آتے ہی اس زبان میں تلاش کام کرے گی۔",playing:"چل رہا ہے",dataPending:"ڈیٹا باقی",repeatTag:"دہرائیں",audioFail:"آڈیو لوڈ نہیں ہوا — انٹرنیٹ چیک کریں",repOn:"دہرانا آن — یہی آیت بار بار چلے گی",repOff:"دہرانا بند — ہر آیت ایک بار چل کر آگے بڑھے گی",surahEnd:"سورہ ختم — آٹو اسکرول بند",tipLight:"☀ لائٹ موڈ",tipDark:"☾ ڈارک موڈ",tipAuto:"◐ آٹو — سسٹم کے مطابق",readingOptions:"مطالعے کے اختیارات",done:"ہو گیا",showTafsir:"تفسیر دکھائیں",arabicSizeShort:"عربی سائز",translationH:"ترجمہ",translitH:"نقلِ حرفی",reciterH:"قاری",audioSpeed:"آڈیو رفتار",copied:"کاپی ہو گیا"}};
 const LNAME={en:"English",hi:"हिन्दी",ne:"नेपाली",ur:"اردو"};
 const SM={
 hi:"प्रारंभ|गाय|इमरान का परिवार|स्त्रियाँ|दस्तरख़्वान|मवेशी|ऊँचाइयाँ|युद्ध में मिला माल|तौबा|यूनुस|हूद|यूसुफ़|गरज|इब्राहीम|पथरीली घाटी|मधुमक्खी|रात्रि यात्रा|गुफा|मरयम|ता-हा|पैग़म्बर|हज|ईमान वाले|प्रकाश|कसौटी|कवि|चींटी|कहानियाँ|मकड़ी|रूमी|लुक़मान|सजदा|गिरोह|सबा|पैदा करने वाला|या-सीन|पंक्तिबद्ध|साद|समूह|क्षमा करने वाला|खोलकर बयान की गई|परामर्श|सोने के आभूषण|धुआँ|घुटनों के बल|रेत के टीले|मुहम्मद|विजय|कमरे|क़ाफ़|बिखेरने वाली हवाएँ|तूर पर्वत|तारा|चाँद|अत्यंत दयावान|होने वाली घटना|लोहा|बहस करने वाली|निष्कासन|परखी जाने वाली|पंक्ति|जुमा|कपटाचारी|हार-जीत|तलाक़|वर्जित करना|बादशाही|क़लम|सच्ची घटना|ऊँचाई की सीढ़ियाँ|नूह|जिन्न|चादर ओढ़ने वाले|कपड़ा ओढ़ने वाले|क़यामत|मनुष्य|भेजी जाने वाली हवाएँ|बड़ी ख़बर|खींचने वाले|त्योरी चढ़ाई|लपेटना|फट जाना|कम तौलने वाले|चिर जाना|बुर्ज|रात को आने वाला|सर्वोच्च|छा जाने वाली|भोर|नगर|सूर्य|रात|चढ़ता दिन|सीना खोलना|अंजीर|जमा हुआ ख़ून|क़द्र की रात|स्पष्ट प्रमाण|भूकंप|दौड़ने वाले घोड़े|खड़खड़ाने वाली|अधिकता की होड़|ज़माना|निंदा करने वाला|हाथी|क़ुरैश|छोटी-छोटी चीज़ें|कौसर|काफ़िर|सहायता|खजूर की रस्सी|निष्ठा|प्रभात|मनुष्य",
@@ -676,6 +728,12 @@ function renderList(){
    <div class="row" tabindex="0" role="button" data-open="${s.n}"><div class="badge">${s.n}</div>
     <div class="mid"><div class="en">${sname(s)}</div><div class="mean">${mean(s)}</div></div>
     <div class="end">${UI==="ur"?"":`<div class="ar">${s.ar}</div>`}<div class="cnt">${s.v} ${t("verses")}</div></div></div>`).join("");
+ }else if(tab==="page"){
+  if(!renderList.P){const P=[];for(const s in V)V[s].forEach((v,i)=>{if(v.pg&&!P[v.pg])P[v.pg]={s:+s,a:i+1,j:v.juz}});renderList.P=P}
+  $("#list").innerHTML=renderList.P.map((o,n)=>o?`
+   <div class="row" tabindex="0" role="button" data-pgo="${o.s}:${o.a}"><div class="badge">${n}</div>
+    <div class="mid"><div class="en">${t("pageT")} ${n}</div><div class="mean">${sname(S[o.s-1])} · ${t("ayah")} ${o.a}</div></div>
+    <div class="end"><div class="cnt" style="font-size:13px">${t("juz")} ${o.j}</div></div></div>`:"").join("");
  }else{
   $("#list").innerHTML=JUZ.map((j,i)=>({j,i})).filter(o=>!f||(o.i+1+" "+o.j).toLowerCase().includes(f)).map(({j,i})=>{const[s,a]=JUZ_START[i];return`
    <div class="row" tabindex="0" role="button" data-jump="${s}:${a}"><div class="badge">${i+1}</div>
@@ -686,13 +744,10 @@ function renderList(){
 function renderReader(){
  const s=S[cur-1];
  $("#rTitle").textContent=sname(s);$("#rSub").textContent=`${stype(s)} · ${s.v} ${t("Verses")}`;
- $("#mushafBtn").classList.toggle("on",!!st.mushaf);$("#mushafBtn").setAttribute("aria-pressed",!!st.mushaf);updateBar();
+ $("#mushafBtn").classList.toggle("on",!!st.mushaf);$(".phone").classList.toggle("mushaf-on",!!st.mushaf);if(!st.mushaf)mBar(false);$("#mushafBtn").setAttribute("aria-pressed",!!st.mushaf);updateBar();
  const vs=V[cur];
  if(!vs){$("#ayahs").innerHTML=`<div class="note"><div style="font-family:'Amiri Quran';font-size:30px;color:var(--on-surface);margin-bottom:8px">${s.ar}</div>${t("pendingNote",sname(s),s.v)}</div>`;return}
- if(st.mushaf){const pa=playing&&playing.startsWith(cur+":")?+playing.split(":")[1]:0;
-  $("#ayahs").innerHTML=`<div class="mushaf"><div class="mhead"><span>${stype(s)}</span><b>سورة ${s.ar}</b><span>${s.v} ${t("verses")}</span></div>
-  ${cur!==1&&cur!==9?`<div class="mbism">بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</div>`:""}
-  <p class="mtext">${vs.map((v,i)=>`<span class="ma ${pa===i+1?"playing":""}" id="a-${i+1}" data-ma="${cur}:${i+1}">${v.ar}</span> <span class="end-mark">﴿${ar(i+1)}﴾</span>`).join(" ")}</p></div>`;return}
+ if(st.mushaf){renderMushaf();return}
  const allOn=playAll&&playing&&playing.startsWith(cur+":");
  $("#ayahs").innerHTML=vs.map((v,i)=>{const k=cur+":"+(i+1);const on=st.bm.includes(k);const p=playing===k;return`
   <div class="ayah ${p?"playing":""}" id="a-${i+1}"><div class="a-top"><div class="a-num">${i+1}</div>
@@ -700,11 +755,11 @@ function renderReader(){
    <button class="bm ${on?"on":""}" data-bm="${k}" aria-label="Bookmark">${ico.bm}</button>
    <button aria-label="More" data-copy="${k}">${ico.more}</button></div></div>
   <div class="arabic">${v.ar} <span class="end-mark">﴿${ar(i+1)}﴾</span></div>
-  ${st.tl!=="off"?`<div class="hr"></div><div class="translit">${(v["tl_"+st.tl])||v.tl}</div>`:""}
+  ${st.tl!=="off"?`<div class="hr"></div><div class="translit">${(v["tl_"+st.tl])||v.tl_ne||v.tl}</div>`:""}
   ${st.lang!=="off"?`<div class="hr"></div>
   <div class="trans">${tr(v)}</div>`:""}
-  ${v.tf&&st.tafsir!==false?`${st.lang==="off"?'<div class="hr" style="margin-top:12px"></div>':""}${!v["tf_"+st.tfl]&&st.tfl!=="hi"&&i===0?`<div class="pvnote" style="margin-top:8px">${t("tfPending",LNAME[st.tfl])}</div>`:""}<div class="tafsir">${tfx(v)}</div>`:""}
-  </div>`}).join("")+(["ur","ne"].includes(st.lang)?`<div class="note">${t("langPending",LNAME[st.lang])}</div>`:"");
+  ${tfx(v)&&st.tafsir!==false?`${st.lang==="off"?'<div class="hr" style="margin-top:12px"></div>':""}${!v["tf_"+st.tfl]&&st.tfl!=="ne"&&i===0?`<div class="pvnote" style="margin-top:8px">${t("tfPending",LNAME[st.tfl])}</div>`:""}<div class="tafsir">${tfx(v)}</div>`:""}
+  </div>`}).join("")+((st.lang==="ur"||(["hi","en"].includes(st.lang)&&cur!==1))?`<div class="note">${t("langPending",LNAME[st.lang])}</div>`:"");
 }
 function verse(k){const[s,a]=k.split(":").map(Number);return V[s]?.[a-1]||EXTRA[k]}
 function renderSaved(){
@@ -734,6 +789,7 @@ function hl(text,q){
  return esc(src.slice(0,a))+"<mark>"+esc(src.slice(a,e))+"</mark>"+esc(src.slice(e))}
 function allVerses(){const out=[];for(const s in V)V[s].forEach((v,i)=>out.push({k:s+":"+(i+1),s:+s,a:i+1,v}));
  for(const k in EXTRA){const[s,a]=k.split(":").map(Number);if(!V[s])out.push({k,s,a,v:EXTRA[k]})}return out}
+const strip=x=>String(x||"").replace(/<br>/g," ").replace(/<[^>]+>/g,"").replace(/&quot;/g,'"').replace(/&#x27;/g,"'").replace(/&amp;/g,"&");
 function searchRun(q){
  const nq=norm(q.trim());if(!nq)return{sur:[],ay:[]};
  const L=sLang;
@@ -741,7 +797,7 @@ function searchRun(q){
   if(L==="ar")return norm(s.ar).includes(nq);
   if(L==="all"||L==="en")return String(s.n)===nq||norm(s.en).includes(nq)||norm(s.mean).includes(nq)||norm(mean(s)).includes(nq)||(L==="all"&&norm(s.ar).includes(nq));
   return false}).slice(0,20);
- const fields={all:["ar","tl","en","hi","tf"],ar:["ar"],en:["en","tl"],hi:["hi","tf"],ne:["ne"],ur:["ur"]}[L];
+ const fields={all:["ar","ne","tl_ne","tf_ne","tl","en","hi","tf"],ar:["ar"],en:["en","tl"],hi:["hi","tf"],ne:["ne","tl_ne","tf_ne"],ur:["ur"]}[L];
  const ay=[];for(const r of allVerses()){const f=fields.find(f=>r.v[f]&&norm(r.v[f]).includes(nq));if(f)ay.push({...r,f})}
  return{sur,ay}}
 function addRecent(q){q=q.trim();if(!q)return;recent=[{q,l:sLang},...recent.filter(r=>r.q!==q)].slice(0,8);store.set("recent",recent)}
@@ -757,12 +813,12 @@ function renderSearch(){
   if(recent.length)h+=`<div class="s-sec">${t("recent")}<button data-clrall>${t("clearAll")}</button></div>`+recent.map((r,i)=>`<div class="recent" tabindex="0" role="button" data-recent="${i}">${icoClock}<div class="txt ${isAr(r.q)?"ar":""}">${esc(r.q)}</div><span class="lg">${lname(r.l)}</span><button class="x" data-rmrecent="${i}" aria-label="Remove">${icoX}</button></div>`).join("");
   const sg=SUGG[sLang];
   if(sg.length)h+=`<div class="s-sec">${t("trySearch")}</div><div class="sugg">${sg.map(s=>`<button class="${isAr(s)?"ar":""}" data-sugg="${esc(s)}">${esc(s)}</button>`).join("")}</div>`;
-  if(["ne","ur"].includes(sLang))h+=`<div class="s-empty">${t("searchPending",LNAME[sLang])}</div>`;
-  if(!recent.length&&!sg.length&&!["ne","ur"].includes(sLang))h+=`<div class="s-empty">${t("typeSearch")}</div>`;
+  if(["ur"].includes(sLang))h+=`<div class="s-empty">${t("searchPending",LNAME[sLang])}</div>`;
+  if(!recent.length&&!sg.length&&!["ur"].includes(sLang))h+=`<div class="s-empty">${t("typeSearch")}</div>`;
   $("#sres").innerHTML=h;return}
  const {sur,ay}=searchRun(q);let h="";
  if(sur.length)h+=`<div class="s-sec">${t("surahsH")} · ${sur.length}</div>`+sur.map(s=>`<div class="row" tabindex="0" role="button" data-open="${s.n}" data-rq><div class="badge">${s.n}</div><div class="mid"><div class="en">${UI==="ur"?hl(s.ar,q):hl(s.en,q)}</div><div class="mean">${UI==="en"?hl(s.mean,q):hl(mean(s),q)}</div></div><div class="end">${UI==="ur"?"":`<div class="ar">${isAr(q)?hl(s.ar,q):s.ar}</div>`}<div class="cnt">${s.v} ${t("verses")}</div></div></div>`).join("");
- if(ay.length)h+=`<div class="s-sec">${t("ayahsH")} · ${ay.length}</div>`+ay.map(r=>{const tx=r.f==="ar"?tr(r.v):(r.v[r.f]);return`<div class="hit" tabindex="0" role="button" data-jump="${r.k}" data-rq><span class="chip">${sname(S[r.s-1])} — ${t("ayah")} ${r.a}</span><div class="h-ar">${r.f==="ar"?hl(r.v.ar,q):r.v.ar}</div><div class="h-t">${r.f==="ar"?esc(tx):hl(tx,q)}</div></div>`}).join("");
+ if(ay.length)h+=`<div class="s-sec">${t("ayahsH")} · ${ay.length}</div>`+ay.map(r=>{const tx=strip(r.f==="ar"?tr(r.v):(r.v[r.f]));return`<div class="hit" tabindex="0" role="button" data-jump="${r.k}" data-rq><span class="chip">${sname(S[r.s-1])} — ${t("ayah")} ${r.a}</span><div class="h-ar">${r.f==="ar"?hl(r.v.ar,q):r.v.ar}</div><div class="h-t">${r.f==="ar"?esc(tx):hl(tx,q)}</div></div>`}).join("");
  if(!h)h=`<div class="s-empty">${t("noResult",esc(q))}</div>`;
  $("#sres").innerHTML=h}
 function openSearch(){go("search");renderChips();renderSearch();setTimeout(()=>$("#sq").focus(),50)}
@@ -787,7 +843,7 @@ function go(id){
  $$("nav button").forEach(b=>b.classList.toggle("on",b.dataset.go===id||(id==="search"&&b.dataset.go==="home")||(id==="fonts"&&b.dataset.go==="settings")));
  if(id==="read")renderReader(); if(id==="saved")renderSaved(); if(id==="home")renderLast();
 }
-function open(s,a){go.opened=1;if(s!==cur)stopAudio();cur=s;go("read");$("#read").scrollTop=0;
+function open(s,a){go.opened=1;if(st.mushaf){mpage=0;renderMushaf.s=0;renderMushaf.a=a||1}if(s!==cur)stopAudio();cur=s;go("read");$("#read").scrollTop=0;
  if(a&&V[s]){const el=$("#a-"+a);if(el)$("#read").scrollTop=el.offsetTop-80}
  st.last={s,a:a||1};store.set("last",st.last)}
 
@@ -804,6 +860,7 @@ document.addEventListener("click",e=>{
  if(b=t.closest("[data-ma]")){const k=b.dataset.ma;if(playing===k){stopAudio();renderReader()}else{playAll=true;playKey(k)}return}
  if(b=t.closest("[data-copy]")){const v=verse(b.dataset.copy);try{navigator.clipboard.writeText(v.ar+"\n"+tr(v))}catch(_){}
   b.style.color="var(--primary)";setTimeout(()=>b.style.color="",800);return}
+ if(b=t.closest("[data-pgo]")){const[s,a]=b.dataset.pgo.split(":").map(Number);st.mushaf=true;store.set("mushaf",true);open(s,a);return}
  if(b=t.closest("[data-jump]")){const[s,a]=b.dataset.jump.split(":").map(Number);open(s,a);return}
  if(b=t.closest("[data-open]")){open(+b.dataset.open);return}
  if(t.closest("[data-back]")){go(go.back||"home");return}
@@ -825,11 +882,11 @@ $("#audio").onended=()=>{const[s,a]=playing.split(":").map(Number);
  if(st.repeat==="ayah"){playKey(playing);return}
  if(V[s]&&a<V[s].length)playKey(s+":"+(a+1));else{stopAudio();renderReader()}};
 $("#lastRead").onclick=()=>open(st.last.s,st.last.a);
-let scT;$("#read").addEventListener("scroll",()=>{clearTimeout(scT);scT=setTimeout(()=>{if(!V[cur])return;
+let scT;$("#read").addEventListener("scroll",()=>{clearTimeout(scT);scT=setTimeout(()=>{if(!V[cur]||st.mushaf)return;
  const top=$("#read").scrollTop+90;let a=1;$$("#ayahs [id^=a-]").forEach((el,i)=>{if(el.offsetTop<=top)a=i+1});
  if(st.last.s!==cur||st.last.a!==a){st.last={s:cur,a};store.set("last",st.last)}},200)});
 
-$("#mushafBtn").onclick=()=>{const a=visAyah();st.mushaf=!st.mushaf;store.set("mushaf",st.mushaf);renderReader();const el=$("#a-"+a);if(el)$("#read").scrollTop=Math.max(0,el.offsetTop-90)};
+$("#mushafBtn").onclick=()=>{let a=visAyah();if(st.mushaf&&window.MS&&MS[st.msty]){const f=(MS[st.msty].b[mpage]||[])[0];if(f){if(f[0]!==cur){cur=f[0]}a=f[1]}}else{renderMushaf.a=a;mpage=0}st.mushaf=!st.mushaf;store.set("mushaf",st.mushaf);renderReader();const el=$("#a-"+a);if(el)$("#read").scrollTop=Math.max(0,el.offsetTop-90)};
 $("#aboutBtn").onclick=()=>$("#aboutBox").classList.toggle("open");
 
 function isDark(){return document.documentElement.dataset.theme?document.documentElement.dataset.theme==="dark":matchMedia("(prefers-color-scheme: dark)").matches}
@@ -855,8 +912,8 @@ function applyFs(){const R=document.documentElement.style;R.setProperty("--ar",s
  $$("[data-fz]").forEach(i=>{const k=i.dataset.fz,v=k==="ar"?st.fs:st.fz[k];i.value=v;if(i.nextElementSibling)i.nextElementSibling.textContent=v+"px"})}
 function renderArfDD(){const d=$("#arfDD");if(!d||typeof ddHTML!=="function")return;
  d.innerHTML=ddHTML(`<span style="font-family:${ARF[st.arf].f.replace(/"/g,"'")};font-size:18px">بِسْمِ</span>`,Object.keys(ARF).map(k=>({a:`data-arf="${k}"`,l:`<span style="font-family:${ARF[k].f.replace(/"/g,"'")};font-size:20px">بِسْمِ ٱللَّهِ</span><small style="font-size:11px;color:var(--faint)">${ARF[k].n}</small>`,sel:k===st.arf})))}
-function tfx(v){return v["tf_"+st.tfl]||v.tf}
-function tflSub(){const e=$("#tflSub");if(e)e.textContent=st.tfl==="off"?t("hidden"):(st.tfl==="hi"||V[1][0]["tf_"+st.tfl]?t("tfSrc",LNAME[st.tfl]):t("tfPendingShort"))}
+function tfx(v){return v["tf_"+st.tfl]||v.tf_ne||v.tf}
+function tflSub(){const e=$("#tflSub");if(e)e.textContent=st.tfl==="off"?t("hidden"):(st.tfl==="ne"||V[1][0]["tf_"+st.tfl]?t("tfSrc",LNAME[st.tfl]):t("tfPendingShort"))}
 function syncTafsir(){tflSub()}
 function fontsSum(){syncTafsir();const e=$("#fontsSum");if(e)e.textContent=`${ARF[st.arf].n} · ${st.fs}px`}
 function renderPreview(){fontsSum();const pv=$("#pv");if(!pv||typeof t!=="function")return;const v=V[1][0];
@@ -868,7 +925,7 @@ function renderPreview(){fontsSum();const pv=$("#pv");if(!pv||typeof t!=="functi
   <div class="arabic">${v.ar} <span class="end-mark">﴿١﴾</span></div>
   ${ch("arf",Object.keys(ARF).map(k=>[k,`<span class="af" style="font-family:${ARF[k].f.replace(/"/g,"'")}">بِسْمِ</span>${ARF[k].n}`]))}${sl("ar",22,44)}</div>
  <div class="pvb"><div class="pvh"><span class="lbl">${t("lTranslit")}</span></div>
-  <div class="translit">${(v["tl_"+st.tl])||v.tl}</div>${sl("tls",12,22)}</div>
+  <div class="translit">${(v["tl_"+st.tl])||v.tl_ne||v.tl}</div>${sl("tls",12,22)}</div>
  <div class="pvb"><div class="pvh"><span class="lbl">${t("lTrans")}</span><small>${st.lang==="off"?t("hidden"):t({hi:"srcHi",en:"srcEn",ur:"srcUr",ne:"srcNe"}[st.lang])}</small></div>
   <div class="trans">${tr(v)}</div>${sl("trs",12,24)}</div>
  <div class="pvb"><div class="pvh"><span class="lbl">${t("lTafsir")}</span></div>
@@ -906,11 +963,71 @@ st.tafsir=st.tfl!=="off";st.rate=store.get("rate",1);st.repeat=store.get("repeat
 const RECN={"Alafasy_128kbps":"Mishary Rashid Alafasy","Abdul_Basit_Murattal_192kbps":"Abdul Basit Abdus Samad","Abdurrahmaan_As-Sudais_192kbps":"Abdur-Rahman As-Sudais","Saood_ash-Shuraym_128kbps":"Saud Ash-Shuraim","Husary_128kbps":"Mahmoud Khalil Al-Husary","Minshawy_Murattal_128kbps":"Mohamed Siddiq Al-Minshawi","Ghamadi_40kbps":"Saad Al-Ghamdi","MaherAlMuaiqly128kbps":"Maher Al-Muaiqly","Abu_Bakr_Ash-Shaatree_128kbps":"Abu Bakr Ash-Shatri","Hudhaify_128kbps":"Ali Al-Hudhaify"};
 const LCODE={hi:"HI",en:"EN",ur:"UR",ne:"NE"};
 let paused=false;
-function visAyah(){const top=$("#read").scrollTop+90;let a=1;$$("#ayahs [id^=a-]").forEach((el,i)=>{if(el.offsetTop<=top)a=i+1});return a}
+
+/* ---------- MUSHAF PAGES (images from mushaf/ folder) ---------- */
+const MSTY={madani:"Madani · 604",madani1441:"Madani 1441",tajweed:"Tajweed",naskh:"Naskh",shemerly:"Shemerly",warsh:"Warsh",qaloon:"Qaloon"};
+st.msty=store.get("msty","madani");if(!MSTY[st.msty])st.msty="madani";
+let mpage=0,mSel=null,mSlide=0;
+function loadMS(k,cb){if(window.MS&&MS[k])return cb();const s=document.createElement("script");s.src="mushaf-"+k+".js";s.onload=cb;
+ s.onerror=()=>{$("#ayahs").innerHTML=`<div class="note">mushaf-${k}.js not found — keep it next to this HTML file.</div>`};document.head.appendChild(s)}
+function renderMushaf(){const want=st.msty;loadMS(want,()=>{if(!st.mushaf||want!==st.msty)return;const M=MS[want];
+ if(playAll&&playing&&M.ap[playing]&&M.ap[playing]!==mpage)mpage=M.ap[playing];
+ if(!mpage||renderMushaf.s!==cur||renderMushaf.k!==want){if(!(mpage&&renderMushaf.k!==want&&renderMushaf.s===cur&&renderMushaf.keep)){mpage=M.ap[cur+":"+(renderMushaf.a||1)]||1}renderMushaf.a=0}
+ const f=(M.b[mpage]||[])[0];if(f&&f[0]!==cur){if(!playing||!playing.startsWith(f[0]+":"))stopAudio();cur=f[0]}{const s=S[cur-1];$("#rTitle").textContent=sname(s);$("#rSub").textContent=`${stype(s)} · ${s.v} ${t("Verses")}`;updateBar()}
+ renderMushaf.s=cur;renderMushaf.k=want;
+ if(f){st.last={s:f[0],a:f[1]};store.set("last",st.last)}
+ const v0=f&&V[f[0]]?.[f[1]-1];
+ $("#ayahs").innerHTML=`<div class="mpage"><div class="mpi"><img src="${M.dir}/page${String(mpage).padStart(3,"0")}.png" alt="Page ${mpage}"><div class="mov"></div></div></div>`;
+ const img=$(".mpage img");
+ img.onload=()=>{mFit();const W=img.naturalWidth,H=img.naturalHeight;$(".mov").innerHTML=(M.b[mpage]||[]).map(([s,a,x0,x1,y0,y1])=>{const k=s+":"+a;return`<i data-mk="${k}" class="${k===playing?"playing":""} ${k===mSel?"on":""}" style="left:${x0/W*100}%;width:${(x1-x0)/W*100}%;top:${y0/H*100}%;height:${(y1-y0)/H*100}%"></i>`}).join("")};
+ img.onerror=()=>{$(".mpage").innerHTML=`<div class="note">Page image not found: ${M.dir}/page${String(mpage).padStart(3,"0")}.png<br>Keep the <b>mushaf</b> folder next to this HTML file.</div>`};
+ const pg=$(".mpage"),im=pg.querySelector("img");if(im)im.draggable=false;let x0=null,y0=0,dx=0,drag=false;
+ const mv=x=>{if(im)im.style.transform=`translateX(${x}px)`;};
+ pg.addEventListener("pointerdown",e=>{if(e.button>0)return;x0=e.clientX;y0=e.clientY;dx=0;drag=false;if(im)im.style.transition="none"});
+ pg.addEventListener("pointermove",e=>{if(x0==null)return;dx=e.clientX-x0;if(!drag&&Math.abs(dx)>8&&Math.abs(dx)>Math.abs(e.clientY-y0)){drag=true;try{pg.setPointerCapture(e.pointerId)}catch(_){}}if(drag){e.preventDefault();mv(dx*.9)}});
+ const end=()=>{if(x0==null)return;x0=null;if(im)im.style.transition="transform .2s ease";
+  if(drag&&Math.abs(dx)>60){const d=dx>0?1:-1,M=MS[st.msty],n=mpage+d;if(n<1||n>M.n){mv(0);return}mv(dx>0?pg.offsetWidth:-pg.offsetWidth);mSlide=dx>0?-1:1;setTimeout(()=>mGo(d),180)}else mv(0);
+  if(drag){pg.dataset.dragged=1;setTimeout(()=>delete pg.dataset.dragged,50)}};
+ pg.addEventListener("pointerup",end);pg.addEventListener("pointercancel",end);
+ if(mSlide&&im){im.style.transition="none";mv(mSlide*pg.offsetWidth*.35);requestAnimationFrame(()=>requestAnimationFrame(()=>{im.style.transition="transform .22s ease";mv(0)}));mSlide=0}
+
+})}
+function mSetStyle(k){const M=MS[st.msty];const ff=M&&(M.b[mpage]||[])[0];st.msty=k;store.set("msty",k);renderMushaf.a=ff?ff[1]:1;if(ff)cur=ff[0];renderMushaf.s=0;mpage=0;$("#mmenu").classList.remove("show");renderMushaf();toast(MSTY[k])}
+function mMenu(){const m=$("#mmenu");m.innerHTML=`<div class="mm-h">Mushaf style</div>`+Object.keys(MSTY).map(k=>`<button data-msty="${k}" class="${k===st.msty?"on":""}">${MSTY[k]}<span>${k===st.msty?"✓":""}</span></button>`).join("");m.classList.toggle("show")}
+function mFit(){const pg=$(".mpage"),im=pg&&pg.querySelector("img");if(!im||!im.naturalWidth)return;
+ const r=$("#read"),hd=$(".r-head"),bar=$(".phone").classList.contains("mbar-show")?($("#rbar").offsetHeight+22):0;
+ const H=r.clientHeight-hd.offsetHeight-10-bar,W=pg.clientWidth;const s=Math.min(W/im.naturalWidth,H/im.naturalHeight);let w=im.naturalWidth*s,h=im.naturalHeight*s;
+ if(w>=W-1)h=Math.min(H,h*1.3);else w=Math.min(W,w*1.3);
+ pg.style.height=Math.max(200,H)+"px";im.style.width=w+"px";im.style.height=h+"px"}
+addEventListener("resize",()=>st.mushaf&&mFit());
+function mGo(d){const M=MS[st.msty];if(!M)return;const n=Math.min(M.n,Math.max(1,mpage+d));if(n===mpage)return;mpage=n;if(!(playing&&!paused)){mSel=null;mBar(false)}renderMushaf.s=0;
+ const f=(M.b[n]||[])[0];if(f){renderMushaf.s=f[0]===cur?cur:0}renderMushafKeep()}
+function renderMushafKeep(){const M=MS[st.msty];{const f=(M.b[mpage]||[])[0],v=f&&V[f[0]]?.[f[1]-1];toast(`Page ${mpage} / ${M.n}`+(v?` · Juz ${v.juz}`:""))}const f=(M.b[mpage]||[])[0];const p=mpage;if(f&&f[0]!==cur){cur=f[0]}renderMushaf.s=cur;renderMushaf.k=st.msty;mpage=p;renderMushaf();$("#read").scrollTop=0}
+function mBar(on){$(".phone").classList.toggle("mbar-show",!!on);if(st.mushaf)mFit()}
+function mMark(){$$(".mov i").forEach(i=>i.classList.toggle("on",i.dataset.mk===mSel))}
+function mTap(k){if(mSel===k){mSel=null;mMark();mBar(false);return}
+ mSel=k;const[s,a]=k.split(":").map(Number);if(s!==cur){if(!playing||!playing.startsWith(s+":"))stopAudio();cur=s;renderMushaf.s=s;const sv=S[s-1];$("#rTitle").textContent=sname(sv);$("#rSub").textContent=`${stype(sv)} · ${sv.v} ${t("Verses")}`}
+ st.last={s,a};store.set("last",st.last);mMark();mBar(true);updateBar()}
+function mPop(k){mSel=k;$$(".mov i").forEach(i=>i.classList.toggle("on",i.dataset.mk===k));const v=verse(k);if(!v)return;const[s,a]=k.split(":").map(Number);const on=st.bm.includes(k);
+ let p=$("#mpop");if(!p){p=document.createElement("div");p.id="mpop";$(".phone").appendChild(p)}
+ p.innerHTML=`<div class="mp-bg" data-mpclose></div><div class="mp-card"><div class="mp-h"><b>${sname(S[s-1])} · ${a}</b><span><button class="play" data-play="${k}" aria-label="Play">${ico.play}</button><button class="bm ${on?"on":""}" data-bm="${k}" aria-label="Bookmark">${ico.bm}</button><button data-mpclose aria-label="Close">✕</button></span></div>
+ <div class="mp-b"><div class="arabic">${v.ar} <span class="end-mark">﴿${ar(a)}﴾</span></div>${v.tl_ne||v.tl?`<div class="translit">${(v["tl_"+st.tl])||v.tl_ne||v.tl}</div>`:""}<div class="trans">${tr(v)}</div>${tfx(v)?`<div class="tafsir">${tfx(v)}</div>`:""}
+ <button class="mp-open" data-mpread="${k}">Reader mein kholein</button></div></div>`;p.classList.add("show")}
+document.addEventListener("click",e=>{const t=e.target;let b;
+ if(t.closest("#mSetBtn")){e.stopPropagation();mMenu();return}
+ if(b=t.closest("[data-msty]")){e.stopPropagation();mSetStyle(b.dataset.msty);return}
+ if(!t.closest("#mmenu"))$("#mmenu")?.classList.remove("show");
+ if(b=t.closest("[data-mp]")){e.stopPropagation();mGo(+b.dataset.mp);return}
+ if(b=t.closest("[data-mk]")){e.stopPropagation();if(b.closest(".mpage")?.dataset.dragged)return;mTap(b.dataset.mk);return}
+ if(t.closest("[data-mpclose]")){e.stopPropagation();$("#mpop").classList.remove("show");return}
+ if(b=t.closest("[data-mpread]")){e.stopPropagation();const[s,a]=b.dataset.mpread.split(":").map(Number);$("#mpop").classList.remove("show");st.mushaf=false;store.set("mushaf",false);open(s,a);return}
+},true);
+document.addEventListener("keydown",e=>{if(!st.mushaf||!$("#read").classList.contains("active")||e.target.matches("input,select,textarea"))return;if(e.key==="ArrowLeft")mGo(1);if(e.key==="ArrowRight")mGo(-1)});
+function visAyah(){if(st.mushaf&&mSel&&+mSel.split(":")[0]===cur)return +mSel.split(":")[1];const top=$("#read").scrollTop+90;let a=1;$$("#ayahs [id^=a-]").forEach((el,i)=>{if(el.offsetTop<=top)a=i+1});return a}
 function updateBar(){const n=V[cur]?.length||0;$("#rbar").classList.toggle("off",!n);
  const pa=playing&&playing.startsWith(cur+":")?+playing.split(":")[1]:null;
  $("#rbTitle").textContent=n?`${pa?t("playing")+" · ":""}${t("ayah")} ${pa||Math.min(st.last.s===cur?st.last.a:1,n)} / ${n}`:t("dataPending");
- $("#rbSub").textContent=RECN[st.reciter]+(st.rate!=1?` · ${st.rate}x`:"");
+ $("#rbSub").innerHTML=`<span>${RECN[st.reciter]+(st.rate!=1?` · ${st.rate}x`:"")}</span>`;
  $("#rbRep").classList.toggle("on",st.repeat==="ayah");$("#rbRep").setAttribute("aria-pressed",st.repeat==="ayah");
  $("#rbPlay").innerHTML=pa&&!paused?(loading?'<span class="spin"></span>':ico.pause):ico.play;
  $("#rbPlay").setAttribute("aria-label",pa&&!paused?"Pause":"Play");
@@ -923,11 +1040,16 @@ $("#aspill").onclick=e=>{if(e.target.closest("#asSpd")){const L=[1,1.5,2];st.as=
 $("#rbPlay").onclick=()=>{const au=$("#audio");
  if(playing&&playing.startsWith(cur+":")){if(paused){paused=false;au.play().catch(()=>{})}else{paused=true;au.pause()}updateBar();return}
  paused=false;playAll=true;playKey(cur+":"+visAyah())};
-function stepAyah(d){const n=V[cur]?.length;if(!n)return;
+function stepAyah(d){const n=V[cur]?.length;if(!n)return;if(st.mushaf&&!(playing&&playing.startsWith(cur+":"))){const a=Math.max(1,Math.min(n,visAyah()+d)),k=cur+":"+a,M=MS[st.msty];mSel=k;st.last={s:cur,a};store.set("last",st.last);if(M&&M.ap[k]&&M.ap[k]!==mpage){mpage=M.ap[k];renderMushaf.s=cur;renderMushaf()}else mMark();updateBar();return}
  const base=playing&&playing.startsWith(cur+":")?+playing.split(":")[1]:visAyah();const a=Math.max(1,Math.min(n,base+d));
  if(playing&&playing.startsWith(cur+":")){paused=false;playKey(cur+":"+a)}else{const el=$("#a-"+a);$("#read").scrollTo({top:el.offsetTop-90,behavior:"smooth"})}}
+function recMenu(){const m=$("#recmenu");m.innerHTML=`<div class="mm-h">${t("reciterH")}</div>`+Object.entries(RECN).map(([k,n])=>`<button role="menuitemradio" aria-checked="${k===st.reciter}" data-recq="${k}" class="${k===st.reciter?"on":""}">${n}<span>${k===st.reciter?"✓":""}</span></button>`).join("");m.classList.toggle("show")}
+$("#rbSub").onclick=e=>{e.stopPropagation();recMenu()};
+document.addEventListener("click",e=>{const b=e.target.closest("[data-recq]");
+ if(b){e.stopPropagation();st.reciter=b.dataset.recq;store.set("reciter",st.reciter);$("#reciter").value=st.reciter;DD.reciter&&DD.reciter();if(playing)playKey(playing);$("#recmenu").classList.remove("show");updateBar();toast(RECN[st.reciter]);return}
+ if(!e.target.closest("#recmenu,#rbSub"))$("#recmenu").classList.remove("show")},true);
 $("#rbRep").onclick=()=>{st.repeat=st.repeat==="ayah"?"off":"ayah";store.set("repeat",st.repeat);updateBar();toast(st.repeat==="ayah"?t("repOn"):t("repOff"))};
-$("#rbPrev").onclick=()=>stepAyah(-1);$("#rbNext").onclick=()=>stepAyah(1);
+$("#rbTf").onclick=()=>mPop(mSel||cur+":"+visAyah());$("#rbPrev").onclick=()=>stepAyah(-1);$("#rbNext").onclick=()=>stepAyah(1);
 // auto scroll
 let asOn=false,asRaf,asLast,asHold=0;const AS_BASE=24;let asT=0;
 function asTick(ts){if(!asOn)return;const r=$("#read");if(asLast&&ts>asHold){r.scrollTop+=AS_BASE*st.as*(ts-asLast)/1000;if(ts-asT>500){asT=ts;asTimeUpd()}
